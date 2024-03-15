@@ -1,0 +1,60 @@
+section.welcome, 
+section.portfolio {
+  padding: 3.2rem 1.6rem 0;
+}
+
+section.welcome {
+  background: var(--color-onyx-50);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  
+  border: 1px solid red;
+}
+
+.welcome img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  /* display: none; */
+}
+
+.welcome .appearance {
+  margin-top: 10rem;
+}
+
+.welcome h1 {
+  font-size: 2.8rem;
+  line-height: 3.8rem;
+}
+
+.gradient-text {
+  /* Fallback: Set a background color. */
+  background-color: red;
+  
+  /* Create the gradient. */
+  background-image: var(--color-gradient-tt);
+  
+  /* Set the background size and repeat properties. */
+  background-size: 100%;
+  background-repeat: repeat;
+
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+.welcome p {
+  color: var(--color-onyx-400);
+}
+
+.welcome p span {
+  color: var(--color-onyx-950);
+}
+
+section.portfolio {
+   margin-top: 10rem;
+}

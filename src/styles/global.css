@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
+
+  --color-onyx-20: #f9f9f8;
+  --color-onyx-50: #F5F6F6;
+  --color-onyx-100: #E4E8E9;
+  --color-onyx-200: #CCD3D5;
+  --color-onyx-300: #A8B4B8;
+  --color-onyx-400: #7D8E93;
+  --color-onyx-500: #627378;
+  --color-onyx-600: #546066;
+  --color-onyx-700: #485256;
+  --color-onyx-800: #40474A;
+  --color-onyx-900: #393E41;
+  --color-onyx-950: #232629;
+
+  --color-crimson-50: #FEF2F2;
+  --color-crimson-100: #FEE6E5;
+  --color-crimson-200: #FCCFD0;
+  --color-crimson-300: #F9A8A8;
+  --color-crimson-400: #F5777B;
+  --color-crimson-500: #EC4751;
+  --color-crimson-600: #D72638;
+  --color-crimson-700: #B61A2E;
+  --color-crimson-800: #98192D;
+  --color-crimson-900: #83182C;
+  --color-crimson-950: #490812;
+
+  --color-blue-500: #5CC4C4;
+
+  --color-gradient-tt: linear-gradient(45deg, #EC4751, #F5777B);
+  
+  /* color-scheme: light dark; */
+  --tt-color: var(--color-onyx-950);
+  --bg-color: var(--color-onyx-20);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: inherit;
+  text-decoration: none;
+  transition: filter .3s;
+}
+a:hover {
+  filter: opacity(.7);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+html, body {
+  border: 1px solid red;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+body {
+  font-size: 1.6rem;
+  line-height: 1.5rem;
+  background: var(--bg-color);
+  color: var(--tt-color);
+  border: 1px solid green;
+}
+
+/* h1 {
+  font-size: 3.2em;
+  line-height: 1;
+} */
+
+#app {
+  border: 1px solid purple;
+  max-width: 375px;
+  margin: 0 auto;
+}
+
+h1, h2, h4, h4, h5, h6 {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 4.8rem;
+  font-weight: 800;
+  line-height: 4.8rem;
+}
+
+h2 {
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 3.6rem;
+}
+
+h3 {
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: 3.2rem;
+}
+
+h4 {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 2.8rem;
+}
+
+p {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.8rem;
+}
+
+/* @media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+} */
