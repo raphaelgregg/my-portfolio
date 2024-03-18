@@ -21,6 +21,7 @@
   --color-onyx-800: #40474A;
   --color-onyx-900: #393E41;
   --color-onyx-950: #232629;
+  --color-onyx-970: #0a0b0c;
 
   --color-crimson-50: #FEF2F2;
   --color-crimson-100: #FEE6E5;
@@ -41,6 +42,7 @@
   /* color-scheme: light dark; */
   --tt-color: var(--color-onyx-950);
   --bg-color: var(--color-onyx-20);
+  --bg-footer-color: var(--color-onyx-970);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -63,7 +65,7 @@ ul, ol {
 }
 
 html, body {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   min-width: 320px;
   min-height: 100vh;
 }
@@ -73,7 +75,7 @@ body {
   line-height: 1.5rem;
   background: var(--bg-color);
   color: var(--tt-color);
-  border: 1px solid green;
+  /* border: 1px solid green; */
 }
 
 /* h1 {
@@ -82,7 +84,7 @@ body {
 } */
 
 #app {
-  border: 1px solid purple;
+  /* border: 1px solid purple; */
   max-width: 375px;
   margin: 0 auto;
 }

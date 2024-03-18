@@ -1,31 +1,36 @@
-section.welcome, 
+section.brief, 
 section.portfolio {
   padding: 3.2rem 1.6rem 0;
 }
 
-section.welcome {
+section.brief{
+  padding-top: 12.6rem;
+}
+
+section.brief {
   background: var(--color-onyx-50);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
-.welcome img {
+.brief img {
   width: 100%;
   height: 280px;
-  object-fit: cover;
-  /* display: none; */
+  object-fit: contain;
 }
 
-.welcome .appearance {
-  margin-top: 10rem;
-}
-
-.welcome h1 {
+.brief h1 {
   font-size: 2.8rem;
   line-height: 3.8rem;
+
+  margin-top: 8rem;
+}
+
+.brief div {
+  margin-top: 1rem;
 }
 
 .gradient-text {
@@ -57,4 +62,32 @@ section.welcome {
 
 section.portfolio {
    margin-top: 10rem;
+}
+
+footer {
+  margin-top: 6rem;
+  background: var(--color-onyx-950);
+  color: var(--color-onyx-100);
+  font-size: 1.2rem;
+
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  gap: 2rem;
+  align-items: center;
+  padding: 2.4rem 1.6rem;
+}
+
+.links-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.links-footer svg {
+  width: 2rem;
+  height: 2rem;
+
+  transition: .3s;
 }

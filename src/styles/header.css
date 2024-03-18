@@ -1,8 +1,17 @@
 nav {
-  padding: 1.6rem;
+  position: fixed;
+  width: 100%;
+  max-width: 375px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  padding: 1.8rem 1.6rem;
+
+  transition: .9s;
+
+  background: var(--color-onyx-50);
 }
 
 .brand {
