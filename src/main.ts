@@ -1,10 +1,27 @@
-import './styles/global.css'
+import './styles/global.css';
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-   <div id="header" />
-  </div>
-`
+import routes from './routes.js';
+
+// seleciona div principal da index
+const app = document.querySelector<HTMLDivElement>('#app');
+
+const init = () => window.addEventListener('hashchange', renderPage);
+    
+//@ts-ignore
+const validateHash = (hash) => hash === "" ? 'home' : hash.replace('#', '');
+
+const renderPage =() => {
+  const page = validateHash(window.location.hash);
+  app!.innerHTML = '';
+    //@ts-ignore
+    app!.appendChild(routes[page]);
+}
+
+  window.addEventListener('load', () => {
+    renderPage();
+    init();
+  })
+
 
 // import './style.css'
 // import typescriptLogo from './typescript.svg'
