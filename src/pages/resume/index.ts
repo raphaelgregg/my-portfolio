@@ -3,12 +3,12 @@ import AbstractView from "./abstractView.ts"
 export default class extends AbstractView {
   constructor() {
     super();
-    this.setTitle("Dashboard");
+    this.setTitle("Resume");
   }
 
   async getHtml(): Promise<string> {
     return `
-      <h1>Hi</h1>
+      <h1>Resume</h1>
     `;
   }
 }

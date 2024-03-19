@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Vite + TS</title>
+    
+    <link rel="stylesheet" href="./src/styles/global.css">
+    <link rel="stylesheet" href="./src/styles/styles.css">
+    <link rel="stylesheet" href="./src/styles/header.css">
+    <link rel="stylesheet" href="./src/styles/card.css">
+    <link rel="stylesheet" href="./src/styles/animation.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <script defer src="./src/components/header/index.ts"></script>
+  </head>
+  <body>
+    <div id="app">
+      <nav id="hide-header">
+        <a class="brand"><img src="./src/assets/svg/brand.svg" alt="RaphaelGregg"></a>
+
+        <ul>
+          <li><a href="">Sobre</a></li>
+          <li><a href="">Resumo</a></li>
+        </ul>
+      </nav>
+
+      <section class="brief">
+        <img src="./src/assets/svg/hero.svg" alt=""/>
+         
+        <h1>
+          Olá!
+          <br/>
+          Eu sou o Gregg,
+          <br/> 
+          <span class="gradient-text">dev front-end</span> com paixão por projetos web e mobile.
+        </h1>
+
+        <div>
+          <p>Desenveldor Front-end <span>Freelancer</span></p>
+          <p>Trabando na <span>Lanlink Serviços de informática</span></p>
+          <p>Granduado em <span>Unama</span></p>
+        </div>
+      </section>
+          
+
+      <section class="portfolio">
+        <h3>Projetos</h3>
+
+        <div class="cards">
+          <div class="card">
+            <img src="https://assets-global.website-files.com/64c1de6909d566eef48d4dfd/6504057596969ba574d148c5_Frame%2059%201.svg" alt="" />
+            
+            <div class="card-info">
+              <h3>Project Name</h3>
+              
+              <p>Função no projeto</p>
+              <p>Descrição</p>
+
+              <div class="card-techs">
+                <span>
+                  <img src="./src/assets/svg/html2.svg" />
+                  Html
+                </span>
+                <span>
+                  <img src="./src/assets/svg/css2.svg" />
+                  Css
+                </span>
+                <span>
+                  <img src="./src/assets/svg/js2.svg" />
+                  JavaScript
+                </span>
+                <span>
+                  <img src="./src/assets/svg/ts.svg" />
+                  TypeScript
+                </span>
+              </div>
+            </div>
+
+            <div class="line"></div>
+            
+            <div class="card-footer">
+              Desenvolvido em 16/03/2024.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <ul class="links-footer">
+          <li>
+            <a href="">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                </path>
+              </svg>
+            </a>
+          </li>
+          
+          <li>
+            <a href="">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </a>
+          </li>
+        </ul>
+        
+        Copyright © Raphael Gregg 2024
+      </footer>
+    </div>
+    <!-- <script type="module" src="/src/main.ts"></script> -->
+  </body>
+</html>
