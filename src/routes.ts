@@ -7,7 +7,7 @@ const navigation = (url: any) => {
   router(); 
 }
 
-const router = async () => {
+export const router = async () => {
   const routes = [
       {path: '/', view: Home},
       {path: '/about', view: About},
