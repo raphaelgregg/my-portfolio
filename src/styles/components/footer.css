@@ -1,4 +1,9 @@
 footer {
+  /* position: ; */
+  /* left: 0;
+  bottom: 0;
+  right: 0; */
+
   margin-top: 6rem;
   background: var(--color-onyx-950);
   color: var(--color-onyx-100);

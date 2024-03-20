@@ -1,3 +1,4 @@
+import { Footer } from "../../components/footer";
 import { Header } from "../../components/header";
 
 export function Resume() {
@@ -5,8 +6,7 @@ export function Resume() {
     if (app) {
       app.innerHTML = `
         ${Header()}
-        <h1>Welcome to Resume Page</h1>
-        <p>This is the Resume page.</p>
+        ${Footer()}
       `;
     }
 }

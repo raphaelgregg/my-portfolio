@@ -86,6 +86,7 @@ body {
 #app {
   /* border: 1px solid purple; */
   max-width: 375px;
+  min-height: 100vh;
   margin: 0 auto;
 }
 
@@ -137,3 +138,12 @@ p {
     background-color: #f9f9f9;
   }
 } */
+
+
+body {
+  background-color: black;
+}
+
+#app {
+  background: var(--bg-color);
+}

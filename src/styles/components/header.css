@@ -1,5 +1,6 @@
 nav {
   position: fixed;
+
   width: 100%;
   max-width: 375px;
 
@@ -12,6 +13,8 @@ nav {
   transition: .9s;
 
   background: var(--color-onyx-50);
+
+  box-shadow: 0 0.1rem .4rem rgba(0, 0, 0, 0.05);
 }
 
 .brand {

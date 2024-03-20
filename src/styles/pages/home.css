@@ -1,6 +1,6 @@
 section.brief, 
 section.portfolio {
-  padding: 3.2rem 1.6rem 0;
+  padding: 3.2rem 1.6rem 2rem;
 }
 
 section.brief {
@@ -27,10 +27,6 @@ section.brief {
   margin-top: 6rem;
 }
 
-.brief div {
-  margin-top: 1.6rem;
-}
-
 .gradient-text {
   /* Fallback: Set a background color. */
   background-color: red;
@@ -50,12 +46,17 @@ section.brief {
   -moz-text-fill-color: transparent;
 }
 
-.welcome p {
-  color: var(--color-onyx-400);
+.brief div {
+  margin-top: 2rem;
 }
 
-.welcome p span {
+.brief p {
+  color: var(--color-onyx-500);
+}
+
+.brief p a {
   color: var(--color-onyx-950);
+  font-weight: 600;
 }
 
 section.portfolio {

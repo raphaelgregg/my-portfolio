@@ -19,10 +19,9 @@ export function Home() {
       </h1>
 
       <div>
-        <p>Desenveldor Front-end <span>Freelancer</span></p>
-        <p>Trabando na <span>Lanlink Serviços de informática</span></p>
-        <p>Granduado em <span>Unama</span></p>
-      </div>
+        <p>Estudando <a>Desenvolvimento Front-end</a></p>
+        <p>Trabando na <a href="https://www.lanlink.com.br/" target="_blank">Lanlink Serviços de informática</a></p>
+        <p>Analista de Sistemas em <a href="https://www.unama.br/" target="_blank">Unama</a></span></p>      </div>
     </section>
 
     <section class="portfolio">
