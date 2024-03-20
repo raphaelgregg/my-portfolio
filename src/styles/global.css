@@ -41,7 +41,7 @@
   
   /* color-scheme: light dark; */
   --tt-color: var(--color-onyx-950);
-  --bg-color: var(--color-onyx-20);
+  --bg-color: var(--color-onyx-50);
   --bg-footer-color: var(--color-onyx-970);
 
   font-synthesis: none;

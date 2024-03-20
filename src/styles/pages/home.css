@@ -1,16 +1,16 @@
-section.brief, 
-section.portfolio {
+.home-container {
   padding: 3.2rem 1.6rem 2rem;
 }
+
 
 section.brief {
   background: var(--color-onyx-50);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
+  
   padding-top: 10rem;
-
+  
   /* border: 1px solid red; */
 }
 

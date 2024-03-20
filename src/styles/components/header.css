@@ -12,7 +12,7 @@ nav {
 
   transition: .9s;
 
-  background: var(--color-onyx-50);
+  background: var(--bg-color);
 
   box-shadow: 0 0.1rem .4rem rgba(0, 0, 0, 0.05);
 }

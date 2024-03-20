@@ -1,0 +1,78 @@
+.resume-container {
+  padding: 9.8rem 2rem 8rem;
+}
+
+.resume-wrapper {
+  display: grid;
+  gap: 5rem;
+
+  background: #fff;
+  border-radius: 20px;
+  padding: 3.2rem;
+}
+
+.resume-wrapper header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.resume-wrapper header h2 {
+  font-size: 3.2rem;
+  font-weight: 500;
+}
+
+.resume-wrapper header p {
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+}
+
+.resume-wrapper section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.work-card + .work-card{
+  margin-top: 1rem;
+}
+
+.resume-wrapper section h5 {
+  padding-right: 4rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+
+  text-transform: uppercase;
+}
+
+.resume-wrapper section h4 {
+  line-height: 2.4rem;
+}
+
+.resume-wrapper section div {
+  display: grid;
+  gap: .4rem;
+}
+
+.resume-wrapper section .timeline {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.resume-wrapper section span {
+  font-size: 1.4rem;
+  color: var(--color-onyx-400);
+
+}
+.resume-wrapper section p {
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+
+  margin-top: 1.2rem;
+}
+
+.skillset  .work-card p {
+  margin-top: 0;
+}

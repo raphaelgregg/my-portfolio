@@ -1,7 +1,6 @@
-import { createApp } from './app';
+import { createApp } from './app.ts';
 
-// Create the app instance
-const app = createApp();
-
-// Mount the app
-app.mount('#app');
+document.addEventListener('DOMContentLoaded', () => {
+  const rootElement = document.getElementById('app');
+  rootElement ? createApp(rootElement) : console.error('Element with id "app" not found.');
+});
