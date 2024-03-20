@@ -18,9 +18,10 @@ export function Home() {
         </h1>
 
         <div>
-          <p>Analista de Sistemas <a href="https://www.unama.br/" target="_blank">Unama</a></span></p>      </div>
+          <p>Analista de Sistemas <a href="https://www.unama.br/" target="_blank">Unama</a></span></p>      
           <p>Estudando <a>Desenvolvimento Front-end</a></p>
           <p>Trabando em <a href="https://www.lanlink.com.br/" target="_blank">Lanlink Serviços de informática</a></p>
+        </div>
       </section>
 
       <section class="portfolio">
