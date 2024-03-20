@@ -11,19 +11,19 @@ export function Card() {
 
       <div class="card-techs">
         <span>
-          <img src="./src/assets/svg/html2.svg" />
+          <img src="/svg/html2.svg" />
           Html
         </span>
         <span>
-          <img src="./src/assets/svg/css2.svg" />
+          <img src="/svg/css2.svg" />
           Css
         </span>
         <span>
-          <img src="./src/assets/svg/js2.svg" />
+          <img src="/svg/js2.svg" />
           JavaScript
         </span>
         <span>
-          <img src="./src/assets/svg/ts.svg" />
+          <img src="/svg/ts.svg" />
           TypeScript
         </span>
       </div>

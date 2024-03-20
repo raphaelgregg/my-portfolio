@@ -15,7 +15,7 @@ export function Header() {
 
   return `
     <nav id="hide-header">
-      <a href="/" class="brand"><img src="./src/assets/svg/brand.svg" alt="RaphaelGregg"></a>
+      <a href="/" class="brand"><img src="/svg/brand.svg" alt="RaphaelGregg"></a>
 
       <ul>
         <li><a href="/resume">Resumo</a></li>

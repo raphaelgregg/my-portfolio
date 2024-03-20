@@ -7,7 +7,7 @@ export function Home() {
       ${Header()}
       <div class="home-container">
         <section class="brief">
-        <img src="./src/assets/svg/hero.svg" alt=""/>
+        <img src="/svg/hero.svg" alt=""/>
         
         <h1>
           Olá!
