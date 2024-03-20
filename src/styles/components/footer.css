@@ -1,0 +1,27 @@
+footer {
+  margin-top: 6rem;
+  background: var(--color-onyx-950);
+  color: var(--color-onyx-100);
+  font-size: 1.2rem;
+
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  gap: 2rem;
+  align-items: center;
+  padding: 2.4rem 1.6rem;
+}
+
+.links-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.links-footer svg {
+  width: 2rem;
+  height: 2rem;
+
+  transition: .3s;
+}

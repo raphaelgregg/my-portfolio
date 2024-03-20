@@ -1,14 +1,12 @@
-import AbstractView from "./abstractView.ts"
+import { Header } from "../../components/header";
 
-export default class extends AbstractView {
-  constructor() {
-    super();
-    this.setTitle("About");
-  }
-
-  async getHtml(): Promise<string> {
-    return `
-      <h1>About</h1>
-    `;
-  }
+export function About() {
+    const app = document.getElementById('app');
+    if (app) {
+      app.innerHTML = `
+        ${Header()}
+        <h1>Welcome to About Page</h1>
+        <p>This is the About page.</p>
+      `;
+    }
 }
