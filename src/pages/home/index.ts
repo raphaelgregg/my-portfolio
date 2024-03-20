@@ -28,8 +28,6 @@ export function Home() {
 
         <div class="cards scroll">
           ${Card()}
-          ${Card()}
-          ${Card()}
         </div>
       </section>
     </div>

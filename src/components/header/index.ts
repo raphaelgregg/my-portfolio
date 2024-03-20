@@ -18,7 +18,6 @@ export function Header() {
       <a href="/" class="brand"><img src="./src/assets/svg/brand.svg" alt="RaphaelGregg"></a>
 
       <ul>
-        <li><a href="/about">Sobre</a></li>
         <li><a href="/resume">Resumo</a></li>
       </ul>
     </nav>
