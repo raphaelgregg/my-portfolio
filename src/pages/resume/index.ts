@@ -12,8 +12,8 @@ export function Resume() {
             
           <div>
             <a href="https://raphaelgregg.vercel.app/" target="_blank">raphaelgregg.vercel.app</a>
-            <a href="https://raphaelgregg.vercel.app/" target="_blank">github.com/raphaelgregg</a>
-            <a href="https://raphaelgregg.vercel.app/" target="_blank">linkedin.com/in/raphaelgregg</a>
+            <a href="https://github.com/raphaelgregg" target="_blank">github.com/raphaelgregg</a>
+            <a href="https://www.linkedin.com/in/raphaelgregg" target="_blank">linkedin.com/in/raphaelgregg</a>
           </div>
         </header>
 
