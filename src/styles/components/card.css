@@ -1,7 +1,10 @@
 .card {
+  max-width: 34.2rem;
+  overflow: hidden;
+
   border: 1px solid var(--color-onyx-100);
   border-radius: 20px;
-  overflow: hidden;
+  
   box-shadow: 0 .2rem .4rem rgba(0, 0, 0, 0.1);
 }
 

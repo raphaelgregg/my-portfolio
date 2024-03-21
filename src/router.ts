@@ -6,15 +6,19 @@ export function navigateTo(path: string, rootElement: HTMLElement) {
   switch (path) {
     case '/':
       rootElement.innerHTML = Home();
+      console.log(rootElement, path);
       break;
     case '/about':
       rootElement.innerHTML = About();
+      console.log(rootElement, path);
       break;
     case '/resume':
       rootElement.innerHTML = Resume();
+      console.log(rootElement, path);
       break;
     default:
       rootElement.innerHTML = '<h1>404 Not Found</h1>';
+      console.log(rootElement, path);
   }
 }
 

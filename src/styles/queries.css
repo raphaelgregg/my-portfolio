@@ -1,0 +1,93 @@
+@media (min-width: 485px) {
+  .resume-wrapper {
+    padding: 4rem 5.2rem;
+  }
+
+  .skillset-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .skillset-card + .skillset-card {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 610px) {
+  .resume-wrapper header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media (min-width: 742px) {
+  section.brief .brief-wrapper {
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+
+  section.brief h1 {
+    margin: 0;
+  }
+
+  .resume-wrapper {
+    padding: 6rem 8rem;
+  }
+
+
+}
+
+@media (min-width: 986px) {
+  section.portfolio {
+    display: flex;
+    flex-direction: column;
+
+  }
+  
+  section.portfolio .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+    max-width: 71.2rem;
+
+    margin-inline: auto;
+  }
+
+  .resume-wrapper {
+    padding: 6.4rem 8.2rem;
+  }
+
+  .resume-wrapper section {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+  }
+
+  .resume-wrapper section h5{
+    padding-top: .4rem;
+  }
+
+  .skillset-card + .skillset-card{
+    margin-top: 0;
+  }
+
+  .skillset-card {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 1090px) {
+  section.portfolio .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    max-width: 109rem;
+  }
+
+  section.brief img {
+    width: 100%;
+    height: 100%;
+  }
+}

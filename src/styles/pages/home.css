@@ -1,30 +1,41 @@
-.home-container {
-  padding: 3.2rem 1.6rem 2rem;
-}
-
-
 section.brief {
   background: var(--color-onyx-50);
+  
+  padding: 13.2rem 0 2rem;
+}
+
+section.brief .brief-wrapper {
+  max-width: 95.6rem;
+  margin: 0 auto;
+  padding: 0 1.6rem;
+
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  
-  padding-top: 10rem;
-  
-  /* border: 1px solid red; */
 }
 
-.brief img {
-  width: 100%;
-  height: 280px;
+section.brief img {
+  width: 31rem;
+  height: 31rem;
+  max-width: 34rem;
+  max-height: 34rem;
   object-fit: contain;
 }
 
-.brief h1 {
+section.brief div {
+  display: flex;
+  flex-direction: column;
+}
+
+section.brief h1 {
   font-size: 2.4rem;
   line-height: 3.4rem;
 
-  margin-top: 6rem;
+  margin: 6rem 0 0 0;
+}
+
+section.brief h1 + p {
+  margin-top: 2rem;
 }
 
 .gradient-text {
@@ -46,26 +57,38 @@ section.brief {
   -moz-text-fill-color: transparent;
 }
 
-.brief div {
-  margin-top: 2rem;
-}
-
-.brief p {
+section.brief p {
   color: var(--color-onyx-500);
 }
 
-.brief p a {
+section.brief p a {
   color: var(--color-onyx-950);
   font-weight: 600;
 }
 
 section.portfolio {
-   margin-top: 10rem;
+  margin-top: 6rem;
+  padding: 2rem 0;
 }
+
+section.portfolio .portfolio-wrapper {
+  max-width: 95.6rem;
+  margin: 0 auto;
+  padding: 0 1.6rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 
 section.portfolio .cards {
   display: grid;
-  gap: 4rem;
+  grid-template-columns: 1fr;
+  gap: 1.6rem;
+  
+  align-items: center;
+  justify-items: center;
 
   width: 100%;
 

@@ -1,20 +1,27 @@
 nav {
   position: fixed;
-
   width: 100%;
-  max-width: 375px;
-
+  
   display: flex;
-  justify-content: space-between;
   align-items: center;
-
-  padding: 1.8rem 1.6rem;
+  justify-content: center;
 
   transition: .9s;
 
   background: var(--bg-color);
 
   box-shadow: 0 0.1rem .4rem rgba(0, 0, 0, 0.05);
+}
+
+nav div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  max-width: 102.4rem;
+
+  padding: 1.8rem 1.6rem;
 }
 
 .brand {
