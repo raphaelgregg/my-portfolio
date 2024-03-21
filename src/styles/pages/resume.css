@@ -26,7 +26,8 @@
   padding-right: 4rem;
 }
 
-.resume-wrapper header p {
+.resume-wrapper header a {
+  display: flex;
   font-size: 1.4rem;
   line-height: 2.2rem;
 }
@@ -74,7 +75,7 @@
   color: var(--color-onyx-400);
 
 }
-.resume-wrapper section p {
+.resume-wrapper section a {
   font-size: 1.4rem;
   line-height: 2.4rem;
 
