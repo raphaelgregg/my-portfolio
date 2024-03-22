@@ -71,23 +71,23 @@ section.brief p a {
 section.portfolio {
   margin-top: 6rem;
   padding: 2rem 0;
+  background: white;
 }
 
 section.portfolio .portfolio-wrapper {
   max-width: 95.6rem;
-  margin: 0 auto;
+  margin: 6rem auto;
   padding: 0 1.6rem;
 
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
 }
 
 
 section.portfolio .cards {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.6rem;
+  gap: 6rem;
   
   align-items: center;
   justify-items: center;

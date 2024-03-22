@@ -20,17 +20,20 @@ export function Home() {
               </h1>
 
     
-              <p>Analista de Sistemas pela <a href="https://www.unama.br/" target="_blank">Unama</a></span></p>      
-              <p>Especializando em desenvolvimento <a>Front-End</a></p>
-              <p>Atualemente, faço parte da equipe <a href="https://www.lanlink.com.br/" target="_blank">Lanlink Informática</a></p>
+              <p>Analista de sistemas formado pela <a href="https://www.unama.br/" target="_blank">Unama</a></span></p>      
+              <p>futuro especialista em <a>desenvolvimento front-end</a></p>
+              <p>Atualmente, parte da equipe de trabalho da <a href="https://www.lanlink.com.br/" target="_blank">Lanlink Informática</a></p>
             </div>
           </div>
         </section>
 
         <section class="portfolio">
           <div class="portfolio-wrapper">
-            <h3>Projetos</h3>
-
+            <div class="portfolio-wrapper-section-header">
+              <h4>Selecione um Projeto</h4>
+              <p>Para que você conheça um pouco mais do meu trabalho</p>
+            </div>
+        
             <div class="cards">
               ${Card()}
               ${Card()}

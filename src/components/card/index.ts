@@ -4,10 +4,10 @@ export function Card() {
     <img src="https://assets-global.website-files.com/64c1de6909d566eef48d4dfd/6504057596969ba574d148c5_Frame%2059%201.svg" alt="" />
     
     <div class="card-info">
-      <h3>Project Name</h3>
+      <h3>Entrelinhas</h3>
       
-      <p>Função no projeto</p>
-      <p>Descrição</p>
+      <p class="function">Tese de mestrado UFPA</p>
+      <p class="description">Elaborado como ferramenta de ensino e aprendizagem, no qual, você pode aprender técnicas sobre multiletramentos e práticas discursivas em sala de aula</p>
 
       <div class="card-techs">
         <span>

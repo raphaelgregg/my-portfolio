@@ -11,6 +11,7 @@ nav {
   background: var(--bg-color);
 
   box-shadow: 0 0.1rem .4rem rgba(0, 0, 0, 0.05);
+  z-index: 10;
 }
 
 nav div {
