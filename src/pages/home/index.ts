@@ -1,5 +1,6 @@
 import { Card } from '../../components/card';
 import { Footer } from '../../components/footer';
+import { Form } from '../../components/form';
 import { Header } from '../../components/header';
 
 export function Home() {
@@ -41,6 +42,10 @@ export function Home() {
               ${Card()}
             </div>
           </div>
+        </section>
+
+        <section class="contact">
+          
         </section>
       </div>
     ${Footer()}

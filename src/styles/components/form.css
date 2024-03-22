@@ -1,0 +1,112 @@
+form {
+  /* background: var(--color-onyx-50); */
+  border-radius: 8px 8px 0 0;
+
+  margin-inline: auto;
+  min-height: 30rem;
+  max-width: 64rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4.2rem;
+}
+
+fieldset {
+  border: none;
+}
+
+fieldset .fieldset-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+fieldset legend {
+  font-weight: 600;
+  font-size: 2.4rem;
+  line-height: 3.4rem;
+
+  width: 100%;
+
+  border-bottom: 1px solid #E6E6F0;
+
+  padding-bottom: 1.6rem;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.input-wrapper label {
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  
+  color: var(--color-onyx-950);
+
+  margin-bottom: 0.8rem;
+
+  display: flex;
+  flex-wrap: nowrap;
+  flex-grow: 0;
+}
+
+.input-wrapper label span {
+  font-size: 1.2rem;
+  line-height: 2rem;
+  padding: 0.2rem 0 .2rem 1.2rem;
+
+  color: var(--color-onyx-50);
+}
+
+.input-wrapper label span:hover {
+  color: var(--color-onyx-50);
+}
+
+.input-wrapper input,
+.input-wrapper textarea,
+.input-wrapper select {
+  background: var(--color-onyx-50);
+  
+  border: 1px solid var(--color-onyx-200);
+  border-radius: 0.8rem;
+  line-height: 2.6rem;
+
+  height: 5.6rem;
+
+  padding: 0 2.4rem;
+
+  color: var(--color-onyx-950);
+}
+
+.input-wrapper textarea {
+  padding: 1rem 2.4rem;
+
+  height: 16.8rem;
+  resize: vertical;
+}
+
+form .button {
+  height: 5.6rem;
+  background: var(--color-crimson-500);
+  border: 0;
+  border-radius: 8px;
+
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+
+  color: #FFFFFF;
+
+  transition: .3s;
+}
+
+form .button:hover {
+  background-color: var(--color-crimson-700);
+}
+
+/* input:invalid {
+  border: 1px solid var(--color-crimson-500);
+} */
+
