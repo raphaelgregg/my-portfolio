@@ -88,14 +88,7 @@ export function Resume() {
 
         <section class="skillset">
           <h5>Habilidades</h5>
-
           <div class="skillset-list">
-            <div class="skillset-card">
-                <h4 class="work-title">Design</h4>
-
-                <p class="work-description">Fron-end Developer, Analista de Sistemas </p>
-            </div>
-
             <div class="skillset-card">
                 <h4 class="skillset-title">Ferramentas</h4>
 
@@ -109,3 +102,10 @@ export function Resume() {
     ${Footer()}
   `;
 }
+
+// 
+// <div class="skillset-card">
+//     <h4 class="work-title">Design</h4>
+
+//     <p class="work-description">Fron-end Developer, Analista de Sistemas </p>
+// </div>
