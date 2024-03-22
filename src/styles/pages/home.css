@@ -20,6 +20,8 @@ section.brief img {
   max-width: 34rem;
   max-height: 34rem;
   object-fit: contain;
+
+  align-self: center;
 }
 
 section.brief div {

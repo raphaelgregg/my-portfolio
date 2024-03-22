@@ -16,13 +16,13 @@ export function Home() {
                 <br/>
                 Eu sou o Gregg,
                 <br/> 
-                <span class="gradient-text">dev front-end</span> com paixão por projetos web e mobile.
+                <span class="gradient-text">dev front-end</span> aficionado por projetos web e Mobile.
               </h1>
 
     
-              <p>Analista de Sistemas <a href="https://www.unama.br/" target="_blank">Unama</a></span></p>      
-              <p>Estudando <a>Desenvolvimento Front-end</a></p>
-              <p>Trabando em <a href="https://www.lanlink.com.br/" target="_blank">Lanlink Serviços de informática</a></p>
+              <p>Analista de Sistemas formado pela <a href="https://www.unama.br/" target="_blank">Unama</a></span></p>      
+              <p>Atualmente me especializando em <a>Desenvolvimento Front-end</a></p>
+              <p>Faço parte da equipe de trabalho da  <a href="https://www.lanlink.com.br/" target="_blank">Lanlink Serviços de Informática SA</a></p>
             </div>
           </div>
         </section>

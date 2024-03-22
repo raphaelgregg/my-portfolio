@@ -63,19 +63,16 @@
   line-height: 2.4rem;
 }
 
-.resume-wrapper section .timeline {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-}
-
 .resume-wrapper section span {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: var(--color-onyx-400);
-
 }
-.resume-wrapper section a {
+.resume-wrapper .timeline {
+  font-size: 1.4rem;
+  margin-top: .6rem;
+}
+
+.resume-wrapper section p {
   font-size: 1.4rem;
   line-height: 2.4rem;
 
@@ -88,6 +85,6 @@
   background-color: blue
 } */
 
-.skillset  .work-card p {
-  margin-top: 0;
+.skillset  .skillset-card p {
+  margin-top: 1.6rem;
 }
