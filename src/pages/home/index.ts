@@ -20,9 +20,9 @@ export function Home() {
               </h1>
 
     
-              <p>Analista de Sistemas formado pela <a href="https://www.unama.br/" target="_blank">Unama</a></span></p>      
-              <p>Atualmente me especializando em <a>Desenvolvimento Front-end</a></p>
-              <p>Faço parte da equipe de trabalho da  <a href="https://www.lanlink.com.br/" target="_blank">Lanlink Serviços de Informática SA</a></p>
+              <p>Analista de Sistemas pela <a href="https://www.unama.br/" target="_blank">Unama</a></span></p>      
+              <p>Especializando em desenvolvimento <a>Front-End</a></p>
+              <p>Atualemente, faço parte da equipe <a href="https://www.lanlink.com.br/" target="_blank">Lanlink Informática</a></p>
             </div>
           </div>
         </section>
