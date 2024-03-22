@@ -21,7 +21,7 @@ export function Home() {
 
     
               <p>Analista de sistemas formado pela <a href="https://www.unama.br/" target="_blank">Unama</a></span></p>      
-              <p>futuro especialista em <a>desenvolvimento front-end</a></p>
+              <p>Futuro especialista em <a>desenvolvimento front-end</a></p>
               <p>Atualmente, parte da equipe de trabalho da <a href="https://www.lanlink.com.br/" target="_blank">Lanlink Informática</a></p>
             </div>
           </div>
