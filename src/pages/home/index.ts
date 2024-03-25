@@ -43,10 +43,6 @@ export function Home() {
             </div>
           </div>
         </section>
-
-        <section class="contact">
-          
-        </section>
       </div>
     ${Footer()}
     `

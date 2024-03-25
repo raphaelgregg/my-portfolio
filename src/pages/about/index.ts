@@ -5,7 +5,7 @@ export function About() {
   return `
     ${Header()}
 
-    <p>oi</p>
+    <p>working...</p>
 
     ${Footer()}
   `;

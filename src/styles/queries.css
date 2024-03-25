@@ -1,4 +1,8 @@
 @media (min-width: 485px) {
+  nav ul {
+    gap: 4rem;
+  }
+
   .resume-wrapper {
     padding: 4rem 5.2rem;
   }
@@ -15,6 +19,10 @@
 }
 
 @media (min-width: 610px) {
+  nav ul {
+    gap: 6rem;
+  }
+
   .resume-wrapper header {
     flex-direction: row;
     justify-content: space-between;
@@ -58,11 +66,13 @@
   .resume-wrapper {
     padding: 6rem 8rem;
   }
-
-
 }
 
 @media (min-width: 986px) {
+  nav ul {
+    padding-right: 4rem;
+  }
+
   section.portfolio {
     display: flex;
     flex-direction: column;

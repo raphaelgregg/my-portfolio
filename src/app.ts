@@ -1,4 +1,4 @@
-import { navigateTo } from './router.ts';
+import { navigateTo } from './routes';
 
 export function createApp(rootElement: HTMLElement) {
   navigateTo(window.location.pathname, rootElement);
