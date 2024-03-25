@@ -6,7 +6,7 @@
 
 :root {
   font-size: 62.5%;
-  font-family: Roboto, sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 400;
 
   --color-onyx-10: #fffefe;
@@ -23,6 +23,8 @@
   --color-onyx-900: #393E41;
   --color-onyx-950: #232629;
   --color-onyx-970: #0a0b0c;
+  --color-onyx-opacity-5: rgba(228, 232, 233, .5),
+  --color-onyx-opacity-8: #E4E8E9,
 
   --color-crimson-50: #FEF2F2;
   --color-crimson-100: #FEE6E5;

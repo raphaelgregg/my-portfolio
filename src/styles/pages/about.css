@@ -5,14 +5,11 @@ section.brief-about  {
 
   display: grid;
   grid-template-columns: 3fr 1fr;
-
-  border: 2px solid red;
 }
 
 section.brief-about .brief-wrapper {
   padding: 0 1rem;
   max-width: 45rem;
-  border: 2px solid green;
 }
 
 section.brief-about .brief-wrapper h1 {
@@ -27,4 +24,5 @@ section.brief-about .brief-wrapper p {
 section.brief-about img {
   width: 40rem;
   height: 40rem;
+  border-radius: .8rem;
 }
