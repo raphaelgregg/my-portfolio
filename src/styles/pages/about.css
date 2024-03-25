@@ -12,9 +12,13 @@ section.brief-about .brief-wrapper {
   max-width: 45rem;
 }
 
-section.brief-about .brief-wrapper h1 {
-  font-size: 2.4rem;
-  line-height: 3.4rem;
+section.brief-about .brief-wrapper h2 {
+  font-weight: 800;
+}
+
+section.brief-about .brief-wrapper h4 {
+  font-weight: 800;
+  margin-top: 2rem;
 }
 
 section.brief-about .brief-wrapper p {
@@ -25,4 +29,11 @@ section.brief-about img {
   width: 40rem;
   height: 40rem;
   border-radius: .8rem;
+}
+
+section.brief-about .hobbies ul {
+  display: flex;
+  gap: 1.6rem;
+  
+  margin-top: 1.6rem;
 }
