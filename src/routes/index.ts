@@ -1,6 +1,6 @@
-import { About } from "./pages/about";
-import { Home } from "./pages/home";
-import { Resume } from "./pages/resume";
+import { About } from "../pages/about";
+import { Home } from "../pages/home";
+import { Resume } from "../pages/resume";
 
 export function navigateTo(path: string, rootElement: HTMLElement) {
   switch (path) {
