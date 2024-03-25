@@ -38,8 +38,10 @@ nav div {
 nav ul {
   display: flex;
   align-items: center;
-  gap: 1.6rem;
+  gap: 2rem;
 }
+
+
 
 nav ul li a {
   font-weight: 500;
