@@ -3,7 +3,49 @@ import { Footer } from '../../components/footer';
 // import { Form } from '../../components/form';
 import { Header } from '../../components/header';
 
+
+const data = 
+  {
+    projects: [
+      {
+        title:"Entrelinhas", 
+        job: "Desenvolvedor Mobile", 
+        description:"App educacional de apendizagem de multiletramentos",
+        techs: ["html", "css", "typescript"],
+        date: "2017-08-01",
+        category: 'job'
+      },
+      {
+        title:"AppAdmin", 
+        job: "Desenvolvedor Front-end", 
+        description:"Aplicação web com um dashboard de processos juridicos",
+        techs: ["html", "css", "typescript"],
+        date: "2017-08-01",
+        category: 'job'
+      },
+      {
+        title:"ControlMidia", 
+        job: "Desenvolvedor Front-end", 
+        description:"Aplicação de multiletramentos",
+        techs: ["html", "css", "typescript"],
+        date: "2017-08-01",
+        category: 'job'
+      },
+      {
+        title:"My Portfolio", 
+        job: "Desenvolvedor Front-end", 
+        description:"Aplicação de multiletramentos",
+        techs: ["html", "css", "typescript"],
+        date: "2017-08-01",
+        category: 'pessoal'
+      }
+    ]
+  };
+
 export function Home() {
+
+  const filtered = data.filter(res => res.projects.category === "job" );
+
   return `
       ${Header()}
       <div class="home-container">
@@ -28,18 +70,80 @@ export function Home() {
           </div>
         </section>
 
+        <section class="portfolio work">
+          <div class="portfolio-wrapper">
+            <div class="portfolio-wrapper-section-header">
+              <h4>Experiência Profissional</h4>
+            </div>
+        
+            <div class="cards work">
+              ${Card({
+                title:"Entrelinhas", 
+                job: "Desenvolvedor Mobile", 
+                description:"App educacional de apendizagem de multiletramentos",
+                date: "2017-08-01"
+              })}
+
+              ${Card({
+                title:"AppAdmin", 
+                job: "Desenvolvedor Front-end", 
+                description:"Aplicação web com um dashboard de processos juridicos",
+                date: "2017-08-01"
+              })}
+
+              ${Card({
+                title:"ControlMidia", 
+                job: "Desenvolvedor Front-end", 
+                description:"Aplicação de multiletramentos",
+                date: "2017-08-01"
+              })}
+            </div>
+          </div>
+        </section>
+
         <section class="portfolio">
           <div class="portfolio-wrapper">
             <div class="portfolio-wrapper-section-header">
-              <h4>Selecione um Projeto</h4>
+              <h4>Projetos Pessoais</h4>
               <p>Para que você conheça um pouco mais do meu trabalho</p>
             </div>
         
             <div class="cards">
-              ${Card()}
-              ${Card()}
-              ${Card()}
-              ${Card()}
+              ${
+                Card({
+                title:"My Portfolio", 
+                job: "Desenvolvedor Front-end", 
+                description:"Aplicação de multiletramentos",
+                date: "2017-08-01",
+                techs: ["html", "css", "typescript"]
+                })}
+
+                ${
+                  Card({
+                  title:"My Portfolio", 
+                  job: "Desenvolvedor Front-end", 
+                  description:"Aplicação de multiletramentos",
+                  date: "2017-08-01",
+                  techs: ["html", "css", "typescript"]
+                  })}
+
+                  ${
+                    Card({
+                    title:"My Portfolio", 
+                    job: "Desenvolvedor Front-end", 
+                    description:"Aplicação de multiletramentos",
+                    date: "2017-08-01",
+                    techs: ["html", "css", "typescript"]
+                    })}
+
+                    ${
+                      Card({
+                      title:"My Portfolio", 
+                      job: "Desenvolvedor Front-end", 
+                      description:"Aplicação de multiletramentos",
+                      date: "2017-08-01",
+                      techs: ["html", "css", "typescript"]
+                      })}
             </div>
           </div>
         </section>
