@@ -5,7 +5,7 @@ import { Header } from '../../components/header';
 
 
 const data = 
-  {
+{
     projects: [
       {
         title:"Entrelinhas", 
@@ -44,7 +44,15 @@ const data =
 
 export function Home() {
 
-  const filtered = data.filter(res => res.projects.category === "job" );
+  const jobs = data.projects.map(obj => ({
+    title: obj.title,
+    job: obj.job,
+    description: obj.description,
+    date: obj.date,
+    category: obj.category
+  })).filter(res => res.category === "job" );
+  
+  const pessoalJobs = data.projects.filter(res => res.category === "pessoal" );
 
   return `
       ${Header()}
@@ -77,26 +85,7 @@ export function Home() {
             </div>
         
             <div class="cards work">
-              ${Card({
-                title:"Entrelinhas", 
-                job: "Desenvolvedor Mobile", 
-                description:"App educacional de apendizagem de multiletramentos",
-                date: "2017-08-01"
-              })}
-
-              ${Card({
-                title:"AppAdmin", 
-                job: "Desenvolvedor Front-end", 
-                description:"Aplicação web com um dashboard de processos juridicos",
-                date: "2017-08-01"
-              })}
-
-              ${Card({
-                title:"ControlMidia", 
-                job: "Desenvolvedor Front-end", 
-                description:"Aplicação de multiletramentos",
-                date: "2017-08-01"
-              })}
+              ${ jobs ? jobs.map(job => Card(job)).join(" ") : ""}
             </div>
           </div>
         </section>
@@ -109,41 +98,7 @@ export function Home() {
             </div>
         
             <div class="cards">
-              ${
-                Card({
-                title:"My Portfolio", 
-                job: "Desenvolvedor Front-end", 
-                description:"Aplicação de multiletramentos",
-                date: "2017-08-01",
-                techs: ["html", "css", "typescript"]
-                })}
-
-                ${
-                  Card({
-                  title:"My Portfolio", 
-                  job: "Desenvolvedor Front-end", 
-                  description:"Aplicação de multiletramentos",
-                  date: "2017-08-01",
-                  techs: ["html", "css", "typescript"]
-                  })}
-
-                  ${
-                    Card({
-                    title:"My Portfolio", 
-                    job: "Desenvolvedor Front-end", 
-                    description:"Aplicação de multiletramentos",
-                    date: "2017-08-01",
-                    techs: ["html", "css", "typescript"]
-                    })}
-
-                    ${
-                      Card({
-                      title:"My Portfolio", 
-                      job: "Desenvolvedor Front-end", 
-                      description:"Aplicação de multiletramentos",
-                      date: "2017-08-01",
-                      techs: ["html", "css", "typescript"]
-                      })}
+              ${ pessoalJobs ? pessoalJobs.map(job => Card(job)).join(" ") : ""}
             </div>
           </div>
         </section>
