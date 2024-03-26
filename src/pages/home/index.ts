@@ -4,7 +4,7 @@ import { Footer } from '../../components/footer';
 import { Header } from '../../components/header';
 
 
-const data = [
+const data = 
   {
     projects: [
       {
@@ -40,10 +40,12 @@ const data = [
         category: 'pessoal'
       }
     ]
-  }
-];
+  };
 
 export function Home() {
+
+  const filtered = data.filter(res => res.projects.category === "job" );
+
   return `
       ${Header()}
       <div class="home-container">
@@ -68,7 +70,7 @@ export function Home() {
           </div>
         </section>
 
-        <section class="portfolio">
+        <section class="portfolio work">
           <div class="portfolio-wrapper">
             <div class="portfolio-wrapper-section-header">
               <h4>Experiência Profissional</h4>
@@ -107,13 +109,41 @@ export function Home() {
             </div>
         
             <div class="cards">
-              ${Card({
+              ${
+                Card({
                 title:"My Portfolio", 
                 job: "Desenvolvedor Front-end", 
                 description:"Aplicação de multiletramentos",
                 date: "2017-08-01",
                 techs: ["html", "css", "typescript"]
-              })}
+                })}
+
+                ${
+                  Card({
+                  title:"My Portfolio", 
+                  job: "Desenvolvedor Front-end", 
+                  description:"Aplicação de multiletramentos",
+                  date: "2017-08-01",
+                  techs: ["html", "css", "typescript"]
+                  })}
+
+                  ${
+                    Card({
+                    title:"My Portfolio", 
+                    job: "Desenvolvedor Front-end", 
+                    description:"Aplicação de multiletramentos",
+                    date: "2017-08-01",
+                    techs: ["html", "css", "typescript"]
+                    })}
+
+                    ${
+                      Card({
+                      title:"My Portfolio", 
+                      job: "Desenvolvedor Front-end", 
+                      description:"Aplicação de multiletramentos",
+                      date: "2017-08-01",
+                      techs: ["html", "css", "typescript"]
+                      })}
             </div>
           </div>
         </section>

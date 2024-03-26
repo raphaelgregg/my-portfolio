@@ -55,6 +55,12 @@ section.portfolio {
   background: var(--color-onyx-50);
 }
 
+section.portfolio.work {
+  margin-top: 6rem;
+  padding: 2rem 0;
+  background: var(--color-onyx-100);
+}
+
 section.portfolio .portfolio-wrapper {
   max-width: 95.6rem;
   margin: 6rem auto;
