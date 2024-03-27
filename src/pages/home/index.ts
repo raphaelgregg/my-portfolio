@@ -2,48 +2,47 @@ import { Card } from '../../components/card';
 import { Footer } from '../../components/footer';
 // import { Form } from '../../components/form';
 import { Header } from '../../components/header';
+import data from '../../services/data.json'
 
-
-const data = 
-{
-    projects: [
-      {
-        title:"Entrelinhas", 
-        job: "Desenvolvedor Mobile", 
-        description:"App educacional de apendizagem de multiletramentos",
-        techs: ["html", "css", "typescript"],
-        date: "2017-08-01",
-        category: 'job'
-      },
-      {
-        title:"AppAdmin", 
-        job: "Desenvolvedor Front-end", 
-        description:"Aplicação web com um dashboard de processos juridicos",
-        techs: ["html", "css", "typescript"],
-        date: "2017-08-01",
-        category: 'job'
-      },
-      {
-        title:"ControlMidia", 
-        job: "Desenvolvedor Front-end", 
-        description:"Aplicação de multiletramentos",
-        techs: ["html", "css", "typescript"],
-        date: "2017-08-01",
-        category: 'job'
-      },
-      {
-        title:"My Portfolio", 
-        job: "Desenvolvedor Front-end", 
-        description:"Aplicação de multiletramentos",
-        techs: ["html", "css", "typescript"],
-        date: "2017-08-01",
-        category: 'pessoal'
-      }
-    ]
-  };
+// const data = 
+// {
+//     projects: [
+//       {
+//         title:"Entrelinhas", 
+//         job: "Desenvolvedor Mobile", 
+//         description:"App educacional de apendizagem de multiletramentos",
+//         techs: ["html", "css", "typescript"],
+//         date: "2017-08-01",
+//         category: 'job'
+//       },
+//       {
+//         title:"AppAdmin", 
+//         job: "Desenvolvedor Front-end", 
+//         description:"Aplicação web com um dashboard de processos juridicos",
+//         techs: ["html", "css", "typescript"],
+//         date: "2017-08-01",
+//         category: 'job'
+//       },
+//       {
+//         title:"ControlMidia", 
+//         job: "Desenvolvedor Front-end", 
+//         description:"Aplicação de multiletramentos",
+//         techs: ["html", "css", "typescript"],
+//         date: "2017-08-01",
+//         category: 'job'
+//       },
+//       {
+//         title:"My Portfolio", 
+//         job: "Desenvolvedor Front-end", 
+//         description:"Aplicação de multiletramentos",
+//         techs: ["html", "css", "typescript"],
+//         date: "2017-08-01",
+//         category: 'pessoal'
+//       }
+//     ]
+//   };
 
 export function Home() {
-
   const jobs = data.projects.map(obj => ({
     title: obj.title,
     job: obj.job,

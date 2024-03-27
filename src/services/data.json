@@ -1,0 +1,64 @@
+{
+  "user": {
+    "name":"Raphael",
+    "surname":"Gregg",
+    "work":""
+  },  
+  "briefing": {
+    "work":{
+      "name": "Lanlink Informática",
+      "url": "https://www.lanlink.com.br/" 
+    },
+    "perviosWorked":{
+      "name": "desenvolvimento front-end",
+      "url": ""
+    },
+    "university":{
+      "name": "Unama",
+      "url": "https://www.unama.br/" 
+    }
+  },
+  "projects": [
+    {
+      "title":"Entrelinhas", 
+      "job": "Desenvolvedor Mobile", 
+      "description":"App educacional de apendizagem de multiletramentos",
+      "techs": ["html", "css", "typescript"],
+      "date": "2017-08-01",
+      "category": "job"
+    },
+    {
+      "title":"AppAdmin", 
+      "job": "Desenvolvedor Front-end", 
+      "description":"Aplicação web com um dashboard de processos juridicos",
+      "techs": ["html", "css", "typescript"],
+      "date": "2017-08-01",
+      "category": "job"
+    },
+    {
+      "title":"ControlMidia", 
+      "job": "Desenvolvedor Front-end", 
+      "description":"Aplicação de multiletramentos",
+      "techs": ["html", "css", "typescript"],
+      "date": "2017-08-01",
+      "category": "job"
+    },
+    {
+      "title":"My Portfolio", 
+      "job": "Desenvolvedor Front-end", 
+      "description":"Aplicação de multiletramentos",
+      "techs": ["html", "css", "typescript"],
+      "date": "2017-08-01",
+      "category": "pessoal"
+    }
+  ],
+  "experience": {
+    "companny": "Lanlink Serviços de Informática SA",
+    "job":"técnico Nível 2",
+    "location": "Vitoria, ES",
+    "initialDate": "2017-08-01",
+    "finalDate": "2017-08-01"
+
+  }
+
+}
