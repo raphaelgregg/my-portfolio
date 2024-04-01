@@ -55,10 +55,8 @@
   "experience": {
     "companny": "Lanlink Serviços de Informática SA",
     "job":"técnico Nível 2",
-    "location": "Vitoria, ES",
     "initialDate": "2017-08-01",
-    "finalDate": "2017-08-01"
-
+    "finalDate": "2017-08-01",
+    "location": "Vitoria, ES"
   }
-
 }
