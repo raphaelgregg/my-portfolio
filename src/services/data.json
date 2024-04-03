@@ -25,7 +25,8 @@
       "description":"App educacional de apendizagem de multiletramentos",
       "techs": ["html", "css", "typescript"],
       "date": "2017-08-01",
-      "category": "job"
+      "category": "job",
+      "thumbnail": "/images/thumbnail-entrelinhas.png"
     },
     {
       "title":"AppAdmin", 
@@ -33,7 +34,8 @@
       "description":"Aplicação web com um dashboard de processos juridicos",
       "techs": ["html", "css", "typescript"],
       "date": "2017-08-01",
-      "category": "job"
+      "category": "job",
+      "thumbnail": "https://assets-global.website-files.com/64c1de6909d566eef48d4dfd/6504057596969ba574d148c5_Frame%2059%201.svg"
     },
     {
       "title":"ControlMidia", 
@@ -41,7 +43,8 @@
       "description":"Aplicação de multiletramentos",
       "techs": ["html", "css", "typescript"],
       "date": "2017-08-01",
-      "category": "job"
+      "category": "job",
+      "thumbnail": "https://assets-global.website-files.com/64c1de6909d566eef48d4dfd/6504057596969ba574d148c5_Frame%2059%201.svg"
     },
     {
       "title":"My Portfolio", 
@@ -49,7 +52,8 @@
       "description":"Aplicação de multiletramentos",
       "techs": ["html", "css", "typescript"],
       "date": "2017-08-01",
-      "category": "pessoal"
+      "category": "pessoal",
+      "thumbnail": "https://assets-global.website-files.com/64c1de6909d566eef48d4dfd/6504057596969ba574d148c5_Frame%2059%201.svg"
     }
   ],
   "experience": {

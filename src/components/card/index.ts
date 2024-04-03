@@ -4,14 +4,15 @@ interface CardProps {
   description: string;
   techs?: string[] ;
   date: string;
+  thumbnail?: string;
 }
 
-export function Card({title, job, description, techs, date}: CardProps) {
+export function Card({title, job, description, techs, date, thumbnail}: CardProps) {
 
   return `
   <div class="card">
     <div class="wrapper-card">  
-      <img src="https://assets-global.website-files.com/64c1de6909d566eef48d4dfd/6504057596969ba574d148c5_Frame%2059%201.svg" alt="" />
+      <img src="${thumbnail}" alt="thumbnail do projeto" />
     
       <div class="card-info">
         <h3>${title}</h3>
