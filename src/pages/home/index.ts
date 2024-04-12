@@ -31,7 +31,6 @@ export function Home() {
                 <br/> 
                 <span class="gradient-text">dev front-end</span> aficionado por projetos web e Mobile.
               </h1>
-
     
               <p>Analista de sistemas formado pela <a href="https://www.unama.br/" target="_blank">Unama</a></span></p>      
               <p>Futuro especialista em <a>desenvolvimento front-end</a></p>

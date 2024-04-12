@@ -118,7 +118,7 @@
     },
     {
       "id": "3",
-      "title":"AppAdmin", 
+      "companny":"Aprigio Advocacia", 
       "url":"",
       "job": "Desenvolvedor Front-end", 
       "description":"Desenvolviemnto da API Front-end e layout do projeto dashboard para gerenciamento de processos juridicos, no qual, gerenciava processos e clientes. App construido em ReactJS e Firebase para armazenamento de dados.",
@@ -128,7 +128,7 @@
     },
     {
       "id": "2",
-      "title":"Entrelinhas", 
+      "companny":"Entrelinhas", 
       "url":"",
       "job": "Desenvolvedor Mobile", 
       "description":"Desenvolviemnto da Aplicativo Android elaborado como ferramenta de ensino-aprendizagem, no qual, você pode aprender técnicas sobre multiletramentos e práticas discursivas em sala de aula, apresentado como tese de mestrado na Universidade do Estado do Pará. Aplicativo foi construido em React Native com Expo e Firebase para Api Back-end.",
@@ -138,7 +138,7 @@
     },
     {
       "id": "1",
-      "title":"ControlMidia", 
+      "companny":"ControlMidia", 
       "url":"",
       "job": "Suporte técnico", 
       "description":" Suporte em informática ( Montagem, instalação, configuração de equipamentos, Manutenção preventiva e corretiva de equipamentos)",
