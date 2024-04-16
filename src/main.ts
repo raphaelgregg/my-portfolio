@@ -1,5 +1,5 @@
 import { createApp } from './app.ts';
-import { downloadPDF } from './utils/downloadPDF.ts';
+import { generatePDF } from './utils/generatePDF.ts';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,10 +9,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const curriculumDownload = document.getElementById('btn-download');
   try {
     curriculumDownload!.addEventListener('click', function () {
-      downloadPDF('.resume-wrapper', 'curriculo-raphaelgregg.pdf');
+      generatePDF({
+        containerSelector: '.resume-wrapper',
+        filename: 'curriculo-raphaelgregg.pdf',
+        format: "a4",
+      });
       });
   } catch (error) {
     console.error(error + ': Element with id "btn-download" not found.');
   }
 });
-
