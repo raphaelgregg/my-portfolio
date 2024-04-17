@@ -2,8 +2,20 @@ import { Card } from '../../components/card';
 import { Footer } from '../../components/footer';
 // import { Form } from '../../components/form';
 import { Header } from '../../components/header';
+import data from '../../services/data.json';
 
 export function Home() {
+  const jobs = data.projects.map(obj => ({
+    title: obj.title,
+    job: obj.job,
+    description: obj.description,
+    date: obj.date,
+    category: obj.category,
+    thumbnail: obj.thumbnail
+  })).filter(res => res.category == "job" );
+  
+  const pessoalJobs = data.projects.filter(res => res.category === "pessoal" );
+
   return `
       ${Header()}
       <div class="home-container">
@@ -19,7 +31,6 @@ export function Home() {
                 <br/> 
                 <span class="gradient-text">dev front-end</span> aficionado por projetos web e Mobile.
               </h1>
-
     
               <p>Analista de sistemas formado pela <a href="https://www.unama.br/" target="_blank">Unama</a></span></p>      
               <p>Futuro especialista em <a>desenvolvimento front-end</a></p>
@@ -28,18 +39,27 @@ export function Home() {
           </div>
         </section>
 
+        <section class="portfolio work">
+          <div class="portfolio-wrapper">
+            <div class="portfolio-wrapper-section-header">
+              <h4>Experiência Profissional</h4>
+            </div>
+        
+            <div class="cards work">
+              ${ jobs ? jobs.map(job => Card(job)).join(" ") : ""}
+            </div>
+          </div>
+        </section>
+
         <section class="portfolio">
           <div class="portfolio-wrapper">
             <div class="portfolio-wrapper-section-header">
-              <h4>Selecione um Projeto</h4>
+              <h4>Projetos Pessoais</h4>
               <p>Para que você conheça um pouco mais do meu trabalho</p>
             </div>
         
             <div class="cards">
-              ${Card()}
-              ${Card()}
-              ${Card()}
-              ${Card()}
+              ${ pessoalJobs ? pessoalJobs.map(job => Card(job)).join(" ") : ""}
             </div>
           </div>
         </section>

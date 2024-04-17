@@ -55,9 +55,13 @@
     gap: 1rem;
     align-items: flex-start;
     justify-content: flex-start;
-    width: 26rem;
+    /* width: 26rem; */
   }
 
+  section.portfolio .portfolio-wrapper .cards.work {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+  }
   section.portfolio .portfolio-wrapper .cards {
     grid-template-columns: 1fr 1fr;
     gap: 6rem;
