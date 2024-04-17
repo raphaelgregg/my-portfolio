@@ -10,6 +10,8 @@ export function Resume() {
   
   <div class="resume-container"> 
   <div class="resume-wrapper">
+  <button id="btn-download"><i class="file-down-icon" data-lucide="file-down"></i></button>
+
     <header>
       <h2>Raphael Gregg</h2>
         
@@ -102,7 +104,6 @@ export function Resume() {
   </div>
 </div>
 
-  <button id="btn-download"><i class="file-down-icon" data-lucide="file-down"></i></button>
   ${Footer()}
   `;
 }
