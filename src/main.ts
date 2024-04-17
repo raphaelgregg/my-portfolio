@@ -1,5 +1,8 @@
 import { createApp } from './app.ts';
 import { setupCurriculumDownload } from './utils/generatePDF.ts';
+import { createIcons, FileDown } from 'lucide';
+
+
 
 // "DOMContentLoaded" é um evento que é acionado quando o documento HTML foi completamente carregado e analisado, sem esperar por folhas de estilo, imagens e subframes para finalizar o carregamento. Isso significa que, quando o evento DOMContentLoaded é disparado, todos os elementos do DOM estão acessíveis e podem ser manipulados por scripts
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,4 +18,11 @@ function init() {
   console.log('A página foi totalmente carregada e o DOM está acessível.');
   // Outras operações de inicialização aqui...
   setupCurriculumDownload();
+
+  // Caution, this will import all the icons and bundle them.
+  createIcons({ 
+    icons: {
+      FileDown
+    } 
+  });
 }

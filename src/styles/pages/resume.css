@@ -90,11 +90,20 @@
 }
 
 #btn-download {
-  position: absolute;
-  top: 300px;
-  left: 300px;
-  padding: 1.6rem;
-  /* width: 5rem; */
-  /* height: 5rem; */
+  position: fixed;
+  right: 46rem;
+  top: 10rem;
+  /* padding: 4rem; */
+  border: none;
+  box-shadow: 0 .1rem .4rem rgba(0, 0, 0, .2);
+  border-radius: 9999px;
+  width: 6rem;
+  height: 6rem;
 
+  background: var(--color-crimson-opacity-8);
+
+}
+
+.file-down-icon {
+  color: var(--color-onyx-600);
 }
