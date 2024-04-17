@@ -10,9 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
   try {
     curriculumDownload!.addEventListener('click', function () {
       generatePDF({
-        containerSelector: '.resume-wrapper',
+        htmlContent: '.resume-wrapper',
         filename: 'curriculo-raphaelgregg.pdf',
-        format: "a4",
       });
       });
   } catch (error) {
