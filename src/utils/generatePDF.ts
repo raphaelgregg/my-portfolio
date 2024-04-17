@@ -26,3 +26,16 @@ export function generatePDF({ htmlContent, filename }: GeneratePDFProps) {
     console.error('Erro ao gerar PDF:', error);
   }
 }
+
+
+
+export const setupCurriculumDownload = () => {
+  const curriculumDownload = document.getElementById('btn-download');
+  
+  curriculumDownload?.addEventListener('click', () => {
+    generatePDF({
+      htmlContent: '.resume-wrapper',
+      filename: 'curriculo-raphaelgregg.pdf',
+    });
+  });
+};

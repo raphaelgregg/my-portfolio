@@ -1,12 +1,17 @@
 import { Footer } from "../../components/footer";
 import { Header } from "../../components/header";
 
+
+
 export function Resume() {
+
   return `
   ${Header()}
   
   <div class="resume-container"> 
   <div class="resume-wrapper">
+  <button id="btn-download"><i class="file-down-icon" data-lucide="file-down"></i></button>
+
     <header>
       <h2>Raphael Gregg</h2>
         
@@ -99,7 +104,6 @@ export function Resume() {
   </div>
 </div>
 
-  <button id="btn-download">Download</button>
   ${Footer()}
   `;
 }
