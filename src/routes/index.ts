@@ -2,6 +2,7 @@ import { About } from "../pages/about";
 import { Home } from "../pages/home";
 import { Resume } from "../pages/resume";
 
+// recebe o caminho da url atual na pagina e o elemento html, para retornar o conteudo de pagina referente
 export function navigateTo(path: string, rootElement: HTMLElement) {
   switch (path) {
     case '/':
@@ -22,11 +23,12 @@ export function navigateTo(path: string, rootElement: HTMLElement) {
   }
 }
 
+// evita o coportamento padrão da Tag anchor "A"
 export function preventDefaultRouter(event: Event) {
   const target = event.target as HTMLAnchorElement;
   if (target.tagName === 'A' && target.getAttribute('href')?.startsWith('/')) {
     event.preventDefault();
-    history.pushState(null, '', target.href);
+    history.pushState(null, '', target.href); // Atualiza a URL sem recarregar a página
     navigateTo(target.pathname, document.getElementById('app')!);
   }
 }
