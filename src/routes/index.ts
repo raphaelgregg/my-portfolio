@@ -1,6 +1,7 @@
 import { About } from "../pages/about";
 import { Home } from "../pages/home";
 import { Resume } from "../pages/resume";
+import { Curriculum } from "../pages/resume/download";
 
 // recebe o caminho da url atual na pagina e o elemento html, para retornar o conteudo de pagina referente
 export function navigateTo(path: string, rootElement: HTMLElement) {
@@ -15,6 +16,10 @@ export function navigateTo(path: string, rootElement: HTMLElement) {
       break;
     case '/resume':
       rootElement.innerHTML = Resume();
+      // console.log(rootElement, path);
+      break;
+    case '/curriculum-download':
+      rootElement.innerHTML = Curriculum();
       // console.log(rootElement, path);
       break;
     default:

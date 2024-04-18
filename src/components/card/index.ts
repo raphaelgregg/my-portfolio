@@ -1,3 +1,5 @@
+import "./styles.css"
+
 interface CardProps {
   title: string;
   job: string;

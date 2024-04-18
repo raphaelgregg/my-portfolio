@@ -1,5 +1,7 @@
 
 import { navigateTo } from './routes';
+import "./styles/global.css";
+import "./styles/queries.css";
 
 // "createApp" inicializar sua aplicação, garantindo que o componente correto seja renderizado na página conforme a URL atua
 export function createApp(rootElement: HTMLElement) {

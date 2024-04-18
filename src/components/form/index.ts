@@ -1,3 +1,5 @@
+import "./styles.css"
+
 export function Form() {
   return`
   <form id="my-form">

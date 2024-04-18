@@ -1,17 +1,9 @@
-import { Footer } from "../../components/footer";
-import { Header } from "../../components/header";
-
 import "./styles.css";
 
-export function Resume() {
-
-  return `
-  ${Header()}
-  
+export function Curriculum() {
+  return `  
   <div class="resume-container"> 
-  <div class="resume-wrapper">
-  <button id="btn-download"><i class="file-down-icon" data-lucide="file-down"></i></button>
-
+  <div id="cv-download" class="resume-wrapper">
     <header>
       <h2>Raphael Gregg</h2>
         
@@ -103,7 +95,5 @@ export function Resume() {
     </section>
   </div>
 </div>
-
-  ${Footer()}
   `;
 }

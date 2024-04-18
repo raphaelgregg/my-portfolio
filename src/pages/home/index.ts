@@ -1,8 +1,10 @@
 import { Card } from '../../components/card';
 import { Footer } from '../../components/footer';
-// import { Form } from '../../components/form';
 import { Header } from '../../components/header';
 import data from '../../services/data.json';
+
+import "./styles.css"
+
 
 export function Home() {
   const jobs = data.projects.map(obj => ({

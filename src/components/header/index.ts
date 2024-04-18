@@ -1,3 +1,5 @@
+import "./styles.css"
+
 export function Header() {
   // Hide and show header
   let prevScrollPosition = window.scrollY;
