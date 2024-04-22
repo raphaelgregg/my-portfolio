@@ -20,7 +20,7 @@
   flex-direction: column;
   gap: 1.6rem;
   
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .resume-wrapper header h2 {
@@ -122,4 +122,8 @@
 
 .file-down-icon {
   color: var(--color-onyx-600);
+}
+
+.page-break {
+  page-break-before: always;
 }

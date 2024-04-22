@@ -1,10 +1,40 @@
 import { Footer } from "../../components/footer";
 import { Header } from "../../components/header";
+import { generateHTMLToPDF } from "../../utils/generatePDF";
 
 import "./styles.css";
 
-export function Resume() {
+export function setupCurriculumDownload() {
+  const curriculumDownload = document.getElementById('btn-download');
+  
+  if (curriculumDownload) {
+    curriculumDownload.addEventListener('click', async () => {
+      try {
+        await generatePDF();
+        console.log('PDF gerado com sucesso');
+      } catch (error) {
+        console.error('Erro ao gerar PDF:', error);
+      }
+    });
+  }
+}
 
+function generatePDF() {
+  return new Promise<void>((resolve, reject) => {
+    try {
+      generateHTMLToPDF({
+        elementSelector: '.resume-wrapper',
+        filename: 'curriculo-raphaelgregg.pdf',
+      });
+
+      resolve();
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+export function Resume() {
   return `
   ${Header()}
   
@@ -90,6 +120,8 @@ export function Resume() {
           </p>
         </div>
     </section>
+
+    <div class="page-break"></div> <!-- Adiciona uma quebra de página após esta seção -->
 
     <section class="skillset">
       <h5>Habilidades</h5>

@@ -1,6 +1,6 @@
-import { createApp } from './app.ts';
-import { setupCurriculumDownload } from './utils/generatePDF.ts';
 import { createIcons, FileDown } from 'lucide';
+import { createApp } from './app.ts';
+import { setupCurriculumDownload } from './pages/resume/index.ts';
 
 
 
@@ -17,8 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
 function init() {
   console.log('A página foi totalmente carregada e o DOM está acessível.');
   // Outras operações de inicialização aqui...
-  setupCurriculumDownload();
 
+  // Criar curriculo a partir de elemento Html utilizando html2pdf/utils
+  setupCurriculumDownload();
+  
   // Caution, this will import all the icons and bundle them.
   createIcons({ 
     icons: {
