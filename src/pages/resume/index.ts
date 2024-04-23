@@ -24,22 +24,6 @@ export function setupCurriculumDownload() {
   }
 }
 
-function generatePDF() {
-  return new Promise<void>((resolve, reject) => {
-    try {
-      HTMLToPDF({
-        // htmlString: Curriculum(),
-        elementSelector: '.resume-wrapper',
-        filename: 'curriculo-raphaelgregg.pdf',
-      });
-
-      resolve();
-    } catch (error) {
-      reject(error);
-    }
-  });
-}
-
 export function Resume() {
   return `
   ${Header()}
