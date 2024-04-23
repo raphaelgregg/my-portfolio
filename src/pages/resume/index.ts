@@ -1,6 +1,7 @@
 import { Footer } from "../../components/footer";
 import { Header } from "../../components/header";
 import { HTMLToPDF } from "../../utils/htmlToPDF";
+import { Curriculum } from "./download";
 
 import "./styles.css";
 
@@ -10,7 +11,11 @@ export function setupCurriculumDownload() {
   if (curriculumDownload) {
     curriculumDownload.addEventListener('click', async () => {
       try {
-        await generatePDF();
+        await HTMLToPDF({
+          // elementSelector: '.resume-wrapper',
+          htmlString: Curriculum(),
+          filename: 'curriculo-raphaelgregg.pdf',
+        });
         console.log('PDF gerado com sucesso');
       } catch (error) {
         console.error('Erro ao gerar PDF:', error);
@@ -23,6 +28,7 @@ function generatePDF() {
   return new Promise<void>((resolve, reject) => {
     try {
       HTMLToPDF({
+        // htmlString: Curriculum(),
         elementSelector: '.resume-wrapper',
         filename: 'curriculo-raphaelgregg.pdf',
       });
