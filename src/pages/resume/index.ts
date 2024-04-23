@@ -1,6 +1,6 @@
 import { Footer } from "../../components/footer";
 import { Header } from "../../components/header";
-import { generateHTMLToPDF } from "../../utils/generatePDF";
+import { HTMLToPDF } from "../../utils/htmlToPDF";
 
 import "./styles.css";
 
@@ -22,7 +22,7 @@ export function setupCurriculumDownload() {
 function generatePDF() {
   return new Promise<void>((resolve, reject) => {
     try {
-      generateHTMLToPDF({
+      HTMLToPDF({
         elementSelector: '.resume-wrapper',
         filename: 'curriculo-raphaelgregg.pdf',
       });

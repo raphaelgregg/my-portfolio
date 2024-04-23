@@ -6,7 +6,7 @@
 //   filename: string; 
 // }
 
-// export function generateHTMLToPDF({ htmlContent, filename }: GeneratePDFProps) {
+// export function HTMLToPDF({ htmlContent, filename }: GeneratePDFProps) {
 //   try {
 //     // Configurações do PDF
 //     const options = {
@@ -31,33 +31,45 @@
 
 import html2pdf from 'html2pdf.js';
 
-interface GeneratePDFProps {
+interface HTMLToPDFProps {
   elementSelector?: string;
   pagesContent?: string[];
+  htmlString?: string;
+  cssCustom?: string;
   filename: string; 
 }
 
-export async function generateHTMLToPDF({ elementSelector, filename }: GeneratePDFProps) {
-  try {
+export async function HTMLToPDF({ 
+  elementSelector,
+  htmlString, 
+  cssCustom, 
+  filename }: HTMLToPDFProps) {
+  
+    try {
     // Configurações do PDF
     const options = {
       filename: filename,
       image: { type: 'jpeg', quality: 0.98 },
       html2canvas: { scale: 2 },
-      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
+      css: cssCustom
     };
 
-    // Retorna content da Dom pelo seletor informado
-    const htmlContent = document.querySelector(elementSelector!);
+  // Retorna content da DOM pelo seletor informado
+  if(elementSelector!){
+    console.log(true);
+    // const htmlContent = document.querySelector(elementSelector);
+  }
 
-    const button = document.getElementById('btn-download');
-    if (button) button.style.visibility = 'hidden'; // Oculta o botão
-
+  if (htmlString!) {
+    console.log(htmlString);
+    // Obtém o HTML do elemento e encapsula em uma string CSS
+    // const htmlContet = htmlString;    
+    // Agora você pode usar htmlString e cssString com html2pdf
+  }
+  
     // Gerar PDF a partir da string HTML
-    html2pdf().set(options).from(htmlContent as HTMLElement || '').save();
-    
-    if (button) button.style.display = 'block';
-    
+    // html2pdf().set(options).from(htmlString || '').save();
     console.log('PDF gerado com sucesso:', filename);
   } catch (error) {
     console.error('Erro ao gerar PDF:', error);
