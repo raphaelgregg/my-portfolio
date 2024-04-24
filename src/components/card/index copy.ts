@@ -1,15 +1,15 @@
-import "./styles.css";
+import "./styles.css"
 
 interface CardProps {
-  company: string;
+  title: string;
   job: string;
   description: string;
   techs?: string[] ;
-  date?: string;
+  date: string;
   thumbnail?: string;
 }
 
-export function Card({company, job, description, techs, date, thumbnail}: CardProps) {
+export function Card({title, job, description, techs, date, thumbnail}: CardProps) {
 
   return `
   <div class="card">
@@ -17,11 +17,30 @@ export function Card({company, job, description, techs, date, thumbnail}: CardPr
       <img src="${thumbnail}" alt="thumbnail do projeto" />
     
       <div class="card-info">
-        <h3>${company}</h3>
+        <h3>${title}</h3>
         
         <p class="job">${job}</p>
         <p class="description">${description}</p>
+
+        ${techs ? 
+          `
+          <div class="card-techs">
+            ${ techs.map(tech => {
+              return `
+              <span>
+                <img src="/svg/${tech}.svg" />
+                ${tech}
+              </span>
+              `
+            }).join(' ')}
+          </div>
+          `
+          : "" }
       </div>
+    </div>
+    
+    <div class="card-footer">
+      Desenvolvido em ${date}.
     </div>
   </div>
   `;
