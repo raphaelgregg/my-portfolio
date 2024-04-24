@@ -51,19 +51,16 @@ section.brief p a {
 
 section.portfolio {
   margin-top: 6rem;
-  padding: 2rem 0;
-  background: var(--color-onyx-50);
+  padding: 4.8rem 0;
 }
 
 section.portfolio.work {
-  margin-top: 6rem;
-  padding: 2rem 0;
   background: var(--color-onyx-100);
 }
 
 section.portfolio .portfolio-wrapper {
   max-width: 95.6rem;
-  margin: 6rem auto;
+  margin: 0 auto;
   padding: 0 1.6rem;
 
   display: flex;
@@ -76,16 +73,16 @@ section.portfolio .portfolio-wrapper {
 
 
 section.portfolio .cards {
-  display: grid;
+  /* display: flex; */
   grid-template-columns: 1fr;
-  gap: 6rem;
-  
+  gap: 4rem;
   align-items: center;
   justify-items: center;
 
   width: 100%;
 
-  margin-top: 3rem;
+  margin-top: 2.4rem;
+  padding: .4rem;
 }
 
 .scroll {
@@ -93,10 +90,11 @@ section.portfolio .cards {
   overflow-x: auto; /* [2] */
   -webkit-overflow-scrolling: touch; /* [3] */
   -ms-overflow-style: -ms-autohiding-scrollbar; /* [4] */
+  display: flex; /* Adicione isso para garantir que os itens sejam exibidos em linha */
 }
 
 /* [5] */
-div.scroll::-webkit-scrollbar {
+.scroll::-webkit-scrollbar {
   display: none;
 }
 

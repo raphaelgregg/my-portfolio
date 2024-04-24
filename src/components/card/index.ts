@@ -9,8 +9,8 @@ interface CardProps {
   thumbnail?: string;
 }
 
-export function Card({company, job, description, techs, date, thumbnail}: CardProps) {
-
+export function Card({company, job, description, techs, date, thumbnail}: CardProps, index: number) {
+console.log(index)
   return `
   <div class="card">
     <div class="wrapper-card">  

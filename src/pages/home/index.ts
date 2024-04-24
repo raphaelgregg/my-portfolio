@@ -95,11 +95,10 @@ export function Home() {
     const description = job.description[0] || {};
     
     return {
-      company: experience.company,
-      thumbnail: experience['thumbnail-company'] || "",
+      company: experience.companyShortName,
+      thumbnail: experience.thumbnailCompany || "",
       job: job.title || "",
-      description: description.event || "",
-      event: description?.event || ""
+      description: description.descriptionShort || "",
     };
   });
 
@@ -137,8 +136,8 @@ export function Home() {
             <h4>Experiência Profissional</h4>
           </div>
       
-          <div class="cards work">
-            ${ filteredJobs ? filteredJobs.map(job => Card(job)).join(" ") : ""}
+          <div class="cards scroll">
+            ${ filteredJobs ? filteredJobs.map((job, index) => Card(job, index)).join(" ") : ""}
           </div>
         </div>
       </section>
