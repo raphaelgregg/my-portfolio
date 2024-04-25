@@ -75,7 +75,7 @@ section.portfolio .portfolio-wrapper {
 section.portfolio .cards {
   /* display: flex; */
   grid-template-columns: 1fr;
-  gap: 4rem;
+  gap: 2.8rem;
   align-items: center;
   justify-items: center;
 

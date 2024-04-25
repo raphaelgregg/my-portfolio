@@ -92,13 +92,12 @@ export function Home() {
 
   const filteredJobs = sortedJobs.map(experience => {
     const job = experience.jobs[0] || {};
-    const description = job.description[0] || {};
-    
+        
     return {
       company: experience.companyShortName,
       thumbnail: experience.thumbnailCompany || "",
       job: job.title || "",
-      description: description.descriptionShort || "",
+      description: experience.jobsOverview || "",
     };
   });
 

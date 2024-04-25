@@ -1,84 +1,4 @@
 {
-  "user": {
-    "name": "Raphael",
-    "surname": "Gregg",
-    "login": "raphaelgregg",
-    "bio": "about",
-    "mail": "raphaelgregg@gmail.com",
-    "phone": "91992720408",
-    "social": {
-      "linkedin": "https://www.linkedin.com/in/raphaelgregg",
-      "twitter": "https://twitter.com/raphaelgregg",
-      "github": "https://github.com/raphaelgregg"
-    }
-  },
-  "skills": [
-    "Figma",
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "TypeScript",
-    "ReactJS",
-    "React Native"
-  ],
-  "education": [
-    {
-      "university": "Universidade da Amazônia",
-      "universityShortName": "UNAMA",
-      "degree": "Tecnólogo em Análise e Desenvolvimento de Sistemas",
-      "initialDate": "2017-08-01",
-      "finalDate": "2021-07-01",
-      "location": "Vitória, ES",
-      "description": "Trabalho de conclusão sobre otimização de pesquisa de informações utilizando Apache Lucene."
-    }
-  ],
-  "certification": [
-    {
-      "name": "NLW Expert trilha de HTML, CSS e Javascript",
-      "emitter": "Rocketseat",
-      "code": "319e93a3-a22f-4449-a894-32dfc8207ad4",
-      "url": "https://app.rocketseat.com.br/certificates/319e93a3-a22f-4449-a894-32dfc8207ad4",
-      "issueDate": "2024-02-01",
-      "location": "Vitória, ES",
-      "description": "Description certification"
-    },
-    {
-      "name": "MD-100: Windows Client",
-      "emitter": "Microsoft",
-      "code": "99de4fc8-4a98-4835-ae88-df0cb666adff",
-      "url": "https://www.credly.com/badges/99de4fc8-4a98-4835-ae88-df0cb666adff/public_url",
-      "issueDate": "2022-08-01",
-      "location": "Vitória, ES",
-      "description": "Description certification"
-    },
-    {
-      "name": "Análise de Requisitos de Software com Histórias de Usuários",
-      "emitter": "Udemy",
-      "code": "UC-7c43d8b1-ed62-4654-9481-593657e979b5",
-      "url": "",
-      "issueDate": "2021-01-01",
-      "location": "Belém, PA",
-      "description": "Description certification"
-    },
-    {
-      "name": "Certificado Bootcamp GoStack 12",
-      "emitter": "Rocketseat",
-      "code": "ba3cb5ed-4ee3-4ec8-89bc-7eb815805d10",
-      "url": "https://app.rocketseat.com.br/certificates/ba3cb5ed-4ee3-4ec8-89bc-7eb815805d10",
-      "issueDate": "2020-08-01",
-      "location": "Belém, PA",
-      "description": "Description certification"
-    },
-    {
-      "name": "Scrum Foundation Professional Certification - SFPC",
-      "emitter": "Certiprof",
-      "code": "",
-      "url": "https://www.credly.com/earner/earned/badge/fd278b08-57fa-4148-bdb0-fb6b39e2b8ce",
-      "issueDate": "2024-02-01",
-      "location": "Vitória, ES",
-      "description": "Description certification"
-    }
-  ],
   "experience": [
     {
       "id": 0,
@@ -88,32 +8,20 @@
       "url": "https://raphaelgregg.vercel.app/",
       "hireDate": "2022-05-01",
       "departureDate": "presente",
+      "companyOverview": "Raphael Gregg é um desenvolvedor web com experiência em projetos web e mobile. Especializado em tecnologias como HTML, CSS, JavaScript, ReactJS e React Native.",
+      "jobsOverview": "Desenvolvedor Front-end com experiência em projetos web e mobile. Promovido a Desenvolvedor Full-stack em setembro de 2023.",
       "jobs": [
         {
           "id": 0,
           "title": "Desenvolvedor Front-end",
-          "description": [
-            {
-              "date": "2022-05-01",
-              "descriptionShort": "leve description",
-              "descriptionLong": "Início como Desenvolvedor Front-end. Responsável pelo desenvolvimento de projetos web e mobile."
-            },
-            {
-              "date": "presente",
-              "descriptionLong": "Atualmente trabalhando como Desenvolvedor Front-end."
-            }
-          ]
+          "description": "Início como Desenvolvedor Front-end. Responsável pelo desenvolvimento de projetos web e mobile.",
+          "successCases": []
         },
         {
           "id": 1,
           "title": "Desenvolvedor Full-stack",
-          "description": [
-            {
-              "date": "2023-09-01",
-              "descriptionShort": "leve description",
-              "descriptionLong": "Promovido a Desenvolvedor Full-stack. Responsável pelo desenvolvimento de aplicativos web completos."
-            }
-          ]
+          "description": "Promovido a Desenvolvedor Full-stack. Responsável pelo desenvolvimento de aplicativos web completos.",
+          "successCases": []
         }
       ],
       "location": "Vitória, ES",
@@ -158,34 +66,32 @@
       "url": "#",
       "hireDate": "2012-03-01",
       "departureDate": "2020-12-01",
+      "companyOverview": "Controlmidia Norte LTDA é uma empresa de tecnologia especializada em soluções de mídia e informática para clientes corporativos e governamentais.",
+      "jobsOverview": "Experiência em cargos administrativos e de suporte em informática.",
       "jobs": [
         {
           "id": 0,
           "title": "Auxiliar administrativo",
-          "description": [
+          "description": "Monitorar informações em jornais, comerciais veiculados na TV, rádio e internet, capturando e direcionando dados relevantes conforme o contrato/cliente.",
+          "successCases": [
             {
               "date": "2012-03-01",
-              "descriptionShort": "leve description",
-              "descriptionLong": "Monitorar informações em jornais, comerciais veiculados na TV, rádio e internet, capturando e direcionando dados relevantes conforme o contrato/cliente."
+              "case": "Monitorar informações em jornais, comerciais veiculados na TV, rádio e internet, capturando e direcionando dados relevantes conforme o contrato/cliente."
             },
             {
               "date": "2012-03-01",
-              "descriptionLong": "Treinamento de novos colaboradores, além de assumir as funções de supervisor e liderança da equipe durante as férias do gestor."
+              "case": "Treinamento de novos colaboradores, assumir as funções de supervisor e liderança da equipe durante as férias do gestor."
             }
           ]
         },
         {
           "id": 1,
           "title": "Suporte Informática",
-          "description": [
+          "description": "Desempenho das funções de Suporte em informática, incluindo montagem, instalação, configuração e manutenção preventiva e corretiva de equipamentos.",
+          "successCases": [
             {
               "date": "2012-03-01",
-              "descriptionShort": "leve description",
-              "descriptionLong": "Desempenho das funções de Suporte em informática, incluindo montagem, instalação, configuração e manutenção preventiva e corretiva de equipamentos."
-            },
-            {
-              "date": "2012-03-01",
-              "descriptionLong": "Participação na construção do sistema de gerenciamento e disponibilização de mídias, desenvolvido em Java, JSF e RichFaces."
+              "case": "Participação na construção do sistema de gerenciamento e disponibilização de mídias, desenvolvido em Java, JSF e RichFaces."
             }
           ]
         }
@@ -212,17 +118,14 @@
       "url": "#",
       "hireDate": "2021-06-01",
       "departureDate": "2021-08-01",
+      "companyOverview": "Entrelinhas é uma empresa especializada em desenvolvimento de aplicativos mobile.",
+      "jobsOverview": "Contrato para desenvolvimento de aplicativo mobile.",
       "jobs": [
         {
           "id": 0,
           "title": "Desenvolvedor mobile",
-          "description": [
-            {
-              "date": "2021-07-01",
-              "descriptionShort": "leve description",
-              "descriptionLong": "Contrato para desenvolvimento de aplicativo mobile"
-            }
-          ]
+          "description": "Contrato para desenvolvimento de aplicativo mobile.",
+          "successCases": []
         }
       ],
       "location": "Belém, PA",
@@ -247,17 +150,14 @@
       "url": "#",
       "hireDate": "2021-09-01",
       "departureDate": "2021-11-01",
+      "companyOverview": "Aprigio Advocacia é um escritório de advocacia que presta serviços jurídicos especializados.",
+      "jobsOverview": "Contrato para desenvolvimento de aplicativo web.",
       "jobs": [
         {
           "id": 0,
           "title": "Desenvolvedor front end",
-          "description": [
-            {
-              "date": "2021-09-01",
-              "descriptionShort": "leve description",
-              "descriptionLong": "Contrato para desenvolvimento de aplicativo web"
-            }
-          ]
+          "description": "Contrato para desenvolvimento de aplicativo web.",
+          "successCases": []
         }
       ],
       "location": "Belém, PA",
@@ -282,34 +182,36 @@
       "url": "https://www.lanlink.com.br/",
       "hireDate": "2021-12-07",
       "departureDate": "presente",
+      "companyOverview": "Lanlink Serviços de Informática SA é uma empresa líder no fornecimento de soluções de tecnologia da informação para instituições públicas e privadas. Com foco em suporte técnico de alta qualidade e soluções personalizadas, a Lanlink tem uma longa história de sucesso no mercado de TI.",
+      "jobsOverview": "Técnico em suporte de nível 2 com experiência em ambientes de alta demanda. Especializado em oferecer suporte técnico eficiente e solucionar problemas complexos em instituições públicas e privadas.",
       "jobs": [
         {
           "id": 0,
           "title": "Técnico em suporte Nível 2",
-          "description": [
+          "description": "Suporte técnico de nível 2 em ambientes de alto desempenho.",
+          "successCases": [
             {
               "date": "2021-12-07",
-              "descriptionShort": "leve description",
-              "descriptionLong": "Atendimento e suporte aos usuários no Tribunal de Justiça do Pará."
+              "case": "Atendimento e suporte aos usuários no Tribunal de Justiça do Pará."
             },
             {
               "date": "2022-05-01",
-              "descriptionLong": "Participação na troca do parque tecnológico Tribunal de Justiça do Estado do Pará, no qual, participei na reestruturação de mais 60 fóruns no Estado."
+              "case": "Participação na troca do parque tecnológico do Tribunal de Justiça do Estado do Pará, incluindo a reestruturação de mais de 60 fóruns no estado."
             }
           ]
         },
         {
           "id": 1,
           "title": "Técnico em suporte Nível 2",
-          "description": [
+          "description": "Suporte técnico de nível 2 para órgãos públicos e privados.",
+          "successCases": [
             {
               "date": "2021-09-01",
-              "descriptionShort": "leve description",
-              "descriptionLong": "Atendimento e suporte aos usuários no Ministério Público do Espírito Santo, apoio às equipes de 3º e 1º nível."
+              "case": "Atendimento e suporte aos usuários no Ministério Público do Espírito Santo, apoiando equipes de 3º e 1º nível."
             },
             {
               "date": "2021-09-01",
-              "descriptionLong": "Participação e auxílio na recuperação do contrato que estava com backlog com 500 mais de chamados violados."
+              "case": "Participação e auxílio na recuperação do contrato com mais de 500 chamados em backlog."
             }
           ]
         }

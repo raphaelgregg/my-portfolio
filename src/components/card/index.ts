@@ -20,7 +20,7 @@ console.log(index)
         <h3>${company}</h3>
         
         <p class="job">${job}</p>
-        <p class="description">${description}</p>
+        <p class="description limited-lines">${description}</p>
       </div>
     </div>
   </div>

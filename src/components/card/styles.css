@@ -1,6 +1,6 @@
 .card {
-  max-width: 36rem;
-  min-height: 37.2rem;
+  max-width: 28rem;
+  min-height: 32rem;
   overflow: hidden;
 
   display: flex;
@@ -41,14 +41,26 @@
   padding: 1.6rem;
 }
 
-.card-info .job {
+.card-info p.job {
   font-size: 1.4rem;
   color: var(--color-onyx-400);
 }
 
-.card-info .description {
+.card-info p.description {
   text-align: start;
   margin-top: .6rem;
+
+  font-size: 1.4rem;
+  line-height: 2.6rem;
+}
+
+.limited-lines {
+  max-height: 5.4rem; /* Altura equivalente a três linhas de texto */
+  overflow: hidden; /* Oculta o conteúdo excedente */
+  text-overflow: ellipsis; /* Adiciona reticências (...) ao final do texto cortado */
+  line-height: 2.6rem; /* Altura da linha do texto */
+  white-space: normal; /* Adicionando a propriedade para quebrar o texto */
+  -webkit-line-clamp: 3; /* Por exemplo, para limitar a 3 linhas */
 }
 
 .card-techs {

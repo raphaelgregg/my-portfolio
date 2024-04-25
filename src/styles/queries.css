@@ -40,13 +40,10 @@
     margin: 0;
   }
 
-  section.portfolio .portfolio-wrapper {
+  /* section.portfolio .portfolio-wrapper {
     display: grid;
     grid-template-columns: 1fr;
-    /* gap: 9rem; */
-
-    width: 100%;
-  }
+  } */
 
   .portfolio-wrapper-section-header {
     display: block;
@@ -64,7 +61,7 @@
   }
   section.portfolio .portfolio-wrapper .cards {
     grid-template-columns: 1fr 1fr;
-    gap: 6rem;
+    /* gap: 6rem; */
   }
 
   .resume-wrapper {
