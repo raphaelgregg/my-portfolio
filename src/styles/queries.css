@@ -23,6 +23,10 @@
     gap: 6rem;
   }
 
+  #my-projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .resume-wrapper header {
     flex-direction: row;
     justify-content: space-between;
@@ -39,58 +43,20 @@
   section.brief h1 {
     margin: 0;
   }
-
-  /* section.portfolio .portfolio-wrapper {
-    display: grid;
-    grid-template-columns: 1fr;
-  } */
-
-  .portfolio-wrapper-section-header {
-    display: block;
-    /* position: fixed; */
-    display: grid;
-    gap: 1rem;
-    align-items: flex-start;
-    justify-content: flex-start;
-    /* width: 26rem; */
-  }
-
-  section.portfolio .portfolio-wrapper .cards.work {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.6rem;
-  }
-  section.portfolio .portfolio-wrapper .cards {
-    grid-template-columns: 1fr 1fr;
-    /* gap: 6rem; */
-  }
-
-  .resume-wrapper {
-    /* padding: 6rem 8rem; */
-  }
-}
+} 
 
 @media (min-width: 986px) {
   nav ul {
     padding-right: 4rem;
   }
 
-  section.portfolio {
-    display: flex;
-    flex-direction: column;
-
-  }
-  
-  section.portfolio .cards {
-    /* display: grid;
-    grid-template-columns: 1fr 1fr; */
-    
+  section.portfolio .cards {    
     max-width: 82rem;
-
     margin-inline: auto;
   }
-
-  .resume-wrapper {
-    /* padding: 6.4rem 8.2rem; */
+  
+  #my-projects {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .resume-wrapper section {

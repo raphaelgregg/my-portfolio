@@ -1,4 +1,84 @@
 {
+  "user": {
+    "name": "Raphael",
+    "surname": "Gregg",
+    "login": "raphaelgregg",
+    "bio": "about",
+    "mail": "raphaelgregg@gmail.com",
+    "phone": "91992720408",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/raphaelgregg",
+      "twitter": "https://twitter.com/raphaelgregg",
+      "github": "https://github.com/raphaelgregg"
+    }
+  },
+  "skills": [
+    "Figma",
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "TypeScript",
+    "ReactJS",
+    "React Native"
+  ],
+  "education": [
+    {
+      "university": "Universidade da Amazônia",
+      "universityShortName": "UNAMA",
+      "degree": "Tecnólogo em Análise e Desenvolvimento de Sistemas",
+      "initialDate": "2017-08-01",
+      "finalDate": "2021-07-01",
+      "location": "Vitória, ES",
+      "description": "Trabalho de conclusão sobre otimização de pesquisa de informações utilizando Apache Lucene."
+    }
+  ],
+  "certification": [
+    {
+      "name": "NLW Expert trilha de HTML, CSS e Javascript",
+      "emitter": "Rocketseat",
+      "code": "319e93a3-a22f-4449-a894-32dfc8207ad4",
+      "url": "https://app.rocketseat.com.br/certificates/319e93a3-a22f-4449-a894-32dfc8207ad4",
+      "issueDate": "2024-02-01",
+      "location": "Vitória, ES",
+      "description": "Description certification"
+    },
+    {
+      "name": "MD-100: Windows Client",
+      "emitter": "Microsoft",
+      "code": "99de4fc8-4a98-4835-ae88-df0cb666adff",
+      "url": "https://www.credly.com/badges/99de4fc8-4a98-4835-ae88-df0cb666adff/public_url",
+      "issueDate": "2022-08-01",
+      "location": "Vitória, ES",
+      "description": "Description certification"
+    },
+    {
+      "name": "Análise de Requisitos de Software com Histórias de Usuários",
+      "emitter": "Udemy",
+      "code": "UC-7c43d8b1-ed62-4654-9481-593657e979b5",
+      "url": "",
+      "issueDate": "2021-01-01",
+      "location": "Belém, PA",
+      "description": "Description certification"
+    },
+    {
+      "name": "Certificado Bootcamp GoStack 12",
+      "emitter": "Rocketseat",
+      "code": "ba3cb5ed-4ee3-4ec8-89bc-7eb815805d10",
+      "url": "https://app.rocketseat.com.br/certificates/ba3cb5ed-4ee3-4ec8-89bc-7eb815805d10",
+      "issueDate": "2020-08-01",
+      "location": "Belém, PA",
+      "description": "Description certification"
+    },
+    {
+      "name": "Scrum Foundation Professional Certification - SFPC",
+      "emitter": "Certiprof",
+      "code": "",
+      "url": "https://www.credly.com/earner/earned/badge/fd278b08-57fa-4148-bdb0-fb6b39e2b8ce",
+      "issueDate": "2024-02-01",
+      "location": "Vitória, ES",
+      "description": "Description certification"
+    }
+  ],
   "experience": [
     {
       "id": 0,
@@ -9,6 +89,7 @@
       "hireDate": "2022-05-01",
       "departureDate": "presente",
       "companyOverview": "Raphael Gregg é um desenvolvedor web com experiência em projetos web e mobile. Especializado em tecnologias como HTML, CSS, JavaScript, ReactJS e React Native.",
+      "companyOverviewShort": "Desenvolvedor web com experiência em projetos web e mobile.",
       "jobsOverview": "Desenvolvedor Front-end com experiência em projetos web e mobile. Promovido a Desenvolvedor Full-stack em setembro de 2023.",
       "jobs": [
         {
@@ -31,7 +112,7 @@
           "title": "Meu Portfólio",
           "role": "Desenvolvedor Front-end",
           "projectDescription": "Aplicação de multiletramentos",
-          "technologies": ["HTML", "CSS", "TypeScript"],
+          "technologies": ["html", "css", "typescript"],
           "date": "2024-04-01",
           "category": "Web",
           "thumbnail": "https://assets-global.website-files.com/64c1de6909d566eef48d4dfd/6504057596969ba574d148c5_Frame%2059%201.svg"
@@ -41,20 +122,50 @@
           "title": "Projeto X",
           "role": "Desenvolvedor Full-stack",
           "projectDescription": "Descrição do Projeto X",
-          "technologies": ["React", "Node.js", "MongoDB"],
+          "technologies": ["react", "node.js", "mongoDB"],
           "date": "2023-11-01",
           "category": "Web",
-          "thumbnail": "https://example.com/thumbnail2.jpg"
+          "thumbnail": "https://assets-global.website-files.com/64c1de6909d566eef48d4dfd/6504057596969ba574d148c5_Frame%2059%201.svg"
         },
         {
           "id": 2,
           "title": "Projeto Y",
           "role": "Desenvolvedor Full-stack",
           "projectDescription": "Descrição do Projeto Y",
-          "technologies": ["Angular", "Express", "MySQL"],
+          "technologies": ["angular", "express", "mysql"],
           "date": "2023-08-01",
           "category": "Web",
-          "thumbnail": "https://example.com/thumbnail3.jpg"
+          "thumbnail": "https://assets-global.website-files.com/64c1de6909d566eef48d4dfd/6504057596969ba574d148c5_Frame%2059%201.svg"
+        },
+        {
+          "id": 2,
+          "title": "Projeto Y",
+          "role": "Desenvolvedor Full-stack",
+          "projectDescription": "Descrição do Projeto Y",
+          "technologies": ["angular", "express", "mysql"],
+          "date": "2023-08-01",
+          "category": "Web",
+          "thumbnail": "https://assets-global.website-files.com/64c1de6909d566eef48d4dfd/6504057596969ba574d148c5_Frame%2059%201.svg"
+        },
+        {
+          "id": 2,
+          "title": "Projeto Y",
+          "role": "Desenvolvedor Full-stack",
+          "projectDescription": "Descrição do Projeto Y",
+          "technologies": ["angular", "express", "mysql"],
+          "date": "2023-08-01",
+          "category": "Web",
+          "thumbnail": "https://assets-global.website-files.com/64c1de6909d566eef48d4dfd/6504057596969ba574d148c5_Frame%2059%201.svg"
+        },
+        {
+          "id": 2,
+          "title": "Projeto Y",
+          "role": "Desenvolvedor Full-stack",
+          "projectDescription": "Descrição do Projeto Y",
+          "technologies": ["angular", "express", "mysql"],
+          "date": "2023-08-01",
+          "category": "Web",
+          "thumbnail": "https://assets-global.website-files.com/64c1de6909d566eef48d4dfd/6504057596969ba574d148c5_Frame%2059%201.svg"
         }
       ]
     },
@@ -67,6 +178,7 @@
       "hireDate": "2012-03-01",
       "departureDate": "2020-12-01",
       "companyOverview": "Controlmidia Norte LTDA é uma empresa de tecnologia especializada em soluções de mídia e informática para clientes corporativos e governamentais.",
+      "companyOverviewShort": "Empresa de tecnologia especializada em soluções de mídia e informática.",
       "jobsOverview": "Experiência em cargos administrativos e de suporte em informática.",
       "jobs": [
         {
@@ -118,7 +230,8 @@
       "url": "#",
       "hireDate": "2021-06-01",
       "departureDate": "2021-08-01",
-      "companyOverview": "Entrelinhas é uma empresa especializada em desenvolvimento de aplicativos mobile.",
+      "companyOverview": "Entrelinhas é uma empresa especializada em curso em de redação.",
+      "companyOverviewShort": "Empresa especializada em curso de redação.",
       "jobsOverview": "Contrato para desenvolvimento de aplicativo mobile.",
       "jobs": [
         {
@@ -151,6 +264,7 @@
       "hireDate": "2021-09-01",
       "departureDate": "2021-11-01",
       "companyOverview": "Aprigio Advocacia é um escritório de advocacia que presta serviços jurídicos especializados.",
+      "companyOverviewShort": "Escritório de advocacia especializado em serviços jurídicos.",
       "jobsOverview": "Contrato para desenvolvimento de aplicativo web.",
       "jobs": [
         {
@@ -183,6 +297,7 @@
       "hireDate": "2021-12-07",
       "departureDate": "presente",
       "companyOverview": "Lanlink Serviços de Informática SA é uma empresa líder no fornecimento de soluções de tecnologia da informação para instituições públicas e privadas. Com foco em suporte técnico de alta qualidade e soluções personalizadas, a Lanlink tem uma longa história de sucesso no mercado de TI.",
+      "companyOverviewShort": "Empresa líder no fornecimento de soluções de TI.",
       "jobsOverview": "Técnico em suporte de nível 2 com experiência em ambientes de alta demanda. Especializado em oferecer suporte técnico eficiente e solucionar problemas complexos em instituições públicas e privadas.",
       "jobs": [
         {

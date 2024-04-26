@@ -2,30 +2,29 @@ import "./styles.css"
 
 interface CardProps {
   title: string;
-  job: string;
-  description: string;
-  techs?: string[] ;
+  role: string;
+  projectDescription: string;
+  technologies?: string[] ;
   date: string;
   thumbnail?: string;
 }
 
-export function Card({title, job, description, techs, date, thumbnail}: CardProps) {
-
+export function CardMyProject({title, role, projectDescription, technologies, date, thumbnail}: CardProps) {
   return `
-  <div class="card">
+  <div class="card-my-project">
     <div class="wrapper-card">  
       <img src="${thumbnail}" alt="thumbnail do projeto" />
     
-      <div class="card-info">
+      <div class="info">
         <h3>${title}</h3>
         
-        <p class="job">${job}</p>
-        <p class="description">${description}</p>
+        <p class="role">${role}</p>
+        <p class="description">${projectDescription}</p>
 
-        ${techs ? 
+        ${technologies ? 
           `
-          <div class="card-techs">
-            ${ techs.map(tech => {
+          <div class="techs">
+            ${ technologies.map(tech => {
               return `
               <span>
                 <img src="/svg/${tech}.svg" />
@@ -39,7 +38,7 @@ export function Card({title, job, description, techs, date, thumbnail}: CardProp
       </div>
     </div>
     
-    <div class="card-footer">
+    <div class="footer">
       Desenvolvido em ${date}.
     </div>
   </div>

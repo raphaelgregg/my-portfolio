@@ -1,6 +1,6 @@
-.card {
-  max-width: 40.2rem;
-  min-height: 37.2rem;
+.card-experience-job {
+  max-width: 29rem;
+  min-height: 32rem;
   overflow: hidden;
 
   display: flex;
@@ -9,13 +9,16 @@
 
 
   border: 1px solid var(--color-onyx-100);
-  border-radius: 20px;
+  border-radius: 8px;
   
   background: rgba(228, 232, 233, .2);
   box-shadow: 0 .3rem .4rem rgba(0, 0, 0, 0.1);
+
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
-.card img {
+.card-experience-job img {
   width: 100%;
     /* trabalha a propoção da imagem */
   aspect-ratio: 16/9;
@@ -25,12 +28,12 @@
   display: block;
 }
 
-.card img:hover {
+.card-experience-job img:hover {
   filter: hue-rotate(7deg) contrast(101%) saturate(200%);
   transform: scale(1.1);
 }
 
-.card-info {
+.card-experience-job .info {
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -38,53 +41,29 @@
   padding: 1.6rem;
 }
 
-.card-info .job {
+.card-experience-job .info p.job {
   font-size: 1.4rem;
   color: var(--color-onyx-400);
 }
 
-.card-info .description {
+.card-experience-job .info p.description {
   text-align: start;
   margin-top: .6rem;
-}
 
-.card-techs {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: .8rem;
-  
-  flex-direction: row;
-  flex-wrap: wrap;
-  flex-grow: 0;
-
-  margin-top: 2rem;
-}
-
-.card-techs span {
-  padding: 0.8rem;
-  border-radius: 8px;
-  border: 1px solid var(--color-onyx-200);
-  
-  font-family: Inter, sans-serif;
   font-size: 1.4rem;
-  font-weight: 500;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-
-  text-transform: uppercase;
+  line-height: 2.6rem;
 }
 
-.card-techs span img{
-  width: 1.8rem;
+.limited-lines {
+  /*max-height: 5.4rem; /* Altura equivalente a três linhas de texto */
+  overflow: hidden; /* Oculta o conteúdo excedente */
+  text-overflow: ellipsis; /* Adiciona reticências (...) ao final do texto cortado */
+  line-height: 2.6rem; /* Altura da linha do texto */
+  white-space: normal; /* Adicionando a propriedade para quebrar o texto */
+  -webkit-line-clamp: 3; /* Por exemplo, para limitar a 3 linhas */
 }
 
-
-
-.card-footer {
+.card-experience-job-footer {
   background: rgba(228, 232, 233, .3);
   padding: 1.6rem;
   

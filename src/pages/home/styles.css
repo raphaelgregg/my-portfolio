@@ -62,9 +62,18 @@ section.portfolio .portfolio-wrapper {
   max-width: 95.6rem;
   margin: 0 auto;
   padding: 0 1.6rem;
-
+  
   display: flex;
   flex-direction: column;
+}
+
+.portfolio-wrapper .header {
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  /* width: 26rem; */
 }
 
 .portfolio-wrapper-section-header h4 {
@@ -72,10 +81,10 @@ section.portfolio .portfolio-wrapper {
 }
 
 
-section.portfolio .cards {
-  /* display: flex; */
-  grid-template-columns: 1fr;
-  gap: 2.8rem;
+section.portfolio .cards-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 2.4rem;
   align-items: center;
   justify-items: center;
 
@@ -83,6 +92,11 @@ section.portfolio .cards {
 
   margin-top: 2.4rem;
   padding: .4rem;
+}
+
+#my-projects {
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
 .scroll {

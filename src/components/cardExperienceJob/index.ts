@@ -9,14 +9,14 @@ interface CardProps {
   thumbnail?: string;
 }
 
-export function Card({company, job, description, techs, date, thumbnail}: CardProps, index: number) {
+export function CardExperienceJob({company, job, description, techs, date, thumbnail}: CardProps, index: number) {
 console.log(index)
   return `
-  <div class="card">
+  <div class="card-experience-job">
     <div class="wrapper-card">  
       <img src="${thumbnail}" alt="thumbnail do projeto" />
     
-      <div class="card-info">
+      <div class="info">
         <h3>${company}</h3>
         
         <p class="job">${job}</p>
