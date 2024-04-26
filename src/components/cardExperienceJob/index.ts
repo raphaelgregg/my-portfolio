@@ -9,7 +9,7 @@ interface CardProps {
   thumbnail?: string;
 }
 
-export function CardExperienceJob({company, job, description, techs, date, thumbnail}: CardProps, index: number) {
+export function CardExperienceJob({company, job, description, thumbnail}: CardProps, index: number) {
 console.log(index)
   return `
   <div class="card-experience-job">
