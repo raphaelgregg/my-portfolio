@@ -13,6 +13,7 @@
     "vite": "^5.1.6"
   },
   "dependencies": {
+    "firebase": "^10.11.1",
     "html2pdf.js": "^0.10.1",
     "lucide": "^0.370.0"
   }

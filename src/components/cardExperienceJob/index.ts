@@ -10,7 +10,7 @@ interface CardProps {
 }
 
 export function CardExperienceJob({company, job, description, thumbnail}: CardProps, index: number) {
-console.log(index)
+// console.log(index)
   return `
   <div class="card-experience-job">
     <div class="wrapper-card">  
