@@ -1,26 +1,20 @@
+import { CardExperienceDTO } from '../../dtos/cardExperienceDTO';
+
 import "./styles.css";
 
-interface CardProps {
-  company: string;
-  job: string;
-  description: string;
-  techs?: string[] ;
-  date?: string;
-  thumbnail?: string;
-}
-
-export function CardExperienceJob({company, job, description, thumbnail}: CardProps, index: number) {
-// console.log(index)
+export function CardExperienceJob({companyShortName, jobs, companyOverviewShort, thumbnailCompany}: CardExperienceDTO, index: number) {
+  console.log(index);
+  
   return `
   <div class="card-experience-job">
     <div class="wrapper-card">  
-      <img src="${thumbnail}" alt="thumbnail do projeto" />
+      <img src="${thumbnailCompany}" alt="thumbnail do projeto" />
     
       <div class="info">
-        <h3>${company}</h3>
+        <h3>${companyShortName}</h3>
         
-        <p class="job">${job}</p>
-        <p class="description limited-lines">${description}</p>
+        <p class="job">${jobs}</p>
+        <p class="description limited-lines">${companyOverviewShort}</p>
       </div>
     </div>
   </div>

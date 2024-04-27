@@ -1,15 +1,8 @@
-import "./styles.css"
+import { CardMyProjectDTO } from "../../dtos/cardMyProjectDTO";
 
-interface CardProps {
-  title: string;
-  role: string;
-  projectDescription: string;
-  technologies?: string[] ;
-  date: string;
-  thumbnail?: string;
-}
+import "./styles.css";
 
-export function CardMyProject({title, role, projectDescription, technologies, date, thumbnail}: CardProps) {
+export function CardMyProject({title, role, projectDescription, technologies, date, thumbnail}: CardMyProjectDTO) {
   return `
   <div class="card-my-project">
     <div class="wrapper-card">  

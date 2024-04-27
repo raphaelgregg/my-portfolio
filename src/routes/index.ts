@@ -4,10 +4,11 @@ import { Resume } from "../pages/resume";
 import { Curriculum } from "../pages/resume/download";
 
 // recebe o caminho da url atual na pagina e o elemento html, para retornar o conteudo de pagina referente
-export function navigateTo(path: string, rootElement: HTMLElement) {
+export async function navigateTo(path: string, rootElement: HTMLElement) {
   switch (path) {
     case '/':
-      rootElement.innerHTML = Home();
+      const homeContent = await Home();
+      rootElement.innerHTML = homeContent;
       // console.log(rootElement, path);
       break;
     case '/about':
