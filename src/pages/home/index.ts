@@ -27,9 +27,10 @@ export async function Home() {
     // Atribuir os dados filtrados a filteredExperienceJobs
     filteredExperienceJobs = sortedJobs.map((job:CardExperienceDTO) => {
       const jobTitle = job.jobs[0].title || {};
+      console.log(jobTitle);
       return {
         companyShortName: job.companyShortName || "",
-        job: jobTitle || "",
+        jobs: jobTitle || "",
         companyOverviewShort: job.companyOverviewShort || "",
         thumbnailCompany: job.thumbnailCompany || "",
       };
