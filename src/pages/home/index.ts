@@ -1,4 +1,4 @@
-import { CardExperience } from "../../components/cardExperienceJob";
+import { CardExperience } from "../../components/cardExperience";
 import { CardMyProject } from "../../components/cardMyProjects";
 import { Footer } from '../../components/footer';
 import { Header } from '../../components/header';
