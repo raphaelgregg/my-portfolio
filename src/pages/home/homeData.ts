@@ -70,6 +70,7 @@ export function getExperienceSortByDateAndMyProjects(firebaseData:ExperienceDTO)
 
     if (firstExperience) {
         firstExperienceProjects = firstExperience.projects.map((project: any) => ({
+            id: project.id,
             title: project.title,
             role: project.role,
             projectDescription: project.projectDescription,

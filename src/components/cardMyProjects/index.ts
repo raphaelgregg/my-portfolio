@@ -2,9 +2,10 @@ import { ProjectDTO } from "../../dtos/experienceDTO";
 
 import "./styles.css";
 
-export function CardMyProject({title, role, projectDescription, technologies, date, thumbnail}: ProjectDTO) {
+export function CardMyProject({id, title, role, projectDescription, technologies, date, thumbnail}: ProjectDTO) {
   return `
   <div class="card-my-project">
+  <a href="/project/${id}">
     <div class="wrapper-card">  
       <img src="${thumbnail}" alt="thumbnail do projeto" />
     
@@ -34,6 +35,7 @@ export function CardMyProject({title, role, projectDescription, technologies, da
     <div class="footer">
       Desenvolvido em ${date}.
     </div>
+    </a>
   </div>
   `;
 }

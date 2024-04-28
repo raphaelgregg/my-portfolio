@@ -1,5 +1,7 @@
 import { About } from "../pages/about";
+import { Experience } from "../pages/experience";
 import { Home } from "../pages/home";
+import { Project } from "../pages/project";
 import { Resume } from "../pages/resume";
 import { Curriculum } from "../pages/resume/download";
 
@@ -24,8 +26,8 @@ export async function navigateTo(path: string, rootElement: HTMLElement) {
       // console.log(rootElement, path);
       break;
     default:
-      rootElement.innerHTML = '<h1>404 Not Found</h1>';
-      // console.log(rootElement, path);
+      rootElement.innerHTML = await handleDynamicPath(path);
+      // console.log(rootElement, path: function handleDynamicPath);
   }
 }
 
@@ -37,4 +39,24 @@ export function preventDefaultRouter(event: Event) {
     history.pushState(null, '', target.href); // Atualiza a URL sem recarregar a página
     navigateTo(target.pathname, document.getElementById('app')!);
   }
+}
+
+async function handleDynamicPath(path: string): Promise<string> {
+  // Verifica se o caminho começa com '/experience/'
+  if (path.startsWith('/experience/')) {
+    const experienceId = path.split('/').pop(); // Extrai o ID da experiência da URL
+    if (experienceId) {
+      return await Experience(experienceId); // Retorna o conteúdo da página de experiência com o ID
+    }
+  }
+
+  // Verifica se o caminho começa com '/project/'
+  if (path.startsWith('/project/')) {
+    const projectId = path.split('/').pop(); // Extrai o ID do projeto da URL
+    if (projectId) {
+      return await Project(projectId); // Retorna o conteúdo da página do projeto com o ID
+    }
+  }
+
+  return '<h1>404 Not Found</h1>';
 }
