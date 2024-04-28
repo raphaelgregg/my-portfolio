@@ -1,9 +1,8 @@
-import { CardExperienceDTO } from '../../dtos/cardExperienceDTO';
 
+import { ExperienceDTO } from "../../dtos/experienceDTO";
 import "./styles.css";
 
-export function CardExperienceJob({companyShortName, jobs, companyOverviewShort, thumbnailCompany}: CardExperienceDTO, index: number) {
-  console.log(index);
+export function CardExperience({thumbnailCompany, jobs, companyShortName, companyOverviewShort}: ExperienceDTO) {
   
   return `
   <div class="card-experience-job">
@@ -13,7 +12,7 @@ export function CardExperienceJob({companyShortName, jobs, companyOverviewShort,
       <div class="info">
         <h3>${companyShortName}</h3>
         
-        <p class="job">${jobs}</p>
+        <p class="job">${jobs?.[0].title}</p>
         <p class="description limited-lines">${companyOverviewShort}</p>
       </div>
     </div>

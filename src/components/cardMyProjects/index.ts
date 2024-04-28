@@ -1,8 +1,8 @@
-import { CardMyProjectDTO } from "../../dtos/cardMyProjectDTO";
+import { ProjectDTO } from "../../dtos/experienceDTO";
 
 import "./styles.css";
 
-export function CardMyProject({title, role, projectDescription, technologies, date, thumbnail}: CardMyProjectDTO) {
+export function CardMyProject({title, role, projectDescription, technologies, date, thumbnail}: ProjectDTO) {
   return `
   <div class="card-my-project">
     <div class="wrapper-card">  
