@@ -1,8 +1,11 @@
+import { Footer } from '../../components/footer';
+import { Header } from '../../components/header';
 import './styled.css';
 
 export function Project(projectId: string) {
-  console.log("URL projectId: "+projectId)
+
   return `
+    ${Header()}
     <div class="project-container">  
       <header>
         <img src="../../../public/svg/brand.svg" alt="banner">
@@ -179,5 +182,6 @@ export function Project(projectId: string) {
         </div>
       </section>
     </div>
+    ${Footer()}
   `;
 }
