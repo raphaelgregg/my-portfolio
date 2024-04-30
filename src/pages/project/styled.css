@@ -10,8 +10,27 @@
   width: 50rem;
 }
 
+.project-brief .brief-wrapper,
+.project-overview .overview-wrapper,
+.project-user-research .user-research-wrapper,
+.project-problem .problem-wrapper,
+.project-design-concept .design-concept-wrapper,
+.project-user-feedback .user-feedback-wrapper,
+.project-reflection .reflection-wrapper { 
+  border: 1px solid none;
+
+  max-width: 95.6rem;
+  margin: 6.6rem auto 1rem;
+  padding: 0 1.6rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* PROJECT BRIEF SECTION */
 .project-brief {
-  border: 1px solid red;
+  border: 1px solid none;
 }
 
 .project-brief .subtitle {
@@ -19,48 +38,137 @@
   margin-top: 1.6rem;
 }
 
-.project-brief .brief-wrapper { 
-  border: 1px solid green;
-
-  max-width: 95.6rem;
-  margin: 6.6rem auto 1rem;
-  padding: 0 1.6rem;
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
 .project-brief-info {
   display: flex;
-  gap: 3.6rem;
+  gap: 6rem;
 
   margin-top: 6rem;
 }
 
+.project-brief-info div {
+  width: 18rem;
+}
+
 /* OVERVIEW SECTION */
-.project-overview .overview-wrapper { 
-  border: 1px solid green;
-
-  max-width: 95.6rem;
-  margin: 6.6rem auto 1rem;
-  padding: 0 1.6rem;
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+.project-overview {
+  border: 1px solid none;
 }
 
 .project-overview .prompt p {
   margin-top: 1.6rem;
 }
 
-.project-overview .design-process {
-  margin-top: 3.2rem;
+.project-overview .design-process, 
+.project-overview .initial-thinking, 
+.project-overview .how-might-we-questions {
+  margin: 6.2rem 0 1rem;
 }
 
 .project-overview .design-process img {
   margin-top: 1.6rem;
+}
+
+.project-overview .initial-thinking > div {
+  margin-top: 1.6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+}
+
+.list-initial-thinking span {
+  font-size: 2rem;
+}
+
+.list-initial-thinking ul,
+.how-might-we-questions ul {
+  margin-top: 1.6rem;
+}
+
+.how-might-we-questions li:before {
+  content: "01"; /* Símbolo do bullet */
+  display: inline-block;
+  width: 4rem; /* Largura do bullet */
+  margin-left: -2rem; /* Move o bullet para trás para compensar o recuo */
+  color: var(--color-onyx-400);
+  font-weight: 600;
+}
+
+.how-might-we-questions li {
+  padding-left: 6rem; /* Ajuste o recuo conforme necessário */
+  text-indent: -2rem; /* Move a segunda linha para trás */
+  margin-top: 3.2rem;
+  line-height: 160%;
+}
+
+/* user-research SECTION */
+.project-user-research {
+  border: 1px solid none;
+}
+
+.reserch-goals,
+.reserch-goals span,
+.reserch-goals ul {
+  margin-top: 1.6rem;
+}
+
+.reserch-goals span {
+  font-size: 2rem;
+  line-height: 2.8rem;
+  font-weight: 500;
+}
+
+.reserch {
+  margin-top: 6rem;
+}
+
+/* PROBLEM SECTION */
+.project-problem {
+  border: 1px solid none;
+  background: var(--color-onyx-100);
+  padding: 6.2rem;
+  margin: 6.2rem 0;
+}
+
+.problem-wrapper {
+  margin-top: 1rem !important;
+}
+
+.problem-wrapper p {
+  max-width: 50rem;
+  background-color: none;
+  align-self: flex-end;
+
+  font-size: 2rem;
+
+  margin-top: 4rem;
+}
+
+/* DESIGN-CONCEPT SECTION */
+.project-design-concept {
+  border: 1px solid none;
+}
+
+.wireframe img,
+.visual-identity img {
+  padding: 3.2rem;
+}
+
+/* user-feedback SECTION */
+.project-user-feedback {
+  border: 1px solid none;
+}
+
+.user-testing-feedback ul{
+  margin-top: 1.6rem;
+}
+
+/* FEEDBACKS SECTION */
+.topics {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+
+  letter-spacing: 0;
 }
 
 #overview-title,
@@ -72,4 +180,19 @@
   font-weight: 600;
   letter-spacing: .1rem;
   margin-bottom: 1.6rem;
+}
+
+.list-ul-styled li {
+  padding-left: 2rem; /* Ajuste o recuo conforme necessário */
+  text-indent: -2rem; /* Move a segunda linha para trás */
+  margin-top: 0.5rem;
+  line-height: 125%;
+}
+
+.list-ul-styled li:before {
+  content: "•"; /* Símbolo do bullet */
+  display: inline-block;
+  width: 0; /* Largura do bullet */
+  margin-left: 2rem; /* Move o bullet para trás para compensar o recuo */
+  font-size: 2.4rem;
 }
