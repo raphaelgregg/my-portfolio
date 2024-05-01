@@ -6,33 +6,43 @@ import './styled.css';
 export async function Project(projectId: string) {
 
   const project = await getPojectsFindUserByID(projectId);
-  console.log(project);
+  // project?.project.id,
+  // project?.project.title,
+  // project?.project.date,
+  // project?.project.category,
+  // project?.project.projectDescription,
+  // project?.project.role,
+  // project?.project.thumbnail,
+  // project?.project.technologies
+
+
+
 
   return `
     ${Header()}
     <div class="project-container">  
       <header>
-        <img src="../../../public/svg/brand.svg" alt="banner">
+        <img src="${project?.project.thumbnail}" alt="banner">
       </header>
       <section class="project-brief">
         <div class="brief-wrapper">
-          <h3>SAIC Mentor Conectar</h3>
-          <p class="subtitle">Uma aplicação envolvente que ajuda os alunos da Escola do instituto de arte de Chicago a fazer uma relação mentor-mentor através de pesquisa personalizada.</p>
+          <h3>${project?.project.title}</h3>
+          <p class="subtitle">${project?.project.projectDescription}.</p>
       
           <div class="project-brief-info">
             <div class="myrole">
               <b>Meu papel</b>
-              <p>Desenvolvedor Front-end</p>
+              <p>${project?.project.role}</p>
             </div>
       
             <div class="project">
               <b>Projeto</b>
-              <p>Proejct Pessoal</p>
+              <p>Projeto Pessoal</p>
             </div>
       
             <div class="timeline">
               <b>Linhas do tempo</b>
-              <p>7 Dias (2021)</p>
+              <p>${project?.project.date}</p>
             </div>
       
             <div class="tools">
