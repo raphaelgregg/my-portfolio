@@ -42,7 +42,7 @@ export function Project(projectId: string) {
 
       <section class="project-overview">
         <div class="overview-wrapper">
-          <span id="overview-title">Visão Geral</span>
+          <span class="overview-title">Visão Geral</span>
           
           <div class="prompt">
             <h3>Incitar</h3>
@@ -91,7 +91,7 @@ export function Project(projectId: string) {
       <section class="project-user-research">
         <!-- Conteúdo relacionado à pesquisa de usuário -->
         <div class="user-research-wrapper">
-          <span id="user-research-title">Pesquisa de Usuários</span>
+          <span class="user-research-title">Pesquisa de Usuários</span>
 
           <div class="background-research">
             <h3>Pesquisa de Sistemas Existentes</h3>
@@ -124,25 +124,28 @@ export function Project(projectId: string) {
       <section class="project-problem">
         <!-- Conteúdo relacionado à identificação do problema -->
         <div class="problem-wrapper">
-          <h3>Declaração de Problema</h3>
+          <span class="problem-title">Desafio</span>
 
-          <p>Não existe uma plataforma que apoie os alunos a encontrar mentores dentro da escola. Além disso, é difícil para os alunos estabelecerem uma relação sustentável</p>
+          <div class="problem-startment">
+            <h3>Declaração de Problema</h3>
+            <p>Não existe uma plataforma que apoie os alunos a encontrar mentores dentro da escola. Além disso, é difícil para os alunos estabelecerem uma relação sustentável</p>
+          </div>
         </div>
       </section>
         
       <section class="project-design-concept">
         <!-- Conteúdo relacionado ao conceito de design -->
         <div class="design-concept-wrapper">
-          <span id="design-concept-title">Prototype</span>
+          <span class="design-concept-title">Prototype</span>
 
           <div class="wireframe">
             <h3>Wireframe</h3>
-            <img src="#" alt="IMG COM PROTOTIPAÇÂO">
+            <img src="https://firebasestorage.googleapis.com/v0/b/my-portfolio-5104c.appspot.com/o/wiframe-modelo2.webp?alt=media&token=388e7b83-6a30-464d-b185-1ea72c311110" alt="IMG COM PROTOTIPAÇÂO">
           </div>
 
           <div class="visual-identity">
             <h3>Identidade visual</h3>
-            <img src="#" alt="IMG FONTS E CORES DO DESIGN">
+            <img src="https://firebasestorage.googleapis.com/v0/b/my-portfolio-5104c.appspot.com/o/palet.webp?alt=media&token=c01a577f-963e-413a-9cb6-c95b630845d0" alt="IMG FONTS E CORES DO DESIGN">
           </div>
         </div>
       </section>
@@ -150,7 +153,7 @@ export function Project(projectId: string) {
       <section class="project-user-feedback">
         <!-- Conteúdo relacionado ao feedback do usuário -->
         <div class="user-feedback-wrapper">
-          <span id="user-feedback-title">Feedback do usuário</span>
+          <span class="user-feedback-title">Feedback do usuário</span>
 
           <div class="user-testing-feedback">
             <h3>Feedback de teste do usuário</h3>
@@ -168,7 +171,7 @@ export function Project(projectId: string) {
       <section class="project-reflection">
         <!-- Conteúdo relacionado à reflexão sobre o projeto -->
         <div class="reflection-wrapper">
-          <span id="reflection-title">Reflexão</span>
+          <span class="reflection-title">Reflexão</span>
 
           <div class="topics">
             <h3>Tópicos</h3>

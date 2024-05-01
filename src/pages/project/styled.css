@@ -10,6 +10,16 @@
   width: 50rem;
 }
 
+.project-brief,
+.project-overview,
+.project-user-research,
+.project-problem,
+.project-design-concept,
+.project-user-feedback,
+.project-reflection {
+  margin: 6.6rem auto;
+}
+
 .project-brief .brief-wrapper,
 .project-overview .overview-wrapper,
 .project-user-research .user-research-wrapper,
@@ -20,13 +30,40 @@
   border: 1px solid none;
 
   max-width: 95.6rem;
-  margin: 6.6rem auto 1rem;
-  padding: 0 1.6rem;
-
+  padding: 1.6rem;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
+
+.overview-title,
+.user-research-title,
+.design-concept-title,
+.user-feedback-title,
+.problem-title,
+.reflection-title {
+  color: var(--color-crimson-600);
+  font-weight: 600;
+  letter-spacing: .1rem;
+  margin-bottom: 1.6rem;
+}
+
+.list-ul-styled li {
+  padding-left: 2rem; /* Ajuste o recuo conforme necessário */
+  text-indent: -2rem; /* Move a segunda linha para trás */
+  margin-top: 0.5rem;
+  line-height: 125%;
+}
+
+.list-ul-styled li:before {
+  content: "•"; /* Símbolo do bullet */
+  display: inline-block;
+  width: 0; /* Largura do bullet */
+  margin-left: 2rem; /* Move o bullet para trás para compensar o recuo */
+  font-size: 2.4rem;
+}
+
 
 /* PROJECT BRIEF SECTION */
 .project-brief {
@@ -123,24 +160,25 @@
 
 /* PROBLEM SECTION */
 .project-problem {
-  border: 1px solid none;
   background: var(--color-onyx-100);
-  padding: 6.2rem;
-  margin: 6.2rem 0;
+  border: 1px solid none;
+  padding: 6.2rem 0;
 }
 
-.problem-wrapper {
-  margin-top: 1rem !important;
+.problem-startment{
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+
+  width: 100%;
 }
 
 .problem-wrapper p {
-  max-width: 50rem;
-  background-color: none;
   align-self: flex-end;
+  justify-self: end;
+  max-width: 50rem;
 
   font-size: 2rem;
-
-  margin-top: 4rem;
 }
 
 /* DESIGN-CONCEPT SECTION */
@@ -162,6 +200,7 @@
   margin-top: 1.6rem;
 }
 
+
 /* FEEDBACKS SECTION */
 .topics {
   display: flex;
@@ -171,28 +210,3 @@
   letter-spacing: 0;
 }
 
-#overview-title,
-#user-research-title,
-#design-concept-title,
-#user-feedback-title,
-#reflection-title {
-  color: var(--color-crimson-600);
-  font-weight: 600;
-  letter-spacing: .1rem;
-  margin-bottom: 1.6rem;
-}
-
-.list-ul-styled li {
-  padding-left: 2rem; /* Ajuste o recuo conforme necessário */
-  text-indent: -2rem; /* Move a segunda linha para trás */
-  margin-top: 0.5rem;
-  line-height: 125%;
-}
-
-.list-ul-styled li:before {
-  content: "•"; /* Símbolo do bullet */
-  display: inline-block;
-  width: 0; /* Largura do bullet */
-  margin-left: 2rem; /* Move o bullet para trás para compensar o recuo */
-  font-size: 2.4rem;
-}
