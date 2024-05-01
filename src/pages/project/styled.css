@@ -9,6 +9,9 @@
 .project-container header img {
   width: 50rem;
 }
+.project-container img {
+  max-width: 95.6rem;
+}
 
 .project-brief,
 .project-overview,
