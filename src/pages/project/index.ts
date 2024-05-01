@@ -1,8 +1,12 @@
 import { Footer } from '../../components/footer';
 import { Header } from '../../components/header';
+import { getPojectsFindUserByID } from '../home/homeData';
 import './styled.css';
 
-export function Project(projectId: string) {
+export async function Project(projectId: string) {
+
+  const project = await getPojectsFindUserByID(projectId);
+  console.log(project);
 
   return `
     ${Header()}
