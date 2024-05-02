@@ -63,21 +63,26 @@ export function getExperienceSortByDateAndMyProjects(firebaseData:ExperienceDTO)
     }));
 
     // Filtrar e mapear os dados de projetos
-    let firstExperienceProjects: any[] = [];
+    let firstExperienceProjects: ProjectDTO[] = [];
 
     // Encontrar o objeto com id=0 dentro do array firebaseData
     const firstExperience = firebaseData.find((experience) => experience.id.toString() === "0");
 
     if (firstExperience) {
-        firstExperienceProjects = firstExperience.projects.map((project: any) => ({
+        firstExperienceProjects = firstExperience.projects.map((project: ProjectDTO) => ({
             id: project.id,
             title: project.title,
             role: project.role,
             projectDescription: project.projectDescription,
+            projectDescriptionShort: project.projectDescriptionShort,
             technologies: project.technologies,
+            tools: project.tools,
             date: project.date,
             thumbnail: project.thumbnail,
-            banner: project.banner
+            banner: project.banner,
+            prompt: project.prompt,
+            projectType: project.projectType,
+            developmentDuration: project.developmentDuration
         }));
     }
 

@@ -1,54 +1,79 @@
 import { Footer } from '../../components/footer';
 import { Header } from '../../components/header';
+import { ProjectDTO } from '../../dtos/experienceDTO';
+import { extractFromDate } from '../../utils/extractFromDate';
 import { getPojectsFindUserByID } from '../home/homeData';
 import './styled.css';
 
 export async function Project(projectId: string) {
 
-  const project = await getPojectsFindUserByID(projectId);
-  // project?.project.id,
-  // project?.project.title,
-  // project?.project.date,
-  // project?.project.category,
-  // project?.project.projectDescription,
-  // project?.project.role,
-  // project?.project.thumbnail,
-  // project?.project.technologies
+// Obtendo os dados do projeto
+const projectResult = await getPojectsFindUserByID(projectId);
+
+// Desestruturando apenas as propriedades desejadas do projeto
+const {
+  project: {
+    banner,
+    date,
+    developmentDuration,
+    id,
+    projectDescription,
+    projectType,
+    prompt,
+    role,
+    technologies,
+    thumbnail,
+    title,
+    tools
+  } = {} as ProjectDTO // Definindo um tipo padrão como vazio para garantir que as propriedades existam
+} = projectResult || {}; 
 
 
-
+// Se precisar, você pode comentar sobre o motivo de não estar utilizando as outras variáveis
+// console.log("banner:", banner);
+// console.log("date:", date);
+console.log("developmentDuration:", developmentDuration);
+console.log("id:", id);
+// console.log("projectDescription:", projectDescription);
+// console.log("projectType:", projectType);
+// console.log("prompt:", prompt);
+// console.log("role:", role);
+console.log("technologies:", technologies);
+console.log("thumbnail:", thumbnail);
+// console.log("title:", title);
+console.log("Tools:", tools);
 
   return `
     ${Header()}
     <div class="project-container">  
       <header class="project-header">
-        <img src="${project?.project.banner}" alt="banner project">
+        <img src="${banner}" alt="banner project">
       </header>
       <section class="project-brief">
         <div class="brief-wrapper">
-          <h3>${project?.project.title}</h3>
-          <p class="subtitle">${project?.project.projectDescription}.</p>
+          <h3>${title}</h3>
+          <p class="subtitle">${projectDescription}</p>
       
           <div class="project-brief-info">
             <div class="myrole">
               <b>Meu papel</b>
-              <p>${project?.project.role}</p>
+              <p>${role}</p>
             </div>
       
             <div class="project">
               <b>Projeto</b>
-              <p>Projeto Pessoal</p>
+              <p>${projectType}</p>
             </div>
       
             <div class="timeline">
               <b>Linhas do tempo</b>
-              <p>${project?.project.date}</p>
+              <p>${developmentDuration} dias (${extractFromDate(date || "", 'year')})</p>
             </div>
       
             <div class="tools">
-              <b>Ferramentas usadas</b>
+              <b>Ferramentas utilizadas</b>
 
-              <p>Figma, Adobe Illustrator, Principle</p>
+              <p>${tools?.map(tool => tool).join(', ')}</p>
             </div>
           </div>
         </div>
@@ -58,9 +83,9 @@ export async function Project(projectId: string) {
         <div class="overview-wrapper">
           <span class="overview-title">Visão Geral</span>
           
-          <div class="about">
-            <h3>Sobre</h3>
-            <p>A Escola do Instituto de Arte de Chicago (SAIC) quer fortalecer a comunidade, incentivando os alunos experientes a se conectarem com novos alunos e ajudá-los a se adaptarem à vida no campus. Crie uma experiência que permita que mentores e mentorados se descubram. Considere as necessidades de mentores e mentorados, incluindo como alguém pode se tornar um mentor e como conectar mentores a mentorados.</p>
+          <div class="prompt">
+            <h3>Incitar</h3>
+            <p>${prompt}</p>
           </div>
       
           <div class="design-process">

@@ -2,7 +2,7 @@ import { ProjectDTO } from "../../dtos/experienceDTO";
 
 import "./styles.css";
 
-export function CardMyProject({id, title, role, projectDescription, technologies, date, thumbnail}: ProjectDTO) {
+export function CardMyProject({id, title, role, projectDescriptionShort, technologies, date, thumbnail}: ProjectDTO) {
   return `
   <div class="card-my-project">
   <a href="/project/${id}">
@@ -13,7 +13,7 @@ export function CardMyProject({id, title, role, projectDescription, technologies
         <h3>${title}</h3>
         
         <p class="role">${role}</p>
-        <p class="description">${projectDescription}</p>
+        <p class="description">${projectDescriptionShort}</p>
 
         ${technologies ? 
           `

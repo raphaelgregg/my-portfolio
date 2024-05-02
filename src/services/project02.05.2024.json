@@ -1,0 +1,86 @@
+[
+  {
+  "banner": "https://firebasestorage.googleapis.com/v0/b/my-portfolio-5104c.appspot.com/o/project-banner.png?alt=media&token=1237117d-d5f5-4b60-8845-9faa8dc3e888",
+  "category": "Web",
+  "date": "2024-04-01",
+  "developmentDuration": "7",
+  "id": 0,
+  "projectDescription": "Desenvolvi uma aplicação web como parte do meu portfólio pessoal, onde os visitantes podem navegar pelos meus projetos anteriores e entrar em contato comigo para possíveis oportunidades de colaboração e networking personalizado.",
+  "projectDescriptionShort": "Contact Me: Uma plataforma simples e eficaz para estabelecer conexões. Deixe-me uma mensagem e vamos começar a colaborar!",
+  "projectType": "Projeto pessoal",
+  "role": "Desenvolvedor Front-end",
+  "technologies": [
+    "html",
+    "css",
+    "typescript"
+  ],
+  "thumbnail": "https://firebasestorage.googleapis.com/v0/b/my-portfolio-5104c.appspot.com/o/capa-myportfolio.png?alt=media&token=1205b60d-8458-49cd-af7f-4c9db7e8c8c8",
+  "title": "Meu Portfólio",
+  "tools": [
+    "Figma",
+    "html",
+    "css",
+    "Javascript",
+    "Typescript",
+    "Lucide icons"
+  ],
+  "overview": {
+    "prompt": "Você já considerou a importância de uma presença online impressionante para destacar suas habilidades como desenvolvedor front-end? Meu projeto atual visa exatamente isso. Estou dedicando meu tempo e habilidades para criar um portfólio digital cativante que não apenas mostre meu trabalho anterior, mas também demonstre minha paixão e habilidade em desenvolvimento web. Com uma interface elegante e uma experiência de usuário intuitiva, estou ansioso para compartilhar meu progresso e conquistas até agora. Junte-se a mim nesta jornada para explorar o mundo do desenvolvimento web e descobrir o que podemos alcançar juntos!",
+    "designProcess": "https://firebasestorage.googleapis.com/v0/b/my-portfolio-5104c.appspot.com/o/design-process.png?alt=media&token=2b0e01aa-1995-43b3-897e-d8850a881a97",
+    "IinitialThinking": {
+      "targetUsers": [
+        "Students at School of the Art Institute of Chicago",
+        "Less experienced students who need help to properly adjust to campus."
+      ],
+      "researchMethods":[
+        "Online survey (Google form)",
+        "In-person interview",
+        "Research online"
+      ]
+    },
+    "How Might We Questions": [
+      "How might we make the experienced students and the new students go beyond sharing their experiences and form a sustainable mentor-mentee relationship?",
+      "How might we help the students discover each other based on their needs?",
+      "How might we make a platform a foundation for strengthening the school community?"
+    ]
+  },
+  "userResearch": {
+    "backgroundResearch": [
+      "Identificar plataformas on-line e no local existentes relacionadas à construção da comunidade",
+      "Descubra como os novos alunos estão se conectando com estudantes experientes.",
+      "Examine como os alunos desenvolveram sua relação mentor-mentor.",
+      "Analise como os alunos estão utilizando o sistema atual.",
+      "Identificar os pontos fortes/potenciais do sistema atual."
+    ],
+    "existingSystems": [
+      "Social media (Instagram/Facebook)",
+      "Student-driven events",
+      "SAIC Engage",
+      "Organization fair, Group Fair"
+    ]
+  },
+  "challenge": [
+    "Não existe uma plataforma que apoie os alunos a encontrar mentores dentro da escola. Além disso, é difícil para os alunos estabelecerem uma relação sustentável"
+  ],
+  "prototype": {
+    "wireframe": [
+      "https://firebasestorage.googleapis.com/v0/b/my-portfolio-5104c.appspot.com/o/wiframe-modelo2.webp?alt=media&token=388e7b83-6a30-464d-b185-1ea72c311110"
+    ],
+    "visualIdentity": [
+      "https://firebasestorage.googleapis.com/v0/b/my-portfolio-5104c.appspot.com/o/palet.webp?alt=media&token=c01a577f-963e-413a-9cb6-c95b630845d0"
+    ]
+  },
+  "userFeedback": [
+    "It’s convenient to find all the information on one platform.",
+    "It’s convenient to check events and mentoring schedules at a glance.",
+    "The feature to send reminders is great.",
+    "It is clear whom to ask for guidance.",
+    "I like there is no review feature. I hope that there is an endorse feature."
+  ],
+  "reflection": [
+    "Este projeto se concentrou na pesquisa do usuário e nas necessidades identificadas. Geralmente, se você seguir usuários, uma solução inevitavelmente se segue. Entrevistas com estudantes e pesquisas me permitiram descobrir diversas perspectivas e soluções.",
+    "Se eu tivesse tido mais tempo, poderia ter coletado respostas da pesquisa de mais alunos. E acredito que poderia criar uma versão do site e uma plataforma móvel.",
+    "Quando fiz a apresentação sobre minha inscrição na escola, senti muito orgulho de ouvir que o funcionário da escola me disse que faria mais coisas que poderia fazer imediatamente. Percebi que o papel de um designer de UX não é apenas projetar uma boa idéia, mas também desenvolver experiências cotidianas da comunidade com o design."
+  ] 
+}
+]
