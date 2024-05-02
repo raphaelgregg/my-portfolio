@@ -34,6 +34,7 @@ export interface ProjectDTO {
     date: string,
     category: string,
     thumbnail: string,
+    banner: string
 }
 
 export interface TechnologiesDTO {

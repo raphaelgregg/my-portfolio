@@ -21,8 +21,8 @@ export async function Project(projectId: string) {
   return `
     ${Header()}
     <div class="project-container">  
-      <header>
-        <img src="${project?.project.thumbnail}" alt="banner">
+      <header class="project-header">
+        <img src="${project?.project.banner}" alt="banner project">
       </header>
       <section class="project-brief">
         <div class="brief-wrapper">
@@ -58,8 +58,8 @@ export async function Project(projectId: string) {
         <div class="overview-wrapper">
           <span class="overview-title">Visão Geral</span>
           
-          <div class="prompt">
-            <h3>Incitar</h3>
+          <div class="about">
+            <h3>Sobre</h3>
             <p>A Escola do Instituto de Arte de Chicago (SAIC) quer fortalecer a comunidade, incentivando os alunos experientes a se conectarem com novos alunos e ajudá-los a se adaptarem à vida no campus. Crie uma experiência que permita que mentores e mentorados se descubram. Considere as necessidades de mentores e mentorados, incluindo como alguém pode se tornar um mentor e como conectar mentores a mentorados.</p>
           </div>
       

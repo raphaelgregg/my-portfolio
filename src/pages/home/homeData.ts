@@ -76,7 +76,8 @@ export function getExperienceSortByDateAndMyProjects(firebaseData:ExperienceDTO)
             projectDescription: project.projectDescription,
             technologies: project.technologies,
             date: project.date,
-            thumbnail: project.thumbnail
+            thumbnail: project.thumbnail,
+            banner: project.banner
         }));
     }
 

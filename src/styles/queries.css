@@ -16,6 +16,14 @@
   .skillset-card + .skillset-card {
     margin-top: 0;
   }
+
+  /* .project-container .project-header {
+    height: 40rem;
+  } */
+
+  .project-brief-info {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (min-width: 610px) {
@@ -31,6 +39,17 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+  }
+
+  /* PROJECT PAGE */
+  .project-container .project-header {
+    height: 50rem;
+  }
+
+  .project-brief-info {
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 4.8rem;
+    row-gap: 3rem;
   }
 }
 
@@ -75,6 +94,16 @@
   .skillset-card {
     display: flex;
     flex-direction: column;
+  }
+
+  /* PROJECT PAGE */
+  .project-container .project-header {
+    height: 60rem;
+    }
+  
+  .project-brief-info {
+    display: flex;
+    gap: 5rem;
   }
 }
 
