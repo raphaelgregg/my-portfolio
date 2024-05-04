@@ -31,7 +31,7 @@ export interface ProjectDTO {
     role: string,
     projectDescription: string,
     projectDescriptionShort: string,
-    technologies?: TechnologiesDTO,
+    technologies?: string[],
     tools?: ToolsDTO[],
     date: string,
     category: string,
@@ -40,10 +40,6 @@ export interface ProjectDTO {
     overview: OverviewDTO,
     projectType: string,
     developmentDuration: number,
-}
-
-export interface TechnologiesDTO {
-  icon: string,
 }
 
 export interface ToolsDTO {

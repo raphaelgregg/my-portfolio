@@ -21,22 +21,3 @@ export function CardExperience({id, thumbnailCompany, jobs, companyShortName, co
     </div>
   `;
 }
-
-// <div class="card-techs">
-// <span>
-//   <img src="/svg/html2.svg" />
-//   Html
-// </span>
-// <span>
-//   <img src="/svg/css2.svg" />
-//   Css
-// </span>
-// <span>
-//   <img src="/svg/js2.svg" />
-//   JavaScript
-// </span>
-// <span>
-//   <img src="/svg/ts.svg" />
-//   TypeScript
-// </span>
-// </div>
