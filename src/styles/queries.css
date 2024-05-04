@@ -31,10 +31,6 @@
     gap: 6rem;
   }
 
-  #my-projects {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .resume-wrapper header {
     flex-direction: row;
     justify-content: space-between;
@@ -62,6 +58,10 @@
   section.brief h1 {
     margin: 0;
   }
+
+  #my-projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
 } 
 
 @media (min-width: 986px) {
@@ -76,6 +76,7 @@
   
   #my-projects {
     grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
   }
 
   .resume-wrapper section {

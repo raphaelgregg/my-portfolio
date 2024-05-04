@@ -1,18 +1,20 @@
 .card-my-project {
-  max-width: 29.1rem;
-  min-height: 42rem;
+  max-width: 31rem;
+  height: 52rem;
   overflow: hidden;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
 
   border: 1px solid var(--color-onyx-100);
   border-radius: 8px;
   
   background: rgba(228, 232, 233, .2);
   box-shadow: 0 .3rem .4rem rgba(0, 0, 0, 0.1);
+}
+
+.card-my-project a {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card-my-project img {
@@ -26,7 +28,7 @@
 }
 
 .card-my-project img:hover {
-  filter: hue-rotate(7deg) contrast(101%) saturate(200%);
+  filter: hue-rotate(7deg) contrast(110%) saturate(200%);
   transform: scale(1.1);
 }
 
@@ -83,7 +85,7 @@
 }
 
 .card-my-project .footer {
-  background: rgba(228, 232, 233, .3);
+  background: rgba(228, 232, 233, .5);
   border-top: 1px solid var(--color-onyx-20);
   padding: 1.6rem;
   font-size: 1.4rem;

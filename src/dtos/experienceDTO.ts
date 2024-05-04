@@ -31,13 +31,13 @@ export interface ProjectDTO {
     role: string,
     projectDescription: string,
     projectDescriptionShort: string,
-    technologies?: TechnologiesDTO[],
+    technologies?: TechnologiesDTO,
     tools?: ToolsDTO[],
     date: string,
     category: string,
     thumbnail: string,
     banner: string,
-    prompt: string,
+    overview: string,
     projectType: string,
     developmentDuration: number,
 }
@@ -48,4 +48,11 @@ export interface TechnologiesDTO {
 
 export interface ToolsDTO {
   name: string,
+}
+
+export interface overviewDTO {
+  prompt: string,
+  designProcess: string,
+  IinitialThinking: string,
+  
 }

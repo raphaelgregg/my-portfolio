@@ -1,4 +1,5 @@
 import { ProjectDTO } from "../../dtos/experienceDTO";
+import { extractFromDate } from "../../utils/extractFromDate";
 
 import "./styles.css";
 
@@ -33,7 +34,7 @@ export function CardMyProject({id, title, role, projectDescriptionShort, technol
     </div>
     
     <div class="footer">
-      Desenvolvido em ${date}.
+      Desenvolvido em ${extractFromDate(date, "custom-text")}
     </div>
     </a>
   </div>

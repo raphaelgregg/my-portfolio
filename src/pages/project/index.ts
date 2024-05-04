@@ -19,7 +19,7 @@ const {
     id,
     projectDescription,
     projectType,
-    prompt,
+    overview,
     role,
     technologies,
     thumbnail,
@@ -85,7 +85,7 @@ console.log("Tools:", tools);
           
           <div class="prompt">
             <h3>Incitar</h3>
-            <p>${prompt}</p>
+            <p>${overview.prompt}</p>
           </div>
       
           <div class="design-process">
