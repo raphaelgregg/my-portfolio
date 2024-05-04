@@ -90,7 +90,7 @@ console.log("Tools:", tools);
       
           <div class="design-process">
             <h3>Processo</h3>
-            <img src="../../../public/images/design-process.png" alt="design do projeto">
+            <img src="${overview.designProcess}" alt="design do projeto">
           </div>
       
           <div class="initial-thinking">
@@ -100,28 +100,23 @@ console.log("Tools:", tools);
               <div class="list-initial-thinking">
                 <span>Usuários Alvo</span>
                 <ul class="list-ul-styled">
-                  <li>Estudantes da Escola do Instituto de Arte de Chicago </li>
-                  <li>Estudantes menos experientes que precisam de ajuda para se adaptarem adequadamente ao campus.</li>
+                  ${overview.initialThinking.targetUsers.map((user) => `<li>${user}</li>`).join('')}
                 </ul>
               </div>
       
               <div class="list-initial-thinking">
                 <span>Métodos de Pesquisa</span>
                 <ul class="list-ul-styled">
-                  <li>Pesquisa online (Formulário do Google)</li>
-                  <li>Entrevista presencial</li>
-                  <li>Pesquisa online</li>
+                  ${overview.initialThinking.researchMethods.map((method) => `<li>${method}</li>`).join('')}
                 </ul>
               </div>
             </div>
           </div>
       
           <div class="how-might-we-questions">
-            <h3>How Might We Questions</h3>
+            <h3>Como poderíamos fazer perguntas</h3>
             <ul>
-              <li>How might we make the experienced students and the new students go beyond sharing their experiences and form a sustainable mentor-mentee relationship?</li>
-              <li>How might we help the students discover each other based on their needs?</li>
-              <li>How might we make a platform a foundation for strengthening the school community?</li>
+              ${overview.howMightWeQuestions.map((question) => `<li>${question}</li>`).join('')}
             </ul>
           </div>
         </div>

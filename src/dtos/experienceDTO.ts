@@ -37,7 +37,7 @@ export interface ProjectDTO {
     category: string,
     thumbnail: string,
     banner: string,
-    overview: string,
+    overview: OverviewDTO,
     projectType: string,
     developmentDuration: number,
 }
@@ -50,9 +50,14 @@ export interface ToolsDTO {
   name: string,
 }
 
-export interface overviewDTO {
+export interface OverviewDTO {
   prompt: string,
   designProcess: string,
-  IinitialThinking: string,
-  
+  initialThinking: InitialThinkingDTO,
+  howMightWeQuestions: string[],  
+}
+
+export interface InitialThinkingDTO {
+  targetUsers: string[],
+  researchMethods: string[],
 }

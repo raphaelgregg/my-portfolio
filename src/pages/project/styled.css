@@ -4,7 +4,7 @@
   justify-content: center;
 
   padding-top: 6.527rem;
-  background: var(--color-onyx-100);
+  background: var(--color-crimson-600);
 
   width: 100%;
   height: 40rem;
@@ -140,8 +140,16 @@
   margin-top: 1.6rem;
 }
 
+.how-might-we-questions {
+  counter-reset: howMightWeCounter; /* Redefine o contador no início da lista */
+}
+
+.how-might-we-questions li {
+  counter-increment: howMightWeCounter; /* Incrementa o contador para cada item de lista */
+}
+
 .how-might-we-questions li:before {
-  content: "01"; /* Símbolo do bullet */
+  content: counter(howMightWeCounter, decimal-leading-zero); /* Símbolo do bullet */
   display: inline-block;
   width: 4rem; /* Largura do bullet */
   margin-left: -2rem; /* Move o bullet para trás para compensar o recuo */
