@@ -15,6 +15,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: all 200ms ease-out, transform 600ms ease-in;
+}
+
+.card-my-project a:hover {
+  filter: brightness(104%);
 }
 
 .card-my-project img {
