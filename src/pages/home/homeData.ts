@@ -80,9 +80,14 @@ export function getExperienceSortByDateAndMyProjects(firebaseData:ExperienceDTO)
             date: project.date,
             thumbnail: project.thumbnail,
             banner: project.banner,
-            overview: project.overview,
             projectType: project.projectType,
-            developmentDuration: project.developmentDuration
+            developmentDuration: project.developmentDuration,
+            overview: project.overview,
+            userResearch: project.userResearch,
+            challenge: project.challenge,
+            prototype: project.prototype,
+            userFeedback: project.userFeedback,
+            reflection: project.reflection
         }));
     }
 
@@ -107,7 +112,8 @@ export async function getPojectsFindUserByID(projectID: string): Promise<{projec
         
         project = pessoalProjects.find(proj => {
             console.log('ID do Projeto na iteração:', proj.id);
-            return proj.id.toString() === projectID.toString();
+            const isMatchingID = proj?.id?.toString() === projectID?.toString();
+            return isMatchingID;
         });
     } else {
         console.log('Não foi possível encontrar o projeto. Verifique se o ID do usuário é válido e se há projetos disponíveis.');

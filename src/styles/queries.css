@@ -106,6 +106,16 @@
     display: flex;
     gap: 5rem;
   }
+
+  .research > div {
+    margin-top: 2.4rem;
+    display: flex;
+    gap: 2rem;
+  }
+
+  .research .list-img {
+    margin-top: 0;
+  }
 }
 
 @media (min-width: 1090px) {

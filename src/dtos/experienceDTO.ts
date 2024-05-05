@@ -26,24 +26,25 @@ export interface SucessCasesDTO {
 }
 
 export interface ProjectDTO {
-    id: string,
-    title: string,
-    role: string,
-    projectDescription: string,
-    projectDescriptionShort: string,
+    id?: string,
+    title?: string,
+    role?: string,
+    projectDescription?: string,
+    projectDescriptionShort?: string,
     technologies?: string[],
-    tools?: ToolsDTO[],
-    date: string,
-    category: string,
-    thumbnail: string,
-    banner: string,
-    overview: OverviewDTO,
-    projectType: string,
-    developmentDuration: number,
-}
-
-export interface ToolsDTO {
-  name: string,
+    tools?: string[],
+    date?: string,
+    category?: string,
+    thumbnail?: string,
+    banner?: string,
+    projectType?: string,
+    developmentDuration?: number,
+    overview?: OverviewDTO,
+    userResearch?: UserResearchDTO,
+    challenge?: string[],
+    prototype?: PrototypeDTO,
+    userFeedback?: string[],
+    reflection?: string[],
 }
 
 export interface OverviewDTO {
@@ -56,4 +57,15 @@ export interface OverviewDTO {
 export interface InitialThinkingDTO {
   targetUsers: string[],
   researchMethods: string[],
+}
+
+export interface UserResearchDTO {
+  backgroundResearch: string[],
+  existingSystems: string[],
+  imgSystems: string[],
+}
+
+export interface PrototypeDTO {
+  visualIdentity: string[],
+  wireframe: string[],
 }

@@ -19,12 +19,17 @@ const {
     id,
     projectDescription,
     projectType,
-    overview,
     role,
     technologies,
     thumbnail,
     title,
-    tools
+    tools,
+    overview,
+    userResearch,
+    challenge,
+    prototype,
+    userFeedback,
+    reflection
   } = {} as ProjectDTO // Definindo um tipo padrão como vazio para garantir que as propriedades existam
 } = projectResult || {}; 
 
@@ -32,16 +37,17 @@ const {
 // Se precisar, você pode comentar sobre o motivo de não estar utilizando as outras variáveis
 // console.log("banner:", banner);
 // console.log("date:", date);
-console.log("developmentDuration:", developmentDuration);
+// console.log("developmentDuration:", developmentDuration);
 console.log("id:", id);
 // console.log("projectDescription:", projectDescription);
 // console.log("projectType:", projectType);
 // console.log("prompt:", prompt);
 // console.log("role:", role);
-console.log("technologies:", technologies);
-console.log("thumbnail:", thumbnail);
+// console.log("technologies:", technologies);
+// console.log("thumbnail:", thumbnail);
 // console.log("title:", title);
-console.log("Tools:", tools);
+// console.log("Tools:", tools);
+// console.log("challenge:", challenge);
 
   return `
     ${Header()}
@@ -85,12 +91,12 @@ console.log("Tools:", tools);
           
           <div class="prompt">
             <h3>Incitar</h3>
-            <p>${overview.prompt}</p>
+            <p>${overview?.prompt}</p>
           </div>
       
           <div class="design-process">
             <h3>Processo</h3>
-            <img src="${overview.designProcess}" alt="design do projeto">
+            <img src="${overview?.designProcess}" alt="design do projeto">
           </div>
       
           <div class="initial-thinking">
@@ -100,14 +106,14 @@ console.log("Tools:", tools);
               <div class="list-initial-thinking">
                 <span>Usuários Alvo</span>
                 <ul class="list-ul-styled">
-                  ${overview.initialThinking.targetUsers.map((user) => `<li>${user}</li>`).join('')}
+                  ${overview?.initialThinking.targetUsers.map((user) => `<li>${user}</li>`).join('')}
                 </ul>
               </div>
       
               <div class="list-initial-thinking">
                 <span>Métodos de Pesquisa</span>
                 <ul class="list-ul-styled">
-                  ${overview.initialThinking.researchMethods.map((method) => `<li>${method}</li>`).join('')}
+                  ${overview?.initialThinking.researchMethods.map((method) => `<li>${method}</li>`).join('')}
                 </ul>
               </div>
             </div>
@@ -116,7 +122,7 @@ console.log("Tools:", tools);
           <div class="how-might-we-questions">
             <h3>Como poderíamos fazer perguntas</h3>
             <ul>
-              ${overview.howMightWeQuestions.map((question) => `<li>${question}</li>`).join('')}
+              ${overview?.howMightWeQuestions.map((question) => `<li>${question}</li>`).join('')}
             </ul>
           </div>
         </div>
@@ -129,28 +135,26 @@ console.log("Tools:", tools);
 
           <div class="background-research">
             <h3>Pesquisa de Sistemas Existentes</h3>
-            <div class="reserch-goals">
+            <div class="research-goals">
               <span>Objetivos de Pesquisa</span>
               <ul class="list-ul-styled">
-                <li>Identificar plataformas on-line e no local existentes relacionadas à construção da comunidade</li>
-                <li>Descubra como os novos alunos estão se conectando com estudantes experientes.</li>
-                <li>Examine como os alunos desenvolveram sua relação mentor-mentor.</li>
-                <li>Analise como os alunos estão utilizando o sistema atual.</li>
-                <li>Identificar os pontos fortes/potenciais do sistema atual.</li>
+                ${userResearch?.backgroundResearch.map((research) => `<li>${research}</li>`).join('')}
               </ul>
             </div>
           </div>
 
-          <div class="reserch">
-            <h3>Pequisa <span>1</span> - Sistema Existente</h3>
-            <ul class="list-ul-styled">
-              <li>Mídias sociais (Instagram/Facebook)</li>
-              <li>Eventos orientados a estudantes</li>
-              <li>Envolvimento SAIC</li>
-              <li>Feira da organização, Feira do grupo</li>
-            </ul>
-
-            <img src="#" alt="IMAGEM DE PESQUISA DE SISTEMA ">
+          <div class="system-research">
+            <span>Referências de Sistemas e Design</span>
+            
+            <div>
+              <ul class="list-ul-styled">
+              ${userResearch?.existingSystems.map((system) => `<li>${system}</li>`).join('')}
+              </ul>
+              
+              <div class="list-img">
+              ${userResearch?.imgSystems.map((url) => `<img src="${url}" alt="IMAGEM DE PESQUISA DE SISTEMA ">`).join('')}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -162,7 +166,7 @@ console.log("Tools:", tools);
 
           <div class="problem-startment">
             <h3>Declaração de Problema</h3>
-            <p>Não existe uma plataforma que apoie os alunos a encontrar mentores dentro da escola. Além disso, é difícil para os alunos estabelecerem uma relação sustentável</p>
+            ${challenge?.map((challenge) => `<p>${challenge}</p>`).join('')}
           </div>
         </div>
       </section>
@@ -174,12 +178,12 @@ console.log("Tools:", tools);
 
           <div class="wireframe">
             <h3>Wireframe</h3>
-            <img src="https://firebasestorage.googleapis.com/v0/b/my-portfolio-5104c.appspot.com/o/wiframe-modelo2.webp?alt=media&token=388e7b83-6a30-464d-b185-1ea72c311110" alt="IMG COM PROTOTIPAÇÂO">
+            ${prototype?.wireframe.map((frame) => `<img src="${frame}" alt="IMG COM PROTOTIPAÇÂO">`).join('')}
           </div>
 
           <div class="visual-identity">
             <h3>Identidade visual</h3>
-            <img src="https://firebasestorage.googleapis.com/v0/b/my-portfolio-5104c.appspot.com/o/palet.webp?alt=media&token=c01a577f-963e-413a-9cb6-c95b630845d0" alt="IMG FONTS E CORES DO DESIGN">
+            ${prototype?.visualIdentity.map((identity) => `<img src="${identity}" alt="IMG FONTS E CORES DO DESIGN">`).join('')}
           </div>
         </div>
       </section>
@@ -192,11 +196,7 @@ console.log("Tools:", tools);
           <div class="user-testing-feedback">
             <h3>Feedback de teste do usuário</h3>
             <ul class="list-ul-styled">
-              <li>Itilits conveniente para encontrar todas as informações em uma plataforma.</li>
-              <li>Itilits conveniente para verificar eventos e horários de orientação de relance.</li>
-              <li>O recurso para enviar lembretes é ótimo.</li>
-              <li>É claro quem pedir orientação.</li>
-              <li>Eu gosto que não há recurso de revisão. Espero que haja um recurso de endosso.</li>
+              ${userFeedback?.map(feedback => `<li>${feedback}</li>`).join('')}
             </ul>
           </div>
         </div>
@@ -209,12 +209,7 @@ console.log("Tools:", tools);
 
           <div class="topics">
             <h3>Tópicos</h3>
-
-            <p>Este projeto se concentrou na pesquisa do usuário e nas necessidades identificadas. Geralmente, se você seguir usuários, uma solução inevitavelmente se segue. Entrevistas com estudantes e pesquisas me permitiram descobrir diversas perspectivas e soluções.</p>
-
-            <p>Se eu tivesse tido mais tempo, poderia ter coletado respostas da pesquisa de mais alunos. E acredito que poderia criar uma versão do site e uma plataforma móvel.</p>
-
-            <p>Quando fiz a apresentação sobre minha inscrição na escola, senti muito orgulho de ouvir que o funcionário da escola me disse que faria mais coisas que poderia fazer imediatamente. Percebi que o papel de um designer de UX não é apenas projetar uma boa idéia, mas também desenvolver experiências cotidianas da comunidade com o design. </p>
+            ${reflection?.map(paragraph => `<p>${paragraph}</p>`).join('')}
           </div>
         </div>
       </section>

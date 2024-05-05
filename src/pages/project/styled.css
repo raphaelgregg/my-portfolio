@@ -169,20 +169,42 @@
   border: 1px solid none;
 }
 
-.reserch-goals,
-.reserch-goals span,
-.reserch-goals ul {
+.research-goals,
+.research-goals span,
+.research-goals ul {
   margin-top: 1.6rem;
 }
 
-.reserch-goals span {
+.research-goals span,
+.system-research span {
   font-size: 2rem;
   line-height: 2.8rem;
   font-weight: 500;
 }
 
-.reserch {
+.system-research {
   margin-top: 6rem;
+}
+
+.system-research > div {
+  margin-top: 2.4rem;
+}
+
+.system-research .list-img {
+  max-width: 400px;
+  max-height: 400px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+
+  margin-top: 6rem;
+}
+
+.system-research .list-img img {
+  width: 220px;
+  height: 150px;
+  object-fit: contain;
+  box-shadow: 0 .1rem .4rem rgba(0, 0, 0, 0.3);
 }
 
 /* PROBLEM SECTION */
