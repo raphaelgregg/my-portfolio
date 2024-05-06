@@ -25,8 +25,6 @@ export async function Project(projectId: string) {
       projectDescription,
       projectType,
       role,
-      technologies,
-      thumbnail,
       title,
       tools,
       overview,

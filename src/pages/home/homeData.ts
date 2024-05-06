@@ -111,7 +111,7 @@ export async function getPojectsFindUserByID(projectID: string): Promise<{projec
         console.log('ID do Projeto:', projectID);
         
         project = pessoalProjects.find(proj => {
-            console.log('ID do Projeto na iteração:', proj.id);
+            console.log('ID do Projeto na iteração:', proj?.id);
             const isMatchingID = proj?.id?.toString() === projectID?.toString();
             return isMatchingID;
         });
