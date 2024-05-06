@@ -112,8 +112,7 @@ export async function getPojectsFindUserByID(projectID: string): Promise<{projec
         
         project = pessoalProjects.find(proj => {
             console.log('ID do Projeto na iteração:', proj?.id);
-            const isMatchingID = proj?.id?.toString() === projectID?.toString();
-            return isMatchingID;
+            return (proj?.id ?? "").toString() === projectID.toString();
         });
     } else {
         console.log('Não foi possível encontrar o projeto. Verifique se o ID do usuário é válido e se há projetos disponíveis.');
