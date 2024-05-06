@@ -20,8 +20,6 @@ const {
     projectDescription,
     projectType,
     role,
-    technologies,
-    thumbnail,
     title,
     tools,
     overview,
