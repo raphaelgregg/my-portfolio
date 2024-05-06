@@ -34,7 +34,7 @@ export function CardMyProject({id, title, role, projectDescriptionShort, technol
     </div>
     
     <div class="footer">
-      Desenvolvido em ${extractFromDate(date, "custom-text")}
+      Desenvolvido em ${extractFromDate(date ?? '', "custom-text")}
     </div>
     </a>
   </div>
