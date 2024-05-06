@@ -58,13 +58,13 @@ export async function Project(projectId: string) {
       <header class="project-header">
         <img src="${banner}" alt="banner project">
       </header>
-      ${projectBriefSection({title, projectDescription, role, projectType, developmentDuration, date, tools})}
-      ${overview ? projectOverviewSection({overview}) : ''}
-      ${userResearch ? projectUserResearchSection({userResearch}) : ''}
-      ${challenge ? projectProblemSection({challenge}) : ''}
-      ${prototype ? projectDesignConceptSection({prototype}) : ''}
-      ${userFeedback ? projectUserFeedbackSection({userFeedback}) : ''}
-      ${reflection ? projectReflectionSection({reflection}) : ''}
+      ${projectBriefSection({id, title, projectDescription, role, projectType, developmentDuration, date, tools})}
+      ${overview ? projectOverviewSection({id, overview}) : ''}
+      ${userResearch ? projectUserResearchSection({id, userResearch}) : ''}
+      ${challenge ? projectProblemSection({id, challenge}) : ''}
+      ${prototype ? projectDesignConceptSection({id, prototype}) : ''}
+      ${userFeedback ? projectUserFeedbackSection({id, userFeedback}) : ''}
+      ${reflection ? projectReflectionSection({id, reflection}) : ''}
     </div>
     ${Footer()}
   `;

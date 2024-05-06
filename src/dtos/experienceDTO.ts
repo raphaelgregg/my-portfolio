@@ -26,7 +26,7 @@ export interface SucessCasesDTO {
 }
 
 export interface ProjectDTO {
-    id?: string,
+    id: string,
     title?: string,
     role?: string,
     projectDescription?: string,
