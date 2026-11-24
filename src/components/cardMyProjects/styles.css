@@ -5,9 +5,9 @@
 
   border: 1px solid var(--color-onyx-100);
   border-radius: 8px;
-  
-  background: rgba(228, 232, 233, .2);
-  box-shadow: 0 .3rem .4rem rgba(0, 0, 0, 0.1);
+
+  background: rgba(228, 232, 233, 0.2);
+  box-shadow: 0 0.3rem 0.4rem rgba(0, 0, 0, 0.1);
 }
 
 .card-my-project a {
@@ -15,7 +15,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: all 200ms ease-out, transform 600ms ease-in;
+  transition:
+    all 200ms ease-out,
+    transform 600ms ease-in;
 }
 
 .card-my-project a:hover {
@@ -24,10 +26,12 @@
 
 .card-my-project img {
   width: 100%;
-    /* trabalha a propoção da imagem */
+  /* trabalha a propoção da imagem */
   aspect-ratio: 16/9;
   object-fit: cover;
-  transition: all 200ms ease-out, transform 600ms ease-in;
+  transition:
+    all 200ms ease-out,
+    transform 600ms ease-in;
 
   display: block;
 }
@@ -41,7 +45,7 @@
   display: flex;
   flex-direction: column;
   align-items: start;
-  
+
   padding: 1.6rem;
 }
 
@@ -52,15 +56,15 @@
 
 .card-my-project .description {
   text-align: start;
-  margin-top: .6rem;
+  margin-top: 0.6rem;
 }
 
 .card-my-project .techs {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: .8rem;
-  
+  gap: 0.8rem;
+
   flex-direction: row;
   flex-wrap: wrap;
   flex-grow: 0;
@@ -72,7 +76,7 @@
   padding: 0.8rem;
   border-radius: 8px;
   border: 1px solid var(--color-onyx-200);
-  
+
   font-family: Inter, sans-serif;
   font-size: 1.2rem;
   font-weight: 500;
@@ -85,12 +89,12 @@
   text-transform: uppercase;
 }
 
-.card-my-project .techs span img{
+.card-my-project .techs span img {
   width: 1.8rem;
 }
 
 .card-my-project .footer {
-  background: rgba(228, 232, 233, .5);
+  background: rgba(228, 232, 233, 0.5);
   border-top: 1px solid var(--color-onyx-20);
   padding: 1.6rem;
   font-size: 1.4rem;

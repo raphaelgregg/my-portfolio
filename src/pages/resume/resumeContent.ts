@@ -14,9 +14,18 @@ interface WorkItem {
 const profile = {
   name: 'Raphael Gregg',
   links: [
-    { label: 'raphaelgregg.vercel.app', href: 'https://raphaelgregg.vercel.app/' },
-    { label: 'github.com/raphaelgregg', href: 'https://github.com/raphaelgregg' },
-    { label: 'linkedin.com/in/raphaelgregg', href: 'https://www.linkedin.com/in/raphaelgregg' },
+    {
+      label: 'raphaelgregg.vercel.app',
+      href: 'https://raphaelgregg.vercel.app/',
+    },
+    {
+      label: 'github.com/raphaelgregg',
+      href: 'https://github.com/raphaelgregg',
+    },
+    {
+      label: 'linkedin.com/in/raphaelgregg',
+      href: 'https://www.linkedin.com/in/raphaelgregg',
+    },
   ],
 }
 

@@ -30,7 +30,7 @@ const styles = `
       grid-template-columns: 1fr 3fr;
     }
   </style>
-`;
+`
 
 /** HTML do currículo usado na geração do PDF e na rota /curriculum-download. */
 export function Curriculum() {
@@ -46,5 +46,5 @@ export function Curriculum() {
   <div class="resume-wrapper">
     ${ResumeSecondPage()}
   </div>
-  `;
+  `
 }

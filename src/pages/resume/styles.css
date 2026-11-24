@@ -19,7 +19,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
-  
+
   margin-bottom: 3rem;
 }
 
@@ -72,7 +72,7 @@
 }
 .resume-wrapper .timeline {
   font-size: 1.4rem;
-  margin-top: .6rem;
+  margin-top: 0.6rem;
 }
 
 .resume-wrapper section p {
@@ -88,7 +88,7 @@
   background-color: blue
 } */
 
-.skillset  .skillset-card p {
+.skillset .skillset-card p {
   margin-top: 1.6rem;
 }
 
@@ -100,7 +100,7 @@
   /* bottom: 0; */
   /* padding: 4rem; */
   border: none;
-  box-shadow: 0 .1rem .4rem rgba(0, 0, 0, .2);
+  box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.2);
   border-bottom-left-radius: 9999px;
   width: 6rem;
   height: 6rem;
@@ -112,7 +112,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 #btn-download svg {

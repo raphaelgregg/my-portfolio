@@ -62,18 +62,18 @@
   #my-projects {
     grid-template-columns: repeat(2, 1fr);
   }
-} 
+}
 
 @media (min-width: 986px) {
   nav ul {
     padding-right: 4rem;
   }
 
-  section.portfolio .cards {    
+  section.portfolio .cards {
     max-width: 82rem;
     margin-inline: auto;
   }
-  
+
   #my-projects {
     grid-template-columns: repeat(3, 1fr);
     gap: 1.6rem;
@@ -84,11 +84,11 @@
     grid-template-columns: 1fr 3fr;
   }
 
-  .resume-wrapper section h5{
-    padding-top: .4rem;
+  .resume-wrapper section h5 {
+    padding-top: 0.4rem;
   }
 
-  .skillset-card + .skillset-card{
+  .skillset-card + .skillset-card {
     margin-top: 0;
   }
 
@@ -100,8 +100,8 @@
   /* PROJECT PAGE */
   .project-container .project-header {
     height: 60rem;
-    }
-  
+  }
+
   .project-brief-info {
     display: flex;
     gap: 5rem;

@@ -37,8 +37,7 @@ export function splitExperience(experiences: ExperienceDTO[] | null): {
     .filter((experience) => !isPersonalProjects(experience))
     .sort((a, b) => departureTimestamp(b) - departureTimestamp(a))
 
-  const personalProjects =
-    experiences.find(isPersonalProjects)?.projects ?? []
+  const personalProjects = experiences.find(isPersonalProjects)?.projects ?? []
 
   return { jobs, personalProjects }
 }

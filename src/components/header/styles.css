@@ -2,16 +2,16 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  
+
   display: flex;
   align-items: center;
   justify-content: center;
 
-  transition: .9s;
+  transition: 0.9s;
 
   background: var(--bg-color);
 
-  box-shadow: 0 0.1rem .4rem rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.05);
   z-index: 10;
 }
 
@@ -41,8 +41,6 @@ nav ul {
   align-items: center;
   gap: 2rem;
 }
-
-
 
 nav ul li a {
   font-weight: 500;

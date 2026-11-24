@@ -28,7 +28,7 @@ fieldset legend {
 
   width: 100%;
 
-  border-bottom: 1px solid #E6E6F0;
+  border-bottom: 1px solid #e6e6f0;
 
   padding-bottom: 1.6rem;
 }
@@ -36,13 +36,12 @@ fieldset legend {
 .input-wrapper {
   display: flex;
   flex-direction: column;
-
 }
 
 .input-wrapper label {
   font-size: 1.4rem;
   line-height: 2.4rem;
-  
+
   color: var(--color-onyx-950);
 
   margin-bottom: 0.8rem;
@@ -55,7 +54,7 @@ fieldset legend {
 .input-wrapper label span {
   font-size: 1.2rem;
   line-height: 2rem;
-  padding: 0.2rem 0 .2rem 1.2rem;
+  padding: 0.2rem 0 0.2rem 1.2rem;
 
   color: var(--color-onyx-50);
 }
@@ -68,7 +67,7 @@ fieldset legend {
 .input-wrapper textarea,
 .input-wrapper select {
   background: var(--color-onyx-50);
-  
+
   border: 1px solid var(--color-onyx-200);
   border-radius: 0.8rem;
   line-height: 2.6rem;
@@ -97,9 +96,9 @@ form .button {
   font-size: 1.6rem;
   line-height: 2.6rem;
 
-  color: #FFFFFF;
+  color: #ffffff;
 
-  transition: .3s;
+  transition: 0.3s;
 }
 
 form .button:hover {
@@ -109,4 +108,3 @@ form .button:hover {
 /* input:invalid {
   border: 1px solid var(--color-crimson-500);
 } */
-

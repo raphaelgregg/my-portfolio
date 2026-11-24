@@ -1,18 +1,18 @@
 export interface UserDTO {
-  name: string,
-  surname: string,
-  login: string,
-  bio: string,
-  mail: string,
-  phone: string,
-  profession: string,
-  social: SocialDTO,
+  name: string
+  surname: string
+  login: string
+  bio: string
+  mail: string
+  phone: string
+  profession: string
+  social: SocialDTO
 }
 
 interface SocialDTO {
-  linkedin: string,
-  twitter: string,
-  github: string,
+  linkedin: string
+  twitter: string
+  github: string
 }
 
 // "user": {

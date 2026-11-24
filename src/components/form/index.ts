@@ -1,7 +1,7 @@
-import "./styles.css"
+import './styles.css'
 
 export function Form() {
-  return`
+  return `
   <form id="my-form">
     <fieldset>
         <div class="fieldset-wrapper">
@@ -50,5 +50,5 @@ export function Form() {
       form="my-form"
     />
     </form>
-  `;
+  `
 }

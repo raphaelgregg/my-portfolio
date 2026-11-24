@@ -1,4 +1,4 @@
-section.brief-about  {
+section.brief-about {
   max-width: 95.6rem;
   padding: 13.2rem 0 2rem;
   margin: 0 auto;
@@ -28,12 +28,12 @@ section.brief-about .brief-wrapper p {
 section.brief-about img {
   width: 40rem;
   height: 40rem;
-  border-radius: .8rem;
+  border-radius: 0.8rem;
 }
 
 section.brief-about .hobbies ul {
   display: flex;
   gap: 1.6rem;
-  
+
   margin-top: 1.6rem;
 }

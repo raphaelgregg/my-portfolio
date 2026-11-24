@@ -1,6 +1,6 @@
 section.brief {
   background: var(--color-onyx-50);
-  
+
   padding: 13.2rem 0 2rem;
 }
 
@@ -62,7 +62,7 @@ section.portfolio .portfolio-wrapper {
   max-width: 95.6rem;
   margin: 0 auto;
   padding: 0 1.6rem;
-  
+
   display: flex;
   flex-direction: column;
 }
@@ -70,7 +70,7 @@ section.portfolio .portfolio-wrapper {
 .portfolio-wrapper .header {
   display: flex;
   flex-direction: column;
-  gap: .8rem;
+  gap: 0.8rem;
   align-items: flex-start;
   justify-content: flex-start;
   /* width: 26rem; */
@@ -79,7 +79,6 @@ section.portfolio .portfolio-wrapper {
 .portfolio-wrapper-section-header h4 {
   font-size: 2.4rem;
 }
-
 
 section.portfolio .cards-wrapper {
   display: flex;
@@ -91,7 +90,7 @@ section.portfolio .cards-wrapper {
   width: 100%;
 
   margin-top: 2.4rem;
-  padding: .4rem;
+  padding: 0.4rem;
 }
 
 #my-projects {
@@ -111,7 +110,6 @@ section.portfolio .cards-wrapper {
 .scroll::-webkit-scrollbar {
   display: none;
 }
-
 
 section.contact {
   margin-top: 10rem;

@@ -7,7 +7,6 @@ footer {
   width: 100%;
   margin-top: 6rem;
   background: var(--color-onyx-950);
-
 }
 
 .links-footer {
@@ -21,19 +20,19 @@ footer {
   width: 2rem;
   height: 2rem;
 
-  transition: .3s;
+  transition: 0.3s;
 }
 
 footer div {
   width: 100%;
   max-width: 102.4rem;
-  
+
   display: flex;
   flex-direction: column;
   /* justify-content: space-between; */
   gap: 1rem;
   align-items: center;
-  
+
   padding: 2.4rem 1.6rem;
   margin-inline: auto;
 

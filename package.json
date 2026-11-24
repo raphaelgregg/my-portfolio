@@ -6,7 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "typecheck": "tsc",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -21,5 +25,8 @@
     "firebase": "^13.4.0",
     "html2pdf.js": "^0.14.0",
     "lucide": "^0.370.0"
+  },
+  "engines": {
+    "node": ">=20.19"
   }
 }

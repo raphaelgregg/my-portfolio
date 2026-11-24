@@ -10,7 +10,8 @@ import './styles/queries.css'
 function getInternalLink(event: MouseEvent): HTMLAnchorElement | null {
   const link = (event.target as Element).closest('a')
   const isPlainLeftClick =
-    event.button === 0 && !(event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)
+    event.button === 0 &&
+    !(event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)
 
   if (!link || !isPlainLeftClick || link.target === '_blank') return null
   return link.origin === window.location.origin ? link : null

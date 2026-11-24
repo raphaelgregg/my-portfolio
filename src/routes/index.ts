@@ -15,7 +15,10 @@ const staticRoutes: Record<string, PageRenderer> = {
 }
 
 /** Rotas com parâmetro: "/project/3" → Project("3"). */
-const dynamicRoutes: Array<{ prefix: string; render: (id: string) => string | Promise<string> }> = [
+const dynamicRoutes: Array<{
+  prefix: string
+  render: (id: string) => string | Promise<string>
+}> = [
   { prefix: '/experience/', render: Experience },
   { prefix: '/project/', render: Project },
 ]

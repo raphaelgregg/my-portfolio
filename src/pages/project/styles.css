@@ -41,7 +41,7 @@
 .project-problem .problem-wrapper,
 .project-design-concept .design-concept-wrapper,
 .project-user-feedback .user-feedback-wrapper,
-.project-reflection .reflection-wrapper { 
+.project-reflection .reflection-wrapper {
   border: 1px solid none;
 
   max-width: 95.6rem;
@@ -60,7 +60,7 @@
 .reflection-title {
   color: var(--color-crimson-600);
   font-weight: 600;
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
   margin-bottom: 1.6rem;
 }
 
@@ -72,13 +72,12 @@
 }
 
 .list-ul-styled li:before {
-  content: "•"; /* Símbolo do bullet */
+  content: '•'; /* Símbolo do bullet */
   display: inline-block;
   width: 0; /* Largura do bullet */
   margin-left: 2rem; /* Move o bullet para trás para compensar o recuo */
   font-size: 2.4rem;
 }
-
 
 /* PROJECT BRIEF SECTION */
 .project-brief {
@@ -111,8 +110,8 @@
   margin-top: 1.6rem;
 }
 
-.project-overview .design-process, 
-.project-overview .initial-thinking, 
+.project-overview .design-process,
+.project-overview .initial-thinking,
 .project-overview .how-might-we-questions {
   margin: 6.2rem 0 1rem;
 }
@@ -149,7 +148,10 @@
 }
 
 .how-might-we-questions li:before {
-  content: counter(howMightWeCounter, decimal-leading-zero); /* Símbolo do bullet */
+  content: counter(
+    howMightWeCounter,
+    decimal-leading-zero
+  ); /* Símbolo do bullet */
   display: inline-block;
   width: 4rem; /* Largura do bullet */
   margin-left: -2rem; /* Move o bullet para trás para compensar o recuo */
@@ -204,7 +206,7 @@
   width: 220px;
   height: 150px;
   object-fit: contain;
-  box-shadow: 0 .1rem .4rem rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.3);
 }
 
 /* PROBLEM SECTION */
@@ -214,7 +216,7 @@
   padding: 6.2rem 0;
 }
 
-.problem-startment{
+.problem-startment {
   display: flex;
   flex-direction: column;
   gap: 4rem;
@@ -240,10 +242,9 @@
   border: 1px solid none;
 }
 
-.user-testing-feedback ul{
+.user-testing-feedback ul {
   margin-top: 1.6rem;
 }
-
 
 /* FEEDBACKS SECTION */
 .topics {
@@ -253,4 +254,3 @@
 
   letter-spacing: 0;
 }
-

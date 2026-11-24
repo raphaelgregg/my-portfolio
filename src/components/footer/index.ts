@@ -1,4 +1,4 @@
-import "./styles.css"
+import './styles.css'
 
 export function Footer() {
   return `
@@ -29,5 +29,5 @@ export function Footer() {
         Copyright © Raphael Gregg ${new Date().getFullYear()}
       </div>
     </footer>
-  `;
+  `
 }

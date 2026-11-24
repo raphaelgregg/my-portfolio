@@ -1,11 +1,11 @@
 export interface EducationDTO {
-  university:string,
-  universityShortName:string,
-  degree:string,
-  initialDate:string,
-  finalDate:string,
-  location:string,
-  description:string
+  university: string
+  universityShortName: string
+  degree: string
+  initialDate: string
+  finalDate: string
+  location: string
+  description: string
 }
 
 // "education": [

@@ -6,45 +6,42 @@
 
 :root {
   font-size: 62.5%;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
 
   --color-onyx-10: #fffefe;
   --color-onyx-20: #f9f9f8;
-  --color-onyx-50: #F5F6F6;
-  --color-onyx-100: #E4E8E9;
-  --color-onyx-200: #CCD3D5;
-  --color-onyx-300: #A8B4B8;
-  --color-onyx-400: #7D8E93;
+  --color-onyx-50: #f5f6f6;
+  --color-onyx-100: #e4e8e9;
+  --color-onyx-200: #ccd3d5;
+  --color-onyx-300: #a8b4b8;
+  --color-onyx-400: #7d8e93;
   --color-onyx-500: #627378;
   --color-onyx-600: #546066;
   --color-onyx-700: #485256;
-  --color-onyx-800: #40474A;
-  --color-onyx-900: #393E41;
+  --color-onyx-800: #40474a;
+  --color-onyx-900: #393e41;
   --color-onyx-950: #232629;
   --color-onyx-970: #0a0b0c;
-  --color-onyx-opacity-5: rgba(228, 232, 233, .5),
-  --color-onyx-opacity-8: #E4E8E9,
-
-  --color-crimson-50: #FEF2F2;
-  --color-crimson-100: #FEE6E5;
+  --color-onyx-opacity-5:
+    rgba(228, 232, 233, 0.5), --color-onyx-opacity-8: #e4e8e9,
+    --color-crimson-50: #fef2f2;
+  --color-crimson-100: #fee6e5;
   --color-crimson-200: #fccfd0;
-  --color-crimson-300: #F9A8A8;
-  --color-crimson-400: #F5777B;
-  --color-crimson-500: #EC4751;
-  --color-crimson-600: #D72638;
-  --color-crimson-700: #B61A2E;
+  --color-crimson-300: #f9a8a8;
+  --color-crimson-400: #f5777b;
+  --color-crimson-500: #ec4751;
+  --color-crimson-600: #d72638;
+  --color-crimson-700: #b61a2e;
   --color-crimson-800: #98192d;
-  --color-crimson-900: #83182C;
+  --color-crimson-900: #83182c;
   --color-crimson-950: #490812;
-  --color-crimson-opacity-8: rgb(252, 207, 208, .8);
+  --color-crimson-opacity-8: rgb(252, 207, 208, 0.8);
 
-  --color-blue-500: #5CC4C4;
+  --color-blue-500: #5cc4c4;
 
-  --color-gradient-tt: linear-gradient(45deg, #EC4751, #F5777B);
+  --color-gradient-tt: linear-gradient(45deg, #ec4751, #f5777b);
 
-  
-  
   /* color-scheme: light dark; */
   --tt-color: var(--color-onyx-950);
   --bg-color: var(--color-onyx-50);
@@ -63,11 +60,13 @@ a {
   text-decoration: none;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
-html, body {
+html,
+body {
   /* border: 1px solid red; */
   min-width: 320px;
   min-height: 100vh;
@@ -79,7 +78,6 @@ body {
   background: var(--bg-color);
   color: var(--tt-color);
   /* border: 1px solid green; */
-
 }
 
 /* h1 {
@@ -93,8 +91,13 @@ body {
   margin: 0 auto;
 }
 
-h1, h2, h4, h4, h5, h6 {
-  font-family: "Inter", sans-serif;
+h1,
+h2,
+h4,
+h4,
+h5,
+h6 {
+  font-family: 'Inter', sans-serif;
   font-optical-sizing: auto;
   font-weight: 700;
 }
@@ -132,10 +135,10 @@ p {
 .gradient-text {
   /* Fallback: Set a background color. */
   background-color: red;
-  
+
   /* Create the gradient. */
   background-image: var(--color-gradient-tt);
-  
+
   /* Set the background size and repeat properties. */
   background-size: 100%;
   background-repeat: repeat;
@@ -143,7 +146,7 @@ p {
   /* Use the text as a mask for the background. */
   /* This will show the gradient as a text color rather than element bg. */
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; 
+  -webkit-text-fill-color: transparent;
   -moz-background-clip: text;
   -moz-text-fill-color: transparent;
 }

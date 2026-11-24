@@ -6,7 +6,10 @@ import { fetchPersonalProject } from '../home/homeData'
 import './styles.css'
 
 /** Renderiza cada item de uma lista (que pode não existir no banco). */
-function renderList<T>(items: T[] | undefined, render: (item: T) => string): string {
+function renderList<T>(
+  items: T[] | undefined,
+  render: (item: T) => string,
+): string {
   return (items ?? []).map(render).join('')
 }
 
@@ -206,5 +209,5 @@ export async function Project(projectId: string) {
       </section>
     </div>
     ${Footer()}
-  `;
+  `
 }
