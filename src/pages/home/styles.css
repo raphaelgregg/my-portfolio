@@ -7,7 +7,7 @@
 
 /* ---------- Apresentação ---------- */
 section.brief {
-  padding: calc(var(--header-height) * 2) 0 var(--space-5);
+  padding: calc(var(--header-height) * 2) 0 var(--space-section);
 }
 
 .brief-wrapper {
