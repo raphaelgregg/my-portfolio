@@ -3,7 +3,9 @@ import { Header } from '../../components/header'
 import { escapeHtml as esc } from '../../utils/escapeHtml'
 import { setPageTitle } from '../../utils/pageTitle'
 import { getYear } from '../../utils/extractFromDate'
+import { findGithubProject } from '../../data/github-projects'
 import { fetchPersonalProject } from '../home/homeData'
+import { GithubProjectPage } from './github'
 import './styles.css'
 
 /** Renderiza cada item de uma lista (que pode não existir no banco). */
@@ -15,6 +17,11 @@ function renderList<T>(
 }
 
 export async function Project(projectId: string) {
+  // Projetos pessoais = fixados do GitHub; os ids numéricos antigos (estudos de
+  // caso do Firebase) continuam funcionando abaixo
+  const githubProject = findGithubProject(projectId)
+  if (githubProject) return GithubProjectPage(githubProject)
+
   const project = await fetchPersonalProject(projectId)
   setPageTitle(project?.title ?? 'Projeto não encontrado')
 

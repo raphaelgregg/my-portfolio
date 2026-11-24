@@ -106,3 +106,18 @@
   font-size: 1.4rem;
   text-align: center;
 }
+
+/* Sem captura de tela: a inicial do projeto sobre um degradê */
+.card-my-project .card-project-thumb.company-thumbnail-placeholder {
+  aspect-ratio: 16 / 9;
+  font-size: 4.8rem;
+}
+
+/* Resumos longos não estouram o card: no máximo 3 linhas */
+.card-my-project .description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+}

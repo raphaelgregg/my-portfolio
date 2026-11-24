@@ -3,7 +3,9 @@ import { Carousel } from '../../components/carousel'
 import { CardMyProject } from '../../components/cardMyProjects'
 import { Footer } from '../../components/footer'
 import { Header } from '../../components/header'
+import { GITHUB_PROFILE_URL, githubProjects } from '../../data/github-projects'
 import { escapeHtml as esc } from '../../utils/escapeHtml'
+import { toCardProject } from './toCardProject'
 import {
   fetchEducation,
   fetchExperience,
@@ -19,7 +21,7 @@ export async function Home() {
     fetchEducation(),
     fetchExperience(),
   ])
-  const { jobs, personalProjects } = splitExperience(experience)
+  const { jobs } = splitExperience(experience)
 
   const universities = Array.isArray(education)
     ? education.map((item) => item.universityShortName).join(', ')
@@ -76,11 +78,14 @@ export async function Home() {
         <div class="portfolio-wrapper">
           <div class="header">
             <h2 id="projetos-titulo" class="section-title">Projetos Pessoais</h2>
-            <p>Para que você conheça um pouco mais do meu trabalho</p>
+            <p>
+              Os repositórios que mantenho fixados no meu
+              <a class="section-link" href="${GITHUB_PROFILE_URL}" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </p>
           </div>
 
           <div id="my-projects" class="cards-wrapper">
-            ${personalProjects.map((project) => CardMyProject(project)).join(' ')}
+            ${githubProjects.map((project) => CardMyProject(toCardProject(project))).join(' ')}
           </div>
         </div>
       </section>

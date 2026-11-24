@@ -1,0 +1,192 @@
+/* Esqueleto das páginas de detalhe (experiência, projeto): cabeçalho, fatos, seções, listas e chips. */
+.detail-wrapper {
+  max-width: 95.6rem;
+  margin: 0 auto;
+  padding: 0 1.6rem;
+}
+
+/* ---------- Cabeçalho da empresa ---------- */
+.detail-hero {
+  padding: 11.6rem 0 3.2rem;
+  background: var(--color-onyx-50);
+}
+
+.detail-back {
+  display: inline-block;
+  margin-bottom: 2.4rem;
+
+  font-size: 1.4rem;
+  color: var(--color-muted);
+}
+
+.detail-back:hover {
+  color: var(--color-accent);
+}
+
+.detail-heading {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.detail-logo {
+  flex-shrink: 0;
+  width: 7.2rem;
+  height: 7.2rem;
+  object-fit: cover;
+
+  border: 1px solid var(--color-onyx-100);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.detail-logo.company-thumbnail-placeholder {
+  font-size: 3.2rem;
+}
+
+.detail-container h1 {
+  font-size: 2.8rem;
+  line-height: 3.4rem;
+}
+
+.detail-subtitle {
+  margin-top: 0.4rem;
+  color: var(--color-muted);
+}
+
+/* Período, duração, local e site */
+.detail-facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem 1.6rem;
+
+  margin-top: 3.2rem;
+}
+
+.detail-facts dt {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.detail-facts dd {
+  margin-top: 0.4rem;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+.detail-facts a {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+/* ---------- Seções ---------- */
+.detail-section {
+  margin: 5.6rem 0;
+}
+
+.detail-title {
+  margin-bottom: 1.6rem;
+
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  line-height: 2rem;
+  text-transform: uppercase;
+  color: var(--color-crimson-700);
+}
+
+.detail-text {
+  max-width: 72rem;
+}
+
+.detail-bullets {
+  margin-top: 1.2rem;
+}
+
+.detail-bullets li {
+  position: relative;
+  padding-left: 1.6rem;
+
+  font-size: 1.5rem;
+  line-height: 2.4rem;
+}
+
+.detail-bullets li + li {
+  margin-top: 0.4rem;
+}
+
+.detail-bullets li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-crimson-700);
+}
+
+.detail-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+}
+
+.detail-chips span {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  padding: 0.8rem;
+  border: 1px solid var(--color-onyx-200);
+  border-radius: 8px;
+
+  font-family: Inter, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.8rem;
+  text-transform: uppercase;
+}
+
+.detail-chips img {
+  width: 1.8rem;
+}
+
+/* ---------- Ações (botões e links do cabeçalho) ---------- */
+.detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.2rem 1.6rem;
+
+  margin-top: 2.4rem;
+}
+
+.detail-actions .detail-link {
+  font-weight: 500;
+  text-decoration: underline;
+  color: var(--color-muted);
+}
+
+.detail-actions .detail-link:hover {
+  color: var(--color-accent);
+}
+
+/* ---------- Telas maiores ---------- */
+@media (min-width: 742px) {
+  .detail-container h1 {
+    font-size: 4rem;
+    line-height: 4.8rem;
+  }
+
+  .detail-logo {
+    width: 9.6rem;
+    height: 9.6rem;
+  }
+
+  .detail-facts {
+    grid-template-columns: repeat(4, auto);
+    justify-content: start;
+    gap: 2rem 6rem;
+  }
+}

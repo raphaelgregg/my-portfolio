@@ -39,14 +39,14 @@ src/
 
 ## Rotas
 
-| URL                    | Página                                                                          |
-| ---------------------- | ------------------------------------------------------------------------------- |
-| `/`                    | Início (experiência e projetos pessoais)                                        |
-| `/project/:id`         | Detalhe do projeto                                                              |
-| `/resume`              | Currículo na tela (botão baixa o PDF)                                           |
-| `/curriculum-download` | Mesmo currículo, no formato usado no PDF                                        |
-| `/experience/:id`      | Detalhe da experiência: período, duração, local, site, cargos, casos e projetos |
-| `/about`               | Em construção                                                                   |
+| URL                    | Página                                                                             |
+| ---------------------- | ---------------------------------------------------------------------------------- |
+| `/`                    | Início (experiência e projetos pessoais)                                           |
+| `/project/:slug`       | Detalhe de um projeto fixado no GitHub (README, capturas, aplicações, tecnologias) |
+| `/resume`              | Currículo na tela (botão baixa o PDF)                                              |
+| `/curriculum-download` | Mesmo currículo, no formato usado no PDF                                           |
+| `/experience/:id`      | Detalhe da experiência: período, duração, local, site, cargos, casos e projetos    |
+| `/about`               | Em construção                                                                      |
 
 ## Experiências: padrão da página e como adicionar uma nova
 
@@ -91,6 +91,40 @@ Os cards da home ficam em `components/carousel` (`Carousel({ label, items })` + 
 ### Como a página é montada
 
 `src/pages/experience/index.ts` monta a página como uma **lista de seções** (`{ id, title, body }`). Cada `body` é produzido por uma função (`paragraphBody`, `jobsBody`, `projectsBody`) que devolve o HTML ou `''`; corpo vazio = a seção não aparece. Para criar uma seção nova: escreva a função do corpo e acrescente uma linha à lista em `Experience()`.
+
+## Projetos pessoais (fixados no GitHub)
+
+A seção "Projetos Pessoais" mostra os repositórios que você mantém **fixados no perfil do GitHub**, preenchidos a partir do README de cada um.
+
+| O quê                                                          | Onde                                                  |
+| -------------------------------------------------------------- | ----------------------------------------------------- |
+| Quais repositórios (e a ordem)                                 | `scripts/github-projects/pinned.json`                 |
+| Dados gerados do README e do GitHub                            | `src/data/github-projects.json` (**não edite à mão**) |
+| Capas e capturas de tela (WebP, até 1200px)                    | `public/projects/<repo>/` (geradas)                   |
+| Nome de exibição, categoria e resumo quando o README não serve | `src/data/github-projects.ts` (`curation`)            |
+
+### Atualizar
+
+```bash
+npm run sync:projects                      # lê pela API do GitHub
+GITHUB_TOKEN=... npm run sync:projects     # com token: 5000 requisições/h em vez de 60
+npm run sync:projects -- --local ~/repos   # lê de clones locais (<pasta>/<repo>)
+```
+
+O comando lê o README (título, resumo, funcionalidades marcadas `[x]`, tecnologias, links de site, vídeo, layout e desafio, e o roteiro de aulas de READMEs de curso), as imagens, as aplicações de monorepos (`web`, `mobile`, `server`, pelo `package.json` de cada uma) e as datas. Rode, revise o `git diff` e faça o commit. Reexecutar não apaga a curadoria.
+
+### Quando os fixados mudarem
+
+1. Liste os fixados atuais (precisa do `gh` autenticado):
+
+   ```bash
+   gh api graphql -f query='{ user(login:"raphaelgregg") { pinnedItems(first:6, types:REPOSITORY) { nodes { ... on Repository { name } } } } }' --jq '.data.user.pinnedItems.nodes[].name'
+   ```
+
+2. Atualize `scripts/github-projects/pinned.json` com os nomes, na ordem.
+3. Rode `npm run sync:projects` e, se um projeto novo precisar de nome de exibição ou categoria, acrescente-o em `curation`.
+
+Os scripts são TypeScript executado direto pelo Node 26 (sem etapa de build) e têm testes (`npm test`).
 
 ## Manutenção
 

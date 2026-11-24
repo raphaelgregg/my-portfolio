@@ -1,0 +1,203 @@
+[
+  {
+    "slug": "grab-devchallenge",
+    "repo": "raphaelgregg/grab-devchallenge",
+    "name": "Page Login GRAB - Desafio DevChallenge",
+    "summary": "Desafio do DevChallenge - Seu desafio é criar uma página de login e verificar se o formulário foi preenchido corretamente",
+    "features": [
+      "Criação pagina login",
+      "Criação pagina criar conta",
+      "Validação de campos com msgs personalizas"
+    ],
+    "techs": ["HTML", "CSS", "JavaScript"],
+    "apps": [],
+    "syllabus": [],
+    "links": {
+      "repo": "https://github.com/raphaelgregg/grab-devchallenge",
+      "video": "https://www.youtube.com/watch?v=psTuLDxRp4E",
+      "site": "https://grab-devchallenge.vercel.app/index.html",
+      "challenge": "https://devchallenge.com.br/challenges/5f261924ecb9243236c05385/details"
+    },
+    "cover": "/projects/grab-devchallenge/1.webp",
+    "screenshots": [
+      "/projects/grab-devchallenge/1.webp",
+      "/projects/grab-devchallenge/2.webp",
+      "/projects/grab-devchallenge/3.webp",
+      "/projects/grab-devchallenge/4.webp"
+    ],
+    "createdAt": "2021-02-04",
+    "pushedAt": "2021-03-18",
+    "language": "CSS",
+    "fork": false
+  },
+  {
+    "slug": "estagio-frontend",
+    "repo": "raphaelgregg/estagio-frontend",
+    "name": "TESTE DE ESTÁGIO FRONT-END HTML, CSS E JAVASCRIPT",
+    "summary": "TESTE DE ESTÁGIO FRONT-END HTML, CSS E JAVASCRIPT",
+    "features": [
+      "Criação a Navbar fixed no topo",
+      "Criação da section carousel",
+      "Criação da section de serviços",
+      "Criação do footer com inforções de contato",
+      "Criação do layout responsivo",
+      "Implementação de Custom funcionalidades e alimentação do carousel por uma lista no arquivo data.js",
+      "Deploy da Aplicação na vercel Link Teste Front-end"
+    ],
+    "techs": ["HTML", "CSS", "JavaScript"],
+    "apps": [],
+    "syllabus": [],
+    "links": {
+      "repo": "https://github.com/raphaelgregg/estagio-frontend",
+      "site": "https://estagio-frontend-blue.vercel.app/",
+      "layout": "https://xd.adobe.com/view/a44042ef-99e2-46fa-545c-ce4f6686b811-d271/?fullscreen"
+    },
+    "cover": "/projects/estagio-frontend/1.webp",
+    "screenshots": ["/projects/estagio-frontend/1.webp"],
+    "createdAt": "2021-03-09",
+    "pushedAt": "2021-03-13",
+    "language": "HTML",
+    "fork": true
+  },
+  {
+    "slug": "nlw-04-moveit",
+    "repo": "raphaelgregg/nlw-04-moveit",
+    "name": "MoviIt - NLW#04",
+    "summary": "",
+    "features": [],
+    "techs": ["TypeScript", "React", "Next.js"],
+    "apps": [],
+    "syllabus": [
+      {
+        "title": "Rumo ao próximo nível",
+        "items": [
+          "O que é React?",
+          "Por que TypeScript?",
+          "Criando Projeto",
+          "Conceitos importantes",
+          "Componentes",
+          "Propriedade",
+          "Estado",
+          "Configurando fonte externa",
+          "Estilos Globais",
+          "Components: ExperienceBar"
+        ]
+      },
+      {
+        "title": "Desvendando o Next.js",
+        "items": [
+          "Conhecendo o Next.js",
+          "SPA, SSR, SSG",
+          "Comparação(create-react-app, Gastsby, Next)",
+          "Migrar Projeto para Next.js",
+          "Componente: Perfil",
+          "Componente: CompletedChallenges",
+          "Componente: Countdown"
+        ]
+      },
+      {
+        "title": "Contexto e componentes",
+        "items": [
+          "Finalizar countdown",
+          "Component: challengebox",
+          "Contextos no React",
+          "Criando contexto de desafios",
+          "Regras de negocio"
+        ]
+      }
+    ],
+    "links": {
+      "repo": "https://github.com/raphaelgregg/nlw-04-moveit",
+      "site": "https://moveit-lovat-two.vercel.app/",
+      "layout": "https://www.figma.com/file/QY8sgWQeD3uuduxw68n1gJ/Move.it-1.0-(Copy)?node-id=160%3A2761"
+    },
+    "screenshots": [],
+    "createdAt": "2021-02-23",
+    "pushedAt": "2021-02-27",
+    "language": "TypeScript",
+    "fork": false
+  },
+  {
+    "slug": "nlw03-oministack",
+    "repo": "raphaelgregg/nlw03-oministack",
+    "name": "Happy",
+    "summary": "O Happy é uma aplicação que conecta pessoas à casas de acolhimento institucional para fazer o dia de muitas crianças mais feliz 💜",
+    "features": [],
+    "techs": ["Node.js", "React", "React Native", "Expo", "TypeScript"],
+    "apps": [
+      {
+        "name": "API",
+        "stack": ["Express", "TypeORM", "SQLite", "Yup", "TypeScript"]
+      },
+      {
+        "name": "Mobile",
+        "stack": ["React Native", "Expo", "React Navigation", "TypeScript"]
+      },
+      {
+        "name": "Web",
+        "stack": ["React", "React Router", "Leaflet", "TypeScript"]
+      }
+    ],
+    "syllabus": [],
+    "links": { "repo": "https://github.com/raphaelgregg/nlw03-oministack" },
+    "cover": "/projects/nlw03-oministack/1.webp",
+    "screenshots": ["/projects/nlw03-oministack/1.webp"],
+    "createdAt": "2020-12-28",
+    "pushedAt": "2021-03-11",
+    "language": "TypeScript",
+    "fork": false
+  },
+  {
+    "slug": "nlw-02-omnistack",
+    "repo": "raphaelgregg/nlw-02-omnistack",
+    "name": "Nlw 02 Omnistack",
+    "summary": "Projeto construído durante o Next Level Week #02 trilha Omnistack",
+    "features": [],
+    "techs": ["TypeScript", "React", "React Native", "Expo", "Node.js"],
+    "apps": [
+      {
+        "name": "Mobile",
+        "stack": ["React Native", "Expo", "React Navigation", "TypeScript"]
+      },
+      { "name": "API", "stack": ["Express", "Knex", "SQLite", "TypeScript"] },
+      { "name": "Web", "stack": ["React", "React Router", "TypeScript"] }
+    ],
+    "syllabus": [],
+    "links": { "repo": "https://github.com/raphaelgregg/nlw-02-omnistack" },
+    "screenshots": [],
+    "createdAt": "2020-08-12",
+    "pushedAt": "2020-08-12",
+    "language": "TypeScript",
+    "fork": false
+  },
+  {
+    "slug": "nlw-01-booster",
+    "repo": "raphaelgregg/nlw-01-booster",
+    "name": "Ecoleta",
+    "summary": "O Ecoleta é um marketplace que ajuda pessoas a encontrarem pontos de coleta de resíduos de forma eficiente.",
+    "features": [],
+    "techs": ["Node.js", "React", "React Native", "Expo"],
+    "apps": [
+      {
+        "name": "Mobile",
+        "stack": ["React Native", "Expo", "React Navigation", "TypeScript"]
+      },
+      { "name": "API", "stack": ["Express", "Knex", "SQLite", "TypeScript"] },
+      {
+        "name": "Web",
+        "stack": ["React", "React Router", "Leaflet", "TypeScript"]
+      }
+    ],
+    "syllabus": [],
+    "links": {
+      "repo": "https://github.com/raphaelgregg/nlw-01-booster",
+      "layout": "https://www.figma.com/file/9TlOcj6l7D05fZhU12xWT3/Ecoleta-Booster?node-id=0%3A1"
+    },
+    "cover": "/projects/nlw-01-booster/1.webp",
+    "screenshots": ["/projects/nlw-01-booster/1.webp"],
+    "createdAt": "2020-06-15",
+    "pushedAt": "2023-01-11",
+    "language": "TypeScript",
+    "fork": false
+  }
+]

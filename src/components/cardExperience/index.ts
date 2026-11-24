@@ -7,9 +7,10 @@ export function CompanyThumbnail(
   name: string | undefined,
   src: string | undefined,
   className: string,
+  altPrefix = 'Logo da empresa',
 ): string {
   if (src) {
-    return `<img class="${className}" loading="lazy" decoding="async" src="${esc(src)}" alt="Logo da empresa ${esc(name)}" />`
+    return `<img class="${className}" loading="lazy" decoding="async" src="${esc(src)}" alt="${esc(altPrefix)} ${esc(name)}" />`
   }
   const initial = (name ?? '?').trim().charAt(0).toUpperCase()
   return `<div class="${className} company-thumbnail-placeholder" aria-hidden="true">${esc(initial)}</div>`

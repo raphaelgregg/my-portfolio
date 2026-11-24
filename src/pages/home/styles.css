@@ -107,3 +107,9 @@ section.portfolio .cards-wrapper {
   display: grid;
   grid-template-columns: 1fr;
 }
+
+.section-link {
+  font-weight: 600;
+  text-decoration: underline;
+  color: var(--color-accent);
+}
