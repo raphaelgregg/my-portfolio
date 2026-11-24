@@ -33,9 +33,9 @@ jobs:
       - uses: peter-evans/create-pull-request@v7
         with:
           # PRs abertos com o GITHUB_TOKEN padrão não disparam o CI. Para que o
-          # CI rode no PR, crie o secret SYNC_PROJECTS_TOKEN (PAT com acesso a
+          # CI rode no PR, crie o secret SYNC_PROJECTS_TOKEN_MYPORTFOLIO (PAT com acesso a
           # contents e pull requests deste repositório).
-          token: ${{ secrets.SYNC_PROJECTS_TOKEN || secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.SYNC_PROJECTS_TOKEN_MYPORTFOLIO || secrets.GITHUB_TOKEN }}
           branch: chore/sync-projects
           delete-branch: true
           add-paths: |
