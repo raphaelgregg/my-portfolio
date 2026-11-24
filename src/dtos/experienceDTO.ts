@@ -8,6 +8,7 @@ export interface ExperienceDTO {
   departureDate?: string
   companyOverview?: string
   companyOverviewShort?: string
+  location?: string
   jobsOverview?: string
   jobs?: Job[] // Defina o tipo apropriado para successCases se necessário;
   projects?: ProjectDTO[]

@@ -10,7 +10,7 @@ function Technologies(technologies: string[] = []) {
     .map(
       (tech) => `
         <span>
-          <img src="/svg/${esc(tech)}.svg" alt="" />
+          <img src="/svg/${esc(tech)}.svg" alt="" onerror="this.remove()" />
           ${esc(tech)}
         </span>`,
     )

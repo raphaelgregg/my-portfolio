@@ -2,7 +2,7 @@ import { Footer } from '../../components/footer'
 import { Header } from '../../components/header'
 import './styles.css'
 
-function StatusPage(
+export function StatusPage(
   title: string,
   message: string,
   linkLabel: string,

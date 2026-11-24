@@ -42,6 +42,16 @@ export function splitExperience(experiences: ExperienceDTO[] | null): {
   return { jobs, personalProjects }
 }
 
+/** Uma experiência (empresa) pelo id da URL, ou undefined se não existir. */
+export async function fetchExperienceById(
+  experienceId: string,
+): Promise<ExperienceDTO | undefined> {
+  const experiences = await fetchExperience()
+  return Array.isArray(experiences)
+    ? experiences.find((experience) => String(experience.id) === experienceId)
+    : undefined
+}
+
 export async function fetchPersonalProject(
   projectId: string,
 ): Promise<ProjectDTO | undefined> {
