@@ -3,8 +3,8 @@ import './styles.css'
 
 export function Footer() {
   return `
-    <footer>
-      <div>
+    <footer class="site-footer">
+      <div class="container footer-inner">
         <ul class="links-footer">
           <li>
             <a href="${GITHUB_URL}" target="_blank" rel="noopener noreferrer" aria-label="GitHub">

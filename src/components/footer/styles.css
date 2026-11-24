@@ -1,12 +1,28 @@
-footer {
+.site-footer {
   width: 100%;
-  margin-top: var(--space-16);
+  margin-top: var(--space-15);
   background: var(--color-onyx-950);
 }
 
 /* Na home, o espaço antes do rodapé vem do bloco de contato */
-.home-container + footer {
+.home-container + .site-footer {
   margin-top: 0;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+
+  padding-block: var(--space-6);
+
+  color: var(--color-onyx-100);
+  font-size: var(--text-xs);
+}
+
+.site-footer :focus-visible {
+  outline-color: var(--color-crimson-300);
 }
 
 .links-footer {
@@ -35,27 +51,7 @@ footer {
   color: var(--color-crimson-300);
 }
 
-footer :focus-visible {
-  outline-color: var(--color-crimson-300);
-}
-
 .links-footer svg {
   width: 2rem;
   height: 2rem;
-}
-
-footer div {
-  width: 100%;
-  max-width: 102.4rem;
-
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
-
-  padding: var(--space-6) var(--space-4);
-  margin-inline: auto;
-
-  color: var(--color-onyx-100);
-  font-size: var(--text-xs);
 }

@@ -1,0 +1,41 @@
+/* Estrutura da página: coluna central, faixas de seção e acessibilidade de navegação */
+@layer layout {
+  /* Coluna central de conteúdo */
+  .container {
+    max-width: var(--container-width);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  /* Faixa de página: espaço vertical padrão entre seções */
+  .section {
+    padding-block: var(--space-section);
+  }
+
+  /* Texto só para leitores de tela */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  /* Link "pular para o conteúdo": aparece só ao receber foco */
+  .skip-link {
+    position: fixed;
+    top: var(--space-2);
+    left: var(--space-2);
+    z-index: 20;
+    padding: 1rem var(--space-4);
+    border-radius: var(--radius-md);
+    background: var(--color-onyx-950);
+    color: var(--color-onyx-10);
+    transform: translateY(-200%);
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+}

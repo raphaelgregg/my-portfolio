@@ -1,0 +1,103 @@
+/*
+ * Tokens de design: a fonte única de cores, tipografia, espaçamento e formas.
+ * Componentes e páginas usam estas variáveis, não números soltos.
+ * O html usa 62.5%, então 1rem = 10px.
+ *
+ * Breakpoints usados nas media queries (não aceitam variáveis em CSS):
+ *   485px  celular largo     610px  celular grande/tablet pequeno
+ *   742px  tablet            986px  desktop pequeno     1090px  desktop
+ * As media queries ficam no fim do arquivo do componente ou da página
+ * que elas ajustam, sempre com min-width (mobile first).
+ */
+:root {
+  /* ---------- Cores ---------- */
+  --color-onyx-10: #fffefe;
+  --color-onyx-20: #f9f9f8;
+  --color-onyx-50: #f5f6f6;
+  --color-onyx-100: #e4e8e9;
+  --color-onyx-200: #ccd3d5;
+  --color-onyx-300: #a8b4b8;
+  --color-onyx-400: #7d8e93;
+  --color-onyx-500: #627378;
+  --color-onyx-600: #546066;
+  --color-onyx-700: #485256;
+  --color-onyx-800: #40474a;
+  --color-onyx-900: #393e41;
+  --color-onyx-950: #232629;
+  --color-onyx-970: #0a0b0c;
+
+  --color-crimson-50: #fef2f2;
+  --color-crimson-100: #fee6e5;
+  --color-crimson-200: #fccfd0;
+  --color-crimson-300: #f9a8a8;
+  --color-crimson-400: #f5777b;
+  --color-crimson-500: #ec4751;
+  --color-crimson-600: #d72638;
+  --color-crimson-700: #b61a2e;
+  --color-crimson-800: #98192d;
+  --color-crimson-900: #83182c;
+  --color-crimson-950: #490812;
+
+  /* Degradê do destaque do hero: as duas pontas passam de 3:1 de contraste
+     sobre o fundo claro (mínimo para texto grande) */
+  --color-gradient-accent: linear-gradient(
+    45deg,
+    var(--color-crimson-600),
+    var(--color-crimson-500)
+  );
+
+  /* Cores semânticas */
+  --color-text: var(--color-onyx-950);
+  --color-bg: var(--color-onyx-50);
+  --color-accent: var(--color-crimson-600);
+  --color-muted: var(--color-onyx-600);
+
+  /* ---------- Tipografia ---------- */
+  --font-body: 'Roboto', sans-serif;
+  --font-heading: 'Inter', sans-serif;
+  /* Títulos de seção e de cards da home: para trocar a fonte, mude só aqui */
+  --font-display: 'Bricolage Grotesque', 'Inter', sans-serif;
+
+  /* Escala de tamanhos. A ordem dos níveis de título segue a escala:
+     h1 (xl) > h2 (lg) > h3 (md) */
+  --text-xs: 1.2rem;
+  --text-sm: 1.4rem;
+  --text-base: 1.6rem;
+  --text-md: 1.8rem;
+  --text-lg: 2rem;
+  --text-xl: 2.4rem;
+  --text-2xl: 3rem;
+  --text-3xl: 4.8rem;
+
+  /* Entrelinha (sem unidade, relativa ao tamanho da fonte) */
+  --leading-tight: 1.2;
+  --leading-snug: 1.4;
+  --leading-normal: 1.75;
+
+  /* ---------- Espaçamento: múltiplos de 0.4rem (o número é o múltiplo) ---------- */
+  --space-1: 0.4rem;
+  --space-2: 0.8rem;
+  --space-3: 1.2rem;
+  --space-4: 1.6rem;
+  --space-5: 2rem;
+  --space-6: 2.4rem;
+  --space-8: 3.2rem;
+  --space-10: 4rem;
+  --space-12: 4.8rem;
+  --space-15: 6rem;
+  --space-24: 9.6rem;
+
+  /* Espaço vertical entre as grandes seções da home */
+  --space-section: clamp(5.6rem, 3.2rem + 6vw, var(--space-24));
+
+  /* ---------- Formas ---------- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-full: 9999px;
+  --border: 1px solid var(--color-onyx-200);
+
+  /* ---------- Estrutura ---------- */
+  --container-width: 95.6rem;
+  --gutter: var(--space-4);
+  --header-height: 6.6rem;
+}

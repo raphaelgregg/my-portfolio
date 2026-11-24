@@ -108,7 +108,7 @@ src/
   services/                Acesso ao Firebase
   dtos/                    Tipos dos dados
   utils/                   Funções auxiliares (datas, escapeHtml, impressão em PDF)
-  styles/                  global.css, queries.css (responsivo) e detail.css (páginas de detalhe)
+  styles/                  main.css (entrada), tokens, reset, base, layout, components e detail.css (páginas de detalhe)
 ```
 
 > `public/svg/<tecnologia>.svg` é procurado pelo nome da tecnologia: antes de remover um ícone, confira `src/data/techIcons.ts` e os dados.
@@ -227,7 +227,7 @@ O comando lê o README (título, resumo, funcionalidades marcadas `[x]`, tecnolo
 
 - **Apresentação da home:** edite os textos em `src/pages/home/index.ts`.
 - **Contatos (bloco "Contato" da home e rodapé):** `src/data/contact.ts`. Os contatos do currículo ficam em `resumeContent.ts`.
-- **Visual da home:** o hero, a lista de projetos (uma linha por projeto: capa, texto e data) e o bloco de contato escuro que se junta ao rodapé estão em `src/pages/home/` e em `src/styles/queries.css`. A fonte dos títulos das seções (Bricolage Grotesque) vem do `index.html` e da variável `--font-display`; para voltar à Inter, troque só essa variável. Se a imagem de uma logo falhar, o card mostra a inicial da empresa.
+- **Visual da home:** o hero, a lista de projetos (uma linha por projeto: capa, texto e data) e o bloco de contato escuro que se junta ao rodapé estão em `src/pages/home/` e `src/components/cardMyProjects/`. A fonte dos títulos das seções (Bricolage Grotesque) vem do `index.html` e da variável `--font-display`; para voltar à Inter, troque só essa variável. Se a imagem de uma logo falhar, o card mostra a inicial da empresa.
 - **Título, descrição e domínio:** em `index.html` estão `<title>`, `description`, `canonical` e `og:url`. Se o domínio principal mudar, atualize os dois últimos.
 
 #### E. Dados do Firebase (empresas, usuário, formação)
@@ -316,7 +316,8 @@ Fluxo sugerido: trabalhe numa branch, abra um pull request (o CI roda), integre 
 - **Segurança:** todo texto vindo do banco ou do GitHub deve passar por `escapeHtml` (`src/utils/escapeHtml.ts`) ao entrar em um template HTML; links com `target="_blank"` levam `rel="noopener noreferrer"`.
 - **Páginas de detalhe:** `components/detail` define o esqueleto compartilhado (experiência e projeto): um cabeçalho e uma **lista de seções** `{ id, title, body }`. Cada `body` é uma função que devolve o HTML ou `''`, e corpo vazio faz a seção não aparecer. Para criar uma seção nova, escreva a função do corpo e acrescente uma linha à lista da página.
 - **Carrossel:** `components/carousel` (`Carousel({ label, items })` + `setupCarousels()`) serve para qualquer lista de cards: rolagem nativa com encaixe, botões, indicadores, arrastar com o mouse e animação de entrada. Os controles só aparecem quando há cards fora da tela.
-- **Tamanhos de CSS:** use as variáveis de `src/styles/global.css` em vez de números soltos: tipografia (`--text-xs` a `--text-3xl`, `--leading-*`), espaçamento (`--space-1` a `--space-24`, múltiplos de 0.4rem), formas (`--radius-*`, `--border`) e largura (`--container-width`, `--gutter`). O `html` usa 62.5%, então 1rem = 10px. Para peças novas, reaproveite `.container` (coluna central), `.section` (espaço vertical), `.card` (+ `.card-link` se leva a outra página) e `.chip`. Valores só se repetem em variável quando aparecem em mais de um lugar. Currículo, projeto e experiência ainda têm valores próprios e podem adotar as variáveis aos poucos.
+- **Organização do CSS:** os estilos globais ficam em `src/styles/`, carregados por `main.css` em camadas (`@layer`), da menos para a mais forte: `reset` → `base` (elementos HTML) → `layout` (`.container`, `.section`) → `components` (`.button`, `.card`, `.chip`, `.gradient-text`). O `styles.css` de cada componente ou página fica **fora das camadas** e por isso sempre vence os estilos compartilhados, sem precisar aumentar a especificidade. Regras: use classes (não seletores de elemento como `nav div`), com a media query no fim do próprio arquivo, sempre `min-width` (mobile first); os breakpoints (485, 610, 742, 986 e 1090px) estão listados em `tokens.css`.
+- **Tokens de CSS:** `src/styles/tokens.css` é a fonte única de valores. Use as variáveis em vez de números soltos: tipografia (`--text-xs` a `--text-3xl`, `--leading-*`), espaçamento (`--space-1` a `--space-24`, múltiplos de 0.4rem), formas (`--radius-*`, `--border`), cores e largura (`--container-width`, `--gutter`). O `html` usa 62.5%, então 1rem = 10px. Respeite a hierarquia dos títulos: h1 (`--text-xl`) > h2 (`--text-lg`) > h3 (`--text-md`). O CSS do currículo (`pages/resume`) mantém valores próprios, porque a página A4 depende de medidas exatas para imprimir.
 - **Acessibilidade:** `<main id="conteudo">` em toda página, link "pular para o conteúdo", foco visível e respeito a `prefers-reduced-motion`.
 
 ## Problemas comuns

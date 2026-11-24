@@ -5,8 +5,7 @@ import { setupCurriculumDownload, setupResumePager } from './pages/resume'
 import { Loading } from './pages/status'
 import { navigateTo } from './routes'
 
-import './styles/global.css'
-import './styles/queries.css'
+import './styles/main.css'
 
 /** Só mostra "Carregando…" se a página demorar; carregamentos rápidos não piscam. */
 const LOADING_DELAY_MS = 250

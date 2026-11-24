@@ -1,6 +1,6 @@
 section.brief-about {
   max-width: 95.6rem;
-  padding: 13.2rem 0 2rem;
+  padding: 13.2rem 0 var(--space-5);
   margin: 0 auto;
 
   display: grid;
@@ -18,11 +18,11 @@ section.brief-about .brief-wrapper h2 {
 
 section.brief-about .brief-wrapper h4 {
   font-weight: 800;
-  margin-top: 2rem;
+  margin-top: var(--space-5);
 }
 
 section.brief-about .brief-wrapper p {
-  margin-top: 2rem;
+  margin-top: var(--space-5);
 }
 
 section.brief-about img {
@@ -33,7 +33,7 @@ section.brief-about img {
 
 section.brief-about .hobbies ul {
   display: flex;
-  gap: 1.6rem;
+  gap: var(--space-4);
 
-  margin-top: 1.6rem;
+  margin-top: var(--space-4);
 }

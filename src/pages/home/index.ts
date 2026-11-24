@@ -36,18 +36,18 @@ export async function Home() {
         <div class="container brief-wrapper">
           <img src="/svg/hero.svg" alt=""/>
 
-          <div>
-            <h1>
+          <div class="brief-text">
+            <h1 class="brief-title">
               Olá!
               <br/>
               Eu sou o ${esc(user?.surname)},
               <br/>
-              <span class="gradient-text">dev front-end</span> aficionado por projetos web e Mobile.
+              <span class="gradient-text">dev front-end</span> aficionado por projetos web e&nbsp;Mobile.
             </h1>
             <p>Analista de sistemas formado pela <span>
               <a href="https://www.unama.br/" target="_blank" rel="noopener noreferrer">${esc(universities)}</a>
             </span></p>
-            ${user?.profession ? `<p>Futuro especialista em <a>${esc(user.profession)}</a></p>` : ''}
+            ${user?.profession ? `<p>Futuro especialista em <strong>${esc(user.profession)}</strong></p>` : ''}
             ${
               currentJob
                 ? `<p>Atualmente, parte da equipe de trabalho da <a href="https://www.lanlink.com.br/" target="_blank" rel="noopener noreferrer">${esc(currentJob.companyShortName)}</a></p>`

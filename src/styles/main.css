@@ -1,0 +1,21 @@
+/*
+ * Ponto de entrada dos estilos globais.
+ *
+ * Ordem das camadas (da menos para a mais forte). Estilos de componentes e
+ * páginas (os styles.css ao lado de cada index.ts) ficam fora das camadas e,
+ * por isso, sempre vencem os estilos compartilhados daqui, sem briga de
+ * especificidade:
+ *
+ *   reset       zera margens e box-sizing
+ *   base        elementos HTML (html, body, títulos, links, foco)
+ *   layout      estrutura da página (.container, .section, .skip-link)
+ *   components  peças reutilizáveis (.button, .card, .chip, .gradient-text)
+ *   (sem camada) componentes e páginas específicos
+ */
+@layer reset, base, layout, components;
+
+@import './tokens.css';
+@import './reset.css';
+@import './base.css';
+@import './layout.css';
+@import './components.css';

@@ -67,7 +67,7 @@
 }
 
 .card-experience-job h3 {
-  font-size: var(--text-lg);
+  font-size: var(--text-md);
   line-height: var(--leading-snug);
 }
 

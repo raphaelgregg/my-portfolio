@@ -64,7 +64,7 @@ img.project-thumb {
 }
 
 .project-body h3 {
-  font-size: var(--text-xl);
+  font-size: var(--text-md);
   line-height: var(--leading-snug);
 
   transition: color 200ms ease-out;
@@ -104,4 +104,26 @@ img.project-thumb {
 
   font-size: var(--text-sm);
   color: var(--color-muted);
+}
+
+/* Capa à esquerda; texto e data à direita */
+@media (min-width: 742px) {
+  .project-row > a {
+    grid-template-columns: 28rem 1fr;
+    grid-template-areas:
+      'thumb body'
+      'thumb date';
+    grid-template-rows: auto 1fr;
+    column-gap: var(--space-8);
+  }
+
+  .project-date {
+    align-self: end;
+  }
+}
+
+@media (min-width: 986px) {
+  .project-row > a {
+    grid-template-columns: 32rem 1fr;
+  }
 }
