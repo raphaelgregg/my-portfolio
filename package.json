@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "firebase": "^13.4.0",
-    "lucide": "^0.370.0"
+    "lucide": "^1.77.0"
   },
   "engines": {
     "node": "26.x"
