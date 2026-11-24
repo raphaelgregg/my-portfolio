@@ -3,7 +3,6 @@ import { Experience } from '../pages/experience'
 import { Home } from '../pages/home'
 import { Project } from '../pages/project'
 import { Resume } from '../pages/resume'
-import { Curriculum } from '../pages/resume/download'
 import { LoadError, NotFound } from '../pages/status'
 import { setPageTitle } from '../utils/pageTitle'
 
@@ -18,7 +17,8 @@ const staticRoutes: Record<string, StaticRoute> = {
   '/': { render: Home },
   '/about': { render: About, title: 'Sobre' },
   '/resume': { render: Resume, title: 'Currículo' },
-  '/curriculum-download': { render: Curriculum, title: 'Currículo' },
+  // Endereço antigo do currículo para PDF: mantido para não quebrar links
+  '/curriculum-download': { render: Resume, title: 'Currículo' },
 }
 
 /** Rotas com parâmetro: "/project/3" → Project("3"). */

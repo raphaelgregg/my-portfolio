@@ -1,132 +1,223 @@
+/*
+ * Currículo. A tela mostra uma folha A4 (794px de largura) e o PDF é gerado
+ * pela impressão do navegador com este mesmo CSS (ver @media print no fim).
+ */
 .resume-container {
-  padding: 9.8rem 2rem 0;
+  padding: 9.8rem 1.6rem 4rem;
 }
 
-.resume-wrapper {
-  position: relative;
-  display: grid;
-  gap: 4rem;
-
-  background: #fff;
-  border-radius: 20px;
-  padding: 3.2rem;
-
-  max-width: 98.6rem;
-  margin-inline: auto;
-}
-
-.resume-wrapper header {
+.cv-toolbar {
   display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
+  justify-content: flex-end;
 
-  margin-bottom: 3rem;
-}
-
-.resume-wrapper header h1 {
-  font-size: 3.2rem;
-  font-weight: 500;
-  line-height: 3.6rem;
-  padding-right: 4rem;
-}
-
-.resume-wrapper header a {
-  display: flex;
-  font-size: 1.4rem;
-  line-height: 2.2rem;
-}
-
-.resume-wrapper section {
-  display: flex;
-  flex-direction: column;
-  gap: 1.6rem;
-}
-
-.work-card,
-.education-card,
-.skillset-card {
-  display: flex;
-  flex-direction: column;
-}
-
-.work-card + .work-card,
-.education-card + .education-card,
-.skillset-card + .skillset-card {
-  margin-top: 2rem;
-}
-
-.resume-wrapper section h2 {
-  padding-right: 4rem;
-  font-size: 1.4rem;
-  font-weight: 400;
-  line-height: 1.5rem;
-
-  text-transform: uppercase;
-}
-
-.resume-wrapper section h3 {
-  font-size: 2rem;
-  font-weight: 600;
-  line-height: 2.4rem;
-}
-
-.resume-wrapper section span {
-  font-size: 1.6rem;
-  color: var(--color-muted);
-}
-.resume-wrapper .timeline {
-  font-size: 1.4rem;
-  margin-top: 0.6rem;
-}
-
-.resume-wrapper section p {
-  font-size: 1.4rem;
-  line-height: 2.4rem;
-
-  margin-top: 1.2rem;
-}
-
-/* .skillset > div {
-  display: flex;
-  flex-direction: row;
-  background-color: blue
-} */
-
-.skillset .skillset-card p {
-  margin-top: 1.6rem;
+  max-width: 79.4rem;
+  margin: 0 auto 1.6rem;
 }
 
 #btn-download {
-  position: absolute;
-  /* left: 0; */
-  right: 0;
-  top: 0;
-  /* bottom: 0; */
-  /* padding: 4rem; */
-  border: none;
-  box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.2);
-  border-bottom-left-radius: 9999px;
-  width: 6rem;
-  height: 6rem;
-
-  background: var(--color-crimson-opacity-8);
-
+  gap: 0.8rem;
   cursor: pointer;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 #btn-download svg {
-  margin-left: 1.6rem;
-  margin-bottom: 1.6rem;
+  width: 2rem;
+  height: 2rem;
 }
 
-.file-down-icon {
-  color: var(--color-onyx-600);
+/* ---------- Folha ---------- */
+.cv-sheet {
+  max-width: 79.4rem;
+  margin: 0 auto;
+  padding: 2.4rem;
+
+  background: #fff;
+  color: var(--color-onyx-950);
+  border-radius: 4px;
+  box-shadow: 0 0.2rem 1.2rem rgba(0, 0, 0, 0.12);
 }
 
-.page-break {
-  page-break-before: always;
+.cv-sheet p,
+.cv-sheet li {
+  font-size: 1.35rem;
+  line-height: 2rem;
+}
+
+/* ---------- Cabeçalho ---------- */
+.cv-header {
+  padding-bottom: 1.6rem;
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.cv-sheet h1 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 3.8rem;
+}
+
+.cv-sheet .cv-headline {
+  margin-top: 0.2rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--color-accent);
+}
+
+.cv-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 1.6rem;
+
+  margin-top: 1rem;
+}
+
+.cv-contacts a {
+  font-weight: 400;
+}
+
+/* ---------- Seções ---------- */
+.cv-section {
+  margin-top: 2rem;
+}
+
+.cv-sheet h2 {
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--color-onyx-200);
+
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.8rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  color: var(--color-crimson-700);
+}
+
+/* ---------- Itens (experiência e formação) ---------- */
+.cv-entry + .cv-entry {
+  margin-top: 1.4rem;
+}
+
+.cv-entry-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.cv-sheet h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 2rem;
+}
+
+.cv-sheet .cv-entry-subtitle,
+.cv-sheet .cv-period {
+  color: var(--color-muted);
+}
+
+.cv-sheet .cv-period {
+  font-size: 1.3rem;
+}
+
+.cv-sheet .cv-entry .cv-description {
+  margin-top: 0.4rem;
+}
+
+/* ---------- Listas ---------- */
+.cv-list li {
+  position: relative;
+  padding-left: 1.4rem;
+  break-inside: avoid;
+}
+
+.cv-list li + li {
+  margin-top: 0.4rem;
+}
+
+.cv-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-crimson-700);
+}
+
+/* ---------- Telas maiores: folha com proporção A4 ---------- */
+@media (min-width: 640px) {
+  /* Mesmo recuo da impressão (@media print): a tela e o PDF quebram as linhas igual */
+  .cv-sheet {
+    padding: 14mm 16mm;
+  }
+
+  .cv-entry-head {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .cv-sheet .cv-period {
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding-top: 0.2rem;
+  }
+
+  .cv-list {
+    columns: 2;
+    column-gap: 3rem;
+  }
+}
+
+@media (min-width: 840px) {
+  .cv-sheet {
+    min-height: 112.3rem; /* 297mm */
+  }
+}
+
+/* ---------- Impressão / PDF (A4, sem margens do navegador) ---------- */
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  /* !important: o fundo cinza do body (global.css) vem depois no bundle */
+  html,
+  body {
+    min-height: 0;
+    background: #fff !important;
+  }
+
+  /* Some tudo que não é o currículo */
+  .skip-link,
+  #app > header,
+  #app > footer,
+  .cv-toolbar {
+    display: none !important;
+  }
+
+  .resume-container {
+    padding: 0;
+  }
+
+  .cv-sheet {
+    width: 100%;
+    max-width: none;
+    min-height: 0;
+    margin: 0;
+    padding: 14mm 16mm;
+
+    border-radius: 0;
+    box-shadow: none;
+
+    /* Mantém as cores (linha do cabeçalho, títulos) no PDF */
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .cv-entry,
+  .cv-section h2 {
+    break-inside: avoid;
+  }
+
+  .cv-section h2 {
+    break-after: avoid;
+  }
 }

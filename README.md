@@ -45,7 +45,7 @@ src/
 
 ## Manutenção
 
-- **Texto do currículo:** edite `src/pages/resume/resumeContent.ts`; a tela e o PDF usam a mesma fonte.
+- **Currículo:** edite `src/pages/resume/resumeContent.ts` (dados, resumo e certificações). O PDF é gerado pela impressão do navegador, com o CSS `@media print` de `src/pages/resume/styles.css`: mesma aparência da tela, A4, texto selecionável e links clicáveis. Para baixar: botão "Baixar PDF" → na janela, destino "Salvar como PDF" (o nome do arquivo já vem preenchido).
 - **Projetos e experiências:** vêm do Firebase. `src/services/data.json` é um snapshot de referência dos dados.
 - **Textos vindos do banco** devem passar por `escapeHtml` ao entrar em templates.
 - **Commits:** [Conventional Commits](https://www.conventionalcommits.org/pt-br/) (`feat:`, `fix:`, `refactor:`, `docs:`, `chore:`).

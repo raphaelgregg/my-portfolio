@@ -1,37 +1,34 @@
 import { Footer } from '../../components/footer'
 import { Header } from '../../components/header'
-import { HTMLToPDF } from '../../utils/htmlToPDF'
-import { Curriculum } from './download'
-import { ResumeFirstPage, ResumeSecondPage } from './resumeContent'
+import { printAsPdf } from '../../utils/printAsPdf'
+import { ResumeSheet } from './resumeContent'
 
 import './styles.css'
 
-const DOWNLOAD_FILENAME = 'curriculo-raphaelgregg.pdf'
+/** Nome sugerido pelo navegador ao salvar o PDF (vem do título da página). */
+const PDF_FILE_TITLE = 'Curriculo - Raphael Gregg'
 
-/** Liga o botão de download (existe só na página /resume). */
+/** Liga o botão "Baixar PDF" (existe só na página /resume). */
 export function setupCurriculumDownload() {
-  document.getElementById('btn-download')?.addEventListener('click', () => {
-    HTMLToPDF({ htmlString: Curriculum(), filename: DOWNLOAD_FILENAME })
-  })
+  document
+    .getElementById('btn-download')
+    ?.addEventListener('click', () => printAsPdf(PDF_FILE_TITLE))
 }
 
 export function Resume() {
   return `
-  ${Header()}
+    ${Header()}
 
-  <main id="conteudo" class="resume-container">
-    <div class="resume-wrapper">
-      <button id="btn-download" aria-label="Baixar currículo em PDF"><i class="file-down-icon" data-lucide="file-down"></i></button>
+    <main id="conteudo" class="resume-container">
+      <div class="cv-toolbar">
+        <button id="btn-download" class="button button-primary" type="button">
+          <i data-lucide="file-down" aria-hidden="true"></i>
+          Baixar PDF
+        </button>
+      </div>
 
-      ${ResumeFirstPage()}
-
-      <div class="page-break"></div>
-    </div>
-
-    <div class="resume-wrapper">
-      ${ResumeSecondPage()}
-    </div>
-  </main>
-  ${Footer()}
+      ${ResumeSheet()}
+    </main>
+    ${Footer()}
   `
 }

@@ -25,7 +25,6 @@
   },
   "dependencies": {
     "firebase": "^13.4.0",
-    "html2pdf.js": "^0.14.0",
     "lucide": "^0.370.0"
   },
   "engines": {
