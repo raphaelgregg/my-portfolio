@@ -35,13 +35,14 @@ src/
 
 ## Rotas
 
-| URL                         | Página                                   |
-| --------------------------- | ---------------------------------------- |
-| `/`                         | Início (experiência e projetos pessoais) |
-| `/project/:id`              | Detalhe do projeto                       |
-| `/resume`                   | Currículo na tela (botão baixa o PDF)    |
-| `/curriculum-download`      | Mesmo currículo, no formato usado no PDF |
-| `/about`, `/experience/:id` | Em construção                            |
+| URL                    | Página                                                                          |
+| ---------------------- | ------------------------------------------------------------------------------- |
+| `/`                    | Início (experiência e projetos pessoais)                                        |
+| `/project/:id`         | Detalhe do projeto                                                              |
+| `/resume`              | Currículo na tela (botão baixa o PDF)                                           |
+| `/curriculum-download` | Mesmo currículo, no formato usado no PDF                                        |
+| `/experience/:id`      | Detalhe da experiência: período, duração, local, site, cargos, casos e projetos |
+| `/about`               | Em construção                                                                   |
 
 ## Manutenção
 
