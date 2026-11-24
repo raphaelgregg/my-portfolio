@@ -1,7 +1,10 @@
 import { Footer } from '../../components/footer'
 import { Header } from '../../components/header'
 import { printAsPdf } from '../../utils/printAsPdf'
+import { setupResumePager } from './pager'
 import { ResumeSheet } from './resumeContent'
+
+export { setupResumePager }
 
 import './styles.css'
 
@@ -30,7 +33,17 @@ export function Resume() {
           <i class="file-down-icon" data-lucide="file-down" aria-hidden="true"></i>
         </button>
 
-        ${ResumeSheet()}
+        <div class="cv-viewport">${ResumeSheet()}</div>
+      </div>
+
+      <div class="cv-pager" role="group" aria-label="Páginas do currículo" hidden>
+        <button id="cv-prev" type="button" aria-label="Página anterior">
+          <i data-lucide="chevron-left" aria-hidden="true"></i>
+        </button>
+        <p id="cv-page-status" aria-live="polite">Página 1 de 1</p>
+        <button id="cv-next" type="button" aria-label="Próxima página">
+          <i data-lucide="chevron-right" aria-hidden="true"></i>
+        </button>
       </div>
     </main>
     ${Footer()}

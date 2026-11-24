@@ -1,6 +1,6 @@
-import { createIcons, FileDown } from 'lucide'
+import { ChevronLeft, ChevronRight, createIcons, FileDown } from 'lucide'
 import { initHideOnScroll } from './components/header/hide-on-scroll'
-import { setupCurriculumDownload } from './pages/resume'
+import { setupCurriculumDownload, setupResumePager } from './pages/resume'
 import { Loading } from './pages/status'
 import { navigateTo } from './routes'
 
@@ -49,7 +49,8 @@ export function createApp(rootElement: HTMLElement) {
     clearTimeout(loadingTimer)
 
     setupCurriculumDownload()
-    createIcons({ icons: { FileDown } })
+    setupResumePager()
+    createIcons({ icons: { FileDown, ChevronLeft, ChevronRight } })
   }
 
   // Navegação interna sem recarregar a página
