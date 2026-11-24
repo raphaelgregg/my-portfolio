@@ -20,6 +20,13 @@ describe('ResumeSheet', () => {
     ])
   })
 
+  it('lista as atribuições de cada experiência que as possui', () => {
+    expect(html.match(/<ul class="cv-bullets">/g)).toHaveLength(5)
+    expect(html).toContain(
+      'Administração de servidores Windows, Active Directory e Exchange',
+    )
+  })
+
   it('não exibe "undefined" nem "null" no texto', () => {
     expect(html).not.toMatch(/undefined|null/)
   })

@@ -64,7 +64,7 @@
 .cv-sheet p,
 .cv-sheet li {
   font-size: 1.35rem;
-  line-height: 2rem;
+  line-height: 1.9rem;
 }
 
 /* ---------- Cabeçalho ---------- */
@@ -100,7 +100,7 @@
 
 /* ---------- Seções ---------- */
 .cv-section {
-  margin-top: 2rem;
+  margin-top: 1.8rem;
 }
 
 .cv-sheet h2 {
@@ -146,18 +146,22 @@
   margin-top: 0.4rem;
 }
 
-/* ---------- Listas ---------- */
-.cv-list li {
+/* ---------- Atribuições (listas) ---------- */
+.cv-bullets li {
   position: relative;
   padding-left: 1.4rem;
   break-inside: avoid;
 }
 
-.cv-list li + li {
-  margin-top: 0.4rem;
+.cv-bullets li + li {
+  margin-top: 0.2rem;
 }
 
-.cv-list li::before {
+.cv-bullets {
+  margin-top: 0.6rem;
+}
+
+.cv-bullets li::before {
   content: '•';
   position: absolute;
   left: 0;
@@ -168,7 +172,7 @@
 @media (min-width: 640px) {
   /* Mesmo recuo da impressão (@media print): a tela e o PDF quebram as linhas igual */
   .cv-sheet {
-    padding: 14mm 16mm;
+    padding: 12mm 16mm;
   }
 
   .cv-entry-head {
@@ -182,11 +186,6 @@
     flex-shrink: 0;
     white-space: nowrap;
     padding-top: 0.2rem;
-  }
-
-  .cv-list {
-    columns: 2;
-    column-gap: 3rem;
   }
 }
 
@@ -231,18 +230,30 @@
     width: 100%;
     min-height: 0;
     margin: 0;
-    padding: 14mm 16mm;
+    padding: 12mm 16mm;
 
     border-radius: 0;
     box-shadow: none;
+
+    /* Currículo de mais de uma página: o recuo vale em cada página impressa */
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
 
     /* Mantém as cores (linha do cabeçalho, títulos) no PDF */
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
 
-  .cv-entry,
+  /* Experiências longas podem continuar na página seguinte, mas o título
+     nunca fica sozinho no fim de uma página */
+  .cv-entry-head,
   .cv-section h2 {
+    break-inside: avoid;
+    break-after: avoid;
+  }
+
+  /* Entradas curtas (sem lista) não são divididas */
+  .cv-entry:not(:has(.cv-bullets)) {
     break-inside: avoid;
   }
 

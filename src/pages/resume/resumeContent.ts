@@ -9,7 +9,9 @@ interface WorkItem {
   company: string
   location: string
   period: string
-  description: string
+  description?: string
+  /** Principais atribuições, exibidas em lista. */
+  bullets?: string[]
 }
 
 interface EducationItem {
@@ -19,62 +21,125 @@ interface EducationItem {
   period: string
 }
 
+interface ContactItem {
+  label: string
+  /** Sem href, o item aparece como texto (ex.: localização). */
+  href?: string
+}
+
 const profile = {
   name: 'Raphael Gregg',
-  headline: 'Desenvolvedor Front-end',
+  headline:
+    'Infraestrutura Microsoft (Windows, 365, Azure, AD) | Cloud & Segurança | Front-End Developer (ReactJS, JS, HTML, CSS)',
   contacts: [
+    { label: 'Espírito Santo, Brasil' },
     { label: 'raphaelgregg@gmail.com', href: 'mailto:raphaelgregg@gmail.com' },
     {
-      label: 'raphaelgregg.vercel.app',
-      href: 'https://raphaelgregg.vercel.app/',
+      label: 'linkedin.com/in/raphaelgregg',
+      href: 'https://www.linkedin.com/in/raphaelgregg',
     },
     {
       label: 'github.com/raphaelgregg',
       href: 'https://github.com/raphaelgregg',
     },
     {
-      label: 'linkedin.com/in/raphaelgregg',
-      href: 'https://www.linkedin.com/in/raphaelgregg',
+      label: 'raphaelgregg.vercel.app',
+      href: 'https://raphaelgregg.vercel.app/',
     },
-  ],
+  ] satisfies ContactItem[],
 }
 
 /** Resumo profissional. Deixe vazio ('') para ocultar a seção. */
 const summary =
-  'Analista de sistemas com experiência em desenvolvimento front-end e mobile (ReactJS, React Native e Firebase) e em suporte técnico a usuários em órgãos públicos.'
+  'Sou Analista de Suporte Windows com experiência em ambientes Microsoft (Windows Server, Active Directory, Exchange, Microsoft 365 e Azure). Atuo na sustentação de infraestrutura, monitoramento com Zabbix e operação de rotinas de backup, além do registro e acompanhamento de chamados via GLPI, incluindo demandas de GMUD e incidentes. Paralelamente, desenvolvo projetos como Front-End Developer, utilizando ReactJS, React Native, JavaScript, HTML e CSS. Estou em constante evolução profissional e aberto a novos desafios que me permitam crescer e contribuir em projetos de infraestrutura e desenvolvimento.'
 
 const experience: WorkItem[] = [
   {
-    role: 'Técnico Nível 2',
-    company: 'Lanlink Serviços de Informática SA',
+    role: 'Analista de Suporte Windows',
+    company: 'Lanlink Informática',
     location: 'Vitória, ES',
-    period: 'Dez 2021 – Presente',
+    period: 'Abr 2026 – Presente',
     description:
-      'Atendimento e suporte aos usuários no Ministério Público do Espírito Santo, apoio às equipes de 3º e 1º nível.',
+      'Atuo como Analista de Suporte Windows no cliente MPES, com foco na sustentação e administração de ambientes de TI.',
+    bullets: [
+      'Análise de logs',
+      'Administração de servidores Windows, Active Directory e Exchange',
+      'Operação de rotinas de backup — monitorando processos, corrigindo falhas e configurando em servidores para garantir integridade e disponibilidade dos dados',
+      'Monitoramento de ambientes através da ferramenta Zabbix, contribuindo para identificação proativa de incidentes',
+      'Registro, acompanhamento e resolução de chamados via GLPI, incluindo demandas de GMUD e incidentes',
+      'Apoio em atualizações de sistemas e participação em projetos de melhoria contínua',
+    ],
   },
   {
-    role: 'Técnico Nível 2',
-    company: 'Lanlink Serviços de Informática SA',
-    location: 'Pará, PA',
+    role: 'Analista de Suporte em TIC Jr.',
+    company: 'Lanlink Informática',
+    location: 'Vitória, ES',
+    period: 'Ago 2025 – Abr 2026',
+    description: 'Suporte em ambientes OnPremises e Cloud.',
+    bullets: [
+      'Atendimento a contratos com maior demanda em suporte à suíte Microsoft 365',
+      'Suporte especializado a clientes externos, públicos e privados, em ambientes Microsoft',
+      'Atuação em ambientes híbridos (OnPremises e Cloud)',
+      'Experiência prática com Microsoft 365, Exchange Online, Active Directory, Purview, Entra ID e Microsoft Security',
+      'Colaboração com equipes de 1º e 2º nível para otimização de processos, melhoria contínua e alta disponibilidade dos serviços',
+      'Monitoramento de ambientes através do Zabbix, contribuindo para identificação proativa de incidentes e manutenção da disponibilidade dos serviços',
+    ],
+  },
+  {
+    role: 'Técnico de Suporte N2',
+    company: 'Lanlink Informática',
+    location: 'Vitória, ES',
+    period: 'Mai 2022 – Ago 2025',
+    bullets: [
+      'Atendimento ao usuário: suporte técnico e auxílio nas demandas diárias',
+      'Instalação e configuração de softwares conforme as necessidades da organização',
+      'Manutenção preventiva e corretiva de desktops e notebooks',
+      'Suporte técnico de segundo nível em Office 365, Active Directory e redes de computadores, colaborando com a equipe de 3º nível em manutenções em salas técnicas',
+      'Colaboração com a equipe de 1º nível, auxiliando e orientando em suas demandas para um fluxo eficaz de resolução de problemas',
+      'Colaboração com a equipe de 3º nível: atualizações de servidores físicos e virtuais, criação de escopos DHCP, gestão de Microsoft Exchange e monitoramento de rotinas de backup',
+      'Gerenciamento de chamados com GLPI e Service Manager',
+    ],
+  },
+  {
+    role: 'Técnico de Suporte N2',
+    company: 'Lanlink Informática',
+    location: 'Belém, PA',
     period: 'Dez 2021 – Mai 2022',
     description:
-      'Atendimento e suporte aos usuários no Tribunal de Justiça do Pará, participação na troca do parque tecnológico nos fóruns do estado.',
+      'Atendimento técnico em suporte a usuários no Tribunal de Justiça do Pará.',
+    bullets: [
+      'Atendimento ao usuário: suporte técnico e auxílio nas demandas diárias',
+      'Instalação e configuração de softwares conforme as necessidades da organização',
+      'Gerenciamento de chamados com GLPI',
+    ],
   },
   {
-    role: 'Desenvolvedor Front-end',
-    company: 'Freelancer Projeto Web',
+    role: 'Desenvolvedor Web Front-end (Freelance)',
+    company: 'Projeto Web',
     location: 'Belém, PA',
-    period: 'Set 2021 – Nov 2022',
+    period: 'Set 2021 – Nov 2021',
     description:
-      'Desenvolvimento da API Front-end e layout do projeto dashboard para gerenciamento de processos jurídicos, no qual, gerenciava processos e clientes. App construído em ReactJS e Firebase para armazenamento de dados.',
+      'Desenvolvimento do front-end e layout de um app admin para controle de processos advocatícios, no qual eram gerenciados processos e clientes. Construído em ReactJS e Firebase para armazenamento de dados.',
   },
   {
-    role: 'Desenvolvedor Mobile',
-    company: 'Freelancer Projeto Mobile',
+    role: 'Desenvolvedor de Aplicativos (Freelance)',
+    company: 'Projeto Mobile',
     location: 'Belém, PA',
-    period: 'Jul 2021 – Ago 2022',
+    period: 'Jul 2021 – Ago 2021',
     description:
-      'Desenvolvimento de aplicativo Android elaborado como ferramenta de ensino-aprendizagem, no qual, você pode aprender técnicas sobre multiletramentos e práticas discursivas em sala de aula, apresentado como tese de mestrado na Universidade do Estado do Pará. Aplicativo construído em React Native com Expo e Firebase para API Back-end.',
+      'Aplicativo Android elaborado como ferramenta de ensino-aprendizagem, no qual se aprendem técnicas sobre multiletramentos e práticas discursivas em sala de aula, apresentado como tese de mestrado na Universidade do Estado do Pará. Construído em React Native com Expo e Firebase para API Back-end.',
+  },
+  {
+    role: 'Suporte Técnico / Auxiliar Administrativo',
+    company: 'Contromidia',
+    location: 'Belém, PA',
+    period: 'Mar 2012 – Dez 2020',
+    bullets: [
+      'Suporte em informática: montagem, instalação e configuração de equipamentos, manutenção preventiva e corretiva',
+      'Suporte ao sistema da empresa',
+      'Clipagem de notícias nos veículos de TV, rádio, sites e jornais impressos',
+      'Treinamento de novos colaboradores para a clipagem de mídias',
+    ],
   },
 ]
 
@@ -89,22 +154,41 @@ const education: EducationItem[] = [
 
 const skills = [
   {
-    group: 'Ferramentas',
+    group: 'Infraestrutura e Cloud',
     items: [
-      'Figma',
-      'HTML',
-      'CSS',
-      'JavaScript',
-      'TypeScript',
+      'Windows Server',
+      'Active Directory',
+      'Exchange',
+      'Microsoft 365',
+      'Azure',
+      'Entra ID',
+      'Purview',
+    ],
+  },
+  {
+    group: 'Monitoramento e chamados',
+    items: ['Zabbix', 'GLPI', 'Service Manager'],
+  },
+  {
+    group: 'Desenvolvimento',
+    items: [
       'ReactJS',
       'React Native',
+      'JavaScript',
+      'TypeScript',
+      'HTML',
+      'CSS',
+      'Figma',
     ],
   },
 ]
 
 const certifications = [
+  'AZ-900: Microsoft Azure Fundamentals',
+  'AZ-800: Administering Windows Server Hybrid Core',
+  'MD-100: Windows Client',
+  'NLW Pocket: Mobile - React Native',
   'Semana Omnistack 11',
-  'MD-100 Windows Client',
   'Scrum Foundation Professional - SFPC',
   'Análise de Requisitos de Software com Histórias de Usuários',
   'Bootcamp GoStack 12',
@@ -123,6 +207,7 @@ function Entry(
   subtitle: string,
   period: string,
   description?: string,
+  bullets: string[] = [],
 ): string {
   return `
     <article class="cv-entry">
@@ -134,6 +219,7 @@ function Entry(
         <p class="cv-period">${esc(period)}</p>
       </div>
       ${description ? `<p class="cv-description">${esc(description)}</p>` : ''}
+      ${bullets.length ? `<ul class="cv-bullets">${bullets.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>` : ''}
     </article>`
 }
 
@@ -146,9 +232,10 @@ export function ResumeSheet(): string {
         <p class="cv-headline">${esc(profile.headline)}</p>
         <ul class="cv-contacts">
           ${profile.contacts
-            .map(
-              ({ label, href }) =>
-                `<li><a href="${esc(href)}" target="_blank" rel="noopener noreferrer">${esc(label)}</a></li>`,
+            .map(({ label, href }: ContactItem) =>
+              href
+                ? `<li><a href="${esc(href)}" target="_blank" rel="noopener noreferrer">${esc(label)}</a></li>`
+                : `<li>${esc(label)}</li>`,
             )
             .join('')}
         </ul>
@@ -165,6 +252,7 @@ export function ResumeSheet(): string {
               `${item.company} · ${item.location}`,
               item.period,
               item.description,
+              item.bullets,
             ),
           )
           .join(''),
@@ -195,7 +283,7 @@ export function ResumeSheet(): string {
 
       ${Section(
         'Certificações',
-        `<ul class="cv-list">${certifications.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>`,
+        `<p class="cv-description">${esc(certifications.join(' · '))}</p>`,
       )}
     </article>`
 }
