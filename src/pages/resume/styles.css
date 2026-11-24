@@ -25,7 +25,7 @@
   border-bottom-left-radius: 9999px;
   box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.2);
 
-  background: var(--color-crimson-opacity-8);
+  background: var(--color-accent);
   cursor: pointer;
 
   display: flex;
@@ -36,7 +36,7 @@
 }
 
 #btn-download:hover {
-  background: var(--color-crimson-200);
+  background: var(--color-crimson-700);
 }
 
 /* O ícone fica deslocado para o canto, no centro do quarto de círculo */
@@ -48,7 +48,7 @@
 }
 
 .file-down-icon {
-  color: var(--color-onyx-600);
+  color: var(--color-onyx-10);
 }
 
 /* ---------- Folha ---------- */
