@@ -1,5 +1,5 @@
 import { execFile } from 'node:child_process'
-import { readFile } from 'node:fs/promises'
+import { readdir, readFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { promisify } from 'node:util'
 
@@ -25,6 +25,39 @@ export class LocalSource implements RepoSource {
       maxBuffer: 64 * 1024 * 1024,
     })
     return stdout.split('\0').filter(Boolean)
+  }
+
+  async readText(path: string): Promise<string | null> {
+    return readFile(join(this.dir, path), 'utf8').catch(() => null)
+  }
+
+  async readBinary(path: string): Promise<Buffer | null> {
+    return readFile(join(this.dir, path)).catch(() => null)
+  }
+}
+
+/** Uma pasta qualquer (não precisa estar no git): usada em content/projects/<nome>/. */
+export class FolderSource implements RepoSource {
+  readonly dir: string
+
+  constructor(dir: string) {
+    this.dir = dir
+  }
+
+  async files(): Promise<string[]> {
+    const entries = await readdir(this.dir, {
+      recursive: true,
+      withFileTypes: true,
+    })
+    return entries
+      .filter((entry) => entry.isFile())
+      .map((entry) =>
+        join(entry.parentPath, entry.name)
+          .slice(this.dir.length + 1)
+          .split('\\')
+          .join('/'),
+      )
+      .sort()
   }
 
   async readText(path: string): Promise<string | null> {

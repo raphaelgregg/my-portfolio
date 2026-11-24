@@ -2,6 +2,8 @@
  * Gera src/data/github-projects.json e as imagens em public/projects/ a partir
  * dos repositórios fixados no GitHub.
  *
+ * Também lê os projetos de código fechado de content/projects/<nome>/.
+ *
  * A lista vem dos fixados do perfil (API GraphQL, precisa de GITHUB_TOKEN) e é
  * gravada em scripts/github-projects/pinned.json. Sem token, ou se a consulta
  * falhar, usa o que já está no pinned.json.
@@ -11,7 +13,7 @@
  *   opções: --meta arquivo.json   metadados já baixados (lista de repos da API)
  *           GITHUB_TOKEN no ambiente: lê os fixados do perfil e sobe o limite da API
  */
-import { mkdir, readFile, rm, writeFile } from 'node:fs/promises'
+import { mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 import { format, resolveConfig } from 'prettier'
 import sharp from 'sharp'
@@ -19,6 +21,11 @@ import type { GithubProject } from '../src/dtos/githubProjectDTO.ts'
 import { buildProject, type RepoMeta } from './github-projects/build.ts'
 import { fetchPinnedRepos } from './github-projects/pinned.ts'
 import {
+  buildPrivateProject,
+  type PrivateProjectConfig,
+} from './github-projects/private.ts'
+import {
+  FolderSource,
   LocalSource,
   RemoteSource,
   type RepoSource,
@@ -117,6 +124,41 @@ async function resolveRepos(
   return live
 }
 
+/**
+ * Projetos de código fechado: uma pasta por projeto em content/projects/<nome>/
+ * (README.md, project.json e imagens). Pastas que começam com "_" são modelos.
+ */
+async function buildPrivateProjects(
+  takenSlugs: Set<string>,
+): Promise<GithubProject[]> {
+  const root = join(ROOT, 'content/projects')
+  const entries = await readdir(root, { withFileTypes: true }).catch(() => [])
+  const folders = entries
+    .filter((entry) => entry.isDirectory() && !/^[_.]/.test(entry.name))
+    .map((entry) => entry.name)
+    .sort()
+
+  const projects: GithubProject[] = []
+  for (const slug of folders) {
+    if (takenSlugs.has(slug))
+      throw new Error(`content/projects/${slug} repete o nome de um fixado`)
+
+    const dir = join(root, slug)
+    const config = JSON.parse(
+      await readFile(join(dir, 'project.json'), 'utf8'),
+    ) as PrivateProjectConfig
+    const source = new FolderSource(dir)
+
+    const { project, images } = await buildPrivateProject(slug, config, source)
+    await writeImages(source, project.slug, images)
+    projects.push(project)
+    console.log(
+      `${project.slug.padEnd(20)} (privado) techs=${project.techs.join('/') || '-'} imagens=${images.length}`,
+    )
+  }
+  return projects
+}
+
 async function main(): Promise<void> {
   const pinnedFile = join(ROOT, 'scripts/github-projects/pinned.json')
   const { owner, repos: savedRepos } = JSON.parse(
@@ -147,6 +189,12 @@ async function main(): Promise<void> {
       `${project.slug.padEnd(20)} techs=${project.techs.join('/') || '-'} apps=${project.apps.length} features=${project.features.length} imagens=${images.length}`,
     )
   }
+
+  // Projetos de clientes (código fechado) vêm primeiro na lista
+  const privateProjects = await buildPrivateProjects(
+    new Set(projects.map((project) => project.slug)),
+  )
+  projects.unshift(...privateProjects)
 
   // Formata com o Prettier do projeto: assim o arquivo gerado já passa no format:check do CI
   const outputFile = join(ROOT, 'src/data/github-projects.json')

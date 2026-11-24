@@ -92,6 +92,8 @@ CLAUDE.md                  Instruções do projeto para o Claude Code
   workflows/sync-projects.yml  Sincronização semanal dos projetos (abre PR)
   dependabot.yml           Atualizações semanais de dependências e actions
 .nvmrc                     Versão do Node (26)
+content/
+  projects/<nome>/         Projetos de clientes (código fechado): README.md, project.json e imagens
 public/
   favicon.svg              Ícone do site
   svg/                     Ícones de tecnologia e ilustrações
@@ -230,7 +232,18 @@ O comando lê o README (título, resumo, funcionalidades marcadas `[x]`, tecnolo
 - **Visual da home:** o hero, a lista de projetos (uma linha por projeto: capa, texto e data) e o bloco de contato escuro que se junta ao rodapé estão em `src/pages/home/` e `src/components/cardMyProjects/`. A fonte dos títulos das seções (Bricolage Grotesque) vem do `index.html` e da variável `--font-display`; para voltar à Inter, troque só essa variável. Se a imagem de uma logo falhar, o card mostra a inicial da empresa.
 - **Título, descrição e domínio:** em `index.html` estão `<title>`, `description`, `canonical` e `og:url`. Se o domínio principal mudar, atualize os dois últimos.
 
-#### E. Dados do Firebase (empresas, usuário, formação)
+#### E. Projeto de cliente (código fechado)
+
+Para mostrar um projeto cujo código não pode ser público, você escreve a ficha dele num README próprio dentro deste repositório. **Só o que está na pasta é publicado**: o sync não lê nenhum repositório privado e não precisa de token.
+
+1. Copie `content/projects/_template/` para `content/projects/<nome-do-projeto>/` (sem o `_`). O nome da pasta vira o endereço: `/project/<nome-do-projeto>`.
+2. Edite o `README.md` (mesmo formato dos READMEs do GitHub: título, seção "Projeto" com o resumo, "Tecnologias", funcionalidades `[x]`, links, imagens) e o `project.json` (`date` no formato `AAAA-MM` e, se houver, o `site` publicado).
+3. Coloque as capturas de tela na pasta e referencie-as no README.
+4. Rode `npm run sync:projects` ou espere o workflow semanal, que abre o PR com a ficha pronta. Revise o PR antes de integrar: tudo o que está lá fica público.
+
+O projeto aparece no início da lista da home, com a etiqueta "Projeto para cliente" e sem link de código. Para mudar o nome de exibição, a categoria ou o resumo, use `curation` em `src/data/github-projects.ts`. Pastas que começam com `_` são ignoradas. Escreva só o que o cliente autorizou: não inclua dados internos nem trechos de código.
+
+#### F. Dados do Firebase (empresas, usuário, formação)
 
 1. Abra o [console do Firebase](https://console.firebase.google.com), projeto `my-portfolio-5104c`, **Realtime Database**.
 2. Edite o nó (`user`, `education` ou `experience`) e salve. O site já mostra a mudança ao recarregar.

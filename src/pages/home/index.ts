@@ -78,9 +78,10 @@ export async function Home() {
       <section id="projetos" class="section" aria-labelledby="projetos-titulo">
         <div class="container">
           <div class="section-header">
-            <h2 id="projetos-titulo" class="section-title">Projetos Pessoais</h2>
+            <h2 id="projetos-titulo" class="section-title">Projetos</h2>
             <p>
-              Os repositórios que mantenho fixados no meu
+              Trabalhos para clientes (código fechado) e os repositórios que
+              mantenho fixados no meu
               <a class="section-link" href="${GITHUB_PROFILE_URL}" target="_blank" rel="noopener noreferrer">GitHub</a>
             </p>
           </div>

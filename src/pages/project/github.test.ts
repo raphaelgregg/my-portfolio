@@ -65,6 +65,32 @@ describe('GithubProjectPage', () => {
     expect(html).not.toContain('Aplicações')
   })
 
+  it('projeto privado: sem botão de código, com o aviso de código privado', () => {
+    const html = GithubProjectPage({
+      slug: 'clinica',
+      name: 'Sistema do Cliente',
+      summary: 'Plataforma de agendamento.',
+      features: [],
+      techs: ['React'],
+      apps: [],
+      syllabus: [],
+      links: { site: 'https://clinica.com.br' },
+      screenshots: [],
+      createdAt: '2024-05-01',
+      pushedAt: '2024-05-01',
+      fork: false,
+      private: true,
+      category: 'Projeto para cliente',
+    })
+
+    expect(html).toContain('Ver aplicação')
+    expect(html).not.toContain('Código no GitHub')
+    // o rodapé tem o GitHub do perfil, mas nenhum link de repositório do projeto
+    expect(html).not.toContain('github.com/raphaelgregg/clinica')
+    expect(html).toContain('Privado')
+    expect(html).not.toMatch(/undefined|null/)
+  })
+
   it('não exibe "undefined" nem "null" em nenhum projeto', () => {
     // Todos os projetos fixados no momento, sejam quais forem
     for (const { slug } of githubProjects) {

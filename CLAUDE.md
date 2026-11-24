@@ -16,6 +16,7 @@ Portfólio pessoal (Raphael Gregg): SPA em **TypeScript puro** (sem framework de
 
 - `src/pages/<home|about|experience>`, `src/components/<nome>/{index.ts,styles.css}`, `src/routes`, `src/services` (Firebase), `src/data`, `src/dtos`, `src/utils`
 - `scripts/github-projects/`: pipeline do `sync:projects`
+- `content/projects/<nome>/`: projetos de clientes (código fechado), escritos à mão (README.md + project.json + imagens); só o que está lá é publicado. O sync gera os dados e `_template/` é o modelo.
 - Testes ficam ao lado do código (`*.test.ts`), com Vitest.
 
 ## Convenções

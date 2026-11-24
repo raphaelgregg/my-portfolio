@@ -73,7 +73,9 @@ function actionsHtml(project: PersonalProject): string {
     links.site
       ? externalLink(links.site, 'Ver aplicação', 'button button-primary')
       : '',
-    externalLink(links.repo, 'Código no GitHub', 'button button-outline'),
+    links.repo
+      ? externalLink(links.repo, 'Código no GitHub', 'button button-outline')
+      : '',
     links.video
       ? externalLink(links.video, 'Vídeo de demonstração', 'detail-link')
       : '',
@@ -136,9 +138,10 @@ export function GithubProjectPage(project: PersonalProject): string {
 
           <dl class="detail-facts">
             ${Fact('Criado em', esc(formatMonthYear(project.createdAt)))}
-            ${Fact('Último push', esc(formatMonthYear(project.pushedAt)))}
+            ${Fact('Último push', project.private ? '' : esc(formatMonthYear(project.pushedAt)))}
             ${Fact('Linguagem', esc(project.language))}
             ${Fact('Origem', project.fork ? 'Fork de um teste técnico' : '')}
+            ${Fact('Código', project.private ? 'Privado' : '')}
           </dl>
 
           <div class="detail-actions">${actionsHtml(project)}</div>

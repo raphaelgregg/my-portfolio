@@ -2,7 +2,8 @@ import type { GithubProject } from '../dtos/githubProjectDTO'
 import generated from './github-projects.json'
 
 /**
- * Projetos pessoais = os repositórios fixados no GitHub.
+ * Projetos = os repositórios fixados no GitHub, mais os projetos privados
+ * (de clientes) descritos em content/projects/<nome>/.
  *
  * github-projects.json é GERADO por `npm run sync:projects` (a partir do README
  * e dos metadados de cada repositório) e não deve ser editado à mão. O que o
@@ -71,7 +72,9 @@ export const githubProjects: PersonalProject[] = (
     name: custom?.name ?? project.name,
     summary: custom?.summary ?? project.summary,
     features: custom?.features ?? project.features,
-    category: custom?.category ?? 'Projeto pessoal',
+    category:
+      custom?.category ??
+      (project.private ? 'Projeto para cliente' : 'Projeto pessoal'),
   }
 })
 

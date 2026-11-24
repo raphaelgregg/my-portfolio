@@ -2,8 +2,10 @@
 export interface GithubProject {
   /** Nome do repositório; também é o id na URL (/project/<slug>). */
   slug: string
-  /** "dono/repositório". */
-  repo: string
+  /** "dono/repositório". Ausente em projetos privados (sem link de código). */
+  repo?: string
+  /** Projeto de código fechado, descrito em content/projects/<slug>/. */
+  private?: boolean
   /** Título tirado do README (pode ser trocado em data/github-projects.ts). */
   name: string
   /** Uma ou duas frases sobre o projeto. */
@@ -42,7 +44,8 @@ export interface GithubProjectSyllabusItem {
 }
 
 export interface GithubProjectLinks {
-  repo: string
+  /** Repositório no GitHub; ausente em projetos privados. */
+  repo?: string
   /** Aplicação publicada. */
   site?: string
   /** Vídeo de demonstração. */

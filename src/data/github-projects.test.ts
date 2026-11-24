@@ -5,7 +5,22 @@ import { curation, findGithubProject, githubProjects } from './github-projects'
 
 describe('projetos do GitHub (dados gerados + curadoria)', () => {
   it('tem exatamente os repositórios fixados, na ordem do perfil', () => {
-    expect(githubProjects.map((project) => project.slug)).toEqual(pinned.repos)
+    const fixados = githubProjects.filter((project) => !project.private)
+    expect(fixados.map((project) => project.slug)).toEqual(pinned.repos)
+  })
+
+  it('todo projeto privado tem uma pasta em content/projects e nenhum link de código', () => {
+    for (const project of githubProjects.filter((item) => item.private)) {
+      expect(
+        existsSync(
+          new URL(`../../content/projects/${project.slug}`, import.meta.url),
+        ),
+        project.slug,
+      ).toBe(true)
+      expect(project.repo, project.slug).toBeUndefined()
+      expect(project.links.repo, project.slug).toBeUndefined()
+      expect(project.category, project.slug).not.toBe('')
+    }
   })
 
   it('todo projeto tem nome, categoria, resumo, tecnologias e links válidos', () => {
@@ -14,9 +29,10 @@ describe('projetos do GitHub (dados gerados + curadoria)', () => {
       expect(project.category, project.slug).not.toBe('')
       expect(project.summary, project.slug).not.toBe('')
       expect(project.techs.length, project.slug).toBeGreaterThan(0)
-      expect(project.links.repo).toBe(
-        `https://github.com/${pinned.owner}/${project.slug}`,
-      )
+      if (!project.private)
+        expect(project.links.repo).toBe(
+          `https://github.com/${pinned.owner}/${project.slug}`,
+        )
       expect(project.createdAt).toMatch(/^\d{4}-\d{2}-\d{2}$/)
       expect(`${project.name}${project.summary}`).not.toMatch(/undefined|null/)
     }
@@ -42,7 +58,8 @@ describe('projetos do GitHub (dados gerados + curadoria)', () => {
       if (custom?.summary)
         expect(project.summary, project.slug).toBe(custom.summary)
       expect(project.category, project.slug).toBe(
-        custom?.category ?? 'Projeto pessoal',
+        custom?.category ??
+          (project.private ? 'Projeto para cliente' : 'Projeto pessoal'),
       )
     }
   })
