@@ -139,7 +139,7 @@ O `vercel.json` redireciona qualquer caminho para o `index.html`; é isso que pe
 | **Empresas** (nome, logo, site, "sobre a empresa")                    | Firebase, nó `experience`                                                    |
 | **Projetos pessoais**                                                 | `npm run sync:projects` (a partir do GitHub)                                 |
 | Nome de exibição e categoria de um projeto                            | `src/data/github-projects.ts` (`curation`)                                   |
-| Links de contato do rodapé (GitHub, LinkedIn, e-mail)                 | `src/components/footer/index.ts`                                             |
+| E-mail, GitHub e LinkedIn (bloco "Contato" da home e rodapé)          | `src/data/contact.ts`                                                        |
 | Título da aba, descrição, Open Graph e domínio canônico               | `index.html`                                                                 |
 | Favicon                                                               | `public/favicon.svg`                                                         |
 | Ícones de tecnologia                                                  | `public/svg/` e `src/data/techIcons.ts`                                      |
@@ -226,7 +226,8 @@ O comando lê o README (título, resumo, funcionalidades marcadas `[x]`, tecnolo
 #### D. Textos, contatos e SEO
 
 - **Apresentação da home:** edite os textos em `src/pages/home/index.ts`.
-- **Contatos do rodapé:** `src/components/footer/index.ts`. Os contatos do currículo ficam em `resumeContent.ts`.
+- **Contatos (bloco "Contato" da home e rodapé):** `src/data/contact.ts`. Os contatos do currículo ficam em `resumeContent.ts`.
+- **Visual da home:** o símbolo `</>` do hero, o bloco de contato e os projetos em destaque (os dois primeiros ficam grandes, os demais compactos) estão em `src/pages/home/` e em `src/styles/queries.css`. A fonte dos títulos da home (Bricolage Grotesque) vem do `index.html` e da variável `--font-display` em `global.css`. Se a imagem de uma logo falhar, o card mostra a inicial da empresa.
 - **Título, descrição e domínio:** em `index.html` estão `<title>`, `description`, `canonical` e `og:url`. Se o domínio principal mudar, atualize os dois últimos.
 
 #### E. Dados do Firebase (empresas, usuário, formação)

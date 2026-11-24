@@ -7,7 +7,7 @@ nav {
   align-items: center;
   justify-content: center;
 
-  transition: 0.9s;
+  transition: transform 250ms ease-out;
 
   background: var(--bg-color);
 
@@ -51,7 +51,7 @@ nav.is-hidden {
   transform: translateY(-100%);
 }
 
-/* Links de seção só cabem a partir de telas médias; no celular fica "Resumo" */
+/* Experiência e Contato só cabem a partir de telas médias; no celular ficam Projetos e Currículo */
 .nav-section-link {
   display: none;
 }
@@ -63,7 +63,10 @@ nav.is-hidden {
 }
 
 nav ul li a {
-  padding: 0.4rem 0;
+  /* área de toque de pelo menos 44px */
+  display: block;
+  padding: 1rem 0;
+  line-height: 2.4rem;
   transition: color 200ms ease-out;
 }
 

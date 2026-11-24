@@ -1,10 +1,16 @@
-section.brief {
-  background: var(--color-onyx-50);
-
-  padding: 13.2rem 0 2rem;
+/* Títulos da home usam a fonte de exibição; o resto do site segue com a Inter */
+.home-container h1,
+.home-container h2,
+.home-container h3 {
+  font-family: var(--font-display);
 }
 
-section.brief .brief-wrapper {
+/* ---------- Apresentação ---------- */
+section.brief {
+  padding: calc(var(--header-height) + 4.8rem) 0 var(--space-section);
+}
+
+.brief-wrapper {
   max-width: 95.6rem;
   margin: 0 auto;
   padding: 0 1.6rem;
@@ -12,32 +18,39 @@ section.brief .brief-wrapper {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 2.4rem;
 }
 
-section.brief img {
-  width: 31rem;
-  height: 31rem;
-  max-width: 34rem;
-  max-height: 34rem;
-  object-fit: contain;
+/* O símbolo da marca (</>) é a peça central do hero; no celular fica acima do título */
+.brief-mark {
+  order: -1;
 
-  align-self: center;
+  font-family: var(--font-display);
+  font-size: clamp(8rem, 22vw, 20rem);
+  font-weight: 800;
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  color: var(--color-accent);
+
+  user-select: none;
 }
 
-section.brief div {
+.brief-text {
   display: flex;
   flex-direction: column;
 }
 
 section.brief h1 {
-  font-size: 2.4rem;
-  line-height: 3.4rem;
+  max-width: 24ch;
 
-  margin: 6rem 0 0 0;
+  font-size: clamp(3.2rem, 1.6rem + 3.6vw, 5.6rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
 }
 
 section.brief h1 + p {
-  margin-top: 2rem;
+  margin-top: 2.4rem;
 }
 
 section.brief p {
@@ -49,30 +62,30 @@ section.brief p a {
   font-weight: 600;
 }
 
-section.brief .hero-actions {
-  flex-direction: row;
+.hero-actions {
+  display: flex;
   flex-wrap: wrap;
   gap: 1.2rem;
 
   margin-top: 3.2rem;
 }
 
-/* h2 por semântica (h1 > h2 > h3), com o visual de antes (era h4) */
+/* ---------- Seções ---------- */
 .section-title {
-  font-size: 2rem;
-  line-height: 2.8rem;
+  font-size: 3rem;
+  line-height: 3.6rem;
 }
 
 section.portfolio {
-  margin-top: 6rem;
-  padding: 4.8rem 0;
+  padding: var(--space-section) 0;
 }
 
 section.portfolio.work {
   background: var(--color-onyx-100);
 }
 
-section.portfolio .portfolio-wrapper {
+.portfolio-wrapper,
+.contact-wrapper {
   max-width: 95.6rem;
   margin: 0 auto;
   padding: 0 1.6rem;
@@ -86,30 +99,48 @@ section.portfolio .portfolio-wrapper {
   flex-direction: column;
   gap: 0.8rem;
   align-items: flex-start;
-  justify-content: flex-start;
-  /* width: 26rem; */
 }
 
-section.portfolio .cards-wrapper {
-  display: flex;
-  flex-direction: row;
-  gap: 2.4rem;
-  align-items: center;
-  justify-items: center;
-
-  width: 100%;
-
+.cards-wrapper {
   margin-top: 2.4rem;
-  padding: 0.4rem;
 }
 
 #my-projects {
   display: grid;
   grid-template-columns: 1fr;
+  gap: 2.4rem;
+  align-items: stretch;
 }
 
 .section-link {
   font-weight: 600;
   text-decoration: underline;
   color: var(--color-accent);
+}
+
+/* ---------- Contato ---------- */
+section.contact {
+  padding: 0 0 var(--space-section);
+}
+
+.contact-wrapper {
+  gap: 1.6rem;
+  align-items: flex-start;
+}
+
+.contact-mail {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 1.4rem + 3vw, 4rem);
+  font-weight: 700;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 0.3rem;
+  text-underline-offset: 0.6rem;
+}
+
+.contact-wrapper .hero-actions {
+  margin-top: 0.8rem;
 }

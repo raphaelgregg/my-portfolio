@@ -40,9 +40,10 @@
 
   --color-blue-500: #5cc4c4;
 
-  --color-gradient-tt: linear-gradient(45deg, #ec4751, #f5777b);
+  --font-display: 'Bricolage Grotesque', 'Inter', sans-serif;
+  /* Espaço vertical entre as grandes seções da home */
+  --space-section: clamp(5.6rem, 3.2rem + 6vw, 9.6rem);
 
-  /* color-scheme: light dark; */
   --tt-color: var(--color-onyx-950);
   --bg-color: var(--color-onyx-50);
   --bg-footer-color: var(--color-onyx-970);
@@ -143,7 +144,6 @@ ol {
 
 html,
 body {
-  /* border: 1px solid red; */
   min-width: 320px;
   min-height: 100vh;
 }
@@ -153,16 +153,9 @@ body {
   line-height: 1.5rem;
   background: var(--bg-color);
   color: var(--tt-color);
-  /* border: 1px solid green; */
 }
 
-/* h1 {
-  font-size: 3.2em;
-  line-height: 1;
-} */
-
 #app {
-  /* border: 1px solid purple; */
   width: 100%;
   margin: 0 auto;
 }
@@ -207,28 +200,6 @@ p {
   font-weight: 400;
   line-height: 2.8rem;
 }
-
-.gradient-text {
-  /* Fallback para navegadores sem suporte a background-clip: text */
-  background-color: var(--color-crimson-500);
-
-  /* Create the gradient. */
-  background-image: var(--color-gradient-tt);
-
-  /* Set the background size and repeat properties. */
-  background-size: 100%;
-  background-repeat: repeat;
-
-  /* Use the text as a mask for the background. */
-  /* This will show the gradient as a text color rather than element bg. */
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* :target {
-  scroll-margin-top: 3.2rem;
-} */
 
 ::-webkit-scrollbar {
   width: 4px;

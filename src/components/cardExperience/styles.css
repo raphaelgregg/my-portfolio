@@ -7,25 +7,27 @@
   flex-direction: column;
   justify-content: space-between;
 
-  border: 1px solid var(--color-onyx-100);
+  border: 1px solid var(--color-onyx-200);
   border-radius: 8px;
 
-  background: rgba(228, 232, 233, 0.2);
-  box-shadow: 0 0.3rem 0.4rem rgba(0, 0, 0, 0.1);
+  background: var(--color-onyx-20);
 
   flex-grow: 0;
   flex-shrink: 0;
 
-  transition:
-    transform 250ms ease-out,
-    box-shadow 250ms ease-out;
+  transition: border-color 200ms ease-out;
 }
 
-/* O card "sobe" ao receber o mouse ou o foco do teclado */
+/* O contorno ganha a cor de destaque com o mouse ou o foco do teclado */
 .card-experience-job:hover,
 .card-experience-job:focus-within {
-  transform: translateY(-0.4rem);
-  box-shadow: 0 0.8rem 1.6rem rgba(0, 0, 0, 0.16);
+  border-color: var(--color-accent);
+}
+
+.company-thumbnail-placeholder[hidden],
+.card-experience-job img[hidden],
+.card-my-project img[hidden] {
+  display: none;
 }
 
 /* Capa para empresas sem logo: a inicial sobre um degradê */
@@ -40,7 +42,7 @@
     var(--color-onyx-100)
   );
   color: var(--color-crimson-700);
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-display);
   font-weight: 800;
   user-select: none;
 }
@@ -55,9 +57,7 @@
   /* trabalha a propoção da imagem */
   aspect-ratio: 16/9;
   object-fit: cover;
-  transition:
-    all 200ms ease-out,
-    transform 600ms ease-in;
+  transition: transform 600ms ease-out;
 
   display: block;
 }
@@ -94,27 +94,27 @@
   line-height: 2.6rem;
 }
 
+/* Descrições longas ocupam no máximo 3 linhas */
 .limited-lines {
-  /*max-height: 5.4rem; /* Altura equivalente a três linhas de texto */
-  overflow: hidden; /* Oculta o conteúdo excedente */
-  text-overflow: ellipsis; /* Adiciona reticências (...) ao final do texto cortado */
-  line-height: 2.6rem; /* Altura da linha do texto */
-  white-space: normal; /* Adicionando a propriedade para quebrar o texto */
-  -webkit-line-clamp: 3; /* Por exemplo, para limitar a 3 linhas */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
 }
 
 .card-experience-job-footer {
-  background: rgba(228, 232, 233, 0.3);
+  background: var(--color-onyx-100);
   padding: 1.6rem;
 
   font-size: 1.4rem;
 
   text-align: center;
 
-  /* position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0; */
+  border-top: 1px solid var(--color-onyx-200);
+}
 
-  border-top: 1px solid var(--color-onyx-20);
+.card-experience-job h3 {
+  font-size: 2rem;
+  line-height: 2.8rem;
 }

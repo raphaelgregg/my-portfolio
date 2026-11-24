@@ -1,5 +1,4 @@
 import type { ProjectDTO } from '../../dtos/experienceDTO'
-import { techIconFor } from '../../data/techIcons'
 import { escapeHtml as esc } from '../../utils/escapeHtml'
 import { formatMonthYear } from '../../utils/extractFromDate'
 import { CompanyThumbnail } from '../cardExperience'
@@ -8,15 +7,7 @@ import './styles.css'
 function Technologies(technologies: string[] = []) {
   if (technologies.length === 0) return ''
 
-  const items = technologies
-    .map((tech) => {
-      const icon = techIconFor(tech)
-      const image = icon
-        ? `<img src="/svg/${esc(icon)}.svg" alt="" onerror="this.remove()" />`
-        : ''
-      return `<span>${image}${esc(tech)}</span>`
-    })
-    .join('')
+  const items = technologies.map((tech) => `<span>${esc(tech)}</span>`).join('')
 
   return `<div class="techs">${items}</div>`
 }

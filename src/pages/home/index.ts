@@ -3,6 +3,7 @@ import { Carousel } from '../../components/carousel'
 import { CardMyProject } from '../../components/cardMyProjects'
 import { Footer } from '../../components/footer'
 import { Header } from '../../components/header'
+import { CONTACT_EMAIL, LINKEDIN_URL } from '../../data/contact'
 import { GITHUB_PROFILE_URL, githubProjects } from '../../data/github-projects'
 import { escapeHtml as esc } from '../../utils/escapeHtml'
 import { toCardProject } from './toCardProject'
@@ -33,15 +34,13 @@ export async function Home() {
     <main id="conteudo" class="home-container">
       <section class="brief">
         <div class="brief-wrapper">
-          <img src="/svg/hero.svg" alt=""/>
-
-          <div>
+          <div class="brief-text">
             <h1>
               Olá!
               <br/>
               Eu sou o ${esc(user?.surname)},
               <br/>
-              <span class="gradient-text">dev front-end</span> aficionado por projetos web e Mobile.
+              dev front-end aficionado por projetos web e Mobile.
             </h1>
             <p>Analista de sistemas formado pela <span>
               <a href="https://www.unama.br/" target="_blank" rel="noopener noreferrer">${esc(universities)}</a>
@@ -58,6 +57,8 @@ export async function Home() {
               <a class="button button-outline" href="/resume">Ver currículo</a>
             </div>
           </div>
+
+          <div class="brief-mark" aria-hidden="true">&lt;/&gt;</div>
         </div>
       </section>
 
@@ -86,6 +87,19 @@ export async function Home() {
 
           <div id="my-projects" class="cards-wrapper">
             ${githubProjects.map((project) => CardMyProject(toCardProject(project))).join(' ')}
+          </div>
+        </div>
+      </section>
+
+      <section id="contato" class="contact" aria-labelledby="contato-titulo">
+        <div class="contact-wrapper">
+          <h2 id="contato-titulo" class="section-title">Contato</h2>
+          <p>Tem um projeto ou uma vaga em mente? Escreva para mim.</p>
+          <a class="contact-mail" href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="mailto:${CONTACT_EMAIL}">Enviar e-mail</a>
+            <a class="button button-outline" href="${LINKEDIN_URL}" target="_blank" rel="noopener noreferrer">Ver LinkedIn</a>
           </div>
         </div>
       </section>

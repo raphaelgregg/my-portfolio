@@ -1,26 +1,47 @@
 footer {
-  /* position: ; */
-  /* left: 0;
-  bottom: 0;
-  right: 0; */
-
   width: 100%;
   margin-top: 6rem;
   background: var(--color-onyx-950);
+}
+
+/* Na home, o espaço antes do rodapé vem do bloco de contato */
+.home-container + footer {
+  margin-top: 0;
 }
 
 .links-footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 3rem;
+  gap: 0.8rem;
+}
+
+/* Alvo de toque de 44px em volta do ícone de 20px */
+.links-footer a {
+  display: grid;
+  place-items: center;
+
+  width: 4.4rem;
+  height: 4.4rem;
+  border-radius: 50%;
+
+  transition:
+    background-color 200ms ease-out,
+    color 200ms ease-out;
+}
+
+.links-footer a:hover {
+  background: var(--color-onyx-800);
+  color: var(--color-crimson-300);
+}
+
+footer :focus-visible {
+  outline-color: var(--color-crimson-300);
 }
 
 .links-footer svg {
   width: 2rem;
   height: 2rem;
-
-  transition: 0.3s;
 }
 
 footer div {
@@ -29,7 +50,6 @@ footer div {
 
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   gap: 1rem;
   align-items: center;
 

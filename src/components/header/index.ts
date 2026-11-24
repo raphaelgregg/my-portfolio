@@ -9,8 +9,9 @@ export function Header() {
 
           <ul>
             <li class="nav-section-link"><a href="/#experiencia">Experiência</a></li>
-            <li class="nav-section-link"><a href="/#projetos">Projetos</a></li>
-            <li><a href="/resume">Resumo</a></li>
+            <li><a href="/#projetos">Projetos</a></li>
+            <li class="nav-section-link"><a href="/#contato">Contato</a></li>
+            <li><a href="/resume">Currículo</a></li>
           </ul>
         </div>
       </nav>
