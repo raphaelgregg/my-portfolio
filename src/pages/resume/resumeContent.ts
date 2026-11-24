@@ -78,7 +78,7 @@ const skills = {
 function WorkCard({ company, job, period, description }: WorkItem) {
   return `
     <div class="work-card">
-      <h4 class="work-title">${esc(company)}<span class="work-job"> - ${esc(job)}</span></h4>
+      <h3 class="work-title">${esc(company)}<span class="work-job"> - ${esc(job)}</span></h3>
       <span class="timeline">${esc(period)}</span>
       <p class="work-description">${esc(description)}</p>
     </div>`
@@ -88,7 +88,7 @@ function WorkCard({ company, job, period, description }: WorkItem) {
 export function ResumeFirstPage(): string {
   return `
     <header>
-      <h2>${esc(profile.name)}</h2>
+      <h1>${esc(profile.name)}</h1>
 
       <div>
         ${profile.links
@@ -101,7 +101,7 @@ export function ResumeFirstPage(): string {
     </header>
 
     <section>
-      <h5>Experiência</h5>
+      <h2>Experiência</h2>
 
       <div class="work-list">
         ${experience.map(WorkCard).join('')}
@@ -109,17 +109,17 @@ export function ResumeFirstPage(): string {
     </section>
 
     <section class="education">
-      <h5>Educação</h5>
+      <h2>Educação</h2>
 
       <div class="education-list">
         <div class="education-card">
-          <h4 class="education-title">${esc(education.institution)}</h4>
+          <h3 class="education-title">${esc(education.institution)}</h3>
           <span class="timeline">${esc(education.period)}</span>
           <p class="education-description">${esc(education.description)}</p>
         </div>
 
         <div class="education-card">
-          <h4 class="certification-title">Certificados</h4>
+          <h3 class="certification-title">Certificados</h3>
           <p class="certification-description">${esc(certificates)}</p>
         </div>
       </div>
@@ -130,10 +130,10 @@ export function ResumeFirstPage(): string {
 export function ResumeSecondPage(): string {
   return `
     <section class="skillset">
-      <h5>Habilidades</h5>
+      <h2>Habilidades</h2>
       <div class="skillset-list">
         <div class="skillset-card">
-          <h4 class="skillset-title">${esc(skills.title)}</h4>
+          <h3 class="skillset-title">${esc(skills.title)}</h3>
           <p class="skillset-description">${esc(skills.list)}</p>
         </div>
       </div>

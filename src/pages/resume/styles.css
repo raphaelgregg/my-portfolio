@@ -23,9 +23,10 @@
   margin-bottom: 3rem;
 }
 
-.resume-wrapper header h2 {
+.resume-wrapper header h1 {
   font-size: 3.2rem;
   font-weight: 500;
+  line-height: 3.6rem;
   padding-right: 4rem;
 }
 
@@ -54,21 +55,24 @@
   margin-top: 2rem;
 }
 
-.resume-wrapper section h5 {
+.resume-wrapper section h2 {
   padding-right: 4rem;
   font-size: 1.4rem;
   font-weight: 400;
+  line-height: 1.5rem;
 
   text-transform: uppercase;
 }
 
-.resume-wrapper section h4 {
+.resume-wrapper section h3 {
+  font-size: 2rem;
+  font-weight: 600;
   line-height: 2.4rem;
 }
 
 .resume-wrapper section span {
   font-size: 1.6rem;
-  color: var(--color-onyx-400);
+  color: var(--color-muted);
 }
 .resume-wrapper .timeline {
   font-size: 1.4rem;

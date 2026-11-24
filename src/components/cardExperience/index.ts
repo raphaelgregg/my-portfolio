@@ -13,7 +13,7 @@ export function CardExperience({
     <div class="card-experience-job">
       <a href="/experience/${esc(id)}">
         <div class="wrapper-card">
-          <img src="${esc(thumbnailCompany)}" alt="Logo da empresa ${esc(companyShortName)}" />
+          <img loading="lazy" decoding="async" src="${esc(thumbnailCompany)}" alt="Logo da empresa ${esc(companyShortName)}" />
 
           <div class="info">
             <h3>${esc(companyShortName)}</h3>

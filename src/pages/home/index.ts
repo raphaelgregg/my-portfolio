@@ -27,7 +27,7 @@ export async function Home() {
 
   return `
     ${Header()}
-    <div class="home-container">
+    <main id="conteudo" class="home-container">
       <section class="brief">
         <div class="brief-wrapper">
           <img src="/svg/hero.svg" alt=""/>
@@ -49,26 +49,31 @@ export async function Home() {
                 ? `<p>Atualmente, parte da equipe de trabalho da <a href="https://www.lanlink.com.br/" target="_blank" rel="noopener noreferrer">${esc(currentJob.companyShortName)}</a></p>`
                 : ''
             }
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="/#projetos">Ver projetos</a>
+              <a class="button button-outline" href="/resume">Ver currículo</a>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="portfolio work">
+      <section id="experiencia" class="portfolio work" aria-labelledby="experiencia-titulo">
         <div class="portfolio-wrapper">
           <div class="header">
-            <h4>Experiência Profissional</h4>
+            <h2 id="experiencia-titulo" class="section-title">Experiência Profissional</h2>
           </div>
 
-          <div class="cards-wrapper scroll">
+          <div class="cards-wrapper scroll" tabindex="0" role="region" aria-label="Experiência profissional (role para o lado para ver mais)">
             ${jobs.map((job) => CardExperience(job)).join(' ')}
           </div>
         </div>
       </section>
 
-      <section class="portfolio">
+      <section id="projetos" class="portfolio" aria-labelledby="projetos-titulo">
         <div class="portfolio-wrapper">
           <div class="header">
-            <h4>Projetos Pessoais</h4>
+            <h2 id="projetos-titulo" class="section-title">Projetos Pessoais</h2>
             <p>Para que você conheça um pouco mais do meu trabalho</p>
           </div>
 
@@ -77,7 +82,7 @@ export async function Home() {
           </div>
         </div>
       </section>
-    </div>
+    </main>
     ${Footer()}
   `
 }

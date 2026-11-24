@@ -50,3 +50,23 @@ nav ul li a {
 nav.is-hidden {
   transform: translateY(-100%);
 }
+
+/* Links de seção só cabem a partir de telas médias; no celular fica "Resumo" */
+.nav-section-link {
+  display: none;
+}
+
+@media (min-width: 485px) {
+  .nav-section-link {
+    display: list-item;
+  }
+}
+
+nav ul li a {
+  padding: 0.4rem 0;
+  transition: color 200ms ease-out;
+}
+
+nav ul li a:hover {
+  color: var(--color-accent);
+}

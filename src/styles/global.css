@@ -23,9 +23,9 @@
   --color-onyx-900: #393e41;
   --color-onyx-950: #232629;
   --color-onyx-970: #0a0b0c;
-  --color-onyx-opacity-5:
-    rgba(228, 232, 233, 0.5), --color-onyx-opacity-8: #e4e8e9,
-    --color-crimson-50: #fef2f2;
+  --color-onyx-opacity-5: rgba(228, 232, 233, 0.5);
+  --color-onyx-opacity-8: #e4e8e9;
+  --color-crimson-50: #fef2f2;
   --color-crimson-100: #fee6e5;
   --color-crimson-200: #fccfd0;
   --color-crimson-300: #f9a8a8;
@@ -46,18 +46,94 @@
   --tt-color: var(--color-onyx-950);
   --bg-color: var(--color-onyx-50);
   --bg-footer-color: var(--color-onyx-970);
+  --color-accent: var(--color-crimson-600);
+  --color-muted: var(--color-onyx-600);
+  --header-height: 6.6rem;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  /* Âncoras (#projetos) não ficam escondidas atrás do cabeçalho fixo */
+  scroll-padding-top: calc(var(--header-height) + 1.6rem);
 }
 
 a {
   font-weight: 500;
   color: inherit;
   text-decoration: none;
+}
+
+/* Acessibilidade: foco visível para quem navega pelo teclado */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Texto só para leitores de tela */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Link "pular para o conteúdo": aparece só ao receber foco */
+.skip-link {
+  position: fixed;
+  top: 0.8rem;
+  left: 0.8rem;
+  z-index: 20;
+  padding: 1rem 1.6rem;
+  border-radius: 8px;
+  background: var(--color-onyx-950);
+  color: var(--color-onyx-10);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Botões */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1.2rem 2.4rem;
+  border: 2px solid var(--color-accent);
+  border-radius: 8px;
+
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 2rem;
+
+  transition:
+    background-color 200ms ease-out,
+    color 200ms ease-out;
+}
+
+.button-primary {
+  background: var(--color-accent);
+  color: var(--color-onyx-10);
+}
+
+.button-primary:hover {
+  background: var(--color-crimson-700);
+  border-color: var(--color-crimson-700);
+}
+
+.button-outline {
+  color: var(--color-accent);
+}
+
+.button-outline:hover {
+  background: var(--color-crimson-100);
 }
 
 ul,
@@ -93,7 +169,7 @@ body {
 
 h1,
 h2,
-h4,
+h3,
 h4,
 h5,
 h6 {
@@ -133,8 +209,8 @@ p {
 }
 
 .gradient-text {
-  /* Fallback: Set a background color. */
-  background-color: red;
+  /* Fallback para navegadores sem suporte a background-clip: text */
+  background-color: var(--color-crimson-500);
 
   /* Create the gradient. */
   background-image: var(--color-gradient-tt);
@@ -146,9 +222,8 @@ p {
   /* Use the text as a mask for the background. */
   /* This will show the gradient as a text color rather than element bg. */
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
-  -moz-background-clip: text;
-  -moz-text-fill-color: transparent;
 }
 
 /* :target {
@@ -168,4 +243,18 @@ p {
 /* Barra de rolagem */
 ::-webkit-scrollbar-thumb {
   background-color: var(--color-crimson-600);
+}
+
+/* Respeita quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

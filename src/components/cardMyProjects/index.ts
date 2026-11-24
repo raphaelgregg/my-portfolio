@@ -32,7 +32,7 @@ export function CardMyProject({
     <div class="card-my-project">
       <a href="/project/${esc(id)}">
         <div class="wrapper-card">
-          <img src="${esc(thumbnail)}" alt="Thumbnail do projeto ${esc(title)}" />
+          <img loading="lazy" decoding="async" src="${esc(thumbnail)}" alt="Thumbnail do projeto ${esc(title)}" />
 
           <div class="info">
             <h3>${esc(title)}</h3>

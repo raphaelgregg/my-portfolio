@@ -36,9 +36,15 @@
   display: block;
 }
 
-.card-my-project img:hover {
-  filter: hue-rotate(7deg) contrast(110%) saturate(200%);
-  transform: scale(1.1);
+/* Zoom sutil na imagem quando o card inteiro recebe hover ou foco */
+.card-my-project a:hover img,
+.card-my-project a:focus-visible img {
+  transform: scale(1.04);
+}
+
+/* O card tem overflow: hidden; o contorno de foco vai por dentro */
+.card-my-project a:focus-visible {
+  outline-offset: -3px;
 }
 
 .card-my-project .info {
@@ -51,7 +57,7 @@
 
 .card-my-project .role {
   font-size: 1.4rem;
-  color: var(--color-onyx-400);
+  color: var(--color-muted);
 }
 
 .card-my-project .description {

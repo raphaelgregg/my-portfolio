@@ -19,7 +19,7 @@ export function Resume() {
   return `
   ${Header()}
 
-  <div class="resume-container">
+  <main id="conteudo" class="resume-container">
     <div class="resume-wrapper">
       <button id="btn-download" aria-label="Baixar currículo em PDF"><i class="file-down-icon" data-lucide="file-down"></i></button>
 
@@ -31,7 +31,7 @@ export function Resume() {
     <div class="resume-wrapper">
       ${ResumeSecondPage()}
     </div>
-  </div>
+  </main>
   ${Footer()}
   `
 }

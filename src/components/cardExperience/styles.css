@@ -29,9 +29,15 @@
   display: block;
 }
 
-.card-experience-job img:hover {
-  filter: hue-rotate(7deg) contrast(101%) saturate(200%);
-  transform: scale(1.1);
+/* Zoom sutil na imagem quando o card inteiro recebe hover ou foco */
+.card-experience-job a:hover img,
+.card-experience-job a:focus-visible img {
+  transform: scale(1.04);
+}
+
+/* O card tem overflow: hidden; o contorno de foco vai por dentro */
+.card-experience-job a:focus-visible {
+  outline-offset: -3px;
 }
 
 .card-experience-job .info {
@@ -44,7 +50,7 @@
 
 .card-experience-job .info p.job {
   font-size: 1.4rem;
-  color: var(--color-onyx-400);
+  color: var(--color-muted);
 }
 
 .card-experience-job .info p.description {

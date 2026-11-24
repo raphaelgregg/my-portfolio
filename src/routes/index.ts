@@ -4,14 +4,21 @@ import { Home } from '../pages/home'
 import { Project } from '../pages/project'
 import { Resume } from '../pages/resume'
 import { Curriculum } from '../pages/resume/download'
+import { LoadError, NotFound } from '../pages/status'
+import { setPageTitle } from '../utils/pageTitle'
 
 type PageRenderer = () => string | Promise<string>
 
-const staticRoutes: Record<string, PageRenderer> = {
-  '/': Home,
-  '/about': About,
-  '/resume': Resume,
-  '/curriculum-download': Curriculum,
+interface StaticRoute {
+  render: PageRenderer
+  title?: string
+}
+
+const staticRoutes: Record<string, StaticRoute> = {
+  '/': { render: Home },
+  '/about': { render: About, title: 'Sobre' },
+  '/resume': { render: Resume, title: 'Currículo' },
+  '/curriculum-download': { render: Curriculum, title: 'Currículo' },
 }
 
 /** Rotas com parâmetro: "/project/3" → Project("3"). */
@@ -23,19 +30,20 @@ const dynamicRoutes: Array<{
   { prefix: '/project/', render: Project },
 ]
 
-const NOT_FOUND_HTML = '<h1>404 Not Found</h1>'
-const ERROR_HTML = '<h1>Não foi possível carregar esta página.</h1>'
-
 async function resolveRoute(path: string): Promise<string> {
   const staticRoute = staticRoutes[path]
-  if (staticRoute) return staticRoute()
+  if (staticRoute) {
+    setPageTitle(staticRoute.title)
+    return staticRoute.render()
+  }
 
   for (const { prefix, render } of dynamicRoutes) {
     const id = path.startsWith(prefix) ? path.slice(prefix.length) : ''
     if (id) return render(id)
   }
 
-  return NOT_FOUND_HTML
+  setPageTitle('Página não encontrada')
+  return NotFound()
 }
 
 /** Renderiza no elemento raiz a página correspondente ao caminho da URL. */
@@ -44,6 +52,7 @@ export async function navigateTo(path: string, rootElement: HTMLElement) {
     rootElement.innerHTML = await resolveRoute(path)
   } catch (error) {
     console.error(`Erro ao renderizar "${path}":`, error)
-    rootElement.innerHTML = ERROR_HTML
+    setPageTitle('Erro ao carregar')
+    rootElement.innerHTML = LoadError(path)
   }
 }

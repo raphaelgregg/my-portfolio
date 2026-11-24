@@ -1,6 +1,7 @@
 import { Footer } from '../../components/footer'
 import { Header } from '../../components/header'
 import { escapeHtml as esc } from '../../utils/escapeHtml'
+import { setPageTitle } from '../../utils/pageTitle'
 import { getYear } from '../../utils/extractFromDate'
 import { fetchPersonalProject } from '../home/homeData'
 import './styles.css'
@@ -15,18 +16,19 @@ function renderList<T>(
 
 export async function Project(projectId: string) {
   const project = await fetchPersonalProject(projectId)
+  setPageTitle(project?.title ?? 'Projeto não encontrado')
 
   if (!project) {
     return `
       ${Header()}
-      <div class="project-container">
+      <main id="conteudo" class="project-container">
         <section class="project-brief">
           <div class="brief-wrapper">
-            <h3>Projeto não encontrado</h3>
+            <h1>Projeto não encontrado</h1>
             <p class="subtitle"><a href="/">Voltar para o início</a></p>
           </div>
         </section>
-      </div>
+      </main>
       ${Footer()}
     `
   }
@@ -50,13 +52,13 @@ export async function Project(projectId: string) {
 
   return `
     ${Header()}
-    <div class="project-container">  
+    <main id="conteudo" class="project-container">  
       <header class="project-header">
         <img src="${esc(banner)}" alt="Banner do projeto ${esc(title)}">
       </header>
       <section class="project-brief">
         <div class="brief-wrapper">
-          <h3>${esc(title)}</h3>
+          <h1>${esc(title)}</h1>
           <p class="subtitle">${esc(projectDescription)}</p>
       
           <div class="project-brief-info">
@@ -89,17 +91,17 @@ export async function Project(projectId: string) {
           <span class="overview-title">Visão Geral</span>
           
           <div class="prompt">
-            <h3>Incitar</h3>
+            <h2>Incitar</h2>
             <p>${esc(overview?.prompt)}</p>
           </div>
       
           <div class="design-process">
-            <h3>Processo</h3>
+            <h2>Processo</h2>
             <img src="${esc(overview?.designProcess)}" alt="Processo de design do projeto">
           </div>
       
           <div class="initial-thinking">
-            <h3>Pensamento Inicial</h3>
+            <h2>Pensamento Inicial</h2>
             
             <div>
               <div class="list-initial-thinking">
@@ -119,7 +121,7 @@ export async function Project(projectId: string) {
           </div>
       
           <div class="how-might-we-questions">
-            <h3>Como poderíamos fazer perguntas</h3>
+            <h2>Como poderíamos fazer perguntas</h2>
             <ul>
               ${renderList(overview?.howMightWeQuestions, (question) => `<li>${esc(question)}</li>`)}
             </ul>
@@ -132,7 +134,7 @@ export async function Project(projectId: string) {
           <span class="user-research-title">Pesquisa de Usuários</span>
 
           <div class="background-research">
-            <h3>Pesquisa de Sistemas Existentes</h3>
+            <h2>Pesquisa de Sistemas Existentes</h2>
             <div class="research-goals">
               <span>Objetivos de Pesquisa</span>
               <ul class="list-ul-styled">
@@ -162,7 +164,7 @@ export async function Project(projectId: string) {
           <span class="problem-title">Desafio</span>
 
           <div class="problem-startment">
-            <h3>Declaração de Problema</h3>
+            <h2>Declaração de Problema</h2>
             ${renderList(challenge, (statement) => `<p>${esc(statement)}</p>`)}
           </div>
         </div>
@@ -173,12 +175,12 @@ export async function Project(projectId: string) {
           <span class="design-concept-title">Prototype</span>
 
           <div class="wireframe">
-            <h3>Wireframe</h3>
+            <h2>Wireframe</h2>
             ${renderList(prototype?.wireframe, (frame) => `<img src="${esc(frame)}" alt="Wireframe do protótipo">`)}
           </div>
 
           <div class="visual-identity">
-            <h3>Identidade visual</h3>
+            <h2>Identidade visual</h2>
             ${renderList(prototype?.visualIdentity, (identity) => `<img src="${esc(identity)}" alt="Fontes e cores do design">`)}
           </div>
         </div>
@@ -189,7 +191,7 @@ export async function Project(projectId: string) {
           <span class="user-feedback-title">Feedback do usuário</span>
 
           <div class="user-testing-feedback">
-            <h3>Feedback de teste do usuário</h3>
+            <h2>Feedback de teste do usuário</h2>
             <ul class="list-ul-styled">
               ${renderList(userFeedback, (feedback) => `<li>${esc(feedback)}</li>`)}
             </ul>
@@ -202,12 +204,12 @@ export async function Project(projectId: string) {
           <span class="reflection-title">Reflexão</span>
 
           <div class="topics">
-            <h3>Tópicos</h3>
+            <h2>Tópicos</h2>
             ${renderList(reflection, (paragraph) => `<p>${esc(paragraph)}</p>`)}
           </div>
         </div>
       </section>
-    </div>
+    </main>
     ${Footer()}
   `
 }

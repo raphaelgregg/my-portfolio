@@ -41,12 +41,26 @@ section.brief h1 + p {
 }
 
 section.brief p {
-  color: var(--color-onyx-500);
+  color: var(--color-muted);
 }
 
 section.brief p a {
   color: var(--color-onyx-950);
   font-weight: 600;
+}
+
+section.brief .hero-actions {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+
+  margin-top: 3.2rem;
+}
+
+/* h2 por semântica (h1 > h2 > h3), com o visual de antes (era h4) */
+.section-title {
+  font-size: 2rem;
+  line-height: 2.8rem;
 }
 
 section.portfolio {
@@ -74,10 +88,6 @@ section.portfolio .portfolio-wrapper {
   align-items: flex-start;
   justify-content: flex-start;
   /* width: 26rem; */
-}
-
-.portfolio-wrapper-section-header h4 {
-  font-size: 2.4rem;
 }
 
 section.portfolio .cards-wrapper {
@@ -109,10 +119,4 @@ section.portfolio .cards-wrapper {
 /* [5] */
 .scroll::-webkit-scrollbar {
   display: none;
-}
-
-section.contact {
-  margin-top: 10rem;
-  padding: 2rem 0;
-  background: var(--color-onyx-50);
 }
