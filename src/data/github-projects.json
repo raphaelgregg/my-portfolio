@@ -1,5 +1,24 @@
 [
   {
+    "slug": "my-portfolio",
+    "repo": "raphaelgregg/my-portfolio",
+    "name": "Portfólio · Raphael Gregg",
+    "summary": "",
+    "features": [],
+    "techs": ["HTML", "CSS", "JavaScript", "TypeScript"],
+    "apps": [],
+    "syllabus": [],
+    "links": {
+      "repo": "https://github.com/raphaelgregg/my-portfolio",
+      "site": "https://portfolio.rgregg.com.br/"
+    },
+    "screenshots": [],
+    "createdAt": "2024-03-15",
+    "pushedAt": "2026-11-24",
+    "language": "TypeScript",
+    "fork": false
+  },
+  {
     "slug": "grab-devchallenge",
     "repo": "raphaelgregg/grab-devchallenge",
     "name": "Page Login GRAB - Desafio DevChallenge",
@@ -29,35 +48,6 @@
     "pushedAt": "2021-03-18",
     "language": "CSS",
     "fork": false
-  },
-  {
-    "slug": "estagio-frontend",
-    "repo": "raphaelgregg/estagio-frontend",
-    "name": "TESTE DE ESTÁGIO FRONT-END HTML, CSS E JAVASCRIPT",
-    "summary": "TESTE DE ESTÁGIO FRONT-END HTML, CSS E JAVASCRIPT",
-    "features": [
-      "Criação a Navbar fixed no topo",
-      "Criação da section carousel",
-      "Criação da section de serviços",
-      "Criação do footer com inforções de contato",
-      "Criação do layout responsivo",
-      "Implementação de Custom funcionalidades e alimentação do carousel por uma lista no arquivo data.js",
-      "Deploy da Aplicação na vercel Link Teste Front-end"
-    ],
-    "techs": ["HTML", "CSS", "JavaScript"],
-    "apps": [],
-    "syllabus": [],
-    "links": {
-      "repo": "https://github.com/raphaelgregg/estagio-frontend",
-      "site": "https://estagio-frontend-blue.vercel.app/",
-      "layout": "https://xd.adobe.com/view/a44042ef-99e2-46fa-545c-ce4f6686b811-d271/?fullscreen"
-    },
-    "cover": "/projects/estagio-frontend/1.webp",
-    "screenshots": ["/projects/estagio-frontend/1.webp"],
-    "createdAt": "2021-03-09",
-    "pushedAt": "2021-03-13",
-    "language": "HTML",
-    "fork": true
   },
   {
     "slug": "nlw-04-moveit",
