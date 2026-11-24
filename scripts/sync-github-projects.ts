@@ -1,11 +1,15 @@
 /**
  * Gera src/data/github-projects.json e as imagens em public/projects/ a partir
- * dos repositórios fixados no GitHub (lista em scripts/github-projects/pinned.json).
+ * dos repositórios fixados no GitHub.
+ *
+ * A lista vem dos fixados do perfil (API GraphQL, precisa de GITHUB_TOKEN) e é
+ * gravada em scripts/github-projects/pinned.json. Sem token, ou se a consulta
+ * falhar, usa o que já está no pinned.json.
  *
  *   npm run sync:projects                       lê pela API do GitHub
  *   npm run sync:projects -- --local ~/repos    lê de clones locais (<pasta>/<repo>)
  *   opções: --meta arquivo.json   metadados já baixados (lista de repos da API)
- *           GITHUB_TOKEN no ambiente: sobe o limite de requisições da API
+ *           GITHUB_TOKEN no ambiente: lê os fixados do perfil e sobe o limite da API
  */
 import { mkdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
@@ -13,6 +17,7 @@ import { format, resolveConfig } from 'prettier'
 import sharp from 'sharp'
 import type { GithubProject } from '../src/dtos/githubProjectDTO.ts'
 import { buildProject, type RepoMeta } from './github-projects/build.ts'
+import { fetchPinnedRepos } from './github-projects/pinned.ts'
 import {
   LocalSource,
   RemoteSource,
@@ -77,12 +82,52 @@ async function writeImages(
   }
 }
 
+/** Fixados do perfil quando possível; senão, a lista já salva em pinned.json. */
+async function resolveRepos(
+  owner: string,
+  saved: string[],
+  pinnedFile: string,
+  { offline }: { offline: boolean },
+): Promise<string[]> {
+  if (offline) return saved
+
+  const live = await fetchPinnedRepos(owner, process.env.GITHUB_TOKEN)
+  if (!live) {
+    console.warn(
+      process.env.GITHUB_TOKEN
+        ? 'Não consegui ler os fixados do perfil: usando scripts/github-projects/pinned.json.'
+        : 'Sem GITHUB_TOKEN, não leio os fixados do perfil: usando scripts/github-projects/pinned.json.',
+    )
+    return saved
+  }
+
+  if (JSON.stringify(live) !== JSON.stringify(saved)) {
+    console.log(
+      `Fixados do perfil mudaram: ${saved.join(', ')} -> ${live.join(', ')}`,
+    )
+    const config = (await resolveConfig(pinnedFile)) ?? {}
+    await writeFile(
+      pinnedFile,
+      await format(JSON.stringify({ owner, repos: live }), {
+        ...config,
+        parser: 'json',
+      }),
+    )
+  }
+  return live
+}
+
 async function main(): Promise<void> {
-  const { owner, repos } = JSON.parse(
-    await readFile(join(ROOT, 'scripts/github-projects/pinned.json'), 'utf8'),
+  const pinnedFile = join(ROOT, 'scripts/github-projects/pinned.json')
+  const { owner, repos: savedRepos } = JSON.parse(
+    await readFile(pinnedFile, 'utf8'),
   ) as { owner: string; repos: string[] }
   const localDir = option('local')
   const metaFile = option('meta')
+
+  const repos = await resolveRepos(owner, savedRepos, pinnedFile, {
+    offline: Boolean(localDir || metaFile),
+  })
 
   const projects: GithubProject[] = []
   for (const repo of repos) {

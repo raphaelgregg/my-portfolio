@@ -203,13 +203,13 @@ O conteúdo dos repositórios já listados é atualizado toda semana por um work
 | Capas e capturas de tela (WebP, até 1200px)                    | `public/projects/<repo>/` (geradas)                   |
 | Nome de exibição, categoria e resumo quando o README não serve | `src/data/github-projects.ts` (`curation`)            |
 
-1. Liste os fixados atuais (precisa do `gh` autenticado):
+1. O comando lê os repositórios fixados do seu perfil (API GraphQL) e atualiza `scripts/github-projects/pinned.json` sozinho. Isso exige `GITHUB_TOKEN` no ambiente; sem ele (ou se a consulta falhar), usa a lista que já está no `pinned.json` e avisa. Para editar a lista à mão, mude o `pinned.json` e rode o comando sem token.
+2. Se quiser conferir os fixados antes (precisa do `gh` autenticado):
 
    ```bash
    gh api graphql -f query='{ user(login:"raphaelgregg") { pinnedItems(first:6, types:REPOSITORY) { nodes { ... on Repository { name } } } } }' --jq '.data.user.pinnedItems.nodes[].name'
    ```
 
-2. Atualize `scripts/github-projects/pinned.json` com os nomes, na ordem.
 3. Gere os dados:
 
    ```bash
@@ -285,7 +285,7 @@ O workflow roda `npm run sync:projects` e, se `src/data/github-projects.json` ou
 - **Rodar na hora:** Actions → "Sync projects" → "Run workflow".
 - **Permissão necessária:** Settings → Actions → General → "Allow GitHub Actions to create and approve pull requests".
 - **CI nos PRs do sync (opcional):** PRs abertos com o `GITHUB_TOKEN` padrão não disparam o CI. Para que disparem, crie o secret `SYNC_PROJECTS_TOKEN_MYPORTFOLIO` (Settings → Secrets and variables → Actions) com um token pessoal fine-grained limitado a este repositório, com permissões **Contents** e **Pull requests** em leitura e escrita. Sem o secret, o workflow usa o `GITHUB_TOKEN`. Tokens fine-grained expiram: anote a data de renovação.
-- **Limite:** o script lê a lista de `scripts/github-projects/pinned.json`, não os fixados reais do perfil. Ao fixar um repositório novo, atualize o `pinned.json` (receita C).
+- **Fixados do perfil:** o workflow lê os repositórios fixados no seu perfil com o `GITHUB_TOKEN` e grava a lista em `scripts/github-projects/pinned.json`. Se você fixar ou trocar um projeto, a mudança entra no próximo PR do sync. Se a consulta falhar, o workflow usa o `pinned.json` e avisa no log.
 - Agendamentos só rodam a partir da branch padrão (`main`).
 
 ### Dependabot e `npm audit`

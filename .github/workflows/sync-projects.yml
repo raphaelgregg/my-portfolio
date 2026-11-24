@@ -1,7 +1,7 @@
 name: Sync projects
 
 # Atualiza src/data/github-projects.json e public/projects/ a partir dos
-# repositórios listados em scripts/github-projects/pinned.json e abre um PR
+# repositórios fixados no perfil (gravados em scripts/github-projects/pinned.json) e abre um PR
 # quando algo muda. Agendamentos só rodam na branch padrão do repositório.
 on:
   schedule:
@@ -39,6 +39,7 @@ jobs:
           branch: chore/sync-projects
           delete-branch: true
           add-paths: |
+            scripts/github-projects/pinned.json
             src/data/github-projects.json
             public/projects
           commit-message: 'chore: sync github projects'
