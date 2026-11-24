@@ -2,6 +2,10 @@
 
 Portfólio pessoal de Raphael Gregg: SPA em TypeScript puro (sem framework) com [Vite](https://vite.dev). Os dados de experiência, formação e projetos vêm do Firebase Realtime Database; o currículo é gerado em PDF no navegador.
 
+## Requisitos
+
+[Node.js 26 LTS](https://nodejs.org/) (versão em `.nvmrc` e em `engines` do `package.json`; o Vercel usa o `engines` e ignora a versão configurada no painel). Com nvm: `nvm use`.
+
 ## Como rodar
 
 ```bash
