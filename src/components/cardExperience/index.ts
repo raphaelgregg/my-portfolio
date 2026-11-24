@@ -2,6 +2,19 @@ import type { ExperienceDTO } from '../../dtos/experienceDTO'
 import { escapeHtml as esc } from '../../utils/escapeHtml'
 import './styles.css'
 
+/** Sem logo cadastrado, mostra a inicial da empresa. */
+export function CompanyThumbnail(
+  name: string | undefined,
+  src: string | undefined,
+  className: string,
+): string {
+  if (src) {
+    return `<img class="${className}" loading="lazy" decoding="async" src="${esc(src)}" alt="Logo da empresa ${esc(name)}" />`
+  }
+  const initial = (name ?? '?').trim().charAt(0).toUpperCase()
+  return `<div class="${className} company-thumbnail-placeholder" aria-hidden="true">${esc(initial)}</div>`
+}
+
 export function CardExperience({
   id,
   thumbnailCompany,
@@ -13,7 +26,7 @@ export function CardExperience({
     <div class="card-experience-job">
       <a href="/experience/${esc(id)}">
         <div class="wrapper-card">
-          <img loading="lazy" decoding="async" src="${esc(thumbnailCompany)}" alt="Logo da empresa ${esc(companyShortName)}" />
+          ${CompanyThumbnail(companyShortName, thumbnailCompany, 'card-experience-thumb')}
 
           <div class="info">
             <h3>${esc(companyShortName)}</h3>

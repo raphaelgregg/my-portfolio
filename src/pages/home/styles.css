@@ -107,16 +107,3 @@ section.portfolio .cards-wrapper {
   display: grid;
   grid-template-columns: 1fr;
 }
-
-.scroll {
-  white-space: nowrap; /* [1] */
-  overflow-x: auto; /* [2] */
-  -webkit-overflow-scrolling: touch; /* [3] */
-  -ms-overflow-style: -ms-autohiding-scrollbar; /* [4] */
-  display: flex; /* Adicione isso para garantir que os itens sejam exibidos em linha */
-}
-
-/* [5] */
-.scroll::-webkit-scrollbar {
-  display: none;
-}

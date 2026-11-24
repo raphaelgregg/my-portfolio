@@ -1,4 +1,5 @@
 import { CardExperience } from '../../components/cardExperience'
+import { Carousel } from '../../components/carousel'
 import { CardMyProject } from '../../components/cardMyProjects'
 import { Footer } from '../../components/footer'
 import { Header } from '../../components/header'
@@ -64,9 +65,10 @@ export async function Home() {
             <h2 id="experiencia-titulo" class="section-title">Experiência Profissional</h2>
           </div>
 
-          <div class="cards-wrapper scroll" tabindex="0" role="region" aria-label="Experiência profissional (role para o lado para ver mais)">
-            ${jobs.map((job) => CardExperience(job)).join(' ')}
-          </div>
+          ${Carousel({
+            label: 'Carrossel de experiências',
+            items: jobs.map((job) => CardExperience(job)),
+          })}
         </div>
       </section>
 

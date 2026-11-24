@@ -15,6 +15,39 @@
 
   flex-grow: 0;
   flex-shrink: 0;
+
+  transition:
+    transform 250ms ease-out,
+    box-shadow 250ms ease-out;
+}
+
+/* O card "sobe" ao receber o mouse ou o foco do teclado */
+.card-experience-job:hover,
+.card-experience-job:focus-within {
+  transform: translateY(-0.4rem);
+  box-shadow: 0 0.8rem 1.6rem rgba(0, 0, 0, 0.16);
+}
+
+/* Capa para empresas sem logo: a inicial sobre um degradê */
+.company-thumbnail-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    135deg,
+    var(--color-crimson-100),
+    var(--color-onyx-100)
+  );
+  color: var(--color-crimson-700);
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  user-select: none;
+}
+
+.card-experience-thumb.company-thumbnail-placeholder {
+  aspect-ratio: 16 / 9;
+  font-size: 4.8rem;
 }
 
 .card-experience-job img {

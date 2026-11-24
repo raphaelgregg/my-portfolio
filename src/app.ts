@@ -1,4 +1,5 @@
 import { ChevronLeft, ChevronRight, createIcons, FileDown } from 'lucide'
+import { setupCarousels } from './components/carousel'
 import { initHideOnScroll } from './components/header/hide-on-scroll'
 import { setupCurriculumDownload, setupResumePager } from './pages/resume'
 import { Loading } from './pages/status'
@@ -50,6 +51,7 @@ export function createApp(rootElement: HTMLElement) {
 
     setupCurriculumDownload()
     setupResumePager()
+    setupCarousels()
     createIcons({ icons: { FileDown, ChevronLeft, ChevronRight } })
   }
 

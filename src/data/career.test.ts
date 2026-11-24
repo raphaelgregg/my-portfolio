@@ -59,12 +59,12 @@ describe('applyCareer', () => {
     const result = applyCareer(firebase, [
       position({ start: '2018-01-01', end: '2019-06-01' }),
       position({ start: '2019-07-01', end: '2020-12-01' }),
-    ])!
+    ])
     expect(result[0].departureDate).toBe('2020-12-01')
   })
 
   it('mantém intactas as empresas sem cargos locais', () => {
-    const result = applyCareer(firebase, [position({ experienceId: '1' })])!
+    const result = applyCareer(firebase, [position({ experienceId: '1' })])
     expect(result[1]).toEqual(firebase[1])
   })
 
@@ -74,12 +74,43 @@ describe('applyCareer', () => {
     expect(firebase).toEqual(copy)
   })
 
-  it('aceita ids numéricos do banco e devolve null/vazio como veio', () => {
+  it('aceita ids numéricos vindos do banco', () => {
     const numeric = [{ id: 1, company: 'A' }] as unknown as ExperienceDTO[]
-    expect(
-      applyCareer(numeric, [position({ role: 'Novo' })])![0].jobs?.[0].title,
-    ).toBe('Novo')
-    expect(applyCareer(null)).toBeNull()
+    const result = applyCareer(numeric, [position({ role: 'Novo' })])
+    expect(result[0].jobs?.[0].title).toBe('Novo')
+  })
+
+  it('cria a empresa que consta no currículo mas não existe no banco', () => {
+    const result = applyCareer(firebase, [
+      position({ experienceId: '1' }),
+      position({
+        experienceId: '7',
+        company: 'Nova Ltda',
+        role: 'Dev',
+        start: '2023-01-01',
+        end: 'presente',
+      }),
+    ])
+
+    expect(result).toHaveLength(3)
+    expect(result[2]).toMatchObject({
+      id: '7',
+      company: 'Nova Ltda',
+      companyShortName: 'Nova Ltda',
+    })
+    expect(result[2].jobs?.[0].title).toBe('Dev')
+    expect(result[2].departureDate).toBe('presente')
+  })
+
+  it('sem Firebase (null) todas as empresas do currículo continuam existindo', () => {
+    const result = applyCareer(null, [
+      position({ experienceId: '1' }),
+      position({ experienceId: '2', company: 'Outra' }),
+    ])
+    expect(result.map((experience) => String(experience.id))).toEqual([
+      '1',
+      '2',
+    ])
   })
 })
 

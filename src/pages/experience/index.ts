@@ -1,3 +1,4 @@
+import { CompanyThumbnail } from '../../components/cardExperience'
 import { Footer } from '../../components/footer'
 import { Header } from '../../components/header'
 import type { ExperienceDTO, Job, ProjectDTO } from '../../dtos/experienceDTO'
@@ -187,13 +188,7 @@ export async function Experience(experienceId: string) {
           <a class="experience-back" href="/#experiencia">&larr; Todas as experiências</a>
 
           <div class="experience-heading">
-            <img
-              class="experience-logo"
-              src="${esc(experience.thumbnailCompany)}"
-              alt="Logo da empresa ${esc(name)}"
-              width="72"
-              height="72"
-            />
+            ${CompanyThumbnail(name, experience.thumbnailCompany, 'experience-logo')}
             <div>
               <h1>${esc(name)}</h1>
               ${jobs[0]?.title ? `<p class="experience-role">${esc(jobs[0].title)}</p>` : ''}

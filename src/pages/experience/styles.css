@@ -39,6 +39,10 @@
   background: #fff;
 }
 
+.experience-logo.company-thumbnail-placeholder {
+  font-size: 3.2rem;
+}
+
 .experience-container h1 {
   font-size: 2.8rem;
   line-height: 3.4rem;

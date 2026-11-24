@@ -24,7 +24,7 @@ src/
   main.ts / app.ts         Entrada, navegação entre páginas e eventos globais
   routes/                  Mapa de URL → página
   pages/<nome>/            Uma pasta por página (index.ts, styles.css)
-  components/<nome>/       Peças reutilizáveis (header, footer, cards)
+  components/<nome>/       Peças reutilizáveis (header, footer, cards, carousel)
   services/                Acesso ao Firebase
   dtos/                    Tipos dos dados do banco
   utils/                   Funções auxiliares (datas, escapeHtml, PDF)
@@ -79,6 +79,10 @@ Se uma empresa não tem cargos em `career.ts`, a página usa os `jobs` do Fireba
 2. **Cargos:** em `src/data/career.ts`, inclua um objeto em `positions` por cargo, com `experienceId: '5'`. Mês de início/término no formato `AAAA-MM-01` (término `presente` se continua). Com isso, período, duração, local e cargo do card são calculados a partir daqui.
 
 Pronto: o card aparece na home, a página `/experience/5` é criada e o cargo entra no currículo. Campos vazios (`url: "#"`, sem projetos, sem "sobre") simplesmente não aparecem.
+
+### Cards em carrossel
+
+Os cards da home ficam em `components/carousel` (`Carousel({ label, items })` + `setupCarousels()`): rolagem nativa com encaixe, botões, indicadores, arrastar com o mouse e animação de entrada. Os controles só aparecem quando há cards fora da tela, então o carrossel serve para qualquer lista de cards. Toda empresa que consta em `career.ts` ganha card, mesmo que ainda não exista no Firebase (sem logo, o card mostra a inicial da empresa).
 
 ### Como a página é montada
 

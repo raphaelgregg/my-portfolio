@@ -152,33 +152,71 @@ function toJob(position: Position, index: number): Job {
   }
 }
 
+/** Empresa sem registro no Firebase: card e página com o que o currículo sabe. */
+function companyFromPositions(
+  experienceId: string,
+  own: Position[],
+): ExperienceDTO {
+  return {
+    id: experienceId,
+    company: own[0].company,
+    companyShortName: own[0].company,
+    jobs: [],
+    projects: [],
+  }
+}
+
+function withPositions(
+  experience: ExperienceDTO,
+  own: Position[],
+): ExperienceDTO {
+  const isCurrent = own.some((position) => position.end === PRESENT)
+  const ends = own.map((position) => position.end).sort()
+  const latestEnd = ends[ends.length - 1]
+
+  return {
+    ...experience,
+    jobs: own.map(toJob),
+    location: own[0].location,
+    hireDate: own[own.length - 1].start,
+    departureDate: isCurrent ? PRESENT : latestEnd,
+  }
+}
+
 /**
- * Completa cada empresa do Firebase com os cargos deste arquivo: troca "jobs",
+ * Completa as empresas do Firebase com os cargos deste arquivo: troca "jobs",
  * "location" e as datas pelos valores do currículo. Empresas sem cargos aqui
- * ficam como vieram do banco.
+ * ficam como vieram do banco. Cargos de uma empresa que não existe no banco
+ * criam a empresa (assim todo emprego do currículo tem card), inclusive se o
+ * Firebase estiver fora do ar.
  */
 export function applyCareer(
   experiences: ExperienceDTO[] | null,
   allPositions: Position[] = positions,
-): ExperienceDTO[] | null {
-  if (!Array.isArray(experiences)) return experiences
+): ExperienceDTO[] {
+  const fromDatabase = Array.isArray(experiences) ? experiences : []
 
-  return experiences.map((experience) => {
-    const own = allPositions
-      .filter((position) => position.experienceId === String(experience.id))
+  const positionsOf = (experienceId: string) =>
+    allPositions
+      .filter((position) => position.experienceId === experienceId)
       .sort(byMostRecent)
-    if (own.length === 0) return experience
 
-    const isCurrent = own.some((position) => position.end === PRESENT)
-    const ends = own.map((position) => position.end).sort()
-    const latestEnd = ends[ends.length - 1]
-
-    return {
-      ...experience,
-      jobs: own.map(toJob),
-      location: own[0].location,
-      hireDate: own[own.length - 1].start,
-      departureDate: isCurrent ? PRESENT : latestEnd,
-    }
+  const merged = fromDatabase.map((experience) => {
+    const own = positionsOf(String(experience.id))
+    return own.length ? withPositions(experience, own) : experience
   })
+
+  const knownIds = new Set(
+    fromDatabase.map((experience) => String(experience.id)),
+  )
+  const missingIds = [
+    ...new Set(allPositions.map((position) => position.experienceId)),
+  ].filter((experienceId) => !knownIds.has(experienceId))
+
+  const created = missingIds.map((experienceId) => {
+    const own = positionsOf(experienceId)
+    return withPositions(companyFromPositions(experienceId, own), own)
+  })
+
+  return [...merged, ...created]
 }
