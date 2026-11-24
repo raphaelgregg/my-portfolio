@@ -1,11 +1,11 @@
 .status-page {
   min-height: 70vh;
-  padding: 16rem 1.6rem 4rem;
+  padding: 16rem var(--space-4) var(--space-10);
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: var(--space-5);
 
   text-align: center;
 }
@@ -20,7 +20,7 @@
 }
 
 .status-loading {
-  padding: 20rem 1.6rem;
+  padding: 20rem var(--space-4);
   text-align: center;
   color: var(--color-muted);
 }

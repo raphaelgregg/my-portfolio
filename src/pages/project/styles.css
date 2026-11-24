@@ -20,7 +20,7 @@
 .design-process img,
 .wireframe img,
 .visual-identity img {
-  padding-top: 3.2rem;
+  padding-top: var(--space-8);
   width: 100%;
   object-fit: contain;
 }
@@ -45,7 +45,7 @@
   border: 1px solid none;
 
   max-width: 95.6rem;
-  padding: 1.6rem;
+  padding: var(--space-4);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -61,11 +61,11 @@
   color: var(--color-crimson-700);
   font-weight: 600;
   letter-spacing: 0.1rem;
-  margin-bottom: 1.6rem;
+  margin-bottom: var(--space-4);
 }
 
 .list-ul-styled li {
-  padding-left: 2rem; /* Ajuste o recuo conforme necessário */
+  padding-left: var(--space-5); /* Ajuste o recuo conforme necessário */
   text-indent: -2rem; /* Move a segunda linha para trás */
   margin-top: 0.5rem;
   line-height: 125%;
@@ -75,8 +75,10 @@
   content: '•'; /* Símbolo do bullet */
   display: inline-block;
   width: 0; /* Largura do bullet */
-  margin-left: 2rem; /* Move o bullet para trás para compensar o recuo */
-  font-size: 2.4rem;
+  margin-left: var(
+    --space-5
+  ); /* Move o bullet para trás para compensar o recuo */
+  font-size: var(--text-xl);
 }
 
 /* PROJECT BRIEF SECTION */
@@ -86,15 +88,15 @@
 
 .project-brief .subtitle {
   line-height: 2.24rem;
-  margin-top: 1.6rem;
+  margin-top: var(--space-4);
 }
 
 .project-brief-info {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 6rem;
+  gap: var(--space-15);
 
-  margin-top: 6rem;
+  margin-top: var(--space-15);
 }
 
 .project-brief-info div {
@@ -107,7 +109,7 @@
 }
 
 .project-overview .prompt p {
-  margin-top: 1.6rem;
+  margin-top: var(--space-4);
 }
 
 .project-overview .design-process,
@@ -118,25 +120,25 @@
 
 /* AQUIIIII */
 /* .project-overview .design-process img {
-  margin-top: 1.6rem;
+  margin-top: var(--space-4);
   width: 100%;
   object-fit: contain;
 } */
 
 .project-overview .initial-thinking > div {
-  margin-top: 1.6rem;
+  margin-top: var(--space-4);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 6rem;
+  gap: var(--space-15);
 }
 
 .list-initial-thinking span {
-  font-size: 2rem;
+  font-size: var(--text-lg);
 }
 
 .list-initial-thinking ul,
 .how-might-we-questions ul {
-  margin-top: 1.6rem;
+  margin-top: var(--space-4);
 }
 
 .how-might-we-questions {
@@ -160,9 +162,9 @@
 }
 
 .how-might-we-questions li {
-  padding-left: 6rem; /* Ajuste o recuo conforme necessário */
+  padding-left: var(--space-15); /* Ajuste o recuo conforme necessário */
   text-indent: -2rem; /* Move a segunda linha para trás */
-  margin-top: 3.2rem;
+  margin-top: var(--space-8);
   line-height: 160%;
 }
 
@@ -174,22 +176,22 @@
 .research-goals,
 .research-goals span,
 .research-goals ul {
-  margin-top: 1.6rem;
+  margin-top: var(--space-4);
 }
 
 .research-goals span,
 .system-research span {
-  font-size: 2rem;
+  font-size: var(--text-lg);
   line-height: 2.8rem;
   font-weight: 500;
 }
 
 .system-research {
-  margin-top: 6rem;
+  margin-top: var(--space-15);
 }
 
 .system-research > div {
-  margin-top: 2.4rem;
+  margin-top: var(--space-6);
 }
 
 .system-research .list-img {
@@ -199,7 +201,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
 
-  margin-top: 6rem;
+  margin-top: var(--space-15);
 }
 
 .system-research .list-img img {
@@ -219,7 +221,7 @@
 .problem-startment {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: var(--space-10);
 
   width: 100%;
 }
@@ -229,7 +231,7 @@
   justify-self: end;
   max-width: 50rem;
 
-  font-size: 2rem;
+  font-size: var(--text-lg);
 }
 
 /* DESIGN-CONCEPT SECTION */
@@ -243,14 +245,14 @@
 }
 
 .user-testing-feedback ul {
-  margin-top: 1.6rem;
+  margin-top: var(--space-4);
 }
 
 /* FEEDBACKS SECTION */
 .topics {
   display: flex;
   flex-direction: column;
-  gap: 3.2rem;
+  gap: var(--space-8);
 
   letter-spacing: 0;
 }
@@ -258,7 +260,47 @@
 /* h1/h2 por semântica (h1 > h2), com o visual de antes (eram h3) */
 .project-container h1,
 .project-container h2 {
-  font-size: 2.4rem;
+  font-size: var(--text-xl);
   font-weight: 600;
   line-height: 3.2rem;
+}
+
+/* ---------- Telas maiores (mobile first) ---------- */
+@media (min-width: 485px) {
+  .project-brief-info {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 610px) {
+  .project-container .project-header {
+    height: 50rem;
+  }
+
+  .project-brief-info {
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: var(--space-12);
+    row-gap: 3rem;
+  }
+}
+
+@media (min-width: 986px) {
+  .project-container .project-header {
+    height: 60rem;
+  }
+
+  .project-brief-info {
+    display: flex;
+    gap: 5rem;
+  }
+
+  .research > div {
+    margin-top: var(--space-6);
+    display: flex;
+    gap: var(--space-5);
+  }
+
+  .research .list-img {
+    margin-top: 0;
+  }
 }

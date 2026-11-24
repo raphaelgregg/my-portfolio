@@ -25,6 +25,7 @@ Portfólio pessoal (Raphael Gregg): SPA em **TypeScript puro** (sem framework de
 - Todo texto vindo do banco ou do GitHub passa por `escapeHtml` (`src/utils/escapeHtml.ts`) antes de entrar em template HTML. Links com `target="_blank"` levam `rel="noopener noreferrer"`.
 - Páginas de detalhe usam `components/detail` (lista de seções `{ id, title, body }`; corpo vazio omite a seção).
 - Acessibilidade: `<main id="conteudo">`, link "pular para o conteúdo", foco visível, respeito a `prefers-reduced-motion`.
+- CSS: estilos globais em `src/styles/` (`main.css` carrega `tokens`, `reset`, `base`, `layout` e `components` em `@layer`); o `styles.css` de cada componente/página fica fora das camadas. Use os tokens (`--text-*`, `--space-*`, `--radius-*`, `--container-width`) e as peças `.container`, `.section`, `.card`, `.chip`, em vez de números soltos (1rem = 10px). Classes, não seletores de elemento; media query `min-width` no fim do próprio arquivo. Títulos: h1 > h2 > h3 em tamanho.
 - TypeScript `strict`, com `noUnusedLocals` e `noUnusedParameters`.
 
 ## Cuidados
@@ -33,3 +34,4 @@ Portfólio pessoal (Raphael Gregg): SPA em **TypeScript puro** (sem framework de
 - Nunca versione chaves ou `.env`.
 - `vercel.json` define rotas da SPA e cabeçalhos de segurança; mantenha os cabeçalhos ao mexer nele.
 - Antes de concluir uma mudança, rode `/check`.
+- Automações (CI, sync semanal dos projetos, Dependabot, hooks): ver a seção "Automações e Claude Code" do `README.md`.

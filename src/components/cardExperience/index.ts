@@ -2,18 +2,32 @@ import type { ExperienceDTO } from '../../dtos/experienceDTO'
 import { escapeHtml as esc } from '../../utils/escapeHtml'
 import './styles.css'
 
-/** Sem logo cadastrado, mostra a inicial da empresa. */
+function placeholder(
+  name: string | undefined,
+  className: string,
+  hidden = false,
+): string {
+  const initial = (name ?? '?').trim().charAt(0).toUpperCase()
+  return `<div class="${className} company-thumbnail-placeholder" aria-hidden="true"${hidden ? ' hidden' : ''}>${esc(initial)}</div>`
+}
+
+/**
+ * Mostra a imagem; sem logo cadastrado, ou se ela falhar ao carregar, mostra a
+ * inicial da empresa sobre um degradê.
+ */
 export function CompanyThumbnail(
   name: string | undefined,
   src: string | undefined,
   className: string,
   altPrefix = 'Logo da empresa',
 ): string {
-  if (src) {
-    return `<img class="${className}" loading="lazy" decoding="async" src="${esc(src)}" alt="${esc(altPrefix)} ${esc(name)}" />`
-  }
-  const initial = (name ?? '?').trim().charAt(0).toUpperCase()
-  return `<div class="${className} company-thumbnail-placeholder" aria-hidden="true">${esc(initial)}</div>`
+  if (!src) return placeholder(name, className)
+
+  return (
+    `<img class="${className}" loading="lazy" decoding="async" src="${esc(src)}" alt="${esc(altPrefix)} ${esc(name)}" ` +
+    `onerror="this.hidden=true;this.nextElementSibling.hidden=false" />` +
+    placeholder(name, className, true)
+  )
 }
 
 export function CardExperience({
@@ -24,7 +38,7 @@ export function CardExperience({
   companyOverviewShort,
 }: ExperienceDTO) {
   return `
-    <div class="card-experience-job">
+    <div class="card card-link card-experience-job">
       <a href="/experience/${esc(id)}">
         <div class="wrapper-card">
           ${CompanyThumbnail(companyShortName, thumbnailCompany, 'card-experience-thumb')}

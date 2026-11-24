@@ -1,72 +1,71 @@
-nav {
+/* Cabeçalho fixo: o hide-on-scroll.ts alterna .is-hidden */
+.site-nav {
   position: fixed;
   top: 0;
   width: 100%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  transition: 0.9s;
-
-  background: var(--bg-color);
-
-  box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.05);
   z-index: 10;
+
+  background: var(--color-bg);
+  box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.05);
+
+  transition: transform 250ms ease-out;
 }
 
-nav div {
+.site-nav.is-hidden {
+  transform: translateY(-100%);
+}
+
+/* O .container alinha o logo e os links com o resto da página */
+.site-nav-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  width: 100%;
-  max-width: 102.4rem;
-
-  padding: 1.8rem 1.6rem;
-}
-
-.brand {
-  font-size: 2.2rem;
-  font-weight: 600;
-  line-height: 1.6rem;
+  /* Com a altura do logo, mantém o cabeçalho em --header-height */
+  padding-block: 1.8rem;
 }
 
 .brand img {
   width: 11rem;
 }
 
-nav ul {
+.site-nav-links {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: var(--space-5);
 }
 
-nav ul li a {
-  font-weight: 500;
+.site-nav-links a {
+  /* área de toque de pelo menos 44px */
+  display: block;
+  padding: 1rem 0;
+
+  line-height: 2.4rem;
+  transition: color 200ms ease-out;
 }
 
-/* Classe aplicada por hide-on-scroll.ts */
-nav.is-hidden {
-  transform: translateY(-100%);
+.site-nav-links a:hover {
+  color: var(--color-accent);
 }
 
-/* Links de seção só cabem a partir de telas médias; no celular fica "Resumo" */
+/* Experiência e Contato só cabem a partir de telas médias;
+   no celular ficam Projetos e Currículo */
 .nav-section-link {
   display: none;
 }
 
 @media (min-width: 485px) {
+  .site-nav-links {
+    gap: var(--space-10);
+  }
+
   .nav-section-link {
     display: list-item;
   }
 }
 
-nav ul li a {
-  padding: 0.4rem 0;
-  transition: color 200ms ease-out;
-}
-
-nav ul li a:hover {
-  color: var(--color-accent);
+@media (min-width: 610px) {
+  .site-nav-links {
+    gap: var(--space-15);
+  }
 }

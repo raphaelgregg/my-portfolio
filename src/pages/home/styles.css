@@ -1,20 +1,22 @@
-section.brief {
-  background: var(--color-onyx-50);
-
-  padding: 13.2rem 0 2rem;
+/* Títulos de seção e de cards da home usam a fonte de exibição;
+   o título do hero segue com a fonte padrão dos títulos (Inter). */
+.home-container h2,
+.home-container h3 {
+  font-family: var(--font-display);
 }
 
-section.brief .brief-wrapper {
-  max-width: 95.6rem;
-  margin: 0 auto;
-  padding: 0 1.6rem;
+/* ---------- Apresentação (hero) ---------- */
+.brief {
+  padding: calc(var(--header-height) * 2) 0 var(--space-section);
+}
 
+.brief-wrapper {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-section.brief img {
+.brief-wrapper img {
   width: 31rem;
   height: 31rem;
   max-width: 34rem;
@@ -24,92 +26,148 @@ section.brief img {
   align-self: center;
 }
 
-section.brief div {
+.brief-text {
   display: flex;
   flex-direction: column;
 }
 
-section.brief h1 {
-  font-size: 2.4rem;
+.brief-title {
+  margin: var(--space-15) 0 0;
+
+  font-size: var(--text-xl);
   line-height: 3.4rem;
 
-  margin: 6rem 0 0 0;
+  /* Evita uma palavra sozinha na última linha */
+  text-wrap: balance;
 }
 
-section.brief h1 + p {
-  margin-top: 2rem;
+.brief-title + p {
+  margin-top: var(--space-5);
 }
 
-section.brief p {
+.brief-text p {
   color: var(--color-muted);
 }
 
-section.brief p a {
+.brief-text p strong,
+.brief-text p a {
   color: var(--color-onyx-950);
   font-weight: 600;
 }
 
-section.brief .hero-actions {
-  flex-direction: row;
+.actions {
+  display: flex;
   flex-wrap: wrap;
-  gap: 1.2rem;
+  gap: var(--space-3);
 
-  margin-top: 3.2rem;
+  margin-top: var(--space-8);
 }
 
-/* h2 por semântica (h1 > h2 > h3), com o visual de antes (era h4) */
+/* ---------- Seções ----------
+   Hierarquia de títulos: h1 do hero (xl) > h2 da seção (lg) > h3 dos cards (md) */
 .section-title {
-  font-size: 2rem;
-  line-height: 2.8rem;
+  font-size: var(--text-lg);
+  line-height: var(--leading-snug);
 }
 
-section.portfolio {
-  margin-top: 6rem;
-  padding: 4.8rem 0;
-}
-
-section.portfolio.work {
+.section.work {
   background: var(--color-onyx-100);
 }
 
-section.portfolio .portfolio-wrapper {
-  max-width: 95.6rem;
-  margin: 0 auto;
-  padding: 0 1.6rem;
-
+.section-header {
   display: flex;
   flex-direction: column;
-}
-
-.portfolio-wrapper .header {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  align-items: flex-start;
-  justify-content: flex-start;
-  /* width: 26rem; */
-}
-
-section.portfolio .cards-wrapper {
-  display: flex;
-  flex-direction: row;
-  gap: 2.4rem;
-  align-items: center;
-  justify-items: center;
-
-  width: 100%;
-
-  margin-top: 2.4rem;
-  padding: 0.4rem;
-}
-
-#my-projects {
-  display: grid;
-  grid-template-columns: 1fr;
+  gap: var(--space-2);
 }
 
 .section-link {
   font-weight: 600;
   text-decoration: underline;
   color: var(--color-accent);
+}
+
+/* ---------- Projetos ---------- */
+.project-list {
+  margin-top: var(--space-8);
+}
+
+/* ---------- Contato ----------
+   Fechamento escuro da página: o rodapé continua na mesma cor. */
+.section.contact {
+  background: var(--color-onyx-950);
+  color: var(--color-onyx-10);
+}
+
+.contact :focus-visible {
+  outline-color: var(--color-crimson-300);
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+.contact-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.contact-text p {
+  max-width: 40ch;
+  color: var(--color-onyx-200);
+  text-wrap: balance;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-6);
+}
+
+.contact-mail {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  line-height: var(--leading-snug);
+  overflow-wrap: anywhere;
+
+  text-decoration: underline;
+  text-decoration-color: var(--color-crimson-400);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.6rem;
+}
+
+.contact-details .actions {
+  margin-top: 0;
+}
+
+.home-container + .site-footer {
+  border-top: 1px solid var(--color-onyx-800);
+}
+
+/* ---------- Telas maiores (mobile first) ---------- */
+@media (min-width: 742px) {
+  .brief-wrapper {
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+
+  .brief-title {
+    margin: 0;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: var(--space-12);
+  }
+}
+
+@media (min-width: 1090px) {
+  .brief-wrapper img {
+    width: 100%;
+    height: 100%;
+  }
 }

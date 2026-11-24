@@ -8,6 +8,12 @@ describe('CompanyThumbnail', () => {
     expect(html).toContain('alt="Logo da empresa Lanlink"')
   })
 
+  it('deixa a inicial escondida como plano B caso a imagem falhe', () => {
+    const html = CompanyThumbnail('Lanlink', 'https://x.com/logo.svg', 'thumb')
+    expect(html).toContain('onerror=')
+    expect(html).toMatch(/company-thumbnail-placeholder[^>]*hidden[^>]*>L</)
+  })
+
   it('sem logo, mostra a inicial da empresa (escapada)', () => {
     const html = CompanyThumbnail('<b>x', '', 'thumb')
     expect(html).toContain('company-thumbnail-placeholder')

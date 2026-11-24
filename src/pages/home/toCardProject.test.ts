@@ -20,14 +20,14 @@ describe('card de projeto do GitHub', () => {
     expect(html).toContain('Desenvolvido em Fev 2021')
   })
 
-  it('só mostra ícone para tecnologias que têm arquivo em public/svg', () => {
+  it('mostra as tecnologias como etiquetas de texto, sem ícones', () => {
     const html = CardMyProject(
       toCardProject(findGithubProject('nlw-04-moveit')!),
     )
 
-    expect(html).toContain('/svg/typescript.svg')
-    expect(html).not.toContain('/svg/react.svg') // React não tem ícone
-    expect(html).not.toContain('/svg/next.js.svg')
+    expect(html).toContain('<span class="chip">TypeScript</span>')
+    expect(html).toContain('<span class="chip">React</span>')
+    expect(html).not.toContain('/svg/')
   })
 
   it('sem captura de tela, mostra a inicial do projeto', () => {
@@ -37,6 +37,6 @@ describe('card de projeto do GitHub', () => {
 
     expect(html).toContain('company-thumbnail-placeholder')
     expect(html).toContain('>P<') // Proffy
-    expect(html).not.toContain('<img class="card-project-thumb"')
+    expect(html).not.toContain('<img class="project-thumb"')
   })
 })
