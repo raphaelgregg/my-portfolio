@@ -20,7 +20,7 @@ Portfólio pessoal (Raphael Gregg): SPA em **TypeScript puro** (sem framework de
 
 ## Convenções
 
-- Prettier: sem ponto e vírgula, aspas simples, vírgula final (`.prettierrc.json`). O hook em `.claude/` formata a cada edição.
+- Prettier: sem ponto e vírgula, aspas simples, vírgula final (`.prettierrc.json`). Hooks em `.claude/` formatam a cada edição e bloqueiam a edição de arquivos gerados.
 - Commits em Conventional Commits (`feat:`, `fix:`, `refactor:`, `docs:`, `chore:`).
 - Todo texto vindo do banco ou do GitHub passa por `escapeHtml` (`src/utils/escapeHtml.ts`) antes de entrar em template HTML. Links com `target="_blank"` levam `rel="noopener noreferrer"`.
 - Páginas de detalhe usam `components/detail` (lista de seções `{ id, title, body }`; corpo vazio omite a seção).
