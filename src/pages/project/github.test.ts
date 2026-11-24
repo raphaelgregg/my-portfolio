@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from 'vitest'
 import {
   findGithubProject,
+  githubProjects,
   type PersonalProject,
 } from '../../data/github-projects'
 import { GithubProjectPage } from './github'
@@ -65,14 +66,8 @@ describe('GithubProjectPage', () => {
   })
 
   it('não exibe "undefined" nem "null" em nenhum projeto', () => {
-    for (const slug of [
-      'grab-devchallenge',
-      'estagio-frontend',
-      'nlw-04-moveit',
-      'nlw03-oministack',
-      'nlw-02-omnistack',
-      'nlw-01-booster',
-    ]) {
+    // Todos os projetos fixados no momento, sejam quais forem
+    for (const { slug } of githubProjects) {
       expect(GithubProjectPage(project(slug)), slug).not.toMatch(
         /undefined|null/,
       )

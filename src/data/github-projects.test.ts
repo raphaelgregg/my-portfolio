@@ -1,7 +1,7 @@
 import { existsSync } from 'node:fs'
 import { describe, expect, it } from 'vitest'
 import pinned from '../../scripts/github-projects/pinned.json'
-import { findGithubProject, githubProjects } from './github-projects'
+import { curation, findGithubProject, githubProjects } from './github-projects'
 
 describe('projetos do GitHub (dados gerados + curadoria)', () => {
   it('tem exatamente os repositórios fixados, na ordem do perfil', () => {
@@ -35,11 +35,16 @@ describe('projetos do GitHub (dados gerados + curadoria)', () => {
     }
   })
 
-  it('a curadoria prevalece sobre o texto gerado (resumo do estagio-frontend)', () => {
-    expect(findGithubProject('estagio-frontend')?.summary).toMatch(
-      /navbar fixa/,
-    )
-    expect(findGithubProject('nlw-02-omnistack')?.name).toBe('Proffy')
+  it('a curadoria prevalece sobre o texto gerado', () => {
+    for (const project of githubProjects) {
+      const custom = curation[project.slug]
+      if (custom?.name) expect(project.name, project.slug).toBe(custom.name)
+      if (custom?.summary)
+        expect(project.summary, project.slug).toBe(custom.summary)
+      expect(project.category, project.slug).toBe(
+        custom?.category ?? 'Projeto pessoal',
+      )
+    }
   })
 
   it('findGithubProject devolve undefined para slug desconhecido', () => {

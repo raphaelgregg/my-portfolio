@@ -17,7 +17,13 @@ interface Curation {
   features?: string[]
 }
 
-const curation: Record<string, Curation> = {
+export const curation: Record<string, Curation> = {
+  'my-portfolio': {
+    category: 'Site pessoal',
+    // O README é a documentação do projeto; o resumo descreve o que o site é
+    summary:
+      'Este portfólio: uma SPA em TypeScript com Vite, com experiência e formação vindas do Firebase, projetos lidos do GitHub e um currículo em páginas A4 que vira PDF, publicada na Vercel.',
+  },
   'grab-devchallenge': {
     name: 'Grab: página de login',
     category: 'Desafio DevChallenge',
