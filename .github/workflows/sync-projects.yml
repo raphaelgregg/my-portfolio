@@ -30,7 +30,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: npm run format:check
-      - uses: peter-evans/create-pull-request@v7
+      - uses: peter-evans/create-pull-request@v8
         with:
           # PRs abertos com o GITHUB_TOKEN padrão não disparam o CI. Para que o
           # CI rode no PR, crie o secret SYNC_PROJECTS_TOKEN_MYPORTFOLIO (PAT com acesso a
