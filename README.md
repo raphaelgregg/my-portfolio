@@ -16,25 +16,28 @@ Portfólio pessoal: página inicial com experiência profissional e projetos, p�
 7. [Atualizar informações do site](#atualizar-informações-do-site)
 8. [Firebase (dados)](#firebase-dados)
 9. [Qualidade e CI](#qualidade-e-ci)
-10. [Publicação (Vercel) e branches](#publicação-vercel-e-branches)
-11. [Convenções de código](#convenções-de-código)
-12. [Problemas comuns](#problemas-comuns)
+10. [Automações e Claude Code](#automações-e-claude-code)
+11. [Publicação (Vercel) e branches](#publicação-vercel-e-branches)
+12. [Convenções de código](#convenções-de-código)
+13. [Problemas comuns](#problemas-comuns)
 
 ## Ferramentas
 
-| Ferramenta                                          | Para que serve                                                                      |
-| --------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| [Node.js 26 LTS](https://nodejs.org/)               | Executa o Vite, os testes e os scripts (que são TypeScript rodado direto pelo Node) |
-| [Vite 8](https://vite.dev)                          | Servidor de desenvolvimento e build de produção                                     |
-| [TypeScript 5.9](https://www.typescriptlang.org)    | Linguagem, em modo `strict`                                                         |
-| [Firebase 13](https://firebase.google.com)          | Realtime Database: dados de usuário, formação e empresas                            |
-| [Lucide](https://lucide.dev)                        | Ícones (download do currículo, setas dos carrosséis)                                |
-| [ESLint 10](https://eslint.org) + typescript-eslint | Análise estática                                                                    |
-| [Prettier 3](https://prettier.io)                   | Formatação                                                                          |
-| [Vitest 5](https://vitest.dev)                      | Testes automatizados                                                                |
-| [sharp](https://sharp.pixelplumbing.com)            | Otimiza as imagens dos projetos (só no `sync:projects`)                             |
-| [GitHub Actions](https://docs.github.com/actions)   | CI: lint, formatação, testes e build a cada push e pull request                     |
-| [Vercel](https://vercel.com)                        | Hospedagem e deploy automático                                                      |
+| Ferramenta                                                     | Para que serve                                                                               |
+| -------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| [Node.js 26 LTS](https://nodejs.org/)                          | Executa o Vite, os testes e os scripts (que são TypeScript rodado direto pelo Node)          |
+| [Vite 8](https://vite.dev)                                     | Servidor de desenvolvimento e build de produção                                              |
+| [TypeScript 5.9](https://www.typescriptlang.org)               | Linguagem, em modo `strict`                                                                  |
+| [Firebase 13](https://firebase.google.com)                     | Realtime Database: dados de usuário, formação e empresas                                     |
+| [Lucide](https://lucide.dev)                                   | Ícones (download do currículo, setas dos carrosséis)                                         |
+| [ESLint 10](https://eslint.org) + typescript-eslint            | Análise estática                                                                             |
+| [Prettier 3](https://prettier.io)                              | Formatação                                                                                   |
+| [Vitest 5](https://vitest.dev)                                 | Testes automatizados                                                                         |
+| [sharp](https://sharp.pixelplumbing.com)                       | Otimiza as imagens dos projetos (só no `sync:projects`)                                      |
+| [GitHub Actions](https://docs.github.com/actions)              | CI: lint, formatação, testes e build a cada push e pull request                              |
+| [Dependabot](https://docs.github.com/code-security/dependabot) | Abre PRs semanais de atualização de dependências e de actions                                |
+| [Claude Code](https://claude.com/claude-code)                  | Assistente de código com hooks e skill configurados no repositório (`.claude/`, `CLAUDE.md`) |
+| [Vercel](https://vercel.com)                                   | Hospedagem e deploy automático                                                               |
 
 ## Requisitos
 
@@ -82,6 +85,12 @@ npm run lint && npm test && npm run build
 ```
 index.html                 Documento base: título, descrição, Open Graph e fontes
 vercel.json                Rotas da SPA e cabeçalhos de segurança no Vercel
+CLAUDE.md                  Instruções do projeto para o Claude Code
+.claude/                   Hooks e skills do Claude Code (ver Automações)
+.github/
+  workflows/ci.yml         CI: lint, formatação, testes e build
+  workflows/sync-projects.yml  Sincronização semanal dos projetos (abre PR)
+  dependabot.yml           Atualizações semanais de dependências e actions
 .nvmrc                     Versão do Node (26)
 public/
   favicon.svg              Ícone do site
@@ -185,6 +194,8 @@ Para **mudar um cargo existente** (nova função, datas, atribuições), edite s
 
 A seção "Projetos Pessoais" mostra os repositórios fixados no seu perfil, preenchidos a partir do README de cada um.
 
+O conteúdo dos repositórios já listados é atualizado toda semana por um workflow que abre um PR ([Automações](#automações-e-claude-code)); os passos abaixo servem para mudar a **lista** de repositórios ou rodar a atualização na hora.
+
 | O quê                                                          | Onde                                                  |
 | -------------------------------------------------------------- | ----------------------------------------------------- |
 | Quais repositórios (e a ordem)                                 | `scripts/github-projects/pinned.json`                 |
@@ -250,6 +261,40 @@ Antes de publicar, rode o mesmo localmente: `npm run lint && npm run format:chec
 
 Os testes (`npm test`) cobrem utilitários, páginas, dados e os scripts de sincronização; `*.test.ts` fica ao lado do arquivo testado.
 
+## Automações e Claude Code
+
+Tudo o que roda sozinho no projeto, e para quê.
+
+| Automação                 | Arquivo                               | Quando roda                                | Para que serve                                                                     |
+| ------------------------- | ------------------------------------- | ------------------------------------------ | ---------------------------------------------------------------------------------- |
+| CI                        | `.github/workflows/ci.yml`            | A cada push e pull request                 | Garante lint, formatação, testes e build                                           |
+| Sincronização de projetos | `.github/workflows/sync-projects.yml` | Segundas, 06:17 UTC, e manualmente         | Atualiza os dados dos projetos do GitHub e abre um PR se algo mudou                |
+| Dependabot                | `.github/dependabot.yml`              | Semanalmente                               | Abre PRs de atualização do npm (devDependencies agrupadas) e das actions do GitHub |
+| Hook de formatação        | `.claude/hooks/format.sh`             | Após o Claude editar um arquivo            | Roda Prettier e, em `.ts`, `eslint --fix`, para o CI não falhar por estilo         |
+| Hook de proteção          | `.claude/hooks/protect-files.sh`      | Antes de o Claude editar um arquivo        | Bloqueia edição manual de `github-projects.json`, `package-lock.json` e `.env*`    |
+| Skill `/check`            | `.claude/skills/check/SKILL.md`       | Quando você digita `/check` no Claude Code | Roda typecheck, lint, format:check, testes e build e resume o que falhou           |
+| Instruções do projeto     | `CLAUDE.md`                           | Carregado em toda sessão do Claude Code    | Comandos, estrutura, convenções e cuidados do projeto                              |
+
+Os hooks são registrados em `.claude/settings.json`. Eles só valem para o Claude Code e não afetam quem edita à mão; para `.env.example` não há bloqueio.
+
+### Sincronização semanal dos projetos
+
+O workflow roda `npm run sync:projects` e, se `src/data/github-projects.json` ou `public/projects/` mudarem, abre o PR `chore: sync github projects` na branch `chore/sync-projects`. Sem mudanças, termina com sucesso e sem PR.
+
+- **Rodar na hora:** Actions → "Sync projects" → "Run workflow".
+- **Permissão necessária:** Settings → Actions → General → "Allow GitHub Actions to create and approve pull requests".
+- **CI nos PRs do sync (opcional):** PRs abertos com o `GITHUB_TOKEN` padrão não disparam o CI. Para que disparem, crie o secret `SYNC_PROJECTS_TOKEN_MYPORTFOLIO` (Settings → Secrets and variables → Actions) com um token pessoal fine-grained limitado a este repositório, com permissões **Contents** e **Pull requests** em leitura e escrita. Sem o secret, o workflow usa o `GITHUB_TOKEN`. Tokens fine-grained expiram: anote a data de renovação.
+- **Limite:** o script lê a lista de `scripts/github-projects/pinned.json`, não os fixados reais do perfil. Ao fixar um repositório novo, atualize o `pinned.json` (receita C).
+- Agendamentos só rodam a partir da branch padrão (`main`).
+
+### Dependabot e `npm audit`
+
+O `npm audit` aponta 4 vulnerabilidades altas, todas com a mesma origem: `@grpc/grpc-js` 1.9.16, dependência do `firebase`. O site só usa `firebase/app` e `firebase/database`, e o build de produção não contém `grpc`, então elas não chegam ao navegador. Não rode `npm audit fix --force`: ele instalaria o `firebase@9`, uma versão muito mais antiga. A correção virá com uma versão nova do `firebase`, que o Dependabot propõe em PR. Se precisar resolver antes, a alternativa é `overrides` no `package.json` (`"@grpc/grpc-js": "^1.14.7"`), que exige testar o `firebase/database`.
+
+### Claude Code
+
+O `CLAUDE.md` e a pasta `.claude/` ficam no repositório para que qualquer sessão do Claude Code já conheça os comandos e as regras do projeto. Para mudar o comportamento dos hooks, edite `.claude/settings.json` e os scripts em `.claude/hooks/`.
+
 ## Publicação (Vercel) e branches
 
 O deploy é automático pelo Vercel a cada push. O `vercel.json` define as rotas da SPA e os cabeçalhos de segurança; a versão do Node vem do `engines` do `package.json`.
@@ -281,5 +326,8 @@ Fluxo sugerido: trabalhe numa branch, abra um pull request (o CI roda), integre 
 | Home sem cards ou sem textos do banco                  | Veja o console do navegador (Firebase indisponível?); as empresas de `career.ts` aparecem mesmo assim |
 | `sync:projects` falha com 403 ou limite de requisições | Use `GITHUB_TOKEN=... npm run sync:projects` ou o modo `--local`                                      |
 | Ícone de tecnologia não aparece                        | Confira `public/svg/` e `src/data/techIcons.ts`; tecnologias sem ícone ficam só com o texto           |
+| O workflow de sync terminou sem abrir PR               | Normal quando nada mudou nos projetos; veja o passo final do job ("not ahead of base")                |
+| O PR do sync não dispara o CI                          | Crie o secret `SYNC_PROJECTS_TOKEN_MYPORTFOLIO` ([Automações](#automações-e-claude-code))             |
+| `npm audit` aponta 4 vulnerabilidades altas            | Vêm do `grpc-js` via `firebase`, fora do bundle; veja [Automações](#automações-e-claude-code)         |
 | `format:check` falha no CI                             | `npm run format` e faça o commit                                                                      |
 | A `main` só gera preview no Vercel                     | Veja [Publicação](#publicação-vercel-e-branches): a branch de produção do projeto não é a `main`      |

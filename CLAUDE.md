@@ -33,3 +33,4 @@ Portfólio pessoal (Raphael Gregg): SPA em **TypeScript puro** (sem framework de
 - Nunca versione chaves ou `.env`.
 - `vercel.json` define rotas da SPA e cabeçalhos de segurança; mantenha os cabeçalhos ao mexer nele.
 - Antes de concluir uma mudança, rode `/check`.
+- Automações (CI, sync semanal dos projetos, Dependabot, hooks): ver a seção "Automações e Claude Code" do `README.md`.
