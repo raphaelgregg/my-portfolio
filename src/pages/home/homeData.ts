@@ -1,5 +1,6 @@
 import type { EducationDTO } from '../../dtos/educationDTO'
 import type { ExperienceDTO, ProjectDTO } from '../../dtos/experienceDTO'
+import { applyCareer } from '../../data/career'
 import type { UserDTO } from '../../dtos/userDTO'
 import { getDataFromFirebase } from '../../services/firebaseService'
 
@@ -9,8 +10,11 @@ const PERSONAL_PROJECTS_ID = '0'
 export const fetchUser = () => getDataFromFirebase<UserDTO>({ path: 'user' })
 export const fetchEducation = () =>
   getDataFromFirebase<EducationDTO[]>({ path: 'education' })
-export const fetchExperience = () =>
-  getDataFromFirebase<ExperienceDTO[]>({ path: 'experience' })
+/** Empresas do Firebase, com os cargos de data/career.ts (a fonte do currículo). */
+export const fetchExperience = async () =>
+  applyCareer(
+    await getDataFromFirebase<ExperienceDTO[]>({ path: 'experience' }),
+  )
 
 function isPersonalProjects(experience: ExperienceDTO): boolean {
   return String(experience.id) === PERSONAL_PROJECTS_ID

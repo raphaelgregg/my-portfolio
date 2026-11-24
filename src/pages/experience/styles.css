@@ -134,6 +134,35 @@
   margin-top: 0.4rem;
 }
 
+.experience-job-meta {
+  margin-top: 0.2rem;
+  font-size: 1.4rem;
+  color: var(--color-muted);
+}
+
+.experience-bullets {
+  margin-top: 1.2rem;
+}
+
+.experience-bullets li {
+  position: relative;
+  padding-left: 1.6rem;
+
+  font-size: 1.5rem;
+  line-height: 2.4rem;
+}
+
+.experience-bullets li + li {
+  margin-top: 0.4rem;
+}
+
+.experience-bullets li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-crimson-700);
+}
+
 .experience-cases {
   display: grid;
   gap: 1.2rem;

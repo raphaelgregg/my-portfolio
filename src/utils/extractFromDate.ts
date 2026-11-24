@@ -33,7 +33,7 @@ export function getYear(isoDate?: string): string {
 /** Valor usado no banco para "ainda trabalho aqui". */
 const PRESENT = 'presente'
 
-/** "2021-12-07" → "dez 2021" (vazio se a data for inválida). */
+/** "2021-12-07" → "Dez 2021" (vazio se a data for inválida). */
 export function formatMonthYear(isoDate?: string): string {
   const date = parseDate(isoDate)
   if (!date) return ''
@@ -41,10 +41,11 @@ export function formatMonthYear(isoDate?: string): string {
   const parts = monthYearFormatter.formatToParts(date)
   const month = parts.find((part) => part.type === 'month')?.value ?? ''
   const year = parts.find((part) => part.type === 'year')?.value ?? ''
-  return `${month.replace('.', '')} ${year}`
+  const shortMonth = month.replace('.', '')
+  return `${shortMonth.charAt(0).toUpperCase()}${shortMonth.slice(1)} ${year}`
 }
 
-/** "dez 2021 – Presente" a partir das datas de entrada e saída. */
+/** "Dez 2021 – Presente" a partir das datas de entrada e saída. */
 export function formatPeriod(
   hireDate?: string,
   departureDate?: string,

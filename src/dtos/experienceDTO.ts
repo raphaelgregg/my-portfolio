@@ -18,6 +18,11 @@ export interface Job {
   id: string
   title: string
   description: string
+  /** Período e detalhes do cargo; preenchidos a partir de data/career.ts. */
+  startDate?: string
+  endDate?: string
+  location?: string
+  bullets?: string[]
   successCases?: SucessCasesDTO[] // Defina o tipo apropriado para successCases se necessário
 }
 

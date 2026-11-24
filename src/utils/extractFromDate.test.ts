@@ -42,8 +42,8 @@ describe('getYear', () => {
 
 describe('formatMonthYear', () => {
   it('abrevia o mês em português', () => {
-    expect(formatMonthYear('2021-12-07')).toBe('dez 2021')
-    expect(formatMonthYear('2012-03-01')).toBe('mar 2012')
+    expect(formatMonthYear('2021-12-07')).toBe('Dez 2021')
+    expect(formatMonthYear('2012-03-01')).toBe('Mar 2012')
   })
 
   it('devolve vazio para data inválida', () => {
@@ -54,12 +54,12 @@ describe('formatMonthYear', () => {
 
 describe('formatPeriod', () => {
   it('formata período encerrado e em andamento', () => {
-    expect(formatPeriod('2012-03-01', '2020-12-01')).toBe('mar 2012 – dez 2020')
-    expect(formatPeriod('2021-12-07', 'presente')).toBe('dez 2021 – Presente')
+    expect(formatPeriod('2012-03-01', '2020-12-01')).toBe('Mar 2012 – Dez 2020')
+    expect(formatPeriod('2021-12-07', 'presente')).toBe('Dez 2021 – Presente')
   })
 
   it('só a entrada quando não há saída válida; vazio sem entrada', () => {
-    expect(formatPeriod('2021-12-07', undefined)).toBe('dez 2021')
+    expect(formatPeriod('2021-12-07', undefined)).toBe('Dez 2021')
     expect(formatPeriod(undefined, 'presente')).toBe('')
   })
 })

@@ -13,6 +13,34 @@ import { StatusPage } from '../status'
 
 import './styles.css'
 
+/*
+ * PADRÃO DA PÁGINA
+ *
+ * A página é uma lista de seções. Cada seção tem um id, um título e um corpo
+ * (HTML) montado por uma função "...Body(experience)". Corpo vazio = a seção
+ * não aparece. Para criar uma seção nova:
+ *   1. escreva uma função xBody(experience) que devolve o HTML (ou '')
+ *   2. acrescente { id, title, body } à lista em Experience()
+ * O cabeçalho (nome, período, local, site) vem dos mesmos dados.
+ */
+interface SectionSpec {
+  id: string
+  title: string
+  body: string
+}
+
+function Section({ id, title, body }: SectionSpec): string {
+  if (!body) return ''
+
+  return `
+    <section class="experience-section" aria-labelledby="${id}">
+      <div class="experience-wrapper">
+        <h2 id="${id}" class="experience-title">${esc(title)}</h2>
+        ${body}
+      </div>
+    </section>`
+}
+
 /** Só links http(s) viram link; o banco usa "#" quando a empresa não tem site. */
 function websiteInfo(url?: string): { href: string; label: string } | null {
   if (!url || !/^https?:\/\//.test(url)) return null
@@ -29,16 +57,16 @@ function Fact(label: string, valueHtml: string): string {
     : ''
 }
 
-function TextSection(id: string, title: string, text?: string): string {
-  if (!text) return ''
+/* ---------- Corpos das seções ---------- */
 
-  return `
-    <section class="experience-section" aria-labelledby="${id}">
-      <div class="experience-wrapper">
-        <h2 id="${id}" class="experience-title">${esc(title)}</h2>
-        <p class="experience-text">${esc(text)}</p>
-      </div>
-    </section>`
+function paragraphBody(text?: string): string {
+  return text ? `<p class="experience-text">${esc(text)}</p>` : ''
+}
+
+function BulletList(items: string[] = []): string {
+  return items.length
+    ? `<ul class="experience-bullets">${items.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>`
+    : ''
 }
 
 function JobItem(job: Job): string {
@@ -46,11 +74,17 @@ function JobItem(job: Job): string {
   const cases = (job.successCases ?? []).filter(
     (item) => item.case && item.case !== job.description,
   )
+  const meta = [
+    job.startDate ? formatPeriod(job.startDate, job.endDate) : '',
+    job.location,
+  ].filter(Boolean)
 
   return `
     <li class="experience-job">
       <h3>${esc(job.title)}</h3>
+      ${meta.length ? `<p class="experience-job-meta">${esc(meta.join(' · '))}</p>` : ''}
       ${job.description ? `<p>${esc(job.description)}</p>` : ''}
+      ${BulletList(job.bullets)}
       ${
         cases.length
           ? `<ul class="experience-cases">${cases
@@ -65,6 +99,12 @@ function JobItem(job: Job): string {
           : ''
       }
     </li>`
+}
+
+function jobsBody(jobs: Job[]): string {
+  return jobs.length
+    ? `<ol class="experience-timeline">${jobs.map(JobItem).join('')}</ol>`
+    : ''
 }
 
 function ProjectItem(project: ProjectDTO): string {
@@ -83,6 +123,14 @@ function ProjectItem(project: ProjectDTO): string {
       ${technologies ? `<div class="experience-techs">${technologies}</div>` : ''}
     </li>`
 }
+
+function projectsBody(projects: ProjectDTO[]): string {
+  return projects.length
+    ? `<ul class="experience-projects">${projects.map(ProjectItem).join('')}</ul>`
+    : ''
+}
+
+/* ---------- Página ---------- */
 
 export async function Experience(experienceId: string) {
   const experience: ExperienceDTO | undefined =
@@ -104,6 +152,32 @@ export async function Experience(experienceId: string) {
   const website = websiteInfo(experience.url)
   const jobs = experience.jobs ?? []
   const projects = experience.projects ?? []
+
+  // Com cargos detalhados (data/career.ts) o resumo antigo do banco fica de fora
+  const hasDetailedJobs = jobs.some((job) => job.startDate)
+
+  const sections: SectionSpec[] = [
+    {
+      id: 'experience-about',
+      title: 'Sobre a empresa',
+      body: paragraphBody(experience.companyOverview),
+    },
+    {
+      id: 'experience-overview',
+      title: 'Minha atuação',
+      body: hasDetailedJobs ? '' : paragraphBody(experience.jobsOverview),
+    },
+    {
+      id: 'experience-jobs',
+      title: 'Cargos e responsabilidades',
+      body: jobsBody(jobs),
+    },
+    {
+      id: 'experience-projects',
+      title: 'Projetos nesta experiência',
+      body: projectsBody(projects),
+    },
+  ]
 
   return `
     ${Header()}
@@ -135,32 +209,7 @@ export async function Experience(experienceId: string) {
         </div>
       </section>
 
-      ${TextSection('experience-about', 'Sobre a empresa', experience.companyOverview)}
-      ${TextSection('experience-overview', 'Minha atuação', experience.jobsOverview)}
-
-      ${
-        jobs.length
-          ? `
-        <section class="experience-section" aria-labelledby="experience-jobs">
-          <div class="experience-wrapper">
-            <h2 id="experience-jobs" class="experience-title">Cargos e responsabilidades</h2>
-            <ol class="experience-timeline">${jobs.map(JobItem).join('')}</ol>
-          </div>
-        </section>`
-          : ''
-      }
-
-      ${
-        projects.length
-          ? `
-        <section class="experience-section" aria-labelledby="experience-projects">
-          <div class="experience-wrapper">
-            <h2 id="experience-projects" class="experience-title">Projetos nesta experiência</h2>
-            <ul class="experience-projects">${projects.map(ProjectItem).join('')}</ul>
-          </div>
-        </section>`
-          : ''
-      }
+      ${sections.map(Section).join('')}
     </main>
     ${Footer()}
   `

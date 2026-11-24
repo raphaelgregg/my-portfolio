@@ -1,19 +1,11 @@
+import { sortedPositions } from '../../data/career'
 import { escapeHtml as esc } from '../../utils/escapeHtml'
+import { formatPeriod } from '../../utils/extractFromDate'
 
 /**
  * Conteúdo do currículo. Edite as informações aqui: a tela (/resume) e o PDF
  * (botão "Baixar PDF") usam exatamente o mesmo HTML e CSS.
  */
-interface WorkItem {
-  role: string
-  company: string
-  location: string
-  period: string
-  description?: string
-  /** Principais atribuições, exibidas em lista. */
-  bullets?: string[]
-}
-
 interface EducationItem {
   degree: string
   institution: string
@@ -52,96 +44,6 @@ const profile = {
 /** Resumo profissional. Deixe vazio ('') para ocultar a seção. */
 const summary =
   'Sou Analista de Suporte Windows com experiência em ambientes Microsoft (Windows Server, Active Directory, Exchange, Microsoft 365 e Azure). Atuo na sustentação de infraestrutura, monitoramento com Zabbix e operação de rotinas de backup, além do registro e acompanhamento de chamados via GLPI, incluindo demandas de GMUD e incidentes. Paralelamente, desenvolvo projetos como Front-End Developer, utilizando ReactJS, React Native, JavaScript, HTML e CSS. Estou em constante evolução profissional e aberto a novos desafios que me permitam crescer e contribuir em projetos de infraestrutura e desenvolvimento.'
-
-const experience: WorkItem[] = [
-  {
-    role: 'Analista de Suporte Windows',
-    company: 'Lanlink Informática',
-    location: 'Vitória, ES',
-    period: 'Abr 2026 – Presente',
-    description:
-      'Atuo como Analista de Suporte Windows no cliente MPES, com foco na sustentação e administração de ambientes de TI.',
-    bullets: [
-      'Análise de logs',
-      'Administração de servidores Windows, Active Directory e Exchange',
-      'Operação de rotinas de backup — monitorando processos, corrigindo falhas e configurando em servidores para garantir integridade e disponibilidade dos dados',
-      'Monitoramento de ambientes através da ferramenta Zabbix, contribuindo para identificação proativa de incidentes',
-      'Registro, acompanhamento e resolução de chamados via GLPI, incluindo demandas de GMUD e incidentes',
-      'Apoio em atualizações de sistemas e participação em projetos de melhoria contínua',
-    ],
-  },
-  {
-    role: 'Analista de Suporte em TIC Jr.',
-    company: 'Lanlink Informática',
-    location: 'Vitória, ES',
-    period: 'Ago 2025 – Abr 2026',
-    description: 'Suporte em ambientes OnPremises e Cloud.',
-    bullets: [
-      'Atendimento a contratos com maior demanda em suporte à suíte Microsoft 365',
-      'Suporte especializado a clientes externos, públicos e privados, em ambientes Microsoft',
-      'Atuação em ambientes híbridos (OnPremises e Cloud)',
-      'Experiência prática com Microsoft 365, Exchange Online, Active Directory, Purview, Entra ID e Microsoft Security',
-      'Colaboração com equipes de 1º e 2º nível para otimização de processos, melhoria contínua e alta disponibilidade dos serviços',
-      'Monitoramento de ambientes através do Zabbix, contribuindo para identificação proativa de incidentes e manutenção da disponibilidade dos serviços',
-    ],
-  },
-  {
-    role: 'Técnico de Suporte N2',
-    company: 'Lanlink Informática',
-    location: 'Vitória, ES',
-    period: 'Mai 2022 – Ago 2025',
-    bullets: [
-      'Atendimento ao usuário: suporte técnico e auxílio nas demandas diárias',
-      'Instalação e configuração de softwares conforme as necessidades da organização',
-      'Manutenção preventiva e corretiva de desktops e notebooks',
-      'Suporte técnico de segundo nível em Office 365, Active Directory e redes de computadores, colaborando com a equipe de 3º nível em manutenções em salas técnicas',
-      'Colaboração com a equipe de 1º nível, auxiliando e orientando em suas demandas para um fluxo eficaz de resolução de problemas',
-      'Colaboração com a equipe de 3º nível: atualizações de servidores físicos e virtuais, criação de escopos DHCP, gestão de Microsoft Exchange e monitoramento de rotinas de backup',
-      'Gerenciamento de chamados com GLPI e Service Manager',
-    ],
-  },
-  {
-    role: 'Técnico de Suporte N2',
-    company: 'Lanlink Informática',
-    location: 'Belém, PA',
-    period: 'Dez 2021 – Mai 2022',
-    description:
-      'Atendimento técnico em suporte a usuários no Tribunal de Justiça do Pará.',
-    bullets: [
-      'Atendimento ao usuário: suporte técnico e auxílio nas demandas diárias',
-      'Instalação e configuração de softwares conforme as necessidades da organização',
-      'Gerenciamento de chamados com GLPI',
-    ],
-  },
-  {
-    role: 'Desenvolvedor Web Front-end (Freelance)',
-    company: 'Projeto Web',
-    location: 'Belém, PA',
-    period: 'Set 2021 – Nov 2021',
-    description:
-      'Desenvolvimento do front-end e layout de um app admin para controle de processos advocatícios, no qual eram gerenciados processos e clientes. Construído em ReactJS e Firebase para armazenamento de dados.',
-  },
-  {
-    role: 'Desenvolvedor de Aplicativos (Freelance)',
-    company: 'Projeto Mobile',
-    location: 'Belém, PA',
-    period: 'Jul 2021 – Ago 2021',
-    description:
-      'Aplicativo Android elaborado como ferramenta de ensino-aprendizagem, no qual se aprendem técnicas sobre multiletramentos e práticas discursivas em sala de aula, apresentado como tese de mestrado na Universidade do Estado do Pará. Construído em React Native com Expo e Firebase para API Back-end.',
-  },
-  {
-    role: 'Suporte Técnico / Auxiliar Administrativo',
-    company: 'Contromidia',
-    location: 'Belém, PA',
-    period: 'Mar 2012 – Dez 2020',
-    bullets: [
-      'Suporte em informática: montagem, instalação e configuração de equipamentos, manutenção preventiva e corretiva',
-      'Suporte ao sistema da empresa',
-      'Clipagem de notícias nos veículos de TV, rádio, sites e jornais impressos',
-      'Treinamento de novos colaboradores para a clipagem de mídias',
-    ],
-  },
-]
 
 const education: EducationItem[] = [
   {
@@ -245,12 +147,12 @@ export function ResumeSheet(): string {
 
       ${Section(
         'Experiência profissional',
-        experience
+        sortedPositions()
           .map((item) =>
             Entry(
               item.role,
               `${item.company} · ${item.location}`,
-              item.period,
+              formatPeriod(item.start, item.end),
               item.description,
               item.bullets,
             ),
