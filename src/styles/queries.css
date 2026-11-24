@@ -27,18 +27,24 @@
 
 @media (min-width: 742px) {
   .brief-wrapper {
-    flex-direction: row;
+    flex-direction: row-reverse;
     align-items: center;
-    justify-content: space-between;
-    gap: 4.8rem;
   }
 
-  .brief-mark {
-    order: 0;
+  section.brief h1 {
+    margin: 0;
   }
 
-  #my-projects {
+  .project-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-panel {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: var(--space-12);
+
+    padding: var(--space-12);
   }
 }
 
@@ -47,33 +53,8 @@
     padding-right: 4rem;
   }
 
-  /* Os dois primeiros projetos aparecem em destaque; os demais, em cartões compactos */
-  #my-projects {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  #my-projects > .card-my-project:nth-child(-n + 2) .description {
-    line-clamp: 5;
-    -webkit-line-clamp: 5;
-  }
-
-  #my-projects > .card-my-project:nth-child(n + 3) .wrapper-card {
-    display: grid;
-    grid-template-columns: 15rem 1fr;
-  }
-
-  #my-projects > .card-my-project:nth-child(n + 3) img,
-  #my-projects
-    > .card-my-project:nth-child(n + 3)
-    .card-project-thumb.company-thumbnail-placeholder {
-    height: 100%;
-    aspect-ratio: auto;
-  }
-
-  #my-projects
-    > .card-my-project:nth-child(n + 3)
-    .card-project-thumb.company-thumbnail-placeholder {
-    font-size: 3.2rem;
+  .project-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   /* PROJECT PAGE */
@@ -94,5 +75,12 @@
 
   .research .list-img {
     margin-top: 0;
+  }
+}
+
+@media (min-width: 1090px) {
+  .brief-wrapper img {
+    width: 100%;
+    height: 100%;
   }
 }

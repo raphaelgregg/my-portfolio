@@ -6,7 +6,7 @@
 
 :root {
   font-size: 62.5%;
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--font-body);
   font-weight: 400;
 
   --color-onyx-10: #fffefe;
@@ -40,9 +40,55 @@
 
   --color-blue-500: #5cc4c4;
 
+  --color-gradient-tt: linear-gradient(45deg, #ec4751, #f5777b);
+
+  /* ---------- Tokens de design ----------
+     O html usa 62.5%, então 1rem = 10px. Estes valores são a fonte única
+     de tamanhos: componentes usam as variáveis, não números soltos. */
+
+  /* Famílias de fonte: a de títulos das seções da home é trocada só aqui */
+  --font-body: 'Roboto', sans-serif;
+  --font-heading: 'Inter', sans-serif;
   --font-display: 'Bricolage Grotesque', 'Inter', sans-serif;
+
+  /* Escala tipográfica */
+  --text-xs: 1.2rem;
+  --text-sm: 1.4rem;
+  --text-base: 1.6rem;
+  --text-lg: 2rem;
+  --text-xl: 2.4rem;
+  --text-2xl: 3rem;
+  --text-3xl: 4.8rem;
+
+  /* Entrelinha (valores sem unidade, relativos ao tamanho da fonte) */
+  --leading-tight: 1.2;
+  --leading-snug: 1.4;
+  --leading-normal: 1.75;
+
+  /* Escala de espaçamento: múltiplos de 0.4rem (o número é o múltiplo) */
+  --space-1: 0.4rem;
+  --space-2: 0.8rem;
+  --space-3: 1.2rem;
+  --space-4: 1.6rem;
+  --space-5: 2rem;
+  --space-6: 2.4rem;
+  --space-8: 3.2rem;
+  --space-12: 4.8rem;
+  --space-16: 6.4rem;
+  --space-24: 9.6rem;
+
   /* Espaço vertical entre as grandes seções da home */
-  --space-section: clamp(5.6rem, 3.2rem + 6vw, 9.6rem);
+  --space-section: clamp(5.6rem, 3.2rem + 6vw, var(--space-24));
+
+  /* Formas */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-full: 9999px;
+  --border: 1px solid var(--color-onyx-200);
+
+  /* Largura do conteúdo e margem lateral */
+  --container-width: 95.6rem;
+  --gutter: var(--space-4);
 
   --tt-color: var(--color-onyx-950);
   --bg-color: var(--color-onyx-50);
@@ -89,8 +135,8 @@ a {
   top: 0.8rem;
   left: 0.8rem;
   z-index: 20;
-  padding: 1rem 1.6rem;
-  border-radius: 8px;
+  padding: 1rem var(--space-4);
+  border-radius: var(--radius-md);
   background: var(--color-onyx-950);
   color: var(--color-onyx-10);
   transform: translateY(-200%);
@@ -106,11 +152,11 @@ a {
   align-items: center;
   justify-content: center;
 
-  padding: 1.2rem 2.4rem;
+  padding: var(--space-3) var(--space-6);
   border: 2px solid var(--color-accent);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
 
-  font-size: 1.6rem;
+  font-size: var(--text-base);
   font-weight: 600;
   line-height: 2rem;
 
@@ -137,6 +183,57 @@ a {
   background: var(--color-crimson-100);
 }
 
+/* ---------- Peças reutilizáveis ---------- */
+
+/* Coluna central de conteúdo */
+.container {
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Faixa de página: espaço vertical padrão entre seções */
+.section {
+  padding-block: var(--space-section);
+}
+
+/* Superfície de cartão: borda, cantos e contorno de destaque no hover/foco */
+.card {
+  overflow: hidden;
+
+  border: var(--border);
+  border-radius: var(--radius-md);
+  background: var(--color-onyx-20);
+
+  transition: border-color 200ms ease-out;
+}
+
+/* Cartão que leva a outra página: o contorno ganha a cor de destaque */
+.card-link:hover,
+.card-link:focus-within {
+  border-color: var(--color-accent);
+}
+
+.card-footer {
+  padding: var(--space-4);
+  border-top: var(--border);
+
+  background: var(--color-onyx-100);
+  font-size: var(--text-sm);
+  text-align: center;
+}
+
+/* Etiqueta curta (tecnologias) */
+.chip {
+  padding: var(--space-1) var(--space-2);
+  border: var(--border);
+  border-radius: var(--radius-sm);
+
+  font-size: var(--text-xs);
+  font-weight: 500;
+  line-height: 1.8rem;
+}
+
 ul,
 ol {
   list-style: none;
@@ -149,7 +246,7 @@ body {
 }
 
 body {
-  font-size: 1.6rem;
+  font-size: var(--text-base);
   line-height: 1.5rem;
   background: var(--bg-color);
   color: var(--tt-color);
@@ -166,39 +263,52 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-heading);
   font-optical-sizing: auto;
   font-weight: 700;
 }
 
 h1 {
-  font-size: 4.8rem;
+  font-size: var(--text-3xl);
   font-weight: 800;
   line-height: 4.8rem;
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: var(--text-2xl);
   font-weight: 600;
   line-height: 3.6rem;
 }
 
 h3 {
-  font-size: 2.4rem;
+  font-size: var(--text-xl);
   font-weight: 600;
   line-height: 3.2rem;
 }
 
 h4 {
-  font-size: 2rem;
+  font-size: var(--text-lg);
   font-weight: 600;
   line-height: 2.8rem;
 }
 
 p {
-  font-size: 1.6rem;
+  font-size: var(--text-base);
   font-weight: 400;
-  line-height: 2.8rem;
+  line-height: var(--leading-normal);
+}
+
+.gradient-text {
+  /* Fallback para navegadores sem suporte a background-clip: text */
+  background-color: var(--color-crimson-500);
+  background-image: var(--color-gradient-tt);
+  background-size: 100%;
+  background-repeat: repeat;
+
+  /* O texto serve de máscara para o degradê */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 ::-webkit-scrollbar {

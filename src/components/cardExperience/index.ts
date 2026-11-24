@@ -38,7 +38,7 @@ export function CardExperience({
   companyOverviewShort,
 }: ExperienceDTO) {
   return `
-    <div class="card-experience-job">
+    <div class="card card-link card-experience-job">
       <a href="/experience/${esc(id)}">
         <div class="wrapper-card">
           ${CompanyThumbnail(companyShortName, thumbnailCompany, 'card-experience-thumb')}

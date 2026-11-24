@@ -33,14 +33,16 @@ export async function Home() {
     ${Header()}
     <main id="conteudo" class="home-container">
       <section class="brief">
-        <div class="brief-wrapper">
-          <div class="brief-text">
+        <div class="container brief-wrapper">
+          <img src="/svg/hero.svg" alt=""/>
+
+          <div>
             <h1>
               Olá!
               <br/>
               Eu sou o ${esc(user?.surname)},
               <br/>
-              dev front-end aficionado por projetos web e Mobile.
+              <span class="gradient-text">dev front-end</span> aficionado por projetos web e Mobile.
             </h1>
             <p>Analista de sistemas formado pela <span>
               <a href="https://www.unama.br/" target="_blank" rel="noopener noreferrer">${esc(universities)}</a>
@@ -52,19 +54,17 @@ export async function Home() {
                 : ''
             }
 
-            <div class="hero-actions">
+            <div class="actions">
               <a class="button button-primary" href="/#projetos">Ver projetos</a>
               <a class="button button-outline" href="/resume">Ver currículo</a>
             </div>
           </div>
-
-          <div class="brief-mark" aria-hidden="true">&lt;/&gt;</div>
         </div>
       </section>
 
-      <section id="experiencia" class="portfolio work" aria-labelledby="experiencia-titulo">
-        <div class="portfolio-wrapper">
-          <div class="header">
+      <section id="experiencia" class="section work" aria-labelledby="experiencia-titulo">
+        <div class="container">
+          <div class="section-header">
             <h2 id="experiencia-titulo" class="section-title">Experiência Profissional</h2>
           </div>
 
@@ -75,9 +75,9 @@ export async function Home() {
         </div>
       </section>
 
-      <section id="projetos" class="portfolio" aria-labelledby="projetos-titulo">
-        <div class="portfolio-wrapper">
-          <div class="header">
+      <section id="projetos" class="section" aria-labelledby="projetos-titulo">
+        <div class="container">
+          <div class="section-header">
             <h2 id="projetos-titulo" class="section-title">Projetos Pessoais</h2>
             <p>
               Os repositórios que mantenho fixados no meu
@@ -85,21 +85,28 @@ export async function Home() {
             </p>
           </div>
 
-          <div id="my-projects" class="cards-wrapper">
+          <div id="my-projects" class="project-grid">
             ${githubProjects.map((project) => CardMyProject(toCardProject(project))).join(' ')}
           </div>
         </div>
       </section>
 
-      <section id="contato" class="contact" aria-labelledby="contato-titulo">
-        <div class="contact-wrapper">
-          <h2 id="contato-titulo" class="section-title">Contato</h2>
-          <p>Tem um projeto ou uma vaga em mente? Escreva para mim.</p>
-          <a class="contact-mail" href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>
+      <section id="contato" class="section contact" aria-labelledby="contato-titulo">
+        <div class="container">
+          <div class="card contact-panel">
+            <div class="contact-text">
+              <h2 id="contato-titulo" class="section-title">Contato</h2>
+              <p>Tem um projeto ou uma vaga em mente? Escreva para mim.</p>
+            </div>
 
-          <div class="hero-actions">
-            <a class="button button-primary" href="mailto:${CONTACT_EMAIL}">Enviar e-mail</a>
-            <a class="button button-outline" href="${LINKEDIN_URL}" target="_blank" rel="noopener noreferrer">Ver LinkedIn</a>
+            <div class="contact-details">
+              <a class="contact-mail" href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>
+
+              <div class="actions">
+                <a class="button button-primary" href="mailto:${CONTACT_EMAIL}">Enviar e-mail</a>
+                <a class="button button-outline" href="${LINKEDIN_URL}" target="_blank" rel="noopener noreferrer">Ver LinkedIn</a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

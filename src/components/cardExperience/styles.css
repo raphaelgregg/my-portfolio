@@ -1,27 +1,14 @@
+/* Superfície, borda e hover vêm de .card / .card-link (global.css) */
 .card-experience-job {
   max-width: 29rem;
   min-height: 32rem;
-  overflow: hidden;
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  border: 1px solid var(--color-onyx-200);
-  border-radius: 8px;
-
-  background: var(--color-onyx-20);
-
   flex-grow: 0;
   flex-shrink: 0;
-
-  transition: border-color 200ms ease-out;
-}
-
-/* O contorno ganha a cor de destaque com o mouse ou o foco do teclado */
-.card-experience-job:hover,
-.card-experience-job:focus-within {
-  border-color: var(--color-accent);
 }
 
 .company-thumbnail-placeholder[hidden],
@@ -49,13 +36,12 @@
 
 .card-experience-thumb.company-thumbnail-placeholder {
   aspect-ratio: 16 / 9;
-  font-size: 4.8rem;
+  font-size: var(--text-3xl);
 }
 
 .card-experience-job img {
   width: 100%;
-  /* trabalha a propoção da imagem */
-  aspect-ratio: 16/9;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   transition: transform 600ms ease-out;
 
@@ -78,11 +64,16 @@
   flex-direction: column;
   align-items: start;
 
-  padding: 1.6rem;
+  padding: var(--space-4);
+}
+
+.card-experience-job h3 {
+  font-size: var(--text-lg);
+  line-height: var(--leading-snug);
 }
 
 .card-experience-job .info p.job {
-  font-size: 1.4rem;
+  font-size: var(--text-sm);
   color: var(--color-muted);
 }
 
@@ -90,7 +81,7 @@
   text-align: start;
   margin-top: 0.6rem;
 
-  font-size: 1.4rem;
+  font-size: var(--text-sm);
   line-height: 2.6rem;
 }
 
@@ -101,20 +92,4 @@
   -webkit-line-clamp: 3;
   line-clamp: 3;
   overflow: hidden;
-}
-
-.card-experience-job-footer {
-  background: var(--color-onyx-100);
-  padding: 1.6rem;
-
-  font-size: 1.4rem;
-
-  text-align: center;
-
-  border-top: 1px solid var(--color-onyx-200);
-}
-
-.card-experience-job h3 {
-  font-size: 2rem;
-  line-height: 2.8rem;
 }

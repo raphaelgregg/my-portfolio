@@ -1,32 +1,24 @@
+/* Superfície, borda e hover vêm de .card / .card-link; rodapé, de .card-footer; etiquetas, de .chip */
 .card-my-project {
   display: flex;
-  overflow: hidden;
-
-  border: 1px solid var(--color-onyx-200);
-  border-radius: 8px;
-
-  background: var(--color-onyx-20);
-
-  transition: border-color 200ms ease-out;
 }
 
-.card-my-project:hover,
-.card-my-project:focus-within {
-  border-color: var(--color-accent);
-}
-
-/* O link ocupa o card inteiro; o rodapé fica sempre embaixo, qualquer que seja o texto */
-.card-my-project a {
+/* O link ocupa o card inteiro; o rodapé fica sempre embaixo */
+.card-my-project > a {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+}
+
+.card-my-project .wrapper-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-my-project img {
   width: 100%;
-  /* trabalha a propoção da imagem */
-  aspect-ratio: 16/9;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   transition: transform 600ms ease-out;
 
@@ -44,71 +36,49 @@
   outline-offset: -3px;
 }
 
+/* O bloco de texto ocupa o espaço que sobra: as etiquetas descem para o fim,
+   e os cards de uma mesma linha ficam alinhados */
 .card-my-project .info {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
 
-  padding: 1.6rem;
+  padding: var(--space-4);
 }
 
 .card-my-project h3 {
-  font-size: 2rem;
-  line-height: 2.8rem;
+  font-size: var(--text-lg);
+  line-height: var(--leading-snug);
 }
 
 .card-my-project .role {
-  font-size: 1.4rem;
+  font-size: var(--text-sm);
   color: var(--color-muted);
-}
-
-.card-my-project .description {
-  text-align: start;
-  margin-top: 0.6rem;
-}
-
-/* Etiquetas de tecnologia: só texto, alinhadas à esquerda */
-.card-my-project .techs {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 0.6rem;
-
-  flex-direction: row;
-  flex-wrap: wrap;
-
-  margin-top: 1.6rem;
-}
-
-.card-my-project .techs span {
-  padding: 0.4rem 0.8rem;
-  border-radius: 4px;
-  border: 1px solid var(--color-onyx-200);
-
-  font-size: 1.3rem;
-  font-weight: 500;
-  line-height: 1.8rem;
-}
-
-.card-my-project .footer {
-  background: var(--color-onyx-100);
-  border-top: 1px solid var(--color-onyx-200);
-  padding: 1.6rem;
-  font-size: 1.4rem;
-  text-align: center;
-}
-
-/* Sem captura de tela: a inicial do projeto sobre um degradê */
-.card-my-project .card-project-thumb.company-thumbnail-placeholder {
-  aspect-ratio: 16 / 9;
-  font-size: 4.8rem;
 }
 
 /* Resumos longos não estouram o card: no máximo 3 linhas */
 .card-my-project .description {
+  margin-top: var(--space-2);
+
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   line-clamp: 3;
   overflow: hidden;
+}
+
+.card-my-project .techs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+
+  margin-top: auto;
+  padding-top: var(--space-4);
+}
+
+/* Sem captura de tela: a inicial do projeto sobre um degradê */
+.card-my-project .card-project-thumb.company-thumbnail-placeholder {
+  aspect-ratio: 16 / 9;
+  font-size: var(--text-3xl);
 }

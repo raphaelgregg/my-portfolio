@@ -1,6 +1,6 @@
 footer {
   width: 100%;
-  margin-top: 6rem;
+  margin-top: var(--space-16);
   background: var(--color-onyx-950);
 }
 
@@ -13,7 +13,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.8rem;
+  gap: var(--space-2);
 }
 
 /* Alvo de toque de 44px em volta do ícone de 20px */
@@ -53,9 +53,9 @@ footer div {
   gap: 1rem;
   align-items: center;
 
-  padding: 2.4rem 1.6rem;
+  padding: var(--space-6) var(--space-4);
   margin-inline: auto;
 
   color: var(--color-onyx-100);
-  font-size: 1.2rem;
+  font-size: var(--text-xs);
 }

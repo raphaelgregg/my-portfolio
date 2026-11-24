@@ -1,5 +1,5 @@
-/* Títulos da home usam a fonte de exibição; o resto do site segue com a Inter */
-.home-container h1,
+/* Títulos das seções e dos cards da home usam a fonte de exibição;
+   o título do hero segue com a fonte padrão dos títulos (Inter). */
 .home-container h2,
 .home-container h3 {
   font-family: var(--font-display);
@@ -7,50 +7,39 @@
 
 /* ---------- Apresentação ---------- */
 section.brief {
-  padding: calc(var(--header-height) + 4.8rem) 0 var(--space-section);
+  padding: calc(var(--header-height) * 2) 0 var(--space-5);
 }
 
 .brief-wrapper {
-  max-width: 95.6rem;
-  margin: 0 auto;
-  padding: 0 1.6rem;
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 2.4rem;
 }
 
-/* O símbolo da marca (</>) é a peça central do hero; no celular fica acima do título */
-.brief-mark {
-  order: -1;
+.brief-wrapper img {
+  width: 31rem;
+  height: 31rem;
+  max-width: 34rem;
+  max-height: 34rem;
+  object-fit: contain;
 
-  font-family: var(--font-display);
-  font-size: clamp(8rem, 22vw, 20rem);
-  font-weight: 800;
-  line-height: 0.8;
-  letter-spacing: -0.04em;
-  color: var(--color-accent);
-
-  user-select: none;
+  align-self: center;
 }
 
-.brief-text {
+.brief-wrapper > div {
   display: flex;
   flex-direction: column;
 }
 
 section.brief h1 {
-  max-width: 24ch;
+  margin: var(--space-16) 0 0;
 
-  font-size: clamp(3.2rem, 1.6rem + 3.6vw, 5.6rem);
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
+  font-size: var(--text-xl);
+  line-height: 3.4rem;
 }
 
 section.brief h1 + p {
-  margin-top: 2.4rem;
+  margin-top: var(--space-5);
 }
 
 section.brief p {
@@ -62,54 +51,28 @@ section.brief p a {
   font-weight: 600;
 }
 
-.hero-actions {
+.actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.2rem;
+  gap: var(--space-3);
 
-  margin-top: 3.2rem;
+  margin-top: var(--space-8);
 }
 
 /* ---------- Seções ---------- */
 .section-title {
-  font-size: 3rem;
-  line-height: 3.6rem;
+  font-size: var(--text-2xl);
+  line-height: var(--leading-tight);
 }
 
-section.portfolio {
-  padding: var(--space-section) 0;
-}
-
-section.portfolio.work {
+.section.work {
   background: var(--color-onyx-100);
 }
 
-.portfolio-wrapper,
-.contact-wrapper {
-  max-width: 95.6rem;
-  margin: 0 auto;
-  padding: 0 1.6rem;
-
+.section-header {
   display: flex;
   flex-direction: column;
-}
-
-.portfolio-wrapper .header {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  align-items: flex-start;
-}
-
-.cards-wrapper {
-  margin-top: 2.4rem;
-}
-
-#my-projects {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2.4rem;
-  align-items: stretch;
+  gap: var(--space-2);
 }
 
 .section-link {
@@ -118,29 +81,57 @@ section.portfolio.work {
   color: var(--color-accent);
 }
 
-/* ---------- Contato ---------- */
-section.contact {
-  padding: 0 0 var(--space-section);
+/* ---------- Projetos ---------- */
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+
+  margin-top: var(--space-6);
 }
 
-.contact-wrapper {
-  gap: 1.6rem;
+/* ---------- Contato ---------- */
+.section.contact {
+  padding-top: 0;
+}
+
+.contact-panel {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+
+  padding: var(--space-8) var(--space-6);
+}
+
+.contact-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.contact-text p {
+  text-wrap: balance;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
   align-items: flex-start;
+  gap: var(--space-4);
 }
 
 .contact-mail {
-  font-family: var(--font-display);
-  font-size: clamp(2.4rem, 1.4rem + 3vw, 4rem);
-  font-weight: 700;
-  line-height: 1.2;
+  font-size: var(--text-lg);
+  font-weight: 600;
+  line-height: var(--leading-snug);
   overflow-wrap: anywhere;
 
   text-decoration: underline;
   text-decoration-color: var(--color-accent);
-  text-decoration-thickness: 0.3rem;
-  text-underline-offset: 0.6rem;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.4rem;
 }
 
-.contact-wrapper .hero-actions {
-  margin-top: 0.8rem;
+.contact-details .actions {
+  margin-top: 0;
 }

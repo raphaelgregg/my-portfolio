@@ -7,7 +7,9 @@ import './styles.css'
 function Technologies(technologies: string[] = []) {
   if (technologies.length === 0) return ''
 
-  const items = technologies.map((tech) => `<span>${esc(tech)}</span>`).join('')
+  const items = technologies
+    .map((tech) => `<span class="chip">${esc(tech)}</span>`)
+    .join('')
 
   return `<div class="techs">${items}</div>`
 }
@@ -22,7 +24,7 @@ export function CardMyProject({
   thumbnail,
 }: ProjectDTO) {
   return `
-    <div class="card-my-project">
+    <div class="card card-link card-my-project">
       <a href="/project/${esc(id)}">
         <div class="wrapper-card">
           ${CompanyThumbnail(
@@ -42,7 +44,7 @@ export function CardMyProject({
           </div>
         </div>
 
-        <div class="footer">
+        <div class="card-footer">
           Desenvolvido em ${esc(formatMonthYear(date))}
         </div>
       </a>

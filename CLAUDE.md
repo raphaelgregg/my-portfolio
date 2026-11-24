@@ -25,6 +25,7 @@ Portfólio pessoal (Raphael Gregg): SPA em **TypeScript puro** (sem framework de
 - Todo texto vindo do banco ou do GitHub passa por `escapeHtml` (`src/utils/escapeHtml.ts`) antes de entrar em template HTML. Links com `target="_blank"` levam `rel="noopener noreferrer"`.
 - Páginas de detalhe usam `components/detail` (lista de seções `{ id, title, body }`; corpo vazio omite a seção).
 - Acessibilidade: `<main id="conteudo">`, link "pular para o conteúdo", foco visível, respeito a `prefers-reduced-motion`.
+- CSS: use os tokens de `src/styles/global.css` (`--text-*`, `--space-*`, `--radius-*`, `--container-width`) e as peças `.container`, `.section`, `.card`, `.chip`; evite números soltos (1rem = 10px).
 - TypeScript `strict`, com `noUnusedLocals` e `noUnusedParameters`.
 
 ## Cuidados

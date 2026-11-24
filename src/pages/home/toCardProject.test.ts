@@ -25,8 +25,8 @@ describe('card de projeto do GitHub', () => {
       toCardProject(findGithubProject('nlw-04-moveit')!),
     )
 
-    expect(html).toContain('<span>TypeScript</span>')
-    expect(html).toContain('<span>React</span>')
+    expect(html).toContain('<span class="chip">TypeScript</span>')
+    expect(html).toContain('<span class="chip">React</span>')
     expect(html).not.toContain('/svg/')
   })
 
