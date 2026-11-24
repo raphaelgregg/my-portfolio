@@ -24,30 +24,25 @@ export function CardMyProject({
   thumbnail,
 }: ProjectDTO) {
   return `
-    <div class="card card-link card-my-project">
+    <article class="project-row">
       <a href="/project/${esc(id)}">
-        <div class="wrapper-card">
-          ${CompanyThumbnail(
-            title,
-            thumbnail,
-            'card-project-thumb',
-            'Captura de tela do projeto',
-          )}
+        ${CompanyThumbnail(
+          title,
+          thumbnail,
+          'project-thumb',
+          'Captura de tela do projeto',
+        )}
 
-          <div class="info">
-            <h3>${esc(title)}</h3>
+        <div class="project-body">
+          <h3>${esc(title)}</h3>
+          <p class="role">${esc(role)}</p>
+          <p class="description">${esc(projectDescriptionShort)}</p>
 
-            <p class="role">${esc(role)}</p>
-            <p class="description">${esc(projectDescriptionShort)}</p>
-
-            ${Technologies(technologies)}
-          </div>
+          ${Technologies(technologies)}
         </div>
 
-        <div class="card-footer">
-          Desenvolvido em ${esc(formatMonthYear(date))}
-        </div>
+        <p class="project-date">Desenvolvido em ${esc(formatMonthYear(date))}</p>
       </a>
-    </div>
+    </article>
   `
 }

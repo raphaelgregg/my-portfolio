@@ -37,6 +37,6 @@ describe('card de projeto do GitHub', () => {
 
     expect(html).toContain('company-thumbnail-placeholder')
     expect(html).toContain('>P<') // Proffy
-    expect(html).not.toContain('<img class="card-project-thumb"')
+    expect(html).not.toContain('<img class="project-thumb"')
   })
 })

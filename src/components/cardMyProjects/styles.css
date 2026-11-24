@@ -1,65 +1,88 @@
-/* Superfície, borda e hover vêm de .card / .card-link; rodapé, de .card-footer; etiquetas, de .chip */
-.card-my-project {
-  display: flex;
+/* Cada projeto é uma linha de uma lista: capa, texto e data.
+   A linha inteira é o link; as linhas se separam por filetes. */
+.project-row {
+  border-top: var(--border);
 }
 
-/* O link ocupa o card inteiro; o rodapé fica sempre embaixo */
-.card-my-project > a {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+.project-row:last-child {
+  border-bottom: var(--border);
 }
 
-.card-my-project .wrapper-card {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+.project-row > a {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    'thumb'
+    'body'
+    'date';
+  gap: var(--space-4);
+
+  padding: var(--space-6) var(--space-2);
+
+  transition: background-color 200ms ease-out;
 }
 
-.card-my-project img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  transition: transform 600ms ease-out;
-
-  display: block;
+.project-row > a:hover {
+  background: var(--color-onyx-100);
 }
 
-/* Zoom sutil na imagem quando o card inteiro recebe hover ou foco */
-.card-my-project a:hover img,
-.card-my-project a:focus-visible img {
-  transform: scale(1.04);
-}
-
-/* O card tem overflow: hidden; o contorno de foco vai por dentro */
-.card-my-project a:focus-visible {
+.project-row > a:focus-visible {
   outline-offset: -3px;
 }
 
-/* O bloco de texto ocupa o espaço que sobra: as etiquetas descem para o fim,
-   e os cards de uma mesma linha ficam alinhados */
-.card-my-project .info {
-  flex: 1;
+.project-thumb {
+  grid-area: thumb;
+  align-self: start;
+
+  width: 100%;
+  aspect-ratio: 16 / 9;
+
+  border: var(--border);
+  border-radius: var(--radius-md);
+}
+
+img.project-thumb {
+  display: block;
+  object-fit: cover;
+}
+
+/* Sem captura de tela: a inicial (centralizada por .company-thumbnail-placeholder) */
+.project-thumb.company-thumbnail-placeholder {
+  font-size: var(--text-3xl);
+}
+
+.project-row img[hidden] {
+  display: none;
+}
+
+.project-body {
+  grid-area: body;
+
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
-  padding: var(--space-4);
 }
 
-.card-my-project h3 {
-  font-size: var(--text-lg);
+.project-body h3 {
+  font-size: var(--text-xl);
   line-height: var(--leading-snug);
+
+  transition: color 200ms ease-out;
 }
 
-.card-my-project .role {
+.project-row > a:hover h3,
+.project-row > a:focus-visible h3 {
+  color: var(--color-accent);
+}
+
+.project-body .role {
   font-size: var(--text-sm);
   color: var(--color-muted);
 }
 
-/* Resumos longos não estouram o card: no máximo 3 linhas */
-.card-my-project .description {
-  margin-top: var(--space-2);
+.project-body .description {
+  max-width: 68ch;
+  margin-top: var(--space-3);
 
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -68,17 +91,17 @@
   overflow: hidden;
 }
 
-.card-my-project .techs {
+.project-body .techs {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
 
-  margin-top: auto;
-  padding-top: var(--space-4);
+  margin-top: var(--space-4);
 }
 
-/* Sem captura de tela: a inicial do projeto sobre um degradê */
-.card-my-project .card-project-thumb.company-thumbnail-placeholder {
-  aspect-ratio: 16 / 9;
-  font-size: var(--text-3xl);
+.project-date {
+  grid-area: date;
+
+  font-size: var(--text-sm);
+  color: var(--color-muted);
 }

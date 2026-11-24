@@ -183,6 +183,16 @@ a {
   background: var(--color-crimson-100);
 }
 
+/* Botão de contorno sobre fundo escuro */
+.button-outline-light {
+  border-color: var(--color-onyx-400);
+  color: var(--color-onyx-10);
+}
+
+.button-outline-light:hover {
+  background: var(--color-onyx-800);
+}
+
 /* ---------- Peças reutilizáveis ---------- */
 
 /* Coluna central de conteúdo */
@@ -212,15 +222,6 @@ a {
 .card-link:hover,
 .card-link:focus-within {
   border-color: var(--color-accent);
-}
-
-.card-footer {
-  padding: var(--space-4);
-  border-top: var(--border);
-
-  background: var(--color-onyx-100);
-  font-size: var(--text-sm);
-  text-align: center;
 }
 
 /* Etiqueta curta (tecnologias) */

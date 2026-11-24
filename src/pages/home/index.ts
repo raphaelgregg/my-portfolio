@@ -85,27 +85,25 @@ export async function Home() {
             </p>
           </div>
 
-          <div id="my-projects" class="project-grid">
+          <div id="my-projects" class="project-list">
             ${githubProjects.map((project) => CardMyProject(toCardProject(project))).join(' ')}
           </div>
         </div>
       </section>
 
       <section id="contato" class="section contact" aria-labelledby="contato-titulo">
-        <div class="container">
-          <div class="card contact-panel">
-            <div class="contact-text">
-              <h2 id="contato-titulo" class="section-title">Contato</h2>
-              <p>Tem um projeto ou uma vaga em mente? Escreva para mim.</p>
-            </div>
+        <div class="container contact-layout">
+          <div class="contact-text">
+            <h2 id="contato-titulo" class="section-title">Contato</h2>
+            <p>Tem um projeto ou uma vaga em mente? Escreva para mim.</p>
+          </div>
 
-            <div class="contact-details">
-              <a class="contact-mail" href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>
+          <div class="contact-details">
+            <a class="contact-mail" href="mailto:${CONTACT_EMAIL}">${CONTACT_EMAIL}</a>
 
-              <div class="actions">
-                <a class="button button-primary" href="mailto:${CONTACT_EMAIL}">Enviar e-mail</a>
-                <a class="button button-outline" href="${LINKEDIN_URL}" target="_blank" rel="noopener noreferrer">Ver LinkedIn</a>
-              </div>
+            <div class="actions">
+              <a class="button button-primary" href="mailto:${CONTACT_EMAIL}">Enviar e-mail</a>
+              <a class="button button-outline button-outline-light" href="${LINKEDIN_URL}" target="_blank" rel="noopener noreferrer">Ver LinkedIn</a>
             </div>
           </div>
         </div>

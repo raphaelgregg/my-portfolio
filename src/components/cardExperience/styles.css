@@ -12,8 +12,7 @@
 }
 
 .company-thumbnail-placeholder[hidden],
-.card-experience-job img[hidden],
-.card-my-project img[hidden] {
+.card-experience-job img[hidden] {
   display: none;
 }
 

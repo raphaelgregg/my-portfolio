@@ -35,16 +35,24 @@
     margin: 0;
   }
 
-  .project-grid {
-    grid-template-columns: repeat(2, 1fr);
+  /* Projetos: a capa fica à esquerda; o texto e a data, à direita */
+  .project-row > a {
+    grid-template-columns: 28rem 1fr;
+    grid-template-areas:
+      'thumb body'
+      'thumb date';
+    grid-template-rows: auto 1fr;
+    column-gap: var(--space-8);
   }
 
-  .contact-panel {
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: var(--space-12);
+  .project-date {
+    align-self: end;
+  }
 
-    padding: var(--space-12);
+  .contact-layout {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: var(--space-12);
   }
 }
 
@@ -53,8 +61,8 @@
     padding-right: 4rem;
   }
 
-  .project-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .project-row > a {
+    grid-template-columns: 32rem 1fr;
   }
 
   /* PROJECT PAGE */
