@@ -20,14 +20,18 @@ export function Resume() {
     ${Header()}
 
     <main id="conteudo" class="resume-container">
-      <div class="cv-toolbar">
-        <button id="btn-download" class="button button-primary" type="button">
-          <i data-lucide="file-down" aria-hidden="true"></i>
-          Baixar PDF
+      <div class="cv-paper">
+        <button
+          id="btn-download"
+          type="button"
+          aria-label="Baixar currículo em PDF"
+          title="Baixar PDF"
+        >
+          <i class="file-down-icon" data-lucide="file-down" aria-hidden="true"></i>
         </button>
-      </div>
 
-      ${ResumeSheet()}
+        ${ResumeSheet()}
+      </div>
     </main>
     ${Footer()}
   `

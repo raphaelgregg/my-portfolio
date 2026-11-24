@@ -6,28 +6,53 @@
   padding: 9.8rem 1.6rem 4rem;
 }
 
-.cv-toolbar {
-  display: flex;
-  justify-content: flex-end;
-
+/* Folha com o botão de download preso ao canto superior direito */
+.cv-paper {
+  position: relative;
   max-width: 79.4rem;
-  margin: 0 auto 1.6rem;
+  margin: 0 auto;
 }
 
 #btn-download {
-  gap: 0.8rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 6rem;
+  height: 6rem;
+  border: none;
+  border-top-right-radius: 4px; /* acompanha o canto da folha */
+  border-bottom-left-radius: 9999px;
+  box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.2);
+
+  background: var(--color-crimson-opacity-8);
   cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: background-color 200ms ease-out;
 }
 
+#btn-download:hover {
+  background: var(--color-crimson-200);
+}
+
+/* O ícone fica deslocado para o canto, no centro do quarto de círculo */
 #btn-download svg {
-  width: 2rem;
-  height: 2rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  margin-left: 1.6rem;
+  margin-bottom: 1.6rem;
+}
+
+.file-down-icon {
+  color: var(--color-onyx-600);
 }
 
 /* ---------- Folha ---------- */
 .cv-sheet {
-  max-width: 79.4rem;
-  margin: 0 auto;
   padding: 2.4rem;
 
   background: #fff;
@@ -189,7 +214,7 @@
   .skip-link,
   #app > header,
   #app > footer,
-  .cv-toolbar {
+  #btn-download {
     display: none !important;
   }
 
@@ -197,9 +222,13 @@
     padding: 0;
   }
 
+  .cv-paper {
+    max-width: none;
+    margin: 0;
+  }
+
   .cv-sheet {
     width: 100%;
-    max-width: none;
     min-height: 0;
     margin: 0;
     padding: 14mm 16mm;
