@@ -1,40 +1,25 @@
-// Definindo um tipo para os diferentes formatos de data suportados
-type DateFormat = 'full' | 'text' | 'custom' | 'custom-text' | 'year';
+const longDateFormatter = new Intl.DateTimeFormat('pt-BR', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  // Datas vêm como "AAAA-MM-DD" (UTC); sem isso o dia mudaria em fusos como o do Brasil.
+  timeZone: 'UTC',
+})
 
-// Método para extrair partes específicas de uma data
-export function extractFromDate(dateString: string, format: DateFormat): string | null {
-  if (!dateString) {
-    console.log("Data não fornecida");
-    return null;
-  }
-
-  const data = new Date(dateString);
-
-  switch (format) {
-    case 'full':
-      return data.toISOString(); // Retorna a data completa no formato ISO
-    case 'text':
-      return data.toDateString(); // Retorna a data em texto
-    case 'year':
-      return data.getFullYear().toString(); // Retorna a data em texto
-    case 'custom':
-      // Retorna a data no formato personalizado, aqui você pode adicionar sua lógica de formatação personalizada
-      return `${data.getDate()}/${data.getMonth() + 1}/${data.getFullYear()}`;
-    case 'custom-text':
-      // Retorna a data no formato personalizado, dia numérico, mês por extenso e ano numérico
-      return `${data.getDate()} de ${getMonthName(data.getMonth())} de ${data.getFullYear()}`;
-  
-    default:
-      console.log("Formato de data inválido");
-      return null;
-  }
+function parseDate(isoDate?: string): Date | null {
+  if (!isoDate) return null
+  const date = new Date(isoDate)
+  return Number.isNaN(date.getTime()) ? null : date
 }
 
-// Função auxiliar para obter o nome do mês em português
-function getMonthName(month: number): string {
-  const months = [
-    'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho',
-    'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'
-  ];
-  return months[month];
+/** "2024-04-01" → "1 de abril de 2024" (vazio se a data for inválida). */
+export function formatLongDate(isoDate?: string): string {
+  const date = parseDate(isoDate)
+  return date ? longDateFormatter.format(date) : ''
+}
+
+/** "2024-04-01" → "2024" (vazio se a data for inválida). */
+export function getYear(isoDate?: string): string {
+  const date = parseDate(isoDate)
+  return date ? String(date.getUTCFullYear()) : ''
 }

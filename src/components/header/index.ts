@@ -1,20 +1,6 @@
-import "./styles.css"
+import './styles.css'
 
 export function Header() {
-  // Hide and show header
-  let prevScrollPosition = window.scrollY;
-  window.onscroll = function() {
-    let currentScrollPosition = window.scrollY;
-      if (prevScrollPosition > currentScrollPosition) {
-        //@ts-ignore
-        document.getElementById("hide-header").style.top = "0";
-      } else {
-        //@ts-ignore
-        document.getElementById("hide-header").style.top = "-66px"; // VALUE SIZE OF HEADER
-      }
-      prevScrollPosition = currentScrollPosition;
-  }
-
   return `
     <nav id="hide-header">
       <div>
@@ -25,5 +11,5 @@ export function Header() {
         </ul>
       </div>
     </nav>
-  `;
+  `
 }

@@ -1,5 +1,6 @@
 nav {
   position: fixed;
+  top: 0;
   width: 100%;
   
   display: flex;
@@ -45,4 +46,9 @@ nav ul {
 
 nav ul li a {
   font-weight: 500;
+}
+
+/* Classe aplicada por hide-on-scroll.ts */
+nav.is-hidden {
+  transform: translateY(-100%);
 }

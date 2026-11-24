@@ -1,21 +1,29 @@
-import { CardExperience } from "../../components/cardExperience";
-import { CardMyProject } from "../../components/cardMyProjects";
-import { Footer } from '../../components/footer';
-import { Header } from '../../components/header';
-import { EducationDTO } from "../../dtos/educatioDTO";
+import { CardExperience } from '../../components/cardExperience'
+import { CardMyProject } from '../../components/cardMyProjects'
+import { Footer } from '../../components/footer'
+import { Header } from '../../components/header'
+import { escapeHtml as esc } from '../../utils/escapeHtml'
+import {
+  fetchEducation,
+  fetchExperience,
+  fetchUser,
+  splitExperience,
+} from './homeData'
 
+import './styles.css'
 
-import { fetchEducation, fetchExperience, fetchUser, getExperienceSortByDateAndMyProjects } from './homeData';
-
-import "./styles.css";
-
-// Função Principal
 export async function Home() {
-  // Chamar a função fetchUser, fetchEducation, fetchExperience para buscar os dados de User,Education, Experience
-  const { userData } = await fetchUser();
-  const { educationData } = await fetchEducation();
-  const { experienceData } = await fetchExperience();
-  const {experienceJobs, pessoalProjects} = getExperienceSortByDateAndMyProjects(experienceData);
+  const [user, education, experience] = await Promise.all([
+    fetchUser(),
+    fetchEducation(),
+    fetchExperience(),
+  ])
+  const { jobs, personalProjects } = splitExperience(experience)
+
+  const universities = Array.isArray(education)
+    ? education.map((item) => item.universityShortName).join(', ')
+    : ''
+  const currentJob = jobs[0]
 
   return `
     ${Header()}
@@ -23,20 +31,24 @@ export async function Home() {
       <section class="brief">
         <div class="brief-wrapper">
           <img src="/svg/hero.svg" alt=""/>
-          
+
           <div>
             <h1>
               Olá!
               <br/>
-              Eu sou o ${userData.surname},
-              <br/> 
+              Eu sou o ${esc(user?.surname)},
+              <br/>
               <span class="gradient-text">dev front-end</span> aficionado por projetos web e Mobile.
             </h1>
             <p>Analista de sistemas formado pela <span>
-              <a href="https://www.unama.br/" target="_blank">${Array.isArray(educationData) ? educationData.map((education:EducationDTO) => education.universityShortName).join('') : ""}</a>
-            </span></p>          
-            <p>Futuro especialista em <a>${userData.profession}</a></p>
-            <p>Atualmente, parte da equipe de trabalho da <a href="https://www.lanlink.com.br/" target="_blank">${experienceJobs[0].companyShortName}</a></p>
+              <a href="https://www.unama.br/" target="_blank" rel="noopener noreferrer">${esc(universities)}</a>
+            </span></p>
+            ${user?.profession ? `<p>Futuro especialista em <a>${esc(user.profession)}</a></p>` : ''}
+            ${
+              currentJob
+                ? `<p>Atualmente, parte da equipe de trabalho da <a href="https://www.lanlink.com.br/" target="_blank" rel="noopener noreferrer">${esc(currentJob.companyShortName)}</a></p>`
+                : ''
+            }
           </div>
         </div>
       </section>
@@ -46,9 +58,9 @@ export async function Home() {
           <div class="header">
             <h4>Experiência Profissional</h4>
           </div>
-      
+
           <div class="cards-wrapper scroll">
-            ${experienceJobs ? experienceJobs.map((data) => CardExperience(data)).join(" ") : ""}
+            ${jobs.map((job) => CardExperience(job)).join(' ')}
           </div>
         </div>
       </section>
@@ -59,78 +71,13 @@ export async function Home() {
             <h4>Projetos Pessoais</h4>
             <p>Para que você conheça um pouco mais do meu trabalho</p>
           </div>
-      
+
           <div id="my-projects" class="cards-wrapper">
-            ${pessoalProjects ? pessoalProjects.map(project => CardMyProject(project)).join(" ") : ""}
+            ${personalProjects.map((project) => CardMyProject(project)).join(' ')}
           </div>
         </div>
       </section>
     </div>
     ${Footer()}
-  `;
+  `
 }
-
-
-// data.experience.slice(1): Esta parte do código retorna uma cópia do array de experiências, excluindo o primeiro elemento. Isso é feito com o método slice(1), que retorna todos os elementos do array, exceto o primeiro.
-  // .sort((a, b) => ...): Aqui, estamos classificando as experiências com base em uma função de comparação. Esta função de comparação recebe dois parâmetros, a e b, que representam duas experiências diferentes.
-  // (b.departureDate === "presente" ? new Date() : new Date(b.departureDate || 0)).getTime(): Esta parte da função compara as datas de saída das experiências a e b. Se a data de saída de b for "presente", criamos uma nova data representando o momento atual usando new Date(). Caso contrário, usamos a data de saída de b. Se a data de saída de b não estiver disponível (ou seja, undefined), usamos 0 como valor padrão. Em seguida, chamamos .getTime() para obter o valor de tempo em milissegundos, o que nos permite comparar as datas numericamente.
-  // (a.departureDate === "presente" ? new Date() : new Date(a.departureDate || 0)).getTime(): Esta parte faz o mesmo que a anterior, mas para a experiência a.
-  // ...getTime() - ...getTime(): Finalmente, subtraímos os tempos das datas de saída de b e a, o que resulta em um número que determina a ordem de classificação das experiências. Se o resultado for negativo, a vem antes de b. Se for positivo, b vem antes de a. Se for zero, as duas datas são consideradas iguais e a ordem não é alterada.
-  // const sortedJobs = data.experience.slice(1).sort((a, b) =>
-  // (b.departureDate === "presente" ? new Date() : new Date(b.departureDate || 0)).getTime() -
-  // (a.departureDate === "presente" ? new Date() : new Date(a.departureDate || 0)).getTime()
-  // );
-
-  // const filteredExperienceJobs = sortedJobs.map(experience => {
-  //   const job = experience.jobs[0] || {};
-
-  //   return {
-  //     company: experience.companyShortName,
-  //     thumbnail: experience.thumbnailCompany || "",
-  //     job: job.title || "",
-  //     description: experience.companyOverviewShort || "",
-  //   };
-  // });
-
-  // Meus projetos pessoais
-  // const filteredMyProjects = data.experience[0].projects;
-
-
-
-  
-  // // Chamar a função para obter os dados e atribuir a uma constante
-  // async function fetchExperience() {
-  //   const firebaseData = await getDataFromFirebase({path: 'experience'});
-  //   // console.log("Dados do Firebase:", firebaseData);
-  //   // retira a primera experiencia e retorna o array com ordenado cronologicamente para a experiencia atual
-  //   const sortedJobs = firebaseData.slice(1).sort((a: any, b: any) =>
-  //     (b.departureDate === "presente" ? new Date() : new Date(b.departureDate || 0)).getTime() -
-  //     (a.departureDate === "presente" ? new Date() : new Date(a.departureDate || 0)).getTime()
-  //   );
-
-  //   // Atribuir os dados filtrados a filteredExperienceJobs
-  //   filteredExperienceJobs = sortedJobs.map((job:CardExperienceDTO) => {
-  //     const jobTitle = job.jobs[0].title || {};
-  //     return {
-  //       companyShortName: job.companyShortName || "",
-  //       job: jobTitle || "",
-  //       companyOverviewShort: job.companyOverviewShort || "",
-  //       thumbnailCompany: job.thumbnailCompany || "",
-  //     };
-  //   });
-
-  //   // Atribuir os dados filtrados a filteredExperienceJobs
-  //   filteredMyProjects = firebaseData[0].projects.map((project: CardMyProjectDTO) => {
-  //     return { 
-  //       title: project.title, 
-  //       role: project.role, 
-  //       projectDescription: project.projectDescription, 
-  //       technologies: project.technologies, 
-  //       date: project.date, 
-  //       thumbnail: project.thumbnail
-  //     }
-  //   });
-  // }
-
-  // // Chamar a função fetchExperience para buscar os dados
-  // await fetchExperience();

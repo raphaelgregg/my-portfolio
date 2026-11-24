@@ -12,7 +12,7 @@ declare module 'html2pdf.js' {
   interface Html2Pdf {
     set(options: Options): Html2Pdf;
     from(element: HTMLElement | string): Html2Pdf;
-    save(): void;
+    save(): Promise<void>;
   }
 
   const html2pdf: {

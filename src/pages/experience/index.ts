@@ -1,8 +1,8 @@
-import './styled.css';
+import './styles.css'
 
-export function Experience(experienceId: string) {
-  console.log("URL experienceId: "+experienceId);
+// Página em construção.
+export function Experience(_experienceId: string) {
   return `
     <h1>Experience</h1>
-  `;
+  `
 }

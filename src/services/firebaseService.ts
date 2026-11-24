@@ -1,25 +1,19 @@
-// Importe o Firebase configurado
-import { get, getDatabase, ref } from "firebase/database";
-import { firebase } from "./firebaseConfig";
+import { get, getDatabase, ref } from 'firebase/database'
+import { firebase } from './firebaseConfig'
 
-interface getDataFromFirebaseProps {
-  path?: string;
+interface GetDataOptions {
+  path?: string
 }
-// Função para obter os dados do Firebase e atribuir a uma constante
-async function getDataFromFirebase({path = "/"}: getDataFromFirebaseProps = {}) {
-  const database = getDatabase(firebase);
 
+/** Lê um nó do Realtime Database. Retorna null se a leitura falhar. */
+export async function getDataFromFirebase<T = unknown>({
+  path = '/',
+}: GetDataOptions = {}): Promise<T | null> {
   try {
-    const dataRef = ref(database, path);
-    const snapshot = await get(dataRef);
-    const data = snapshot.val();
-    return data;
+    const snapshot = await get(ref(getDatabase(firebase), path))
+    return snapshot.val() as T | null
   } catch (error) {
-    console.error("Erro ao obter dados do Firebase:", error);
-    return null;
+    console.error(`Erro ao obter "${path}" do Firebase:`, error)
+    return null
   }
 }
-
-// Exporte a função para ser utilizada em outros arquivos
-export { getDataFromFirebase };
-

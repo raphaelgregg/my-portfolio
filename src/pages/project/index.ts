@@ -1,22 +1,37 @@
-import { Footer } from '../../components/footer';
-import { Header } from '../../components/header';
-import { ProjectDTO } from '../../dtos/experienceDTO';
-import { extractFromDate } from '../../utils/extractFromDate';
-import { getPojectsFindUserByID } from '../home/homeData';
-import './styled.css';
+import { Footer } from '../../components/footer'
+import { Header } from '../../components/header'
+import { escapeHtml as esc } from '../../utils/escapeHtml'
+import { getYear } from '../../utils/extractFromDate'
+import { fetchPersonalProject } from '../home/homeData'
+import './styles.css'
+
+/** Renderiza cada item de uma lista (que pode não existir no banco). */
+function renderList<T>(items: T[] | undefined, render: (item: T) => string): string {
+  return (items ?? []).map(render).join('')
+}
 
 export async function Project(projectId: string) {
+  const project = await fetchPersonalProject(projectId)
 
-// Obtendo os dados do projeto
-const projectResult = await getPojectsFindUserByID(projectId);
+  if (!project) {
+    return `
+      ${Header()}
+      <div class="project-container">
+        <section class="project-brief">
+          <div class="brief-wrapper">
+            <h3>Projeto não encontrado</h3>
+            <p class="subtitle"><a href="/">Voltar para o início</a></p>
+          </div>
+        </section>
+      </div>
+      ${Footer()}
+    `
+  }
 
-// Desestruturando apenas as propriedades desejadas do projeto
-const {
-  project: {
+  const {
     banner,
     date,
     developmentDuration,
-    id,
     projectDescription,
     projectType,
     role,
@@ -27,57 +42,40 @@ const {
     challenge,
     prototype,
     userFeedback,
-    reflection
-  } = {} as ProjectDTO // Definindo um tipo padrão como vazio para garantir que as propriedades existam
-} = projectResult || {}; 
-
-
-// Se precisar, você pode comentar sobre o motivo de não estar utilizando as outras variáveis
-// console.log("banner:", banner);
-// console.log("date:", date);
-// console.log("developmentDuration:", developmentDuration);
-console.log("id:", id);
-// console.log("projectDescription:", projectDescription);
-// console.log("projectType:", projectType);
-// console.log("prompt:", prompt);
-// console.log("role:", role);
-// console.log("technologies:", technologies);
-// console.log("thumbnail:", thumbnail);
-// console.log("title:", title);
-// console.log("Tools:", tools);
-// console.log("challenge:", challenge);
+    reflection,
+  } = project
 
   return `
     ${Header()}
     <div class="project-container">  
       <header class="project-header">
-        <img src="${banner}" alt="banner project">
+        <img src="${esc(banner)}" alt="Banner do projeto ${esc(title)}">
       </header>
       <section class="project-brief">
         <div class="brief-wrapper">
-          <h3>${title}</h3>
-          <p class="subtitle">${projectDescription}</p>
+          <h3>${esc(title)}</h3>
+          <p class="subtitle">${esc(projectDescription)}</p>
       
           <div class="project-brief-info">
             <div class="myrole">
               <b>Meu papel</b>
-              <p>${role}</p>
+              <p>${esc(role)}</p>
             </div>
       
             <div class="project">
               <b>Projeto</b>
-              <p>${projectType}</p>
+              <p>${esc(projectType)}</p>
             </div>
       
             <div class="timeline">
               <b>Linhas do tempo</b>
-              <p>${developmentDuration} dias (${extractFromDate(date || "", 'year')})</p>
+              <p>${esc(developmentDuration)} dias (${esc(getYear(date))})</p>
             </div>
       
             <div class="tools">
               <b>Ferramentas utilizadas</b>
 
-              <p>${tools?.map(tool => tool).join(', ')}</p>
+              <p>${esc((tools ?? []).join(', '))}</p>
             </div>
           </div>
         </div>
@@ -89,12 +87,12 @@ console.log("id:", id);
           
           <div class="prompt">
             <h3>Incitar</h3>
-            <p>${overview?.prompt}</p>
+            <p>${esc(overview?.prompt)}</p>
           </div>
       
           <div class="design-process">
             <h3>Processo</h3>
-            <img src="${overview?.designProcess}" alt="design do projeto">
+            <img src="${esc(overview?.designProcess)}" alt="Processo de design do projeto">
           </div>
       
           <div class="initial-thinking">
@@ -104,14 +102,14 @@ console.log("id:", id);
               <div class="list-initial-thinking">
                 <span>Usuários Alvo</span>
                 <ul class="list-ul-styled">
-                  ${overview?.initialThinking.targetUsers.map((user) => `<li>${user}</li>`).join('')}
+                  ${renderList(overview?.initialThinking.targetUsers, (user) => `<li>${esc(user)}</li>`)}
                 </ul>
               </div>
       
               <div class="list-initial-thinking">
                 <span>Métodos de Pesquisa</span>
                 <ul class="list-ul-styled">
-                  ${overview?.initialThinking.researchMethods.map((method) => `<li>${method}</li>`).join('')}
+                  ${renderList(overview?.initialThinking.researchMethods, (method) => `<li>${esc(method)}</li>`)}
                 </ul>
               </div>
             </div>
@@ -120,14 +118,13 @@ console.log("id:", id);
           <div class="how-might-we-questions">
             <h3>Como poderíamos fazer perguntas</h3>
             <ul>
-              ${overview?.howMightWeQuestions.map((question) => `<li>${question}</li>`).join('')}
+              ${renderList(overview?.howMightWeQuestions, (question) => `<li>${esc(question)}</li>`)}
             </ul>
           </div>
         </div>
       </section>
 
       <section class="project-user-research">
-        <!-- Conteúdo relacionado à pesquisa de usuário -->
         <div class="user-research-wrapper">
           <span class="user-research-title">Pesquisa de Usuários</span>
 
@@ -136,7 +133,7 @@ console.log("id:", id);
             <div class="research-goals">
               <span>Objetivos de Pesquisa</span>
               <ul class="list-ul-styled">
-                ${userResearch?.backgroundResearch.map((research) => `<li>${research}</li>`).join('')}
+                ${renderList(userResearch?.backgroundResearch, (research) => `<li>${esc(research)}</li>`)}
               </ul>
             </div>
           </div>
@@ -146,11 +143,11 @@ console.log("id:", id);
             
             <div>
               <ul class="list-ul-styled">
-              ${userResearch?.existingSystems.map((system) => `<li>${system}</li>`).join('')}
+              ${renderList(userResearch?.existingSystems, (system) => `<li>${esc(system)}</li>`)}
               </ul>
               
               <div class="list-img">
-              ${userResearch?.imgSystems.map((url) => `<img src="${url}" alt="IMAGEM DE PESQUISA DE SISTEMA ">`).join('')}
+              ${renderList(userResearch?.imgSystems, (url) => `<img src="${esc(url)}" alt="Referência de sistema pesquisado">`)}
               </div>
             </div>
           </div>
@@ -158,56 +155,52 @@ console.log("id:", id);
       </section>
 
       <section class="project-problem">
-        <!-- Conteúdo relacionado à identificação do problema -->
         <div class="problem-wrapper">
           <span class="problem-title">Desafio</span>
 
           <div class="problem-startment">
             <h3>Declaração de Problema</h3>
-            ${challenge?.map((challenge) => `<p>${challenge}</p>`).join('')}
+            ${renderList(challenge, (statement) => `<p>${esc(statement)}</p>`)}
           </div>
         </div>
       </section>
         
       <section class="project-design-concept">
-        <!-- Conteúdo relacionado ao conceito de design -->
         <div class="design-concept-wrapper">
           <span class="design-concept-title">Prototype</span>
 
           <div class="wireframe">
             <h3>Wireframe</h3>
-            ${prototype?.wireframe.map((frame) => `<img src="${frame}" alt="IMG COM PROTOTIPAÇÂO">`).join('')}
+            ${renderList(prototype?.wireframe, (frame) => `<img src="${esc(frame)}" alt="Wireframe do protótipo">`)}
           </div>
 
           <div class="visual-identity">
             <h3>Identidade visual</h3>
-            ${prototype?.visualIdentity.map((identity) => `<img src="${identity}" alt="IMG FONTS E CORES DO DESIGN">`).join('')}
+            ${renderList(prototype?.visualIdentity, (identity) => `<img src="${esc(identity)}" alt="Fontes e cores do design">`)}
           </div>
         </div>
       </section>
 
       <section class="project-user-feedback">
-        <!-- Conteúdo relacionado ao feedback do usuário -->
         <div class="user-feedback-wrapper">
           <span class="user-feedback-title">Feedback do usuário</span>
 
           <div class="user-testing-feedback">
             <h3>Feedback de teste do usuário</h3>
             <ul class="list-ul-styled">
-              ${userFeedback?.map(feedback => `<li>${feedback}</li>`).join('')}
+              ${renderList(userFeedback, (feedback) => `<li>${esc(feedback)}</li>`)}
             </ul>
           </div>
         </div>
       </section>
 
       <section class="project-reflection">
-        <!-- Conteúdo relacionado à reflexão sobre o projeto -->
         <div class="reflection-wrapper">
           <span class="reflection-title">Reflexão</span>
 
           <div class="topics">
             <h3>Tópicos</h3>
-            ${reflection?.map(paragraph => `<p>${paragraph}</p>`).join('')}
+            ${renderList(reflection, (paragraph) => `<p>${esc(paragraph)}</p>`)}
           </div>
         </div>
       </section>

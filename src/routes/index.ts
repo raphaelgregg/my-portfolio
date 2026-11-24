@@ -1,62 +1,46 @@
-import { About } from "../pages/about";
-import { Experience } from "../pages/experience";
-import { Home } from "../pages/home";
-import { Project } from "../pages/project";
-import { Resume } from "../pages/resume";
-import { Curriculum } from "../pages/resume/download";
+import { About } from '../pages/about'
+import { Experience } from '../pages/experience'
+import { Home } from '../pages/home'
+import { Project } from '../pages/project'
+import { Resume } from '../pages/resume'
+import { Curriculum } from '../pages/resume/download'
 
-// recebe o caminho da url atual na pagina e o elemento html, para retornar o conteudo de pagina referente
+type PageRenderer = () => string | Promise<string>
+
+const staticRoutes: Record<string, PageRenderer> = {
+  '/': Home,
+  '/about': About,
+  '/resume': Resume,
+  '/curriculum-download': Curriculum,
+}
+
+/** Rotas com parâmetro: "/project/3" → Project("3"). */
+const dynamicRoutes: Array<{ prefix: string; render: (id: string) => string | Promise<string> }> = [
+  { prefix: '/experience/', render: Experience },
+  { prefix: '/project/', render: Project },
+]
+
+const NOT_FOUND_HTML = '<h1>404 Not Found</h1>'
+const ERROR_HTML = '<h1>Não foi possível carregar esta página.</h1>'
+
+async function resolveRoute(path: string): Promise<string> {
+  const staticRoute = staticRoutes[path]
+  if (staticRoute) return staticRoute()
+
+  for (const { prefix, render } of dynamicRoutes) {
+    const id = path.startsWith(prefix) ? path.slice(prefix.length) : ''
+    if (id) return render(id)
+  }
+
+  return NOT_FOUND_HTML
+}
+
+/** Renderiza no elemento raiz a página correspondente ao caminho da URL. */
 export async function navigateTo(path: string, rootElement: HTMLElement) {
-  switch (path) {
-    case '/':
-      const homeContent = await Home();
-      rootElement.innerHTML = homeContent;
-      // console.log(rootElement, path);
-      break;
-    case '/about':
-      rootElement.innerHTML = About();
-      // console.log(rootElement, path);
-      break;
-    case '/resume':
-      rootElement.innerHTML = Resume();
-      // console.log(rootElement, path);
-      break;
-    case '/curriculum-download':
-      rootElement.innerHTML = Curriculum();
-      // console.log(rootElement, path);
-      break;
-    default:
-      rootElement.innerHTML = await handleDynamicPath(path);
-      // console.log(rootElement, path: function handleDynamicPath);
+  try {
+    rootElement.innerHTML = await resolveRoute(path)
+  } catch (error) {
+    console.error(`Erro ao renderizar "${path}":`, error)
+    rootElement.innerHTML = ERROR_HTML
   }
-}
-
-// evita o coportamento padrão da Tag anchor "A"
-export function preventDefaultRouter(event: Event) {
-  const target = event.target as HTMLAnchorElement;
-  if (target.tagName === 'A' && target.getAttribute('href')?.startsWith('/')) {
-    event.preventDefault();
-    history.pushState(null, '', target.href); // Atualiza a URL sem recarregar a página
-    navigateTo(target.pathname, document.getElementById('app')!);
-  }
-}
-
-async function handleDynamicPath(path: string): Promise<string> {
-  // Verifica se o caminho começa com '/experience/'
-  if (path.startsWith('/experience/')) {
-    const experienceId = path.split('/').pop(); // Extrai o ID da experiência da URL
-    if (experienceId) {
-      return await Experience(experienceId); // Retorna o conteúdo da página de experiência com o ID
-    }
-  }
-
-  // Verifica se o caminho começa com '/project/'
-  if (path.startsWith('/project/')) {
-    const projectId = path.split('/').pop(); // Extrai o ID do projeto da URL
-    if (projectId) {
-      return await Project(projectId); // Retorna o conteúdo da página do projeto com o ID
-    }
-  }
-
-  return '<h1>404 Not Found</h1>';
 }
